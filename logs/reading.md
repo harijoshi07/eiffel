@@ -56,35 +56,90 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 ## 2. Read in Daily Life (Questions 11–15)
 
 ### Context
-- Each module: one notice (Q11–12) and one social-media post (Q13–15). 14 modules.
-- Source: `full-length-1.md` p. 4–5 (FL1 M1).
-- Verified 2026-10-20: all 70 answer letters match the answer keys; all 350 stems/options match the PDF text in order.
+- Each module: one notice (Q11–12) and one social-media post or email (Q13–15). 14 modules, 70 questions.
+- Source: `resources/pdfs/full-length-1.md` and the other test `.md` files. Keys verified against the answer-key pages on 2026-10-20 (70/70).
+- Session 2026-10-20 (export 10:33 PM): **66/70 (94%)**, four misses. FL1 M1 was redone after a wrong saved note was fixed, and it scored 5/5.
 
 ### Results
-| Module | Score | Time | Note |
-|---|---|---|---|
-| FL1 M1 | 4/5 | 1:43 | Only the missed item was exported. Q12–15 correct. |
-| Other 13 modules | — | — | Not logged yet. |
+| Module | Score | Time |
+|---|---|---|
+| FL1 M1 | 5/5 | 00:35 |
+| FL1 M2 | 5/5 | 01:13 |
+| FL2 M1 | **4/5** | 01:02 |
+| FL2 M2 | 5/5 | 01:36 |
+| TR1 M1 | **4/5** | 02:08 |
+| TR1 M2 | 5/5 | 03:11 |
+| TR2 M1 | 5/5 | 02:31 |
+| TR2 M2 | 5/5 | 02:30 |
+| TR3 M1 | 5/5 | 02:49 |
+| TR3 M2 | 5/5 | 02:14 |
+| TR4 M1 | **3/5** | 01:18 |
+| TR4 M2 | 5/5 | 02:21 |
+| TR5 M1 | 5/5 | 02:19 |
+| TR5 M2 | 5/5 | 01:37 |
 
-### Miss: FL1 M1, Q11
-- **Question:** What type of business issued the notice?
-- **Options:** (A) An Internet provider (B) A computer company (C) A paper company (D) A bank
-- **You:** C. **Correct:** D. **Type:** Detail.
-- **Why it was wrong:** The notice says "savings account statements" and "Access your Municipal Charter account," so it is from a bank. "Paper company" is a trap: the notice promotes *paperless* billing, and the word "paper" was taken out of context.
-- **Your saved note is wrong.** The export says "paper company" is correct. Replace it in the browser with: *"Notice is from a bank: 'savings account statements' and 'Municipal Charter account.' 'Paperless billing' means no paper, so 'paper company' is a trap. Root cause: Missed detail."*
+### Misses (exact text from the answer data)
+
+**1. FL2 M1, Q13** · type: Detail · You: **A** · Correct: **C**
+- Why did Ms. Rogers send the email to Mr. Suzuki?
+  - A. To assist him with an audit process
+  - B. To remind him to update inventory logs every day
+  - C. To inform him of an upcoming event
+  - D. To request his input on how to revise a process
+- Your reasoning: the email says department heads must "attend and assist with the audit process." That sentence is in the email, but it is a detail, not the purpose.
+- Why it was wrong: you picked a true detail instead of the purpose. The email's main reason is the upcoming event (the other items are supporting details).
+- Fix: for "why did X send the email", find the sentence that starts the message, not the sentence with the most detail.
+
+**2. TR1 M1, Q13** · type: Inference · You: **A** · Correct: **D**
+- What can be inferred about Mr. Santiago?
+  - A. He is about to celebrate his birthday.
+  - B. He has used Rebecca Yang's facility in the past.
+  - C. He is a professional event organizer.
+  - D. He has requested information about Rebecca Yang's facility.
+- Your note: you knew the party was for his mother's birthday, not his own. Then you doubted the passage and nearly checked the PDF to see whether it said his birthday.
+- Why it was wrong: an inference must follow from the text. Option A repeats a surface detail, and you went with it.
+- Fix: check who the celebration belongs to, then check that the option is the one the text supports, not one that reuses a word.
+
+**3. TR4 M1, Q11** · type: Detail · You: **C** · Correct: **B**
+- How many people will dine with Ms. Green?
+  - A. 2 · B. 3 · C. 4 · D. 5
+- Your reasoning: the reservation is for 4, so you chose 4 directly.
+- Why it was wrong: the reservation count includes Ms. Green. She is one of the 4, so 3 more people dine with her.
+- Fix: read the question's subject ("with Ms. Green") and subtract the person named in it.
+
+**4. TR4 M1, Q13** · type: Purpose · You: **A** · Correct: **C**
+- What is this form used for?
+  - A. Applying for a new library card
+  - B. Reporting problems with library computers
+  - C. Booking time to use library computers
+  - D. Requesting software installation on computers
+- Your reasoning: the form asks for a library card number, so you chose "applying for a card".
+- Why it was wrong: an ID on a form does not show its purpose. The form's title and the field labels show what it is for.
+- Fix: for "what is this form used for", read the title and the action words first.
+
+### Hesitations and conflicts (recorded, not verified)
+- TR3 M1, Q13 ("What can be concluded about the library?"): you were torn between A and B and chose A. Scored correct, but the reasoning was a guess. Re-check it.
+- TR5 M2, Q14 (where the event takes place): you guessed "Town Square" from the parking note. Scored 5/5 in the export, so the guess was right. Re-check the reasoning before you rely on it.
+- TR2 M2, Q13: not straightforward, but no option contradicted your choice. Scored correct.
+- **Your narrative conflicts with the export:**
+  - You described FL2 M1 as a miss on Q1, and "to ask" is not an option. The export shows Q13, your answer A.
+  - You described the TR1 M1 inference as Q30. Daily Life runs Q11–15, so this is Q13.
+  - Please confirm these, and I will correct the log.
 
 ### Difficulties
-- Distractors reuse a word from the passage ("paper" from "paperless").
-- Earlier, a note was generated from the passage instead of the answer key. Keys come from the PDF, not from reasoning.
+- Distractors that reuse a passage word or a true detail (audit, birthday, library card).
+- Purpose and inference questions (Q13 in four modules) were the weakest type.
+- Counting question misread: the person named in the question is part of the total.
 
 ### Improvements
-1. Re-do FL1 M1 Q11 and write the notice's sender and purpose before choosing.
-2. Log exact answers for the other 13 modules (letters and misses).
-3. Fix the saved note in the browser.
+1. For Q13 (purpose/inference), state the purpose in one sentence before reading the options.
+2. For counting questions, subtract the person named in the question.
+3. Re-do FL2 M1 Q13, TR1 M1 Q13, TR4 M1 Q11 and Q13 without a timer, then log the new answers here.
 
 ### Tips
 - Notice: find who sends it and what the reader must do (act, change, or know).
-- Social post: find the writer's purpose and opinion.
+- Social post or email: the first sentence usually states the purpose. Details support it.
+- Inference: the answer must be supported by the text. A true detail is not an inference.
 - Reject options that copy a passage word but do not match the meaning.
 
 ## 3. Read an Academic Passage
