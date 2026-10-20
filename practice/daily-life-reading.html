@@ -182,10 +182,15 @@ let state = load();
 let cur = 0, timerElapsed = 0, timerStart = null, tickId = null;
 
 function load(){
+  let v = null;
   for (const k of [KEY, OLD_KEY]) {
-    try { const v = JSON.parse(localStorage.getItem(k)); if (v && v.modules) return v; } catch (e) {}
+    try { const x = JSON.parse(localStorage.getItem(k)); if (x && x.modules) { v = x; break; } } catch (e) {}
   }
-  return { modules: {} };
+  if (!v) return { modules: {} };
+  // Clear a wrong note saved earlier for FL1 M1 Q11 (answer is D, a bank, not a paper company).
+  const m = v.modules['FL1_M1'];
+  if (m && m.notes && /paper company/i.test(m.notes['11'] || '')) delete m.notes['11'];
+  return v;
 }
 function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
 function ms(k){
