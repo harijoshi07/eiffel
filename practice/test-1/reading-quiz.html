@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEFL Reading — Practice Test 1</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3250;
+    --accent: #4f8ef7;
+    --accent2: #7c5cfc;
+    --green: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Georgia', serif; font-size: 16px; line-height: 1.7; }
+
+  /* ── HEADER ── */
+  #header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  #header h1 { font-size: 1rem; font-weight: 600; letter-spacing: .04em; color: var(--accent); font-family: 'Arial', sans-serif; }
+  #timer-box { display: flex; align-items: center; gap: 10px; font-family: 'Arial', sans-serif; }
+  #timer-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+  #timer { font-size: 1.6rem; font-weight: 700; color: var(--green); font-variant-numeric: tabular-nums; min-width: 68px; text-align: right; }
+  #timer.warn { color: var(--yellow); }
+  #timer.danger { color: var(--red); animation: blink .8s step-end infinite; }
+  @keyframes blink { 50% { opacity: .4; } }
+  #progress-bar-wrap { height: 3px; background: var(--border); }
+  #progress-bar { height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); width: 0%; transition: width .4s; }
+
+  /* ── SCREENS ── */
+  .screen { display: none; max-width: 900px; margin: 0 auto; padding: 36px 24px 80px; }
+  .screen.active { display: block; }
+
+  /* ── WELCOME ── */
+  #welcome h2 { font-size: 1.8rem; margin-bottom: 12px; }
+  #welcome p { color: var(--muted); margin-bottom: 10px; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+  .meta-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; }
+  .meta-card .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 4px; font-family: 'Arial', sans-serif; }
+  .meta-card .value { font-size: 1.2rem; font-weight: 700; color: var(--accent); }
+
+  /* ── MODULE BANNER ── */
+  .module-banner { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-left: 4px solid var(--accent2); border-radius: var(--radius); padding: 18px 22px; margin-bottom: 28px; font-family: 'Arial', sans-serif; }
+  .module-banner h3 { font-size: .85rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent2); margin-bottom: 4px; }
+  .module-banner p { color: var(--muted); font-size: .9rem; }
+
+  /* ── PASSAGE CARD ── */
+  .passage-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 24px; }
+  .passage-card h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--accent); margin-bottom: 14px; font-family: 'Arial', sans-serif; }
+  .passage-text { font-size: 15px; line-height: 1.85; color: #cdd5e0; }
+  .passage-text em { font-style: italic; }
+  .passage-text strong { color: var(--text); }
+
+  /* ── FILL IN BLANKS ── */
+  .fill-passage { font-size: 15px; line-height: 2.2; color: #cdd5e0; }
+  .blank-wrap { display: inline-flex; align-items: center; gap: 3px; }
+  .blank-input { background: var(--surface2); border: 1px solid var(--border); border-radius: 5px; color: var(--text); font-family: Georgia, serif; font-size: 14px; padding: 2px 7px; width: 90px; outline: none; text-align: center; transition: border-color .2s; }
+  .blank-input:focus { border-color: var(--accent); }
+  .blank-input.correct { border-color: var(--green); background: #1a3a2a; }
+  .blank-input.wrong { border-color: var(--red); background: #3a1a1a; }
+
+  /* ── QUESTION BLOCK ── */
+  .q-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 16px; transition: border-color .2s; }
+  .q-block.answered { border-color: var(--border); }
+  .q-num { font-size: .75rem; font-family: 'Arial', sans-serif; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
+  .q-text { font-size: 15px; margin-bottom: 16px; line-height: 1.6; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-btn { background: var(--surface2); border: 1.5px solid var(--border); border-radius: 8px; padding: 10px 16px; text-align: left; color: var(--text); font-size: 14px; cursor: pointer; font-family: Georgia, serif; transition: border-color .15s, background .15s; display: flex; gap: 10px; align-items: flex-start; }
+  .option-btn:hover:not(:disabled) { border-color: var(--accent); background: #1e2540; }
+  .option-btn .opt-letter { font-weight: 700; color: var(--muted); min-width: 18px; font-family: 'Arial', sans-serif; }
+  .option-btn.selected { border-color: var(--accent); background: #1e2a4a; }
+  .option-btn.correct-ans { border-color: var(--green) !important; background: #1a3a2a !important; }
+  .option-btn.correct-ans .opt-letter { color: var(--green); }
+  .option-btn.wrong-ans { border-color: var(--red) !important; background: #3a1a1a !important; }
+  .option-btn.wrong-ans .opt-letter { color: var(--red); }
+  .option-btn:disabled { cursor: default; }
+  .feedback-label { margin-top: 10px; font-size: .82rem; font-family: 'Arial', sans-serif; display: none; }
+  .feedback-label.show { display: block; }
+  .feedback-label.ok { color: var(--green); }
+  .feedback-label.bad { color: var(--red); }
+  .correct-hint { color: var(--muted); font-size: .78rem; margin-top: 4px; }
+
+  /* ── SECTION NAV ── */
+  .section-nav { display: flex; gap: 12px; justify-content: flex-end; margin-top: 28px; flex-wrap: wrap; }
+  .btn { font-family: 'Arial', sans-serif; font-size: .88rem; font-weight: 600; letter-spacing: .04em; border: none; border-radius: 8px; padding: 11px 24px; cursor: pointer; transition: opacity .2s, transform .1s; }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+  .btn-secondary { background: var(--surface2); border: 1px solid var(--border); color: var(--text); }
+  .btn:disabled { opacity: .4; cursor: not-allowed; }
+  .btn-danger { background: var(--red); color: #fff; }
+
+  /* ── BREAK SCREEN ── */
+  #break-screen { text-align: center; }
+  #break-screen h2 { font-size: 2rem; margin-bottom: 12px; }
+  #break-screen p { color: var(--muted); margin-bottom: 8px; }
+  #break-timer { font-size: 4rem; font-weight: 700; color: var(--yellow); margin: 24px 0; font-variant-numeric: tabular-nums; }
+  .score-card { display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 36px; margin: 16px auto; }
+  .score-card .big { font-size: 3rem; font-weight: 700; color: var(--accent); }
+  .score-card .label { font-size: .85rem; color: var(--muted); font-family: 'Arial', sans-serif; }
+
+  /* ── RESULTS ── */
+  #results h2 { font-size: 1.8rem; margin-bottom: 24px; }
+  .results-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+  .results-grid .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; text-align: center; }
+  .results-grid .stat .big { font-size: 2.2rem; font-weight: 700; }
+  .results-grid .stat .lbl { font-size: .78rem; color: var(--muted); font-family: 'Arial', sans-serif; text-transform: uppercase; letter-spacing: .07em; margin-top: 4px; }
+  .miss-section h3 { font-size: 1rem; font-family: 'Arial', sans-serif; color: var(--accent2); margin: 24px 0 12px; text-transform: uppercase; letter-spacing: .06em; }
+  .miss-item { background: var(--surface); border: 1px solid var(--red); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 12px; }
+  .miss-item .q-tag { font-size: .75rem; font-family: 'Arial', sans-serif; color: var(--red); margin-bottom: 6px; }
+  .miss-item .q-body { font-size: 14px; margin-bottom: 10px; line-height: 1.5; }
+  .miss-item .ans-row { font-size: .85rem; display: flex; gap: 20px; flex-wrap: wrap; }
+  .miss-item .your-ans { color: var(--red); }
+  .miss-item .right-ans { color: var(--green); }
+  .band-box { background: linear-gradient(135deg, var(--surface2), var(--surface)); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 28px; margin-bottom: 24px; }
+  .band-box h3 { font-family: 'Arial', sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 8px; }
+  .band-score { font-size: 3.5rem; font-weight: 700; color: var(--accent); display: inline-block; }
+  .band-desc { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+  .log-area { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; font-family: monospace; font-size: 13px; color: var(--muted); white-space: pre-wrap; max-height: 220px; overflow-y: auto; margin: 12px 0 20px; }
+  .tip-box { background: var(--surface2); border-left: 3px solid var(--yellow); border-radius: 6px; padding: 14px 18px; margin: 12px 0; font-size: .9rem; color: var(--muted); }
+  .tip-box strong { color: var(--yellow); }
+
+  /* ── FILL ANSWERS TABLE ── */
+  .fill-answers { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 12px; }
+  .fill-ans-cell { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px 10px; text-align: center; font-size: 13px; }
+  .fill-ans-cell .num { color: var(--muted); font-size: .7rem; font-family: 'Arial', sans-serif; }
+  .fill-ans-cell .ans { font-weight: 600; color: var(--green); }
+
+  @media (max-width: 600px) {
+    .meta-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    #header h1 { font-size: .85rem; }
+    #timer { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <h1>TOEFL iBT® Reading — Practice Test 1</h1>
+  <div id="timer-box">
+    <span id="timer-label">TIME</span>
+    <span id="timer">30:00</span>
+  </div>
+</div>
+<div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+
+<!-- ══════════ WELCOME ══════════ -->
+<div id="welcome" class="screen active">
+  <h2>Reading Section</h2>
+  <p>Official ETS Practice Test 1 · Aligned to TOEFL iBT from <strong>January 21, 2026</strong></p>
+
+  <div class="meta-grid">
+    <div class="meta-card"><div class="label">Modules</div><div class="value">2 (adaptive)</div></div>
+    <div class="meta-card"><div class="label">Questions per module</div><div class="value">20</div></div>
+    <div class="meta-card"><div class="label">Time per module</div><div class="value">~15 min</div></div>
+    <div class="meta-card"><div class="label">Total time</div><div class="value">30 min</div></div>
+    <div class="meta-card"><div class="label">Score scale</div><div class="value">1 – 6</div></div>
+    <div class="meta-card"><div class="label">Task types</div><div class="value">3</div></div>
+  </div>
+
+  <div class="tip-box"><strong>Rules:</strong> You may use Back/Next within a module. You <strong>cannot</strong> return to Module 1 once Module 2 begins. Answer every question — there is no penalty for guessing. Timer starts when you click Start.</div>
+
+  <div class="tip-box"><strong>Task types:</strong>
+    <br>① <strong>Complete the Words</strong> — Fill in the missing letters (Q1–10 each module)
+    <br>② <strong>Read in Daily Life</strong> — Questions about emails, notices (Q11–15 each module)
+    <br>③ <strong>Read an Academic Passage</strong> — Questions about academic texts (Q16–20 each module)
+  </div>
+
+  <div class="section-nav">
+    <button class="btn btn-primary" onclick="startModule(1)">Start Module 1 →</button>
+  </div>
+</div>
+
+<!-- ══════════ MODULE 1 ══════════ -->
+<div id="module1" class="screen">
+  <div class="module-banner">
+    <h3>Reading Section — Module 1</h3>
+    <p>You may use Back and Next within this module. Timer is running.</p>
+  </div>
+
+  <!-- TASK 1: Fill in the Words -->
+  <div class="passage-card">
+    <h4>Task 1 — Complete the Words (Questions 1–10)</h4>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:16px;font-family:'Arial',sans-serif;">Fill in the missing letters. Each blank accepts only the missing part of the word.</p>
+    <div class="fill-passage">
+      Early civilizations, including those in Mesopotamia, Egypt, the Indus Valley, and China, emerged around river valleys, where fertile land and water resources supported agriculture.
+      Th<span class="blank-wrap"><input class="blank-input" id="f1q1" maxlength="4" placeholder="___" data-answer="ey"></span>
+      developed sophis<span class="blank-wrap"><input class="blank-input" id="f1q2" maxlength="10" placeholder="_______" data-answer="ticated"></span>
+      social struc<span class="blank-wrap"><input class="blank-input" id="f1q3" maxlength="7" placeholder="_____" data-answer="tures"></span>,
+      written lang<span class="blank-wrap"><input class="blank-input" id="f1q4" maxlength="7" placeholder="_____" data-answer="uages"></span>,
+      and adva<span class="blank-wrap"><input class="blank-input" id="f1q5" maxlength="6" placeholder="____" data-answer="nced"></span>
+      technologies, wh<span class="blank-wrap"><input class="blank-input" id="f1q6" maxlength="4" placeholder="__" data-answer="ich"></span>
+      allowed th<span class="blank-wrap"><input class="blank-input" id="f1q7" maxlength="3" placeholder="__" data-answer="em"></span>
+      to thr<span class="blank-wrap"><input class="blank-input" id="f1q8" maxlength="5" placeholder="___" data-answer="ive"></span>
+      and esta<span class="blank-wrap"><input class="blank-input" id="f1q9" maxlength="7" placeholder="_____" data-answer="blish"></span>
+      cities, tr<span class="blank-wrap"><input class="blank-input" id="f1q10" maxlength="5" placeholder="___" data-answer="ade"></span>
+      networks, and even empires. Just as important were their significant contributions to fields like art, science, and law.
+    </div>
+  </div>
+
+  <!-- TASK 2a: Notice -->
+  <div class="passage-card">
+    <h4>Task 2 — Read in Daily Life (Questions 11–12)</h4>
+    <div class="passage-text">
+      <strong>Notice</strong><br><br>
+      This is to let all employees know that the staff meeting scheduled for <strong>Wednesday, August 10th at 2:00 PM</strong> has been rescheduled. The meeting will now take place on <strong>Friday, August 12th at 3:00 PM</strong> in the main conference room. Please be on time. Thank you.
+    </div>
+  </div>
+
+  <div class="q-block" id="m1q11">
+    <div class="q-num">Question 11</div>
+    <div class="q-text">What is the main purpose of the notice?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q11','A','B')"><span class="opt-letter">A</span> To introduce new employees to staff</button>
+      <button class="option-btn" onclick="selectOption('m1q11','B','B')"><span class="opt-letter">B</span> To announce a change in a meeting schedule</button>
+      <button class="option-btn" onclick="selectOption('m1q11','C','B')"><span class="opt-letter">C</span> To apologize for a scheduling conflict</button>
+      <button class="option-btn" onclick="selectOption('m1q11','D','B')"><span class="opt-letter">D</span> To inform employees of a conference opportunity</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q11"></div>
+  </div>
+
+  <div class="q-block" id="m1q12">
+    <div class="q-num">Question 12</div>
+    <div class="q-text">When will the staff meeting take place?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q12','A','D')"><span class="opt-letter">A</span> Wednesday, August 10th at 2:00 PM</button>
+      <button class="option-btn" onclick="selectOption('m1q12','B','D')"><span class="opt-letter">B</span> Wednesday, August 10th at 3:00 PM</button>
+      <button class="option-btn" onclick="selectOption('m1q12','C','D')"><span class="opt-letter">C</span> Friday, August 12th at 2:00 PM</button>
+      <button class="option-btn" onclick="selectOption('m1q12','D','D')"><span class="opt-letter">D</span> Friday, August 12th at 3:00 PM</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q12"></div>
+  </div>
+
+  <!-- TASK 2b: Email -->
+  <div class="passage-card">
+    <h4>Task 2 — Read in Daily Life (Questions 13–15)</h4>
+    <div class="passage-text">
+      <strong>Subject: RE: inquiry</strong><br><br>
+      Dear Mr. Santiago,<br><br>
+      We are pleased that you are considering our facility for your mother's birthday party.<br><br>
+      Our outdoor area includes a playground and picnic tables, which can be set up to your preference. We offer a variety of dining options that suit different dietary needs. Please find the menu attached to this email.<br><br>
+      Our team can organize activities for people of all ages, including arts and crafts, board games, and more. We do not have photographers on staff, but we have worked with external professional photographers in the past and are happy to provide you with recommendations.<br><br>
+      To secure your date, we require a down payment of 30 percent of the total cost. If you need to cancel your booking, please notify us at least fourteen days in advance. Cancellations made outside this window will forfeit the down payment.<br><br>
+      Regards,<br>Rebecca Yang
+    </div>
+  </div>
+
+  <div class="q-block" id="m1q13">
+    <div class="q-num">Question 13</div>
+    <div class="q-text">What can be inferred about Mr. Santiago?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q13','A','D')"><span class="opt-letter">A</span> He is about to celebrate his birthday.</button>
+      <button class="option-btn" onclick="selectOption('m1q13','B','D')"><span class="opt-letter">B</span> He has used Rebecca Yang's facility in the past.</button>
+      <button class="option-btn" onclick="selectOption('m1q13','C','D')"><span class="opt-letter">C</span> He is a professional event organizer.</button>
+      <button class="option-btn" onclick="selectOption('m1q13','D','D')"><span class="opt-letter">D</span> He has requested information about Rebecca Yang's facility.</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q13"></div>
+  </div>
+
+  <div class="q-block" id="m1q14">
+    <div class="q-num">Question 14</div>
+    <div class="q-text">Rebecca Yang's team does NOT include</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q14','A','B')"><span class="opt-letter">A</span> Cooks</button>
+      <button class="option-btn" onclick="selectOption('m1q14','B','B')"><span class="opt-letter">B</span> Professional photographers</button>
+      <button class="option-btn" onclick="selectOption('m1q14','C','B')"><span class="opt-letter">C</span> People who can facilitate children's games</button>
+      <button class="option-btn" onclick="selectOption('m1q14','D','B')"><span class="opt-letter">D</span> People who can set up picnic tables</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q14"></div>
+  </div>
+
+  <div class="q-block" id="m1q15">
+    <div class="q-num">Question 15</div>
+    <div class="q-text">What information is being provided along with the email message?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q15','A','A')"><span class="opt-letter">A</span> Food choices</button>
+      <button class="option-btn" onclick="selectOption('m1q15','B','A')"><span class="opt-letter">B</span> Types of arts and crafts activities</button>
+      <button class="option-btn" onclick="selectOption('m1q15','C','A')"><span class="opt-letter">C</span> Dates available for booking</button>
+      <button class="option-btn" onclick="selectOption('m1q15','D','A')"><span class="opt-letter">D</span> Contact information of photographers</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q15"></div>
+  </div>
+
+  <!-- TASK 3: Academic Passage -->
+  <div class="passage-card">
+    <h4>Task 3 — Read an Academic Passage (Questions 16–20)</h4>
+    <div class="passage-text">
+      <strong>The Effects of Urbanization on Bird Populations</strong><br><br>
+      Urbanization has had a profound impact on bird populations worldwide. As cities expand, natural habitats are replaced with buildings, roads, and other infrastructure. This leads to a significant reduction in the availability of nesting sites and food sources for birds.<br><br>
+      Some species, such as pigeons and sparrows, have adapted well to urban environments, taking advantage of the new resources and structures. However, many other species struggle to survive in these altered landscapes. Therefore, it is imperative to find solutions that help birds adapt to city life. One notable effect of urbanization is the change in bird song. Birds living in cities often sing at higher pitches and volumes than their rural counterparts. This adaptation helps them communicate over the noise of traffic and human activity. Additionally, the artificial lighting in cities can disrupt the natural circadian (daily time-related) rhythms of birds, affecting their breeding and feeding behaviors.<br><br>
+      Conservationists are working to mitigate the negative effects of urbanization on birds. Initiatives such as creating urban green spaces, constructing bird-friendly buildings, and reducing light pollution are being implemented. These efforts aim to create a more hospitable environment for birds, allowing them to coexist with humans in urban settings.
+    </div>
+  </div>
+
+  <div class="q-block" id="m1q16">
+    <div class="q-num">Question 16</div>
+    <div class="q-text">The word <em>"mitigate"</em> in the passage is closest in meaning to</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q16','A','D')"><span class="opt-letter">A</span> understand</button>
+      <button class="option-btn" onclick="selectOption('m1q16','B','D')"><span class="opt-letter">B</span> analyze</button>
+      <button class="option-btn" onclick="selectOption('m1q16','C','D')"><span class="opt-letter">C</span> communicate</button>
+      <button class="option-btn" onclick="selectOption('m1q16','D','D')"><span class="opt-letter">D</span> reduce</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q16"></div>
+  </div>
+
+  <div class="q-block" id="m1q17">
+    <div class="q-num">Question 17</div>
+    <div class="q-text">Which of the following is NOT mentioned as an effect of urbanization on birds in the passage?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q17','A','C')"><span class="opt-letter">A</span> Reduced availability of nesting sites</button>
+      <button class="option-btn" onclick="selectOption('m1q17','B','C')"><span class="opt-letter">B</span> Changes in bird song</button>
+      <button class="option-btn" onclick="selectOption('m1q17','C','C')"><span class="opt-letter">C</span> Increased food sources</button>
+      <button class="option-btn" onclick="selectOption('m1q17','D','C')"><span class="opt-letter">D</span> Disrupted circadian rhythms</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q17"></div>
+  </div>
+
+  <div class="q-block" id="m1q18">
+    <div class="q-num">Question 18</div>
+    <div class="q-text">Why does the author mention pigeons and sparrows?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q18','A','B')"><span class="opt-letter">A</span> To identify birds that struggle to survive in urban environments</button>
+      <button class="option-btn" onclick="selectOption('m1q18','B','B')"><span class="opt-letter">B</span> To give examples of birds that have adjusted to living in urban settings</button>
+      <button class="option-btn" onclick="selectOption('m1q18','C','B')"><span class="opt-letter">C</span> To highlight the diversity of urban bird species</button>
+      <button class="option-btn" onclick="selectOption('m1q18','D','B')"><span class="opt-letter">D</span> To suggest that all birds can adapt to cities</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q18"></div>
+  </div>
+
+  <div class="q-block" id="m1q19">
+    <div class="q-num">Question 19</div>
+    <div class="q-text">What is one initiative mentioned in the passage to help birds in urban areas?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q19','A','C')"><span class="opt-letter">A</span> Introducing new bird species to urban areas</button>
+      <button class="option-btn" onclick="selectOption('m1q19','B','C')"><span class="opt-letter">B</span> Providing human-made food sources to birds</button>
+      <button class="option-btn" onclick="selectOption('m1q19','C','C')"><span class="opt-letter">C</span> Creating urban green spaces</button>
+      <button class="option-btn" onclick="selectOption('m1q19','D','C')"><span class="opt-letter">D</span> Decreasing the amount of noise made by traffic</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q19"></div>
+  </div>
+
+  <div class="q-block" id="m1q20">
+    <div class="q-num">Question 20</div>
+    <div class="q-text">What can be inferred about the impact artificial lighting in cities has on birds?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m1q20','A','A')"><span class="opt-letter">A</span> It disrupts the natural behaviors of birds.</button>
+      <button class="option-btn" onclick="selectOption('m1q20','B','A')"><span class="opt-letter">B</span> It allows birds to find food at night.</button>
+      <button class="option-btn" onclick="selectOption('m1q20','C','A')"><span class="opt-letter">C</span> It helps birds to adapt to urban environments.</button>
+      <button class="option-btn" onclick="selectOption('m1q20','D','A')"><span class="opt-letter">D</span> It increases the population of urban birds.</button>
+    </div>
+    <div class="feedback-label" id="fb-m1q20"></div>
+  </div>
+
+  <div class="section-nav">
+    <button class="btn btn-secondary" id="back1" onclick="scrollToTop()" disabled>↑ Top</button>
+    <button class="btn btn-primary" onclick="submitModule(1)">Submit Module 1 &amp; Continue →</button>
+  </div>
+</div>
+
+<!-- ══════════ BREAK ══════════ -->
+<div id="break-screen" class="screen">
+  <h2>⏸ Module 1 Complete</h2>
+  <p>Take a short breath. Module 2 begins automatically in:</p>
+  <div id="break-timer">0:30</div>
+
+  <div class="score-card">
+    <div class="label">Module 1 Score</div>
+    <div class="big" id="m1-score-display">–</div>
+    <div class="label">/ 10 MC correct</div>
+  </div>
+
+  <p style="color:var(--muted);margin-top:20px;font-size:.9rem;">Correct answers are shown above. Review patterns before Module 2 begins.</p>
+  <button class="btn btn-primary" style="margin-top:20px" onclick="startModule(2)">Skip break → Start Module 2</button>
+</div>
+
+<!-- ══════════ MODULE 2 ══════════ -->
+<div id="module2" class="screen">
+  <div class="module-banner" style="border-left-color: var(--accent);">
+    <h3>Reading Section — Module 2</h3>
+    <p>You may use Back and Next within this module. You cannot return to Module 1.</p>
+  </div>
+
+  <!-- TASK 1: Fill in the Words -->
+  <div class="passage-card">
+    <h4>Task 1 — Complete the Words (Questions 1–10)</h4>
+    <p style="color:var(--muted);font-size:.85rem;margin-bottom:16px;font-family:'Arial',sans-serif;">Fill in the missing letters.</p>
+    <div class="fill-passage">
+      Consciousness is the state of being aware of and able to think about one's own existence, thoughts, and surroundings.
+      Wh<span class="blank-wrap"><input class="blank-input" id="f2q1" maxlength="4" placeholder="__" data-answer="en"></span>
+      you lo<span class="blank-wrap"><input class="blank-input" id="f2q2" maxlength="4" placeholder="__" data-answer="ok"></span>
+      in a mir<span class="blank-wrap"><input class="blank-input" id="f2q3" maxlength="5" placeholder="___" data-answer="ror"></span>
+      and recognize your<span class="blank-wrap"><input class="blank-input" id="f2q4" maxlength="5" placeholder="____" data-answer="self"></span>,
+      you exh<span class="blank-wrap"><input class="blank-input" id="f2q5" maxlength="6" placeholder="____" data-answer="ibit"></span>
+      self-awareness, wh<span class="blank-wrap"><input class="blank-input" id="f2q6" maxlength="4" placeholder="__" data-answer="ich"></span>
+      is n<span class="blank-wrap"><input class="blank-input" id="f2q7" maxlength="3" placeholder="__" data-answer="ot"></span>
+      unique t<span class="blank-wrap"><input class="blank-input" id="f2q8" maxlength="2" placeholder="_" data-answer="o"></span>
+      humans b<span class="blank-wrap"><input class="blank-input" id="f2q9" maxlength="3" placeholder="__" data-answer="ut"></span>
+      is al<span class="blank-wrap"><input class="blank-input" id="f2q10" maxlength="3" placeholder="__" data-answer="so"></span>
+      found in dolphins and great apes. Consciousness is not to be confused with cognition. The latter refers to mental processes involved in gaining knowledge and solving problems, like thinking, judging, and remembering.
+    </div>
+  </div>
+
+  <!-- TASK 2a: Email (cooking class) -->
+  <div class="passage-card">
+    <h4>Task 2 — Read in Daily Life (Questions 11–12)</h4>
+    <div class="passage-text">
+      Dear Ms. Simmons,<br><br>
+      We are delighted to confirm your reservation for the Italian cooking class on <strong>June 25th at 4:00 PM</strong>. Please arrive fifteen minutes early for registration. Bring an apron, a chef's knife, and a notebook. We'll provide a cutting board.<br><br>
+      Best regards,<br>Lily Evans
+    </div>
+  </div>
+
+  <div class="q-block" id="m2q11">
+    <div class="q-num">Question 11</div>
+    <div class="q-text">What is the main purpose of the email?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q11','A','B')"><span class="opt-letter">A</span> To request attendance at a class</button>
+      <button class="option-btn" onclick="selectOption('m2q11','B','B')"><span class="opt-letter">B</span> To confirm a reservation for a class</button>
+      <button class="option-btn" onclick="selectOption('m2q11','C','B')"><span class="opt-letter">C</span> To update travel plans</button>
+      <button class="option-btn" onclick="selectOption('m2q11','D','B')"><span class="opt-letter">D</span> To provide registration instructions</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q11"></div>
+  </div>
+
+  <div class="q-block" id="m2q12">
+    <div class="q-num">Question 12</div>
+    <div class="q-text">What is Ms. Simmons NOT required to bring?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q12','A','B')"><span class="opt-letter">A</span> An apron</button>
+      <button class="option-btn" onclick="selectOption('m2q12','B','B')"><span class="opt-letter">B</span> A cutting board</button>
+      <button class="option-btn" onclick="selectOption('m2q12','C','B')"><span class="opt-letter">C</span> A chef's knife</button>
+      <button class="option-btn" onclick="selectOption('m2q12','D','B')"><span class="opt-letter">D</span> A notebook</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q12"></div>
+  </div>
+
+  <!-- TASK 2b: Email (conference) -->
+  <div class="passage-card">
+    <h4>Task 2 — Read in Daily Life (Questions 13–15)</h4>
+    <div class="passage-text">
+      <strong>Subject: Annual conference</strong><br><br>
+      Dear Ms. Adams,<br><br>
+      We are pleased to invite you to the annual educational psychology conference taking place on <strong>October 13–15</strong>.<br><br>
+      This year's conference theme is "Emotions and Psychological Processes." The keynote speaker will be Dr. Jane Smith. We will also organize four panel discussions with leading scholars as well as interactive workshops. More details will be forthcoming.<br><br>
+      We are excited to announce the return of poster sessions this year, where graduate students and early-career researchers will present their work. If you would like to present your research in the poster session, please submit an extended abstract for review by the conference committee by <strong>August 31</strong>.<br><br>
+      Breakfast and lunch will be provided for a nominal fee with a variety of options to accommodate different dietary needs. Additionally, all attendees will receive a conference packet, including materials from the sessions and a certificate of participation.<br><br>
+      Regards,<br>Michael Brown
+    </div>
+  </div>
+
+  <div class="q-block" id="m2q13">
+    <div class="q-num">Question 13</div>
+    <div class="q-text">What is the main purpose of the email?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q13','A','C')"><span class="opt-letter">A</span> To request information about Ms. Adams' research</button>
+      <button class="option-btn" onclick="selectOption('m2q13','B','C')"><span class="opt-letter">B</span> To invite Ms. Adams to speak at a conference</button>
+      <button class="option-btn" onclick="selectOption('m2q13','C','C')"><span class="opt-letter">C</span> To provide details about an event</button>
+      <button class="option-btn" onclick="selectOption('m2q13','D','C')"><span class="opt-letter">D</span> To announce participants of the poster sessions</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q13"></div>
+  </div>
+
+  <div class="q-block" id="m2q14">
+    <div class="q-num">Question 14</div>
+    <div class="q-text">Dr. Jane Smith will</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q14','A','C')"><span class="opt-letter">A</span> Lead panel discussions</button>
+      <button class="option-btn" onclick="selectOption('m2q14','B','C')"><span class="opt-letter">B</span> Organize interactive workshops</button>
+      <button class="option-btn" onclick="selectOption('m2q14','C','C')"><span class="opt-letter">C</span> Talk about research about emotions</button>
+      <button class="option-btn" onclick="selectOption('m2q14','D','C')"><span class="opt-letter">D</span> Present her research in the poster session</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q14"></div>
+  </div>
+
+  <div class="q-block" id="m2q15">
+    <div class="q-num">Question 15</div>
+    <div class="q-text">What can be inferred about the poster session?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q15','A','A')"><span class="opt-letter">A</span> It has been part of the conference in the past.</button>
+      <button class="option-btn" onclick="selectOption('m2q15','B','A')"><span class="opt-letter">B</span> It is for leading scholars of the field.</button>
+      <button class="option-btn" onclick="selectOption('m2q15','C','A')"><span class="opt-letter">C</span> It is open to the public.</button>
+      <button class="option-btn" onclick="selectOption('m2q15','D','A')"><span class="opt-letter">D</span> It will be held on August 31.</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q15"></div>
+  </div>
+
+  <!-- TASK 3: Academic Passage -->
+  <div class="passage-card">
+    <h4>Task 3 — Read an Academic Passage (Questions 16–20)</h4>
+    <div class="passage-text">
+      <strong>The History of Photography</strong><br><br>
+      The history of photography is marked by significant technological progress and artistic innovation. It began in the early nineteenth century with the invention of the camera obscura, a device that projected images onto a surface. The first permanent photograph was created by Joseph-Nicéphore Niépce in 1826 using a process called heliography, which required several hours of exposure to light. Photography quickly evolved with the development of daguerreotypes, introduced by Louis Daguerre in 1839. This method produced detailed images on silver-plated copper, but daguerreotypes needed delicate handling, and the exposure times required, although much shorter, still remained impractical for recording images of moving objects.<br><br>
+      The invention of the calotype by William Henry Fox Talbot in the 1840s allowed for multiple copies of an image to be made from a single negative, revolutionizing the field. <strong>(A)</strong> In the late nineteenth and early twentieth centuries, the introduction of film and roll cameras made photography more accessible to the public. <strong>(B)</strong> George Eastman's establishment of the Kodak company in 1888 played a crucial role in this democratization, as his cameras were simple to use and affordable. <strong>(C)</strong> Today, digital photography has further transformed the medium, allowing instant image capture and sharing. <strong>(D)</strong>
+    </div>
+  </div>
+
+  <div class="q-block" id="m2q16">
+    <div class="q-num">Question 16</div>
+    <div class="q-text">The word <em>"innovation"</em> in the passage is closest in meaning to</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q16','A','B')"><span class="opt-letter">A</span> success</button>
+      <button class="option-btn" onclick="selectOption('m2q16','B','B')"><span class="opt-letter">B</span> advancement</button>
+      <button class="option-btn" onclick="selectOption('m2q16','C','B')"><span class="opt-letter">C</span> activity</button>
+      <button class="option-btn" onclick="selectOption('m2q16','D','B')"><span class="opt-letter">D</span> expression</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q16"></div>
+  </div>
+
+  <div class="q-block" id="m2q17">
+    <div class="q-num">Question 17</div>
+    <div class="q-text">What is suggested about daguerreotypes?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q17','A','C')"><span class="opt-letter">A</span> They were introduced by Joseph-Nicéphore Niépce.</button>
+      <button class="option-btn" onclick="selectOption('m2q17','B','C')"><span class="opt-letter">B</span> They allowed for multiple copies of an image.</button>
+      <button class="option-btn" onclick="selectOption('m2q17','C','C')"><span class="opt-letter">C</span> They required shorter exposure times than heliographs did.</button>
+      <button class="option-btn" onclick="selectOption('m2q17','D','C')"><span class="opt-letter">D</span> They made it unnecessary to use silver-plated copper.</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q17"></div>
+  </div>
+
+  <div class="q-block" id="m2q18">
+    <div class="q-num">Question 18</div>
+    <div class="q-text">How did the calotype revolutionize photography?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q18','A','D')"><span class="opt-letter">A</span> By enabling instant image capture</button>
+      <button class="option-btn" onclick="selectOption('m2q18','B','D')"><span class="opt-letter">B</span> By reducing the need for delicate handling</button>
+      <button class="option-btn" onclick="selectOption('m2q18','C','D')"><span class="opt-letter">C</span> By providing detailed images on silver-plated copper</button>
+      <button class="option-btn" onclick="selectOption('m2q18','D','D')"><span class="opt-letter">D</span> By allowing multiple copies from a single negative</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q18"></div>
+  </div>
+
+  <div class="q-block" id="m2q19">
+    <div class="q-num">Question 19</div>
+    <div class="q-text">Why does the author mention George Eastman's establishment of the Kodak company?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q19','A','A')"><span class="opt-letter">A</span> To highlight the role of Kodak in making photography accessible to the public</button>
+      <button class="option-btn" onclick="selectOption('m2q19','B','A')"><span class="opt-letter">B</span> To criticize the challenges of early photographic methods</button>
+      <button class="option-btn" onclick="selectOption('m2q19','C','A')"><span class="opt-letter">C</span> To explain how film was invented</button>
+      <button class="option-btn" onclick="selectOption('m2q19','D','A')"><span class="opt-letter">D</span> To suggest that Kodak introduced digital photography</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q19"></div>
+  </div>
+
+  <div class="q-block" id="m2q20">
+    <div class="q-num">Question 20</div>
+    <div class="q-text">There are four locations (A, B, C, and D) in the passage that indicate where the following sentence could be added.<br><br><em>"These developments have rendered the use of film and many types of cameras obsolete."</em><br><br>Where would the sentence best fit?</div>
+    <div class="options">
+      <button class="option-btn" onclick="selectOption('m2q20','A','D')"><span class="opt-letter">A</span> Option A</button>
+      <button class="option-btn" onclick="selectOption('m2q20','B','D')"><span class="opt-letter">B</span> Option B</button>
+      <button class="option-btn" onclick="selectOption('m2q20','C','D')"><span class="opt-letter">C</span> Option C</button>
+      <button class="option-btn" onclick="selectOption('m2q20','D','D')"><span class="opt-letter">D</span> Option D</button>
+    </div>
+    <div class="feedback-label" id="fb-m2q20"></div>
+  </div>
+
+  <div class="section-nav">
+    <button class="btn btn-danger" onclick="submitModule(2)">Submit &amp; See Results →</button>
+  </div>
+</div>
+
+<!-- ══════════ RESULTS ══════════ -->
+<div id="results" class="screen">
+  <h2>📊 Results — Reading Test 1</h2>
+
+  <div class="band-box">
+    <h3>Estimated Band Score</h3>
+    <div><span class="band-score" id="final-band">—</span><span style="font-size:1.5rem;color:var(--muted)"> / 6</span></div>
+    <div class="band-desc" id="band-desc">Calculating...</div>
+  </div>
+
+  <div class="results-grid">
+    <div class="stat"><div class="big" id="res-m1-mc" style="color:var(--accent)">—</div><div class="lbl">Module 1 MC</div></div>
+    <div class="stat"><div class="big" id="res-m2-mc" style="color:var(--accent2)">—</div><div class="lbl">Module 2 MC</div></div>
+    <div class="stat"><div class="big" id="res-fill" style="color:var(--green)">—</div><div class="lbl">Fill-in correct</div></div>
+    <div class="stat"><div class="big" id="res-total" style="color:var(--yellow)">—</div><div class="lbl">Total MC / 20</div></div>
+    <div class="stat"><div class="big" id="res-time" style="color:var(--muted)">—</div><div class="lbl">Time used</div></div>
+    <div class="stat"><div class="big" id="res-pct" style="color:var(--accent)">—</div><div class="lbl">Accuracy %</div></div>
+  </div>
+
+  <div class="miss-section">
+    <h3>❌ Missed Questions — Review</h3>
+    <div id="miss-list"></div>
+  </div>
+
+  <div class="miss-section">
+    <h3>📝 Fill-in Answers (Module 1)</h3>
+    <div class="fill-answers" id="fill1-answers"></div>
+  </div>
+
+  <div class="miss-section">
+    <h3>📝 Fill-in Answers (Module 2)</h3>
+    <div class="fill-answers" id="fill2-answers"></div>
+  </div>
+
+  <div class="miss-section">
+    <h3>📋 Session Log</h3>
+    <div class="log-area" id="log-area"></div>
+    <button class="btn btn-secondary" onclick="copyLog()">Copy Log to Clipboard</button>
+  </div>
+
+  <div class="tip-box" id="pattern-tips" style="margin-top:24px;"></div>
+
+  <div class="section-nav" style="margin-top:32px;">
+    <button class="btn btn-secondary" onclick="location.reload()">↺ Restart Test 1</button>
+    <button class="btn btn-primary" onclick="alert('Test 2 quiz coming next session!')">Next: Test 2 →</button>
+  </div>
+</div>
+
+<!-- ══════════ JS ══════════ -->
+<script>
+// ── STATE ──
+const state = {
+  module: 0,
+  timerInterval: null,
+  secondsLeft: 1800,      // 30 min total; we reset per module
+  m1StartTime: null,
+  m2StartTime: null,
+  totalStartTime: null,
+  m1Elapsed: 0,
+  answers: {},             // {qid: chosen}
+  missedQuestions: [],
+  m1FilledScore: 0,
+  m2FilledScore: 0,
+  breakInterval: null,
+};
+
+// Answer key: {qid: correct_letter}
+const ANSWER_KEY = {
+  m1q11:'B', m1q12:'D', m1q13:'D', m1q14:'B', m1q15:'A',
+  m1q16:'D', m1q17:'C', m1q18:'B', m1q19:'C', m1q20:'A',
+  m2q11:'B', m2q12:'B', m2q13:'C', m2q14:'C', m2q15:'A',
+  m2q16:'B', m2q17:'C', m2q18:'D', m2q19:'A', m2q20:'D',
+};
+
+// Question text for review
+const Q_TEXT = {
+  m1q11:'What is the main purpose of the notice?',
+  m1q12:'When will the staff meeting take place?',
+  m1q13:'What can be inferred about Mr. Santiago?',
+  m1q14:"Rebecca Yang's team does NOT include",
+  m1q15:'What information is provided along with the email?',
+  m1q16:'The word "mitigate" is closest in meaning to',
+  m1q17:'Which is NOT mentioned as an effect of urbanization?',
+  m1q18:'Why does the author mention pigeons and sparrows?',
+  m1q19:'What initiative is mentioned to help birds?',
+  m1q20:'What can be inferred about artificial lighting on birds?',
+  m2q11:'What is the main purpose of the email (cooking class)?',
+  m2q12:'What is Ms. Simmons NOT required to bring?',
+  m2q13:'What is the main purpose of the email (conference)?',
+  m2q14:'Dr. Jane Smith will',
+  m2q15:'What can be inferred about the poster session?',
+  m2q16:'The word "innovation" is closest in meaning to',
+  m2q17:'What is suggested about daguerreotypes?',
+  m2q18:'How did the calotype revolutionize photography?',
+  m2q19:"Why does the author mention George Eastman's Kodak?",
+  m2q20:'Where would the sentence best fit in the passage?',
+};
+
+const OPTION_TEXT = {
+  m1q11:{A:'To introduce new employees to staff',B:'To announce a change in a meeting schedule',C:'To apologize for a scheduling conflict',D:'To inform employees of a conference opportunity'},
+  m1q12:{A:'Wednesday, August 10th at 2:00 PM',B:'Wednesday, August 10th at 3:00 PM',C:'Friday, August 12th at 2:00 PM',D:'Friday, August 12th at 3:00 PM'},
+  m1q13:{A:'He is about to celebrate his birthday',B:'He has used Rebecca Yang\'s facility in the past',C:'He is a professional event organizer',D:'He has requested information about Rebecca Yang\'s facility'},
+  m1q14:{A:'Cooks',B:'Professional photographers',C:'People who facilitate children\'s games',D:'People who set up picnic tables'},
+  m1q15:{A:'Food choices',B:'Types of arts and crafts activities',C:'Dates available for booking',D:'Contact information of photographers'},
+  m1q16:{A:'understand',B:'analyze',C:'communicate',D:'reduce'},
+  m1q17:{A:'Reduced availability of nesting sites',B:'Changes in bird song',C:'Increased food sources',D:'Disrupted circadian rhythms'},
+  m1q18:{A:'Birds that struggle in urban environments',B:'Birds that have adjusted to urban settings',C:'Diversity of urban bird species',D:'That all birds can adapt to cities'},
+  m1q19:{A:'Introducing new bird species',B:'Providing human-made food sources',C:'Creating urban green spaces',D:'Decreasing noise from traffic'},
+  m1q20:{A:'It disrupts the natural behaviors of birds',B:'It allows birds to find food at night',C:'It helps birds adapt to urban environments',D:'It increases urban bird populations'},
+  m2q11:{A:'To request attendance at a class',B:'To confirm a reservation for a class',C:'To update travel plans',D:'To provide registration instructions'},
+  m2q12:{A:'An apron',B:'A cutting board',C:'A chef\'s knife',D:'A notebook'},
+  m2q13:{A:'To request information about Ms. Adams\' research',B:'To invite Ms. Adams to speak',C:'To provide details about an event',D:'To announce participants of the poster sessions'},
+  m2q14:{A:'Lead panel discussions',B:'Organize interactive workshops',C:'Talk about research about emotions',D:'Present research in the poster session'},
+  m2q15:{A:'It has been part of the conference in the past',B:'It is for leading scholars',C:'It is open to the public',D:'It will be held on August 31'},
+  m2q16:{A:'success',B:'advancement',C:'activity',D:'expression'},
+  m2q17:{A:'Introduced by Joseph-Nicéphore Niépce',B:'Allowed for multiple copies',C:'Required shorter exposure times than heliographs',D:'Made silver-plated copper unnecessary'},
+  m2q18:{A:'By enabling instant image capture',B:'By reducing need for delicate handling',C:'By providing images on silver-plated copper',D:'By allowing multiple copies from a single negative'},
+  m2q19:{A:'To highlight Kodak\'s role in making photography accessible',B:'To criticize early photographic challenges',C:'To explain how film was invented',D:'To suggest Kodak introduced digital photography'},
+  m2q20:{A:'Option A',B:'Option B',C:'Option C',D:'Option D'},
+};
+
+// Fill answers
+const FILL1 = {f1q1:'ey',f1q2:'ticated',f1q3:'tures',f1q4:'uages',f1q5:'nced',f1q6:'ich',f1q7:'em',f1q8:'ive',f1q9:'blish',f1q10:'ade'};
+const FILL2 = {f2q1:'en',f2q2:'ok',f2q3:'ror',f2q4:'self',f2q5:'ibit',f2q6:'ich',f2q7:'ot',f2q8:'o',f2q9:'ut',f2q10:'so'};
+
+// ── TIMER ──
+function formatTime(s) {
+  const m = Math.floor(s/60), sec = s%60;
+  return `${m}:${sec.toString().padStart(2,'0')}`;
+}
+
+function startTimer(seconds) {
+  clearInterval(state.timerInterval);
+  state.secondsLeft = seconds;
+  updateTimerDisplay();
+  state.timerInterval = setInterval(() => {
+    state.secondsLeft--;
+    updateTimerDisplay();
+    if (state.secondsLeft <= 0) {
+      clearInterval(state.timerInterval);
+      if (state.module === 1) submitModule(1);
+      else if (state.module === 2) submitModule(2);
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const el = document.getElementById('timer');
+  el.textContent = formatTime(state.secondsLeft);
+  el.className = '';
+  if (state.secondsLeft < 300) el.className = 'warn';
+  if (state.secondsLeft < 60) el.className = 'danger';
+}
+
+function updateProgress(answered, total) {
+  document.getElementById('progress-bar').style.width = ((answered/total)*100)+'%';
+}
+
+// ── SCREENS ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ── MODULE FLOW ──
+function startModule(n) {
+  state.module = n;
+  if (n === 1) {
+    state.totalStartTime = Date.now();
+    state.m1StartTime = Date.now();
+    showScreen('module1');
+    startTimer(900); // 15 min per module
+  } else {
+    state.m1Elapsed = Math.floor((Date.now() - state.m1StartTime) / 1000);
+    clearInterval(state.breakInterval);
+    state.m2StartTime = Date.now();
+    showScreen('module2');
+    startTimer(900);
+  }
+}
+
+// ── SELECT OPTION ──
+function selectOption(qid, chosen, correct) {
+  if (state.answers[qid]) return; // already answered
+  state.answers[qid] = chosen;
+
+  const block = document.getElementById(qid);
+  const btns = block.querySelectorAll('.option-btn');
+  btns.forEach(btn => {
+    btn.disabled = true;
+    const letter = btn.querySelector('.opt-letter').textContent;
+    if (letter === correct) btn.classList.add('correct-ans');
+    if (letter === chosen && chosen !== correct) btn.classList.add('wrong-ans');
+    if (letter === chosen && chosen === correct) btn.classList.add('correct-ans');
+  });
+
+  const fb = document.getElementById('fb-'+qid);
+  fb.classList.add('show');
+  if (chosen === correct) {
+    fb.classList.add('ok');
+    fb.textContent = '✓ Correct';
+  } else {
+    fb.classList.add('bad');
+    fb.textContent = `✗ Incorrect — correct answer: (${correct}) ${OPTION_TEXT[qid][correct]}`;
+    state.missedQuestions.push(qid);
+  }
+
+  // progress
+  const answered = Object.keys(state.answers).length;
+  updateProgress(answered, 20);
+}
+
+// ── SCORE FILL-INS ──
+function scoreFillIns(fillMap, prefix) {
+  let score = 0;
+  const results = {};
+  for (const [id, correct] of Object.entries(fillMap)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const val = el.value.trim().toLowerCase();
+    const ans = correct.toLowerCase();
+    results[id] = {val, correct, ok: val === ans};
+    if (val === ans) {
+      el.classList.add('correct'); score++;
+    } else {
+      el.classList.add('wrong');
+    }
+    el.disabled = true;
+  }
+  return {score, results};
+}
+
+// ── SUBMIT MODULE ──
+function submitModule(n) {
+  clearInterval(state.timerInterval);
+
+  if (n === 1) {
+    // Score fill-ins
+    const {score, results} = scoreFillIns(FILL1, 'f1');
+    state.m1FilledScore = score;
+
+    // m1 MC score
+    let m1mc = 0;
+    ['m1q11','m1q12','m1q13','m1q14','m1q15','m1q16','m1q17','m1q18','m1q19','m1q20'].forEach(q => {
+      if (state.answers[q] === ANSWER_KEY[q]) m1mc++;
+    });
+
+    document.getElementById('m1-score-display').textContent = m1mc;
+
+    // Show break
+    showScreen('break-screen');
+    let breakSec = 30;
+    document.getElementById('break-timer').textContent = '0:30';
+    state.breakInterval = setInterval(() => {
+      breakSec--;
+      document.getElementById('break-timer').textContent = formatTime(breakSec);
+      if (breakSec <= 0) { clearInterval(state.breakInterval); startModule(2); }
+    }, 1000);
+
+  } else {
+    // Score module 2 fill-ins
+    const {score} = scoreFillIns(FILL2, 'f2');
+    state.m2FilledScore = score;
+    showResults();
+  }
+}
+
+// ── SHOW RESULTS ──
+function showResults() {
+  const totalElapsed = Math.floor((Date.now() - state.totalStartTime) / 1000);
+
+  // MC scores
+  const m1Qs = ['m1q11','m1q12','m1q13','m1q14','m1q15','m1q16','m1q17','m1q18','m1q19','m1q20'];
+  const m2Qs = ['m2q11','m2q12','m2q13','m2q14','m2q15','m2q16','m2q17','m2q18','m2q19','m2q20'];
+  let m1mc = 0, m2mc = 0;
+  m1Qs.forEach(q => { if (state.answers[q] === ANSWER_KEY[q]) m1mc++; });
+  m2Qs.forEach(q => { if (state.answers[q] === ANSWER_KEY[q]) m2mc++; });
+  const totalMC = m1mc + m2mc;
+  const totalFill = state.m1FilledScore + state.m2FilledScore;
+  const pct = Math.round((totalMC / 20) * 100);
+
+  // Tentative band (MC only; fill-ins are not adaptively scored)
+  let band, desc;
+  if (pct >= 90) { band = '5.5 – 6.0'; desc = 'Excellent — near target. Reading is a strong skill.'; }
+  else if (pct >= 80) { band = '5.0 – 5.5'; desc = 'Very good — 1–2 question types still slipping.'; }
+  else if (pct >= 70) { band = '4.0 – 4.5'; desc = 'Good foundation — inference and vocabulary questions need work.'; }
+  else if (pct >= 55) { band = '3.0 – 3.5'; desc = 'Developing — multiple question types need targeted drilling.'; }
+  else { band = '1.5 – 2.5'; desc = 'Needs significant work — focus on passage comprehension before test types.'; }
+
+  document.getElementById('final-band').textContent = band;
+  document.getElementById('band-desc').textContent = desc;
+  document.getElementById('res-m1-mc').textContent = `${m1mc}/10`;
+  document.getElementById('res-m2-mc').textContent = `${m2mc}/10`;
+  document.getElementById('res-fill').textContent = `${totalFill}/20`;
+  document.getElementById('res-total').textContent = `${totalMC}/20`;
+  document.getElementById('res-time').textContent = formatTime(totalElapsed);
+  document.getElementById('res-pct').textContent = `${pct}%`;
+
+  // Missed questions list
+  const missEl = document.getElementById('miss-list');
+  if (state.missedQuestions.length === 0) {
+    missEl.innerHTML = '<p style="color:var(--green);font-family:Arial,sans-serif;">🎉 No missed MC questions!</p>';
+  } else {
+    // deduplicate
+    const uniq = [...new Set(state.missedQuestions)];
+    uniq.forEach(qid => {
+      const chosen = state.answers[qid] || '—';
+      const correct = ANSWER_KEY[qid];
+      const div = document.createElement('div');
+      div.className = 'miss-item';
+      div.innerHTML = `
+        <div class="q-tag">❌ ${qid.toUpperCase().replace('M','Module ').replace('Q',' · Q')}</div>
+        <div class="q-body">${Q_TEXT[qid]}</div>
+        <div class="ans-row">
+          <span class="your-ans">Your answer: (${chosen}) ${OPTION_TEXT[qid]?.[chosen] || '—'}</span>
+          <span class="right-ans">✓ Correct: (${correct}) ${OPTION_TEXT[qid]?.[correct] || '—'}</span>
+        </div>`;
+      missEl.appendChild(div);
+    });
+  }
+
+  // Fill answer tables
+  renderFillTable('fill1-answers', FILL1);
+  renderFillTable('fill2-answers', FILL2);
+
+  // Pattern tips
+  const cats = {vocabulary:0, inference:0, detail:0, purpose:0};
+  state.missedQuestions.forEach(q => {
+    if (['m1q16','m2q16'].includes(q)) cats.vocabulary++;
+    if (['m1q13','m1q20','m2q15','m2q17'].includes(q)) cats.inference++;
+    if (['m1q12','m1q14','m1q15','m2q12','m2q14','m2q18'].includes(q)) cats.detail++;
+    if (['m1q11','m1q18','m1q19','m2q11','m2q13','m2q19','m2q20'].includes(q)) cats.purpose++;
+  });
+  const worst = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+  let tips = '<strong>📌 Pattern analysis:</strong><br>';
+  if (state.missedQuestions.length === 0) tips += 'No errors to analyse. Push for test 2.';
+  else {
+    worst.filter(([,v])=>v>0).forEach(([cat,v])=>{
+      tips += `<br>• <strong>${cat}</strong> — ${v} miss${v>1?'es':''}. `;
+      if (cat==='vocabulary') tips += 'Drill substitution: replace each option back into sentence.';
+      if (cat==='inference') tips += 'Return to exact passage wording before inferring.';
+      if (cat==='detail') tips += 'Scan back to the specific sentence — never rely on memory.';
+      if (cat==='purpose') tips += 'Ask: what is this paragraph/example doing in the argument?';
+    });
+  }
+  document.getElementById('pattern-tips').innerHTML = tips;
+
+  // Log
+  const log = buildLog(totalMC, totalFill, band, pct, totalElapsed, state.missedQuestions);
+  document.getElementById('log-area').textContent = log;
+
+  showScreen('results');
+}
+
+function renderFillTable(elId, fillMap) {
+  const el = document.getElementById(elId);
+  Object.entries(fillMap).forEach(([id, correct], i) => {
+    const input = document.getElementById(id);
+    const val = input ? input.value.trim() : '';
+    const ok = val.toLowerCase() === correct.toLowerCase();
+    const cell = document.createElement('div');
+    cell.className = 'fill-ans-cell';
+    cell.innerHTML = `<div class="num">Q${i+1}</div><div class="ans" style="color:${ok?'var(--green)':'var(--red)'}">...${correct}</div><div style="font-size:.72rem;color:var(--muted)">You: ${val||'—'}</div>`;
+    el.appendChild(cell);
+  });
+}
+
+function buildLog(mc, fill, band, pct, elapsed, missed) {
+  const now = new Date().toLocaleString();
+  return `TOEFL Reading — Practice Test 1
+Date: ${now}
+Time used: ${formatTime(elapsed)}
+
+MC correct: ${mc} / 20
+Fill-in correct: ${fill} / 20
+MC accuracy: ${pct}%
+Estimated band: ${band}
+
+Missed questions (MC): ${missed.length > 0 ? [...new Set(missed)].join(', ') : 'none'}
+
+Log this in: workbook/Progress Tracker.md → Error log`;
+}
+
+function copyLog() {
+  const text = document.getElementById('log-area').textContent;
+  navigator.clipboard.writeText(text).then(() => alert('Log copied to clipboard!'));
+}
+</script>
+</body>
+</html>

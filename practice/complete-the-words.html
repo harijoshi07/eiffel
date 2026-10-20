@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOEFL iBT — Complete the Words (All 7 Tests · 14 Modules)</title>
+<style>
+:root {
+  --bg: #0b0f19;
+  --surface: #141b2d;
+  --surface2: #1c253d;
+  --surface3: #253150;
+  --border: #2c3859;
+  --accent: #3b82f6;
+  --accent-light: #60a5fa;
+  --accent2: #8b5cf6;
+  --green: #10b981;
+  --green-dark: #064e3b;
+  --green-light: #34d399;
+  --red: #ef4444;
+  --red-dark: #450a0a;
+  --red-light: #f87171;
+  --yellow: #f59e0b;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --r: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+#top-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 16px;
+}
+.brand-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  letter-spacing: .02em;
+}
+.brand-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.stat-pill {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.stat-pill strong { color: var(--text); }
+.timer-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: monospace;
+}
+.timer-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--green-light);
+  min-width: 60px;
+}
+.timer-val.warn { color: var(--yellow); }
+.timer-val.danger { color: var(--red-light); }
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* ── CATEGORY TABS & TEST SELECTOR ── */
+.nav-section {
+  margin-bottom: 24px;
+}
+.category-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.test-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.test-tab {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all .15s ease;
+  text-align: left;
+}
+.test-tab:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+}
+.test-tab.active {
+  border-color: var(--accent);
+  background: #1e294f;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.test-tab .t-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.test-tab .t-badge {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+.module-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.mod-tab {
+  flex: 1;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all .15s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mod-tab:hover {
+  border-color: var(--accent);
+}
+.mod-tab.active {
+  border-color: var(--accent2);
+  background: #231b40;
+  box-shadow: 0 0 0 1px var(--accent2);
+}
+.mod-tab-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.mod-tab-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.mod-tab-score {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: var(--surface2);
+}
+.mod-tab-score.done {
+  background: var(--green-dark);
+  color: var(--green-light);
+}
+
+/* ── PASSAGE CARD ── */
+.passage-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 28px 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  margin-bottom: 24px;
+}
+.passage-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.passage-topic {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.task-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  background: var(--surface2);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.passage-body {
+  font-family: "Georgia", serif;
+  font-size: 1.12rem;
+  line-height: 2.3;
+  color: #cbd5e1;
+}
+
+/* ── WORD + BLANK GROUP ── */
+.word-group {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+  margin: 0 2px;
+}
+.visible-prefix {
+  font-weight: 600;
+  color: #f8fafc;
+}
+.blank-box {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: 5px;
+  background: var(--surface2);
+  padding: 1px 3px;
+  margin-left: 1px;
+  transition: all .15s ease;
+  vertical-align: middle;
+}
+.blank-box:focus-within {
+  border-color: var(--accent-light);
+  background: #192442;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+.blank-box.correct {
+  border-color: var(--green);
+  background: var(--green-dark);
+}
+.blank-box.incorrect {
+  border-color: var(--red);
+  background: var(--red-dark);
+}
+.blank-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Georgia", serif;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-align: center;
+  letter-spacing: 0.05em;
+  padding: 0 2px;
+}
+.blank-counter {
+  font-size: 0.65rem;
+  font-family: -apple-system, sans-serif;
+  color: var(--text-muted);
+  padding: 0 3px;
+  user-select: none;
+  border-left: 1px solid var(--border);
+  margin-left: 2px;
+}
+
+/* ── ACTION BAR ── */
+.action-bar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all .15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn:active { transform: scale(0.98); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+}
+.btn-primary:hover { opacity: 0.92; }
+.btn-secondary {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-secondary:hover { background: var(--surface3); }
+.btn-hint {
+  background: transparent;
+  border: 1px dashed var(--yellow);
+  color: var(--yellow);
+}
+.btn-hint:hover { background: rgba(245,158,11,0.1); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── RESULTS REVIEW CARD ── */
+.result-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 28px;
+  margin-top: 24px;
+  display: none;
+}
+.result-card.show { display: block; animation: fadeIn .3s ease; }
+@keyframes fadeIn { from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+.result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.result-score-big {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.band-badge {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.band-high { background: var(--green-dark); color: var(--green-light); border: 1px solid var(--green); }
+.band-mid { background: #1e3a5f; color: var(--accent-light); border: 1px solid var(--accent); }
+.band-low { background: var(--red-dark); color: var(--red-light); border: 1px solid var(--red); }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.review-item {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+}
+.review-item.ok { border-color: var(--green); }
+.review-item.bad { border-color: var(--red); }
+.review-item .q-num { font-size: 0.7rem; color: var(--text-muted); }
+.review-item .full-word { font-weight: 700; font-size: 1rem; margin: 2px 0; }
+.review-item.ok .full-word { color: var(--green-light); }
+.review-item.bad .full-word { color: var(--red-light); }
+.review-item .your-ans { font-size: 0.75rem; color: var(--text-muted); }
+
+.guidance-box {
+  background: var(--surface2);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin-bottom: 18px;
+}
+
+/* ── PROGRESS MODAL / DRAWER ── */
+.progress-summary {
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+.matrix-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 6px;
+  text-align: center;
+  font-size: 0.72rem;
+}
+.matrix-cell .m-code { font-weight: 700; margin-bottom: 4px; }
+.matrix-cell .m-score { font-size: 0.8rem; }
+.m-green { color: var(--green-light); }
+.m-gray { color: var(--text-muted); }
+
+@media (max-width: 640px) {
+  .test-selector-grid { grid-template-columns: 1fr 1fr; }
+  .matrix-grid { grid-template-columns: repeat(4, 1fr); }
+  .passage-body { font-size: 1rem; line-height: 2.1; }
+  #top-bar { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+</style>
+</head>
+<body>
+
+<div id="top-bar">
+  <div>
+    <div class="brand-title">TOEFL iBT® Complete the Words</div>
+    <div class="brand-sub">All 7 Official ETS Tests · 14 Modules · 140 Items Verified</div>
+  </div>
+  <div class="header-stats">
+    <div class="stat-pill">Completed: <strong id="global-done">0</strong> / 14 modules</div>
+    <div class="stat-pill">Total Score: <strong id="global-score">0</strong> / 140</div>
+    <div class="timer-container">
+      <span style="font-size:0.7rem; color:var(--text-muted);">TIME</span>
+      <span class="timer-val" id="timer-display">00:00</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Category & Test Selection -->
+  <div class="nav-section">
+    <div class="category-heading">
+      <span>1. Full-Length Practice Tests (2 Tests)</span>
+      <span style="font-weight:normal; font-size:0.7rem;">Official Full Simulations</span>
+    </div>
+    <div class="test-selector-grid" id="fl-grid"></div>
+
+    <div class="category-heading" style="margin-top: 14px;">
+      <span>2. Teacher Resources Practice Tests (5 Tests)</span>
+      <span style="font-weight:normal; font-size:0.7rem;">Official Classroom Question Banks</span>
+    </div>
+    <div class="test-selector-grid" id="tr-grid"></div>
+  </div>
+
+  <!-- Module Selector (Module 1 vs Module 2) -->
+  <div class="module-selector">
+    <div class="mod-tab active" id="tab-mod1" onclick="switchModule(0)">
+      <div>
+        <div class="mod-tab-title">Module 1</div>
+        <div class="mod-tab-sub" id="mod1-topic-label">Topic</div>
+      </div>
+      <div class="mod-tab-score" id="mod1-badge">—</div>
+    </div>
+    <div class="mod-tab" id="tab-mod2" onclick="switchModule(1)">
+      <div>
+        <div class="mod-tab-title">Module 2</div>
+        <div class="mod-tab-sub" id="mod2-topic-label">Topic</div>
+      </div>
+      <div class="mod-tab-score" id="mod2-badge">—</div>
+    </div>
+  </div>
+
+  <!-- Passage Section -->
+  <div class="passage-card">
+    <div class="passage-meta">
+      <div class="passage-topic">
+        <span class="task-label">Task 1: Complete the Words</span>
+        <span id="card-topic-text">Topic</span>
+      </div>
+      <div style="font-size:0.78rem; color:var(--text-muted);" id="card-test-label">Test</div>
+    </div>
+    <div class="passage-body" id="passage-container"></div>
+  </div>
+
+  <!-- Actions -->
+  <div class="action-bar">
+    <button class="btn btn-hint" id="btn-hint" onclick="getHint()">💡 Reveal Hint (1st letter)</button>
+    <div style="display:flex; gap:10px;">
+      <button class="btn btn-secondary" onclick="resetCurrentModule()">Clear</button>
+      <button class="btn btn-primary" id="btn-check" onclick="checkAnswers()">Check Answers ✓</button>
+      <button class="btn btn-primary" id="btn-next" style="display:none;" onclick="goToNextModule()">Next Module →</button>
+    </div>
+  </div>
+
+  <!-- Results Review Panel -->
+  <div class="result-card" id="result-card">
+    <div class="result-header">
+      <div>
+        <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase;">Module Performance</div>
+        <div class="result-score-big" id="res-score-display">0 / 10</div>
+      </div>
+      <div id="res-band-pill" class="band-badge band-mid">Band 5.0</div>
+    </div>
+    <div class="guidance-box" id="res-guidance"></div>
+    <div class="review-grid" id="res-review-grid"></div>
+  </div>
+
+  <!-- Matrix Summary of all 14 Modules -->
+  <div class="progress-summary">
+    <div class="category-heading">
+      <span>Overall Matrix Progress (14 Modules)</span>
+      <button class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem;" onclick="copyFullReport()">📋 Copy Log to Clipboard</button>
+    </div>
+    <div class="matrix-grid" id="matrix-container"></div>
+  </div>
+
+</div>
+
+<script>
+const ALL_TESTS = [{"test_id": "FL1", "test_name": "Full-Length Practice Test 1", "category": "Full-Length Tests", "modules": [{"test_id": "FL1", "test_name": "Full-Length Practice Test 1", "category": "Full-Length Tests", "module_num": 1, "topic": "Prehistoric Dance", "lead_text": "We know from drawings that have been preserved in caves for over 10,000 years that early humans performed dances as a group activity. We ", "items": [{"prefix": "mi", "dashes": 3, "answer": "ght", "full_word": "might", "post": " think "}, {"prefix": "th", "dashes": 2, "answer": "at", "full_word": "that", "post": " prehistoric "}, {"prefix": "peo", "dashes": 3, "answer": "ple", "full_word": "people", "post": " concentrated "}, {"prefix": "on", "dashes": 2, "answer": "ly", "full_word": "only", "post": " on "}, {"prefix": "ba", "dashes": 3, "answer": "sic", "full_word": "basic", "post": " survival. "}, {"prefix": "How", "dashes": 4, "answer": "ever", "full_word": "However", "post": ", it "}, {"prefix": "i", "dashes": 1, "answer": "s", "full_word": "is", "post": " clear "}, {"prefix": "fr", "dashes": 2, "answer": "om", "full_word": "from", "post": " the "}, {"prefix": "rec", "dashes": 3, "answer": "ord", "full_word": "record", "post": " that "}, {"prefix": "dan", "dashes": 4, "answer": "cing", "full_word": "dancing", "post": " was important to them. They recorded more drawings of dances than of any other group activity. Dances served various purposes, including ritualistic communication with the divine, storytelling, and social cohesion."}]}, {"test_id": "FL1", "test_name": "Full-Length Practice Test 1", "category": "Full-Length Tests", "module_num": 2, "topic": "The Human Brain", "lead_text": "The human brain is a complex organ responsible for controlling all bodily functions and enabling thought, emotion, and memory. It ", "items": [{"prefix": "i", "dashes": 1, "answer": "s", "full_word": "is", "post": " divided "}, {"prefix": "in", "dashes": 2, "answer": "to", "full_word": "into", "post": " several "}, {"prefix": "reg", "dashes": 4, "answer": "ions", "full_word": "regions", "post": ", each "}, {"prefix": "wi", "dashes": 2, "answer": "th", "full_word": "with", "post": " specific "}, {"prefix": "ro", "dashes": 3, "answer": "les", "full_word": "roles", "post": ". The cerebrum, "}, {"prefix": "i", "dashes": 2, "answer": "ts", "full_word": "its", "post": " largest "}, {"prefix": "pa", "dashes": 2, "answer": "rt", "full_word": "part", "post": ", is "}, {"prefix": "invo", "dashes": 4, "answer": "lved", "full_word": "involved", "post": " in "}, {"prefix": "cogn", "dashes": 5, "answer": "itive", "full_word": "cognitive", "post": " functions "}, {"prefix": "su", "dashes": 2, "answer": "ch", "full_word": "such", "post": " as reasoning, planning, and language. The cerebellum coordinates movement and balance, while the brainstem controls vital bodily functions like breathing and heart rate. Together, they enable the brain to perform its various tasks."}]}]}, {"test_id": "FL2", "test_name": "Full-Length Practice Test 2", "category": "Full-Length Tests", "modules": [{"test_id": "FL2", "test_name": "Full-Length Practice Test 2", "category": "Full-Length Tests", "module_num": 1, "topic": "Maps and Cartography", "lead_text": "Maps are tools that help us understand the world around us. They ", "items": [{"prefix": "sh", "dashes": 2, "answer": "ow", "full_word": "show", "post": " the "}, {"prefix": "loca", "dashes": 5, "answer": "tions", "full_word": "locations", "post": " of "}, {"prefix": "pla", "dashes": 3, "answer": "ces", "full_word": "places", "post": " like "}, {"prefix": "cit", "dashes": 3, "answer": "ies", "full_word": "cities", "post": ", rivers, "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " mountains. "}, {"prefix": "Th", "dashes": 3, "answer": "ese", "full_word": "These", "post": " visual "}, {"prefix": "gu", "dashes": 4, "answer": "ides", "full_word": "guides", "post": " can "}, {"prefix": "al", "dashes": 2, "answer": "so", "full_word": "also", "post": " display different "}, {"prefix": "ty", "dashes": 3, "answer": "pes", "full_word": "types", "post": " of "}, {"prefix": "infor", "dashes": 6, "answer": "mation", "full_word": "information", "post": ", such as climate or population. There are many kinds, including physical, political, and thematic versions. The study of maps and cartography, the process by which they are made, can teach us about the geography of our planet and how people live in different regions."}]}, {"test_id": "FL2", "test_name": "Full-Length Practice Test 2", "category": "Full-Length Tests", "module_num": 2, "topic": "Elephant Herds & Communication", "lead_text": "Elephants are social animals that live in groups called herds. They ", "items": [{"prefix": "commu", "dashes": 6, "answer": "nicate", "full_word": "communicate", "post": " using "}, {"prefix": "sou", "dashes": 3, "answer": "nds", "full_word": "sounds", "post": ", gestures, "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " touch. These "}, {"prefix": "ani", "dashes": 4, "answer": "mals", "full_word": "animals", "post": " are "}, {"prefix": "kn", "dashes": 3, "answer": "own", "full_word": "known", "post": " for "}, {"prefix": "th", "dashes": 3, "answer": "eir", "full_word": "their", "post": " strong "}, {"prefix": "fam", "dashes": 3, "answer": "ily", "full_word": "family", "post": " bonds and "}, {"prefix": "of", "dashes": 3, "answer": "ten", "full_word": "often", "post": " help "}, {"prefix": "ea", "dashes": 2, "answer": "ch", "full_word": "each", "post": " other "}, {"prefix": "i", "dashes": 1, "answer": "n", "full_word": "in", "post": " times of need. They can remember the locations of water sources and food, which helps them survive in their natural environment. These highly intelligent creatures play an important role in their ecosystems, shaping the landscape, creating access to moisture, and spreading seeds."}]}]}, {"test_id": "TR1", "test_name": "Teacher Resources Test 1", "category": "Teacher Resources Tests", "modules": [{"test_id": "TR1", "test_name": "Teacher Resources Test 1", "category": "Teacher Resources Tests", "module_num": 1, "topic": "Early River Civilizations", "lead_text": "Early civilizations, including those in Mesopotamia, Egypt, the Indus Valley, and China, emerged around river valleys, where fertile land and water resources supported agriculture. ", "items": [{"prefix": "Th", "dashes": 2, "answer": "ey", "full_word": "They", "post": " developed "}, {"prefix": "sophis", "dashes": 7, "answer": "ticated", "full_word": "sophisticated", "post": " social "}, {"prefix": "struc", "dashes": 5, "answer": "tures", "full_word": "structures", "post": ", written "}, {"prefix": "lang", "dashes": 5, "answer": "uages", "full_word": "languages", "post": ", and "}, {"prefix": "adva", "dashes": 4, "answer": "nced", "full_word": "advanced", "post": " technologies, "}, {"prefix": "wh", "dashes": 3, "answer": "ich", "full_word": "which", "post": " allowed "}, {"prefix": "th", "dashes": 2, "answer": "em", "full_word": "them", "post": " to "}, {"prefix": "thr", "dashes": 3, "answer": "ive", "full_word": "thrive", "post": " and "}, {"prefix": "esta", "dashes": 5, "answer": "blish", "full_word": "establish", "post": " cities, "}, {"prefix": "tr", "dashes": 3, "answer": "ade", "full_word": "trade", "post": " networks, and even empires. Just as important were their significant contributions to fields like art, science, and law. These developments were crucial in shaping the course of human history."}]}, {"test_id": "TR1", "test_name": "Teacher Resources Test 1", "category": "Teacher Resources Tests", "module_num": 2, "topic": "Consciousness & Self-Awareness", "lead_text": "Consciousness is the state of being aware of and able to think about one's own existence, thoughts, and surroundings. ", "items": [{"prefix": "Wh", "dashes": 2, "answer": "en", "full_word": "When", "post": " you "}, {"prefix": "lo", "dashes": 2, "answer": "ok", "full_word": "look", "post": " in a "}, {"prefix": "mir", "dashes": 3, "answer": "ror", "full_word": "mirror", "post": " and recognize "}, {"prefix": "your", "dashes": 4, "answer": "self", "full_word": "yourself", "post": ", you "}, {"prefix": "exh", "dashes": 4, "answer": "ibit", "full_word": "exhibit", "post": " self-awareness, "}, {"prefix": "wh", "dashes": 3, "answer": "ich", "full_word": "which", "post": " is "}, {"prefix": "n", "dashes": 2, "answer": "ot", "full_word": "not", "post": " unique "}, {"prefix": "t", "dashes": 1, "answer": "o", "full_word": "to", "post": " humans "}, {"prefix": "b", "dashes": 2, "answer": "ut", "full_word": "but", "post": " is "}, {"prefix": "al", "dashes": 2, "answer": "so", "full_word": "also", "post": " found in dolphins and great apes. Consciousness is not to be confused with cognition. The latter refers to mental processes involved in gaining knowledge and solving problems, like thinking, judging, and remembering."}]}]}, {"test_id": "TR2", "test_name": "Teacher Resources Test 2", "category": "Teacher Resources Tests", "modules": [{"test_id": "TR2", "test_name": "Teacher Resources Test 2", "category": "Teacher Resources Tests", "module_num": 1, "topic": "Early Films & Cinema", "lead_text": "Early films were quite different from what we are used to today\u2014they were silent and black-and-white. Technological ", "items": [{"prefix": "develop", "dashes": 4, "answer": "ment", "full_word": "development", "post": " introduced "}, {"prefix": "so", "dashes": 3, "answer": "und", "full_word": "sound", "post": ", color, "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " special "}, {"prefix": "eff", "dashes": 4, "answer": "ects", "full_word": "effects", "post": ". Filmmaking "}, {"prefix": "requ", "dashes": 4, "answer": "ires", "full_word": "requires", "post": " the "}, {"prefix": "collab", "dashes": 7, "answer": "oration", "full_word": "collaboration", "post": " of "}, {"prefix": "ma", "dashes": 2, "answer": "ny", "full_word": "many", "post": " different "}, {"prefix": "peo", "dashes": 3, "answer": "ple", "full_word": "people", "post": ": actors, "}, {"prefix": "dire", "dashes": 5, "answer": "ctors", "full_word": "directors", "post": ", writers. Films "}, {"prefix": "ha", "dashes": 2, "answer": "ve", "full_word": "have", "post": " the power to entertain, educate, and inspire audiences, shaping popular culture and influencing social trends. The film industry has grown from its early beginnings to become a major cultural and economic force worldwide."}]}, {"test_id": "TR2", "test_name": "Teacher Resources Test 2", "category": "Teacher Resources Tests", "module_num": 2, "topic": "Water Beyond Earth", "lead_text": "Water is essential for life as we know it, so finding water on other planets and moons is a crucial part of the quest to find life beyond Earth. Mars' riverbeds ", "items": [{"prefix": "sh", "dashes": 2, "answer": "ow", "full_word": "show", "post": " evidence "}, {"prefix": "o", "dashes": 1, "answer": "f", "full_word": "of", "post": " water "}, {"prefix": "i", "dashes": 1, "answer": "n", "full_word": "in", "post": " ancient "}, {"prefix": "ti", "dashes": 3, "answer": "mes", "full_word": "times", "post": ". The moons Europa "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " Enceladus "}, {"prefix": "ha", "dashes": 2, "answer": "ve", "full_word": "have", "post": " ice-covered "}, {"prefix": "surf", "dashes": 4, "answer": "aces", "full_word": "surfaces", "post": " that "}, {"prefix": "m", "dashes": 2, "answer": "ay", "full_word": "may", "post": " hide "}, {"prefix": "oce", "dashes": 3, "answer": "ans", "full_word": "oceans", "post": " beneath. "}, {"prefix": "Discov", "dashes": 5, "answer": "ering", "full_word": "Discovering", "post": " new extraterrestrial water, whether past or present, liquid or solid, could significantly impact our understanding of life in the universe. Such findings could guide future missions in the search for habitable environments outside of Earth."}]}]}, {"test_id": "TR3", "test_name": "Teacher Resources Test 3", "category": "Teacher Resources Tests", "modules": [{"test_id": "TR3", "test_name": "Teacher Resources Test 3", "category": "Teacher Resources Tests", "module_num": 1, "topic": "Wildlife Conservation", "lead_text": "Conservation is the effort to protect plants and animals that are endangered because of human activities. Conservationists ", "items": [{"prefix": "sa", "dashes": 2, "answer": "ve", "full_word": "save", "post": " endangered "}, {"prefix": "spe", "dashes": 4, "answer": "cies", "full_word": "species", "post": " by "}, {"prefix": "crea", "dashes": 4, "answer": "ting", "full_word": "creating", "post": " areas "}, {"prefix": "wh", "dashes": 3, "answer": "ere", "full_word": "where", "post": " they "}, {"prefix": "c", "dashes": 2, "answer": "an", "full_word": "can", "post": " live "}, {"prefix": "saf", "dashes": 3, "answer": "ely", "full_word": "safely", "post": ". Conservationists "}, {"prefix": "al", "dashes": 2, "answer": "so", "full_word": "also", "post": " educate "}, {"prefix": "t", "dashes": 2, "answer": "he", "full_word": "the", "post": " public "}, {"prefix": "ab", "dashes": 3, "answer": "out", "full_word": "about", "post": " the "}, {"prefix": "impor", "dashes": 5, "answer": "tance", "full_word": "importance", "post": " of preserving the natural world. Conservation is based on research about wildlife and ecosystems that aims to understand their needs and the threats they face. By taking care of the environment, conservationists help ensure a healthy planet for future generations."}]}, {"test_id": "TR3", "test_name": "Teacher Resources Test 3", "category": "Teacher Resources Tests", "module_num": 2, "topic": "Everyday Economics", "lead_text": "Economics is the study of how societies allocate resources and make decisions about production, distribution, and consumption. It ", "items": [{"prefix": "exam", "dashes": 4, "answer": "ines", "full_word": "examines", "post": " the behavior "}, {"prefix": "o", "dashes": 1, "answer": "f", "full_word": "of", "post": " governments, "}, {"prefix": "busin", "dashes": 5, "answer": "esses", "full_word": "businesses", "post": ", and "}, {"prefix": "indiv", "dashes": 6, "answer": "iduals", "full_word": "individuals", "post": " in "}, {"prefix": "t", "dashes": 2, "answer": "he", "full_word": "the", "post": " marketplace. "}, {"prefix": "Stud", "dashes": 4, "answer": "ying", "full_word": "Studying", "post": " economics "}, {"prefix": "i", "dashes": 1, "answer": "s", "full_word": "is", "post": " not "}, {"prefix": "ju", "dashes": 2, "answer": "st", "full_word": "just", "post": " for "}, {"prefix": "th", "dashes": 3, "answer": "ose", "full_word": "those", "post": " who "}, {"prefix": "asp", "dashes": 3, "answer": "ire", "full_word": "aspire", "post": " to become economists or bankers. Gaining a basic understanding of economic concepts, like supply and demand, inflation, and employment, benefits everyone. It enables us to make informed decisions and understand the broader economic forces that shape our daily lives."}]}]}, {"test_id": "TR4", "test_name": "Teacher Resources Test 4", "category": "Teacher Resources Tests", "modules": [{"test_id": "TR4", "test_name": "Teacher Resources Test 4", "category": "Teacher Resources Tests", "module_num": 1, "topic": "Modern Biochemistry", "lead_text": "Modern biochemistry focuses on the chemical processes within and related to living organisms. It ", "items": [{"prefix": "i", "dashes": 1, "answer": "s", "full_word": "is", "post": " a laboratory-based "}, {"prefix": "sci", "dashes": 4, "answer": "ence", "full_word": "science", "post": " that "}, {"prefix": "comb", "dashes": 4, "answer": "ines", "full_word": "combines", "post": " biology "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " chemistry. Biochemists "}, {"prefix": "inves", "dashes": 6, "answer": "tigate", "full_word": "investigate", "post": " how cells "}, {"prefix": "func", "dashes": 4, "answer": "tion", "full_word": "function", "post": " and "}, {"prefix": "commu", "dashes": 6, "answer": "nicate", "full_word": "communicate", "post": ", exploring "}, {"prefix": "t", "dashes": 2, "answer": "he", "full_word": "the", "post": " fundamental "}, {"prefix": "mecha", "dashes": 5, "answer": "nisms", "full_word": "mechanisms", "post": " that "}, {"prefix": "sus", "dashes": 4, "answer": "tain", "full_word": "sustain", "post": " life. The field has advanced our understanding of how diseases occur and how they can be treated or prevented. Techniques such as molecular cloning and protein analysis are central to biochemistry, leading to innovations in medicine and biotechnology."}]}, {"test_id": "TR4", "test_name": "Teacher Resources Test 4", "category": "Teacher Resources Tests", "module_num": 2, "topic": "Cognitive Science & Awareness", "lead_text": "Cognitive science and the study of consciousness delve into how humans and animals perceive the world, process information, and experience awareness. Cognition ", "items": [{"prefix": "encom", "dashes": 6, "answer": "passes", "full_word": "encompasses", "post": " mental "}, {"prefix": "activ", "dashes": 5, "answer": "ities", "full_word": "activities", "post": " like "}, {"prefix": "mem", "dashes": 3, "answer": "ory", "full_word": "memory", "post": ", learning, "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " decision-making, "}, {"prefix": "whe", "dashes": 4, "answer": "reas", "full_word": "whereas", "post": " consciousness "}, {"prefix": "invo", "dashes": 4, "answer": "lves", "full_word": "involves", "post": " the "}, {"prefix": "subje", "dashes": 5, "answer": "ctive", "full_word": "subjective", "post": " experience "}, {"prefix": "o", "dashes": 1, "answer": "f", "full_word": "of", "post": " being "}, {"prefix": "aw", "dashes": 3, "answer": "are", "full_word": "aware", "post": ". Researchers "}, {"prefix": "u", "dashes": 2, "answer": "se", "full_word": "use", "post": " tools such as brain imaging to explore these complex processes. Findings in this field have far-reaching implications, from improving mental health care to advancing artificial intelligence and educational practices."}]}]}, {"test_id": "TR5", "test_name": "Teacher Resources Test 5", "category": "Teacher Resources Tests", "modules": [{"test_id": "TR5", "test_name": "Teacher Resources Test 5", "category": "Teacher Resources Tests", "module_num": 1, "topic": "Film & Television Industry", "lead_text": "Film and television play a powerful role in shaping cultural norms and public opinion. ", "items": [{"prefix": "T", "dashes": 2, "answer": "he", "full_word": "The", "post": " industry "}, {"prefix": "encom", "dashes": 6, "answer": "passes", "full_word": "encompasses", "post": " a wide "}, {"prefix": "ra", "dashes": 3, "answer": "nge", "full_word": "range", "post": " of "}, {"prefix": "arti", "dashes": 4, "answer": "stic", "full_word": "artistic", "post": " and "}, {"prefix": "tech", "dashes": 5, "answer": "nical", "full_word": "technical", "post": " processes, "}, {"prefix": "fr", "dashes": 2, "answer": "om", "full_word": "from", "post": " scriptwriting "}, {"prefix": "a", "dashes": 2, "answer": "nd", "full_word": "and", "post": " directing "}, {"prefix": "t", "dashes": 1, "answer": "o", "full_word": "to", "post": " post-production. "}, {"prefix": "Techno", "dashes": 7, "answer": "logical", "full_word": "technological", "post": " innovations\u2014"}, {"prefix": "su", "dashes": 2, "answer": "ch", "full_word": "such", "post": " as digital effects and streaming platforms\u2014have significantly altered both how content is produced and how audiences engage with it. Studying film offers insights into narrative structure, visual storytelling, and the broader social impact of media. It also involves examining genres, audience responses, and the economic forces behind production."}]}, {"test_id": "TR5", "test_name": "Teacher Resources Test 5", "category": "Teacher Resources Tests", "module_num": 2, "topic": "Geology & Earth Dynamics", "lead_text": "Geology is the scientific study of Earth's physical makeup and the dynamic forces that shape its surface. Geologists ", "items": [{"prefix": "inves", "dashes": 6, "answer": "tigate", "full_word": "investigate", "post": " the "}, {"prefix": "compo", "dashes": 6, "answer": "sition", "full_word": "composition", "post": " and "}, {"prefix": "form", "dashes": 5, "answer": "ation", "full_word": "formation", "post": " of "}, {"prefix": "ro", "dashes": 3, "answer": "cks", "full_word": "rocks", "post": " and "}, {"prefix": "mine", "dashes": 4, "answer": "rals", "full_word": "minerals", "post": " to "}, {"prefix": "unc", "dashes": 4, "answer": "over", "full_word": "uncover", "post": " the "}, {"prefix": "proc", "dashes": 5, "answer": "esses", "full_word": "processes", "post": " that "}, {"prefix": "ha", "dashes": 2, "answer": "ve", "full_word": "have", "post": " influenced "}, {"prefix": "t", "dashes": 2, "answer": "he", "full_word": "the", "post": " planet "}, {"prefix": "ov", "dashes": 2, "answer": "er", "full_word": "over", "post": " time. This field helps explain natural events such as earthquakes and volcanic eruptions and provides essential knowledge for managing natural resources and mitigating environmental risks. Understanding geological systems is also key to addressing sustainability challenges in a rapidly changing world."}]}]}];
+
+// State
+let currentTestIdx = 0;
+let currentModIdx = 0;
+let userAnswers = {}; // key: "TESTID_M{1|2}_Q{0-9}" -> val
+let moduleResults = {}; // key: "TESTID_M{1|2}" -> {score, total, time, answers: []}
+let timerInterval = null;
+let secondsElapsed = 0;
+
+function init() {
+  renderTestTabs();
+  loadModule(0, 0);
+}
+
+function renderTestTabs() {
+  const flGrid = document.getElementById('fl-grid');
+  const trGrid = document.getElementById('tr-grid');
+  flGrid.innerHTML = '';
+  trGrid.innerHTML = '';
+
+  ALL_TESTS.forEach((t, idx) => {
+    const card = document.createElement('div');
+    card.className = 'test-tab' + (idx === currentTestIdx ? ' active' : '');
+    card.id = 'tab-' + t.test_id;
+    card.onclick = () => selectTest(idx);
+
+    const m1Done = moduleResults[`${t.test_id}_M1`];
+    const m2Done = moduleResults[`${t.test_id}_M2`];
+    const statusText = `M1: ${m1Done ? m1Done.score+'/10' : '○'} · M2: ${m2Done ? m2Done.score+'/10' : '○'}`;
+
+    card.innerHTML = `
+      <div class="t-name">${t.test_name}</div>
+      <div class="t-badge">
+        <span>${t.test_id}</span>
+        <span>${statusText}</span>
+      </div>
+    `;
+
+    if (t.category === 'Full-Length Tests') {
+      flGrid.appendChild(card);
+    } else {
+      trGrid.appendChild(card);
+    }
+  });
+
+  renderMatrix();
+}
+
+function selectTest(testIdx) {
+  loadModule(testIdx, 0);
+}
+
+function switchModule(modIdx) {
+  loadModule(currentTestIdx, modIdx);
+}
+
+function startTimer() {
+  clearInterval(timerInterval);
+  secondsElapsed = 0;
+  updateTimerUI();
+  timerInterval = setInterval(() => {
+    secondsElapsed++;
+    updateTimerUI();
+  }, 1000);
+}
+
+function updateTimerUI() {
+  const m = Math.floor(secondsElapsed / 60);
+  const s = secondsElapsed % 60;
+  const str = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+  const el = document.getElementById('timer-display');
+  el.textContent = str;
+  el.className = 'timer-val';
+  if (secondsElapsed > 180) el.classList.add('warn');
+  if (secondsElapsed > 300) el.classList.add('danger');
+}
+
+function loadModule(testIdx, modIdx) {
+  currentTestIdx = testIdx;
+  currentModIdx = modIdx;
+  startTimer();
+
+  const test = ALL_TESTS[testIdx];
+  const mod = test.modules[modIdx];
+  const modKey = `${test.test_id}_M${modIdx+1}`;
+
+  // Update tabs active state
+  document.querySelectorAll('.test-tab').forEach((el, i) => {
+    el.classList.toggle('active', i === testIdx);
+  });
+  document.getElementById('tab-mod1').classList.toggle('active', modIdx === 0);
+  document.getElementById('tab-mod2').classList.toggle('active', modIdx === 1);
+
+  // Update topic labels
+  document.getElementById('mod1-topic-label').textContent = test.modules[0].topic;
+  document.getElementById('mod2-topic-label').textContent = test.modules[1].topic;
+
+  // Update badges
+  const m1Res = moduleResults[`${test.test_id}_M1`];
+  const m2Res = moduleResults[`${test.test_id}_M2`];
+  const b1 = document.getElementById('mod1-badge');
+  const b2 = document.getElementById('mod2-badge');
+  b1.textContent = m1Res ? `${m1Res.score}/10` : '—';
+  b1.className = 'mod-tab-score' + (m1Res ? ' done' : '');
+  b2.textContent = m2Res ? `${m2Res.score}/10` : '—';
+  b2.className = 'mod-tab-score' + (m2Res ? ' done' : '');
+
+  // Card meta
+  document.getElementById('card-topic-text').textContent = mod.topic;
+  document.getElementById('card-test-label').textContent = `${test.test_name} (${test.test_id})`;
+
+  // Build passage HTML
+  const container = document.getElementById('passage-container');
+  let html = `<span>${escapeHtml(mod.lead_text)}</span>`;
+
+  mod.items.forEach((item, qIdx) => {
+    const qKey = `${modKey}_Q${qIdx}`;
+    const dashes = '─'.repeat(item.dashes);
+    const boxWidth = Math.max(50, item.dashes * 14 + 18);
+    const savedVal = userAnswers[qKey] || '';
+
+    html += `<span class="word-group">`;
+    html += `<span class="visible-prefix">${escapeHtml(item.prefix)}</span>`;
+    html += `<span class="blank-box" id="box-${qIdx}">`;
+    html += `<input class="blank-input" id="inp-${qIdx}" data-idx="${qIdx}" `;
+    html += `style="width:${boxWidth}px;" maxlength="${item.dashes + 4}" `;
+    html += `placeholder="${dashes}" value="${escapeHtml(savedVal)}" `;
+    html += `autocomplete="off" autocorrect="off" spellcheck="false" `;
+    html += `oninput="handleInput(${qIdx})" onkeydown="handleKeyDown(event, ${qIdx})">`;
+    html += `<span class="blank-counter" id="cnt-${qIdx}">${item.dashes}L</span>`;
+    html += `</span></span>`;
+    html += `<span>${escapeHtml(item.post)}</span>`;
+  });
+
+  container.innerHTML = html;
+
+  // Hide result card
+  const resCard = document.getElementById('result-card');
+  resCard.classList.remove('show');
+  document.getElementById('btn-check').style.display = 'inline-flex';
+  document.getElementById('btn-next').style.display = 'none';
+
+  // If already scored previously, show feedback
+  if (moduleResults[modKey]) {
+    renderResultCard(moduleResults[modKey], mod);
+  }
+
+  // Focus first input
+  setTimeout(() => {
+    const firstInp = document.getElementById('inp-0');
+    if (firstInp) firstInp.focus();
+  }, 100);
+}
+
+function handleInput(qIdx) {
+  const test = ALL_TESTS[currentTestIdx];
+  const mod = test.modules[currentModIdx];
+  const modKey = `${test.test_id}_M${currentModIdx+1}`;
+  const inp = document.getElementById('inp-' + qIdx);
+  userAnswers[`${modKey}_Q${qIdx}`] = inp.value;
+
+  const expectedLen = mod.items[qIdx].dashes;
+  if (inp.value.length >= expectedLen && qIdx < 9) {
+    const nextInp = document.getElementById('inp-' + (qIdx + 1));
+    if (nextInp) nextInp.focus();
+  }
+}
+
+function handleKeyDown(e, qIdx) {
+  if (e.key === 'Enter') {
+    if (qIdx < 9) {
+      document.getElementById('inp-' + (qIdx + 1))?.focus();
+    } else {
+      checkAnswers();
+    }
+  }
+}
+
+function getHint() {
+  const test = ALL_TESTS[currentTestIdx];
+  const mod = test.modules[currentModIdx];
+  for (let i = 0; i < mod.items.length; i++) {
+    const inp = document.getElementById('inp-' + i);
+    if (!inp.value.trim()) {
+      const ans = mod.items[i].answer;
+      inp.value = ans[0];
+      handleInput(i);
+      inp.focus();
+      break;
+    }
+  }
+}
+
+function resetCurrentModule() {
+  const test = ALL_TESTS[currentTestIdx];
+  const modKey = `${test.test_id}_M${currentModIdx+1}`;
+  for (let i = 0; i < 10; i++) {
+    delete userAnswers[`${modKey}_Q${i}`];
+    const inp = document.getElementById('inp-' + i);
+    const box = document.getElementById('box-' + i);
+    if (inp) inp.value = '';
+    if (box) box.className = 'blank-box';
+  }
+  delete moduleResults[modKey];
+  document.getElementById('result-card').classList.remove('show');
+  renderTestTabs();
+}
+
+function checkAnswers() {
+  clearInterval(timerInterval);
+  const test = ALL_TESTS[currentTestIdx];
+  const mod = test.modules[currentModIdx];
+  const modKey = `${test.test_id}_M${currentModIdx+1}`;
+
+  let score = 0;
+  const itemReview = [];
+
+  mod.items.forEach((item, idx) => {
+    const inp = document.getElementById('inp-' + idx);
+    const box = document.getElementById('box-' + idx);
+    const rawVal = (inp.value || '').trim();
+    const correctAns = item.answer.trim();
+    const isOk = rawVal.toLowerCase() === correctAns.toLowerCase();
+
+    if (isOk) score++;
+
+    box.className = 'blank-box ' + (isOk ? 'correct' : 'incorrect');
+
+    itemReview.push({
+      idx: idx + 1,
+      prefix: item.prefix,
+      userVal: rawVal,
+      correctAns: correctAns,
+      fullWord: item.full_word,
+      isOk: isOk,
+      dashes: item.dashes
+    });
+  });
+
+  const resObj = {
+    score: score,
+    total: 10,
+    timeSec: secondsElapsed,
+    review: itemReview
+  };
+
+  moduleResults[modKey] = resObj;
+  renderResultCard(resObj, mod);
+  renderTestTabs();
+  updateGlobalStats();
+
+  document.getElementById('btn-check').style.display = 'none';
+  document.getElementById('btn-next').style.display = 'inline-flex';
+}
+
+function renderResultCard(res, mod) {
+  const card = document.getElementById('result-card');
+  card.classList.add('show');
+
+  document.getElementById('res-score-display').textContent = `${res.score} / 10`;
+
+  const pill = document.getElementById('res-band-pill');
+  let bandStr = '';
+  if (res.score >= 9) {
+    bandStr = 'Band 5.5 – 6.0';
+    pill.className = 'band-badge band-high';
+  } else if (res.score >= 7) {
+    bandStr = 'Band 4.5 – 5.0';
+    pill.className = 'band-badge band-mid';
+  } else {
+    bandStr = 'Band 3.0 – 4.0';
+    pill.className = 'band-badge band-low';
+  }
+  pill.textContent = bandStr;
+
+  const m = Math.floor(res.timeSec / 60);
+  const s = res.timeSec % 60;
+  const timeStr = `${m}m ${s}s`;
+
+  let guidance = `<strong>Time used:</strong> ${timeStr}. `;
+  if (res.score === 10) {
+    guidance += `Flawless accuracy! All 10 missing letter patterns identified perfectly.`;
+  } else if (res.score >= 8) {
+    guidance += `Strong performance. Review the ${10 - res.score} missed item(s) below to spot whether it was suffix spelling or syntax agreement.`;
+  } else {
+    guidance += `Keep practising word endings and reading the full sentence before inserting letters. Remember: matching the letter count is a strict constraint!`;
+  }
+  document.getElementById('res-guidance').innerHTML = guidance;
+
+  const grid = document.getElementById('res-review-grid');
+  grid.innerHTML = '';
+  res.review.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'review-item ' + (r.isOk ? 'ok' : 'bad');
+    div.innerHTML = `
+      <div class="q-num">Q${r.idx} · ${r.prefix}[${r.dashes}L]</div>
+      <div class="full-word">${escapeHtml(r.fullWord)}</div>
+      <div class="your-ans">${r.isOk ? '✓ ' + escapeHtml(r.correctAns) : '✗ you: ' + (escapeHtml(r.userVal) || '<i>blank</i>') + ' → <b>' + escapeHtml(r.correctAns) + '</b>'}</div>
+    `;
+    grid.appendChild(div);
+  });
+}
+
+function goToNextModule() {
+  if (currentModIdx === 0) {
+    loadModule(currentTestIdx, 1);
+  } else if (currentTestIdx < ALL_TESTS.length - 1) {
+    loadModule(currentTestIdx + 1, 0);
+  } else {
+    alert('Congratulations! You completed all 14 modules across all 7 tests!');
+  }
+}
+
+function updateGlobalStats() {
+  const completedKeys = Object.keys(moduleResults);
+  let totalScore = 0;
+  completedKeys.forEach(k => { totalScore += moduleResults[k].score; });
+
+  document.getElementById('global-done').textContent = completedKeys.length;
+  document.getElementById('global-score').textContent = totalScore;
+}
+
+function renderMatrix() {
+  const cont = document.getElementById('matrix-container');
+  cont.innerHTML = '';
+
+  ALL_TESTS.forEach(t => {
+    const m1 = moduleResults[`${t.test_id}_M1`];
+    const m2 = moduleResults[`${t.test_id}_M2`];
+
+    const cell = document.createElement('div');
+    cell.className = 'matrix-cell';
+    cell.innerHTML = `
+      <div class="m-code">${t.test_id}</div>
+      <div class="m-score ${m1 ? 'm-green' : 'm-gray'}">M1: ${m1 ? m1.score+'/10' : '—'}</div>
+      <div class="m-score ${m2 ? 'm-green' : 'm-gray'}">M2: ${m2 ? m2.score+'/10' : '—'}</div>
+    `;
+    cont.appendChild(cell);
+  });
+}
+
+function copyFullReport() {
+  let log = `TOEFL iBT 2026 Complete the Words Practice Log\nDate: ${new Date().toLocaleString()}\n\n`;
+  let totalDone = 0, totalPts = 0;
+
+  ALL_TESTS.forEach(t => {
+    log += `[${t.test_id}] ${t.test_name}:\n`;
+    [1, 2].forEach(m => {
+      const res = moduleResults[`${t.test_id}_M${m}`];
+      if (res) {
+        totalDone++;
+        totalPts += res.score;
+        log += `  - Module ${m} (${t.modules[m-1].topic}): ${res.score}/10 (${Math.floor(res.timeSec/60)}m ${res.timeSec%60}s)\n`;
+      } else {
+        log += `  - Module ${m}: Not completed\n`;
+      }
+    });
+    log += '\n';
+  });
+
+  log += `Total Modules: ${totalDone} / 14\nTotal Score: ${totalPts} / ${totalDone * 10}\n`;
+
+  navigator.clipboard.writeText(log).then(() => {
+    alert('Progress report copied to clipboard! Paste into Progress Tracker.md');
+  });
+}
+
+function escapeHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+window.onload = init;
+</script>
+</body>
+</html>

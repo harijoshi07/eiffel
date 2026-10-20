@@ -1,57 +1,61 @@
-# TOEFL iBT 2026 — One-Week Prep Masterclass
+# TOEFL iBT 2026 — Prep Vault
 
-An intensive seven-day preparation system for the TOEFL iBT format used on and after **January 21, 2026**.
+Format enforced from **January 21, 2026** · Score scale **1–6** per section · CEFR-aligned
 
-## Start here
+---
 
-1. Read [[00 - Test Map]].
-2. Set your target and record a baseline in [[Progress Tracker]].
-3. Open [[practice/official/README|Official ETS Practice Tests]].
-4. Follow [[01 - Seven-Day Masterclass]] in order.
-5. Use the section playbooks during each assigned study block:
-   - [[Reading Playbook]]
-   - [[Listening Playbook]]
-   - [[Writing Playbook]]
-   - [[Speaking Playbook]]
-6. Use only the current-format materials in [[Official Resources]] for full simulations.
+## 🗺️ Start here
 
-## What this course covers
+| Step | File |
+|---:|---|
+| 1 | Read [[00 - Test Map]] — understand the format completely |
+| 2 | Set your target band and record baseline → [[workbook/Progress Tracker]] |
+| 3 | Follow the 8-week plan → [[01 - Study Plan]] |
+| 4 | Use section playbooks during each assigned block |
+| 5 | Log every session → [[daily/Day Log]] |
+| 6 | Review only current-format official tests → [[resources/Official Resources]] |
 
-| Section | Current task types | Approx. base time |
-|---|---|---:|
-| Reading | Complete the Words; Read in Daily Life; Read an Academic Passage | 30 min |
-| Listening | Choose a Response; Conversation; Announcement; Academic Talk | 29 min |
-| Writing | Build a Sentence; Write an Email; Academic Discussion | 23 min |
-| Speaking | Listen and Repeat; Take an Interview | 8 min |
+---
 
-Reading and Listening are multistage adaptive. The test takes approximately two hours in total. ETS reports section and overall scores on a **1–6 scale in 0.5 increments**. During the two-year transition beginning in January 2026, score reports also include a comparable overall score on the former 0–120 scale.
+## 📂 Vault layout
 
-## Masterclass rules
-
-- Train with a timer every day.
-- Review every error by cause, not merely by correct answer.
-- Prefer current official ETS material over third-party question banks.
-- Speak aloud and record yourself; silent speaking practice does not count.
-- Finish Day 7 rested. Last-minute volume is less valuable than accurate, calm execution.
-
-## Repository layout
-
-```text
-.
-├── 00 - Test Map.md
-├── 01 - Seven-Day Masterclass.md
+```
+eiffel/
+├── 00 - Test Map.md           ← format, scoring, task types
+├── 01 - Study Plan.md         ← 8-week week-by-week plan
+│
 ├── sections/
 │   ├── Reading Playbook.md
 │   ├── Listening Playbook.md
 │   ├── Writing Playbook.md
 │   └── Speaking Playbook.md
+│
+├── drills/
+│   ├── Reading Drills.md
+│   ├── Listening Drills.md
+│   ├── Writing Drills.md
+│   └── Speaking Drills.md
+│
+├── daily/
+│   └── Day Log.md             ← one row per study day
+│
 ├── workbook/
-│   └── Progress Tracker.md
-├── resources/
-│   └── Official Resources.md
-└── practice/official/
-    ├── test-1/
-    └── test-2/
+│   └── Progress Tracker.md   ← baseline, error log, targets
+│
+├── practice/
+│   ├── test-1/               ← ETS Sample Test 1 notes
+│   └── test-2/               ← ETS Sample Test 2 notes
+│
+└── resources/
+    └── Official Resources.md ← all links, resource filter
 ```
 
-> This is an independent study resource. TOEFL and TOEFL iBT are trademarks of ETS. Always confirm test-day policies and format details on the official ETS website.
+---
+
+## ⚡ Ground rules
+
+1. **Timer always on.** Never practice without simulating real time pressure.
+2. **Review by cause, not answer.** Identify *why* you got it wrong.
+3. **Speak aloud. Record yourself.** Silent speaking practice does not count.
+4. **Official format only for full simulations.** Third-party material = drills only.
+5. **One vault, one error log.** Everything goes into [[workbook/Progress Tracker]].

@@ -1,0 +1,1010 @@
+[
+ {
+  "test_id": "FL1",
+  "test_name": "Full-Length Practice Test 1",
+  "category": "Full-Length Tests",
+  "module_num": 1,
+  "mod_key": "FL1_M1",
+  "passage1": {
+   "text": "Read a notice.\nMunicipal Charter\nSign up for paperless billing statements today.\nSafe, convenient, easy. Enroll in paperless billing to receive\nmonthly savings account statements in an electronic PDF\ndocument. Access your Municipal Charter account through\nthe mobile app and select account preferences in the upper\nright-hand corner to enroll.",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What type of business issued the notice?",
+     "options": {
+      "A": "An Internet provider",
+      "B": "A computer company",
+      "C": "A paper company",
+      "D": "A bank"
+     },
+     "answer": "D"
+    },
+    {
+     "q_num": 12,
+     "question": "How can customers enroll in paperless billing?",
+     "options": {
+      "A": "By visiting a Municipal Charter office",
+      "B": "By accessing the Municipal Charter website",
+      "C": "By using the Municipal Charter app",
+      "D": "By calling a Municipal Charter customer service representative"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read a social media post.\nSofia Baker\nEvery Saturday, our local farmer's market is the place to be!\nFresh fruits, veggies, homemade goodies, and unique crafts\nawait you. The Thompson family's organic produce is a must-try,\nknown for its quality and cordial service. Their stall is always\nbustling with customers eager to buy fresh, pesticide-free\nvegetables from the welcoming staff.\nDon't miss the bakery stall-get there early for the best bread\nand pastries, including gluten-free and vegan options. The smell\nof freshly baked goods fills the air, and these treats sell out fast!\nIn addition to food, the market sells handmade crafts like jewelry,\npottery, and textiles. These unique items make perfect gifts and\nsupport local artisans. Plus, enjoy live music while you shop.\nTalented local musicians help create a vibrant atmosphere, and\nthe community spirit makes it a delightful experience for all. See\nyou there!",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is the main purpose of the post?",
+     "options": {
+      "A": "To explain the benefits of organic farming",
+      "B": "To describe the variety of products available at the farmer’s market",
+      "C": "To compare different farmer's markets in the area",
+      "D": "To offer advice on starting a stall at the farmer's market"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "What reason is given for the popularity of the Thompson family's stall?",
+     "options": {
+      "A": "They offer cooking tips and recipes.",
+      "B": "They offer the lowest prices at the market.",
+      "C": "They provide friendly service and excellent products.",
+      "D": "They have a beautiful and well-decorated stall."
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 15,
+     "question": "Why do customers go to the bakery stall early?",
+     "options": {
+      "A": "To get the free samples given in mornings",
+      "B": "To get freshly baked bread and pastries before they are gone",
+      "C": "To meet the famous baker",
+      "D": "To take advantage of early morning discounts"
+     },
+     "answer": "B"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "FL1",
+  "test_name": "Full-Length Practice Test 1",
+  "category": "Full-Length Tests",
+  "module_num": 2,
+  "mod_key": "FL1_M2",
+  "passage1": {
+   "text": "Read an email.\nTo:\nedward56L@dmail.com\nFrom:\nartforeveryone@dmail.com\nDate:\n10/09/2025\nSubject:\nArt Workshop Reservation Confirmation\nDear Ms. Edwards,\nThe reservation for the art workshop that you made\non September 10th has been confirmed. The\nworkshop will take place on September 20th at 3:00\nPM. All necessary arts supplies will be provided, but\nplease bring your own apron or smock.\nBest regards,\nLaura Bennett",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "When is the date of the art workshop?",
+     "options": {
+      "A": "September 10th",
+      "B": "September 12th",
+      "C": "September 20th",
+      "D": "September 30th"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 12,
+     "question": "What should Ms. Edwards bring to the workshop?",
+     "options": {
+      "A": "A payment method",
+      "B": "Extra paint",
+      "C": "A protective garment",
+      "D": "Proof of reservation"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nTo:\nnguyenbooklover@dmail.com\nFrom:\npart.gymworkers@dmail.com\nSubject:\nYou're Invited - Bring Friends & Family to Our Grand Opening!\nDear Ms. Nguyen,\nWe're excited to invite you-and your friends and family-to the grand\nopening of our new branch at 25 Orchid Street, happening next Monday.\nThis event is a great opportunity to explore our state-of-the-art facility,\nfeaturing top-tier equipment, energizing group classes, and expert\npersonal training.\nThis celebration, exclusively for our valued members and their guests,\nwill include guided tours, live fitness demonstrations, and complimentary\nrefreshments. It's the perfect chance to experience our\ncommunity-focused approach to wellness and introduce others to a\nspace designed for all fitness levels.\nBring your friends and family! We're offering a special one-day-only\ndiscount on memberships for all attendees.\nFor questions or to RSVP, contact our customer service team at\n555-1234.\nWarm regards,\nJohn Parker",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is the main purpose of the email?",
+     "options": {
+      "A": "To attract customers to a new fitness center",
+      "B": "To provide Ms. Nguyen with an opportunity to provide expert personal training",
+      "C": "To celebrate Ms. Nguyen's achievements in wellness",
+      "D": "To announce a discount available to fitness-center members"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 14,
+     "question": "What can be inferred about Ms. Nguyen's relationship with the fitness center?",
+     "options": {
+      "A": "She helps the fitness center to organize activities.",
+      "B": "She has already explored the new facility.",
+      "C": "She is a member at one of the fitness center's other locations.",
+      "D": "She is new to using fitness centers and exercise equipment."
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 15,
+     "question": "The new fitness center is intended for use by which of the following groups of people?",
+     "options": {
+      "A": "Expert personal trainers",
+      "B": "Top-tier athletes",
+      "C": "Existing fitness-center members",
+      "D": "Community members of all fitness levels"
+     },
+     "answer": "D"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "FL2",
+  "test_name": "Full-Length Practice Test 2",
+  "category": "Full-Length Tests",
+  "module_num": 1,
+  "mod_key": "FL2_M1",
+  "passage1": {
+   "text": "Read an email.\nTo:\nbrownchocolover@dmail.com\nFrom:\nsantos.apartments@dmail.com\nDate:\n05/22/2025\nSubject:\nMaintenance Request\nDear Mr. Brown,\nYour maintenance request has been received. Our\ntechnician will visit your apartment on June 10th\nbetween 1:00 PM and 3:00 PM. You must be present\nduring that time, as our policy is that only the\nprimary tenant can let the technician in.\nBest regards,\nMaria Santos",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the earliest time of day that the technician will arrive?",
+     "options": {
+      "A": "10:00 AM",
+      "B": "11:00 AM",
+      "C": "1:00 PM",
+      "D": "3:00 PM"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 12,
+     "question": "Why must Mr. Brown be present?",
+     "options": {
+      "A": "To sign off on completed work",
+      "B": "To provide details about the problem",
+      "C": "To let the technician in",
+      "D": "To complete a survey"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nTo:\nmiyazakisuzuki@dmail.com\nFrom:\nrogersemily.branscomb.services@dmail.com\nDate:\n03/23/2025\nSubject:\nAudit\nDear Mr. Suzuki,\nBranscomb Technology's annual inventory audit will be performed on\nThursday, April 19, beginning promptly at 8:00 a.m. in the warehouse\non Kramer Boulevard. All department heads like yourself are required\nto attend and assist with the audit process. Please ensure that all\ninventory logs from your department are updated and will be readily\naccessible two days prior to the event. Because the audit is expected\nto take the entire day, we will be providing lunch from Beasly Bistro for\nparticipants. Please look over the attached menu and submit your\nselection to Fran Paloma in the HR department. We ask that you avoid\nscheduling any meetings on the morning of April 20 in the event that\nwe need additional time to complete the process.\nRegards,\nEmily Rogers",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "Why did Ms. Rogers send the email to Mr. Suzuki?",
+     "options": {
+      "A": "To assist him with an audit process",
+      "B": "To remind him to update inventory logs every day",
+      "C": "To inform him of an upcoming event",
+      "D": "To request his input on how to revise a process"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 14,
+     "question": "Why should Mr. Suzuki contact Ms. Paloma?",
+     "options": {
+      "A": "To provide her with his meal preference",
+      "B": "To obtain some information from the HR department",
+      "C": "To share a list of employees who have experience with audits",
+      "D": "To send her an updated inventory log"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 15,
+     "question": "What is indicated about the morning of April 20?",
+     "options": {
+      "A": "The audit might continue then.",
+      "B": "Mr. Suzuki might have several meetings then.",
+      "C": "A menu might be updated then.",
+      "D": "Employees might have free time then."
+     },
+     "answer": "A"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "FL2",
+  "test_name": "Full-Length Practice Test 2",
+  "category": "Full-Length Tests",
+  "module_num": 2,
+  "mod_key": "FL2_M2",
+  "passage1": {
+   "text": "Read an email.\nTo:\njhsigh36@dmail.com\nFrom:\nemmaj.onlinecourses@dmail.com\nDate:\n08/17/2025\nSubject:\nYou're in!\nDear Mr. Singh,\nYour registration for the on line coding course, which\nbegins on October 5th at 9:00 AM, is complete. Login\ndetails will be sent a day before the course begins. If\nyou would like to cancel your registration, let us know\nby October 3rd.\nBest regards,\nEmma Johnson",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the main purpose of the e-mail?",
+     "options": {
+      "A": "To cancel registration for a course",
+      "B": "To confirm registration for a course",
+      "C": "To provide information about a course",
+      "D": "To request payment for a course"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "When will Mr. Singh receive login details?",
+     "options": {
+      "A": "October 2nd",
+      "B": "October 3rd",
+      "C": "October 4th",
+      "D": "October 5th"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nTo:\ngardnerjardinero@dmail.com\nFrom:\nthompson.building.co@dmail.com\nSubject:\nUpcoming Heating System Maintenance - Tuesday, May 27\nDear Ms. Gardner,\nI hope you're doing well. I'm writing to inform you of a scheduled\nmaintenance procedure on the office heating system, set to take place\non Tuesday, May 27, from 8:00 A.M. to 5:00 P.M. This essential work is\npart of our seasonal inspection and efficiency upgrade initiative to ensure\noptimal performance during the colder months.\nPlease note that the heating system will be offline throughout the day,\nand indoor temperatures will drop noticeably. We recommend dressing in\nwarm layers and advising your team to do the same. If any team mem-\nbers are particularly sensitive to cooler environments, remote work\narrangements may be considered.\nAdditionally, as external technicians will be on-site, please ensure all\nconfidential materials are secured appropriately.\nShould you have any questions, contact the maintenance team at\n555-7264.\nWarm regards, Robert Thompson",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is indicated about the office heating system?",
+     "options": {
+      "A": "It failed an inspection.",
+      "B": "It will not be functioning during maintenance.",
+      "C": "It is not working properly.",
+      "D": "It performs optimally."
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "What can be inferred about the weather on May 27?",
+     "options": {
+      "A": "It will be cooler than the temperature at which the office is normally kept.",
+      "B": "It will be unusual for the season.",
+      "C": "It will require office workers to stay home rather than go to the office.",
+      "D": "It will change throughout the day."
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 15,
+     "question": "Who will be performing maintenance?",
+     "options": {
+      "A": "Ms. Gardner",
+      "B": "Ms. Gardner's team members",
+      "C": "Professionals from another company",
+      "D": "Robert Thompson"
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR1",
+  "test_name": "Teacher Resources Test 1",
+  "category": "Teacher Resources Tests",
+  "module_num": 1,
+  "mod_key": "TR1_M1",
+  "passage1": {
+   "text": "Read a notice.\nThis is to let all employees know that the staff meeting scheduled for Wednesday, August 10th at 2:00 PM\nhas been rescheduled. The meeting will now take place on Friday, August 12th at 3:00 PM in the main\nconference room. Please be on time. Thank you.",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the main purpose of the notice?",
+     "options": {
+      "A": "To introduce new employees to staff",
+      "B": "To announce a change in a meeting schedule",
+      "C": "To apologize for a scheduling conflict",
+      "D": "To inform employees of a conference opportunity"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "When will the staff meeting take place?",
+     "options": {
+      "A": "Wednesday, August 10th at 2:00 PM",
+      "B": "Wednesday, August 10th at 3:00 PM",
+      "C": "Friday, August 12th at 2:00 PM",
+      "D": "Friday, August 12th at 3:00 PM"
+     },
+     "answer": "D"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nSubject: RE: inquiry\nDear Mr. Santiago,\nWe are pleased that you are considering our facility for your mother’s birthday party.\nOur outdoor area includes a playground and picnic tables, which can be set up to your preference. We\noffer a variety of dining options that suit different dietary needs. Please find the menu attached to this\nemail.\nOur team can organize activities for people of all ages, including arts and crafts, board games, and more.\nWe do not have photographers on staff, but we have worked with external professional photographers in\nthe past and are happy to provide you with recommendations.\nTo secure your date, we require a down payment of 30 percent of the total cost. If you need to cancel\nyour booking, please notify us at least fourteen days in advance. Cancellations made outside this window\nwill forfeit the down payment.\nRegards,\nRebecca Yang",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What can be inferred about Mr. Santiago?",
+     "options": {
+      "A": "He is about to celebrate his birthday.",
+      "B": "He has used Rebecca Yang's facility in the past.",
+      "C": "He is a professional event organizer.",
+      "D": "He has requested information about Rebecca Yang's facility."
+     },
+     "answer": "D"
+    },
+    {
+     "q_num": 14,
+     "question": "Rebecca Yang's team does NOT include",
+     "options": {
+      "A": "Cooks",
+      "B": "Professional photographers",
+      "C": "People who can facilitate children's games",
+      "D": "People who can set up picnic tables"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 15,
+     "question": "What information is being provided along with the email message?",
+     "options": {
+      "A": "Food choices",
+      "B": "Types of arts and crafts activities",
+      "C": "Dates available for booking",
+      "D": "Contact information of photographers"
+     },
+     "answer": "A"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR1",
+  "test_name": "Teacher Resources Test 1",
+  "category": "Teacher Resources Tests",
+  "module_num": 2,
+  "mod_key": "TR1_M2",
+  "passage1": {
+   "text": "Read an email.\nDear Ms. Simmons,\nWe are delighted to confirm your reservation for the Italian cooking class on June 25th at 4:00 PM. Please\narrive fifteen minutes early for registration. Bring an apron, a chef’s knife, and a notebook. We’ll provide a\ncutting board.\nBest regards,\nLily Evans",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the main purpose of the e-mail?",
+     "options": {
+      "A": "To request attendance at a class",
+      "B": "To confirm a reservation for a class",
+      "C": "To update travel plans",
+      "D": "To provide registration instructions"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "What is Ms. Simmons NOT required to bring?",
+     "options": {
+      "A": "An apron",
+      "B": "A cutting board",
+      "C": "A chef’s knife",
+      "D": "A notebook"
+     },
+     "answer": "B"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nSubject: Annual conference\nDear Ms. Adams,\nWe are pleased to invite you to the annual educational psychology conference taking place on October\n13–15.\nThis year’s conference theme is “Emotions and Psychological Processes.” The keynote speaker will be Dr.\nJane Smith. We will also organize four panel discussions with leading scholars as well as interactive\nworkshops. More details will be forthcoming.\nWe are excited to announce the return of poster sessions this year, where graduate students and early-\ncareer researchers will present their work. If you would like to present your research in the poster session,\nplease submit an extended abstract for review by the conference committee by August 31.\nBreakfast and lunch will be provided for a nominal fee with a variety of options to accommodate different\ndietary needs. Additionally, all attendees will receive a conference packet, including materials from the\nsessions and a certificate of participation.\nRegards,\nMichael Brown",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is the main purpose of the email?",
+     "options": {
+      "A": "To req ue st information about Ms. Adams' research",
+      "B": "To invite Ms. Adams to speak at a conference",
+      "C": "To provide details about an event",
+      "D": "To announce participants of the poster sessions"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 14,
+     "question": "Dr. Jane Smith will",
+     "options": {
+      "A": "lead panel discussions",
+      "B": "organize interactive workshops",
+      "C": "talk about research about emotions",
+      "D": "present her research in the poster session"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 15,
+     "question": "What can be inferred about the poster session?",
+     "options": {
+      "A": "It has been part of the conference in the past.",
+      "B": "It is for leading scholars of the field.",
+      "C": "It is open to the public.",
+      "D": "It will be held on August 31."
+     },
+     "answer": "A"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR2",
+  "test_name": "Teacher Resources Test 2",
+  "category": "Teacher Resources Tests",
+  "module_num": 1,
+  "mod_key": "TR2_M1",
+  "passage1": {
+   "text": "Read a notice.\nThe Community Center will host a free language exchange event on Saturday at 3:00 PM. Learn a new\nlanguage, meet people from different cultural backgrounds, and swap languages in a fun, flexible, and\nrelaxed way. We will pair you with a fluent speaker of a language of your choice.",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the notice about?",
+     "options": {
+      "A": "A foreign language book drive",
+      "B": "A community organization meeting",
+      "C": "A language exchange event",
+      "D": "A student exchange program"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 12,
+     "question": "What will participants NOT experience?",
+     "options": {
+      "A": "Learn new languages",
+      "B": "Practice relaxation techniques",
+      "C": "Pair up with speakers of different languages",
+      "D": "Meet people from different cultures"
+     },
+     "answer": "B"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an email.\nSubject: Server Maintenance\nThe next university server maintenance is scheduled on May 22 from 2 AM to 6 AM. This is part of a\nscheduled maintenance that we conduct with our external provider.\nDuring this window, access to network drives and cloud storage services will be temporarily unavailable.\nPlease save any important documents and plan your work accordingly. You may also experience\ndisruptions accessing your university email accounts. Online library databases will not be affected.\nA reminder: Routine maintenance windows take place on a semi-monthly basis. In the event that\nmaintenance needs arise outside of the scheduled maintenance windows, we will do our best to give the\nuniversity community advanced notice.\nIf you experience issues, contact the IT team. We will send out another notification when maintenance is\ncomplete. We appreciate your understanding as we strive to ensure the security and reliability of our IT\ninfrastructure.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "The email is most likely sent to",
+     "options": {
+      "A": "IT support team members",
+      "B": "university students, faculty, and staff",
+      "C": "the external provider of the university server",
+      "D": "people who have encountered issues with the university server"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "From 2 AM to 6 AM on May 22, what activity can be done without interruption?",
+     "options": {
+      "A": "Logging onto university network drives",
+      "B": "Saving documents onto the university cloud storage service",
+      "C": "Sending and receiving emails using university email accounts",
+      "D": "Searching for an article in the university library"
+     },
+     "answer": "D"
+    },
+    {
+     "q_num": 15,
+     "question": "What can be inferred about the university's server?",
+     "options": {
+      "A": "It is currently offline.",
+      "B": "It is managed only by the university IT team.",
+      "C": "It sometimes requires emergency maintenance.",
+      "D": "It is the subject of many complaints from the university community."
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR2",
+  "test_name": "Teacher Resources Test 2",
+  "category": "Teacher Resources Tests",
+  "module_num": 2,
+  "mod_key": "TR2_M2",
+  "passage1": {
+   "text": "Read an email.\nDear Mr. Clark,\nYour table reservation for 2 at La Bella Restaurant is confirmed for November 15th at 5 PM. Please arrive\n10 minutes early for seating. We have noted your preference for seating close to a window and will\naccommodate that as availability permits.\nBest regards,\nMaria Lopez",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "How early should Mr. Clark arrive for seating?",
+     "options": {
+      "A": "5 minutes early",
+      "B": "10 minutes early",
+      "C": "15 minutes early",
+      "D": "20 minutes early"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "What will the restaurant try to provide?",
+     "options": {
+      "A": "A private dining room",
+      "B": "Seating near a window",
+      "C": "Personalized service",
+      "D": "A customized menu"
+     },
+     "answer": "B"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read a text chain.\n**Larissa Velez (10:00 A.M.)** Hey team, just a reminder that the marketing materials for our client’s new-\nproduct launch need to be finalized by tomorrow.\n**Miko Tanaka (10:05 A.M.)** Got it. I’ll finish the brochure design today.\n**Pedro Alvarez (10:10 A.M.)** I’m working on the social media posts. They’ll be ready by the end of the\nday. I think we should generate some real excitement for Grenstar’s new smart-tracking water bottle.\n**Sophia Nguyen (10:15 A.M.)** I’ll review the content when Miko and Pedro have finished and make any\nadjustments.\n**Larissa Velez (10:20 A.M.)** Perfect. Make sure to double-check the dates and contact information. We\nknow what happened last time.\n**Sophia Nguyen (10:21 A.M.) Oh, yes, the client was not pleased. I am glad we started this double-\nchecking process. I will be sure to check the dates extra carefully.\n**Larissa Velez (10:22 A.M.) Great, team! Here’s to a smoother launch of the water bottle than of the\nsmart sportswear line!",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "At 10:20 A.M., what does Ms. Velez imply when she writes, \"We know what happened last time\"?",
+     "options": {
+      "A": "A client was especially pleased with a marketing campaign.",
+      "B": "Some errors were made regarding a previous product launch.",
+      "C": "A brochure was never sent out.",
+      "D": "A marketing team did not complete a project in time."
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "What product is being launched?",
+     "options": {
+      "A": "A type of water bottle",
+      "B": "A line of sportswear",
+      "C": "A type of smartphone",
+      "D": "A type of software"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 15,
+     "question": "What does Mr. Alvarez indicate?",
+     "options": {
+      "A": "He will double-check the content of a brochure.",
+      "B": "He is the main point of contact for a client.",
+      "C": "He helped design a new product.",
+      "D": "He will complete some postings by the end of the day."
+     },
+     "answer": "D"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR3",
+  "test_name": "Teacher Resources Test 3",
+  "category": "Teacher Resources Tests",
+  "module_num": 1,
+  "mod_key": "TR3_M1",
+  "passage1": {
+   "text": "Read an email.\nSubject: Maintenance Notice\nDear Mr. Brown,\nWe are pleased that you are considering our facility for your mother’s birthday party.\nOur maintenance team is scheduled to paint your apartment’s living room on March 11\nstarting at 9:00 a.m. We ask that you leave the apartment and not return until one hour\nafter the painters have finished at 12:00 p.m.\nBest regards,\nAnna Davis",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What room in the apartment will be painted?",
+     "options": {
+      "A": "The kitchen",
+      "B": "The dining room",
+      "C": "The living room",
+      "D": "The bedroom"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 12,
+     "question": "When can Mr. Brown return to the apartment?",
+     "options": {
+      "A": "At 9:00 AM",
+      "B": "At 11:00 AM",
+      "C": "At 12:00 PM",
+      "D": "At 1:00 PM"
+     },
+     "answer": "D"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read a notice.\nThis area is specifically designated for quiet reading and study to ensure a peaceful\nenvironment for all patrons. Please adhere to the following guidelines:\n1.  Noise Levels: Please keep noise to a minimum. This includes refraining from loud\nconversations and phone calls.\n2.  Electronic Devices: Ensure that all electronic devices, such as phones and laptops,\nare set to silent mode. The volume on headphones must be kept low.\n3.  Conversations: If you need to have a conversation, please conduct it quietly or\nproceed to another area of the library.\n4. Music and Media: Listening to music or watching videos without headphones is not\nallowed. Please keep the volume of headphones at a level that only you can hear.\n5. Respect for Others: Be mindful of those around you who are studying or reading.\nYour cooperation helps maintain a serene environment for everyone.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What can be concluded about the library?",
+     "options": {
+      "A": "It has areas that are not specifically designated as quiet zones.",
+      "B": "It has received numerous complaints about noise levels.",
+      "C": "It is located on the campus of a university.",
+      "D": "It holds a large collection of film and music recordings."
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 14,
+     "question": "The phrase \"adhere to\" in the opening paragraph is closest in meaning to",
+     "options": {
+      "A": "notice",
+      "B": "read",
+      "C": "follow",
+      "D": "admire"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 15,
+     "question": "What is indicated about headphones?",
+     "options": {
+      "A": "They are not permitted in the library's quiet zone.",
+      "B": "They are only allowed for use with smartphones and laptop computers.",
+      "C": "They may not be shared between two users.",
+      "D": "They should be kept at a low volume. Welcome to the Library Quiet Zone!"
+     },
+     "answer": "D"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR3",
+  "test_name": "Teacher Resources Test 3",
+  "category": "Teacher Resources Tests",
+  "module_num": 2,
+  "mod_key": "TR3_M2",
+  "passage1": {
+   "text": "Read an email.\nSubject: Medical appointment\nDear Ms. Patel,\nYour appointment at Lakeside Medical Center is scheduled for May 10 at 3:00 P.M.\nPlease arrive 15 minutes early for paperwork. You will be seen by Dr. Liu. Click the link\nbelow to confirm. To reschedule or cancel, call us at 756-8793.\nRegards,\nBrittany Jones",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What time should Ms. Patel arrive for her appointment?",
+     "options": {
+      "A": "10:00 AM",
+      "B": "2:45 PM",
+      "C": "3:00 PM",
+      "D": "3:15 PM"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "How can Ms. Patel cancel her appointment?",
+     "options": {
+      "A": "By replying to the e-mail",
+      "B": "By clicking a link",
+      "C": "By calling a phone number",
+      "D": "By sending a text message"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an advertisement.\nThe programs will begin on May 1.\nVolunteers must be available Saturdays or Sundays, 9 A.M. to 4 P.M.,\nand complete a four-hour training session before starting.\nTraining sessions are scheduled for the week of April 15.\nPrevious experience with children preferred but not required.\nResponsibilities include leading nature walks, supervising craft activities,\nand helping with educational demonstrations.\nApplication deadline: March 15.\nBackground check required for all accepted volunteers.\nContact Sarah Mitchell at 555-0199 for more information.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is this poster mainly advertising?",
+     "options": {
+      "A": "Career opportunities at the Riverdale Parks Department",
+      "B": "Educational programs for children",
+      "C": "Volunteer opportunities for community members",
+      "D": "Training courses for nature guides"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 14,
+     "question": "What must volunteers do before they can start working?",
+     "options": {
+      "A": "Submit references from previous employers",
+      "B": "Complete training and pass a background check",
+      "C": "Demonstrate experience working with children",
+      "D": "Commit to working both Saturday and Sunday"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 15,
+     "question": "When is the latest someone can apply for this program?",
+     "options": {
+      "A": "March 15th",
+      "B": "April 15th",
+      "C": "May 1st",
+      "D": "May 9th Riverdale Parks Department seeks dedicated volunteers to assist with weekendnature programs for families."
+     },
+     "answer": "A"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR4",
+  "test_name": "Teacher Resources Test 4",
+  "category": "Teacher Resources Tests",
+  "module_num": 1,
+  "mod_key": "TR4_M1",
+  "passage1": {
+   "text": "Read an email.\nSubject: Bella Italia reservation\nDear Ms. Green,\nThis concerns your table reservation for 4 at Bella Italia Restaurant for December 5 at\n7:00 P.M. Since you made your reservation more than two weeks ago, the $10.00 charge\nat the door for the night’s live musical entertainment is waived.\nThank you,\nAnthony Russos",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "How many people will dine with Ms. Green?",
+     "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 12,
+     "question": "What will Ms. Green not be charged for?",
+     "options": {
+      "A": "Canceling the reservation",
+      "B": "Rescheduling the reservation",
+      "C": "Listening to live music",
+      "D": "Inviting additional guests"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read a notice.\nName:\nLibrary Card Number:\nComputer Station Preference:\n\nBasic (Internet only) \nPremium (Full software access)\nRequested Date:\nTime Slot:  \n9-11 A.M.   \n11 A.M.-1 P.M.  \n1-3 P.M.  \n3-5 P.M.\nMaximum reservation time: 2 hours per day. Premium stations require advance\nbooking and may be reserved up to one week in advance. Basic stations are\navailable on a first-come first-served basis same day only. Late arrival (more than\n15 minutes) results in automatic cancellation. Photo ID required at check-in.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is this form used for?",
+     "options": {
+      "A": "Applying for a new library card",
+      "B": "Reporting problems with library computers",
+      "C": "Booking time to use library computers",
+      "D": "Requesting software installation on computers"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 14,
+     "question": "How far in advance can someone reserve a Premium station?",
+     "options": {
+      "A": "The same day only",
+      "B": "Up to one week ahead",
+      "C": "Up to one month ahead",
+      "D": "Up to two weeks in advance"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 15,
+     "question": "What happens if someone arrives 20 minutes late for their reservation?",
+     "options": {
+      "A": "They can still use the computer for the remaining time.",
+      "B": "They must pay an additional fee.",
+      "C": "Their reservation is automatically canceled.",
+      "D": "They are moved to a Basic station instead. LIBRARY COMPUTER RESERVATION SYSTEM"
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR4",
+  "test_name": "Teacher Resources Test 4",
+  "category": "Teacher Resources Tests",
+  "module_num": 2,
+  "mod_key": "TR4_M2",
+  "passage1": {
+   "text": "Read an email.\nSubject: Photography class\nDear Mr. Clark,\nUnfortunately, the photography class you registered for on October 20 has been\nrescheduled. It will now meet on October 28 at 6:00 P.M. instead of October 26 at\n5:00 P.M. Your registration fee will be refunded if you have a scheduling conflict.\nRegards,\nEmily Rodriguez",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "When did Mr. Clark register for the class?",
+     "options": {
+      "A": "On October 20",
+      "B": "On October 25",
+      "C": "On October 26",
+      "D": "On October 29"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 12,
+     "question": "Why may Mr. Clark receive a refund?",
+     "options": {
+      "A": "If he registered for the wrong class",
+      "B": "If he could not attend the class",
+      "C": "If he was dissatisfied with the class",
+      "D": "If he rescheduled the class"
+     },
+     "answer": "B"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an advertisement.\nA one-day intensive workshop for managers and team leaders. Learn practical strategies\nfor conducting productive meetings, providing constructive feedback, and resolving\nworkplace conflicts. Experienced facilitators will guide participants through interactive\nexercises and real-world scenarios. Workshop includes comprehensive workbook and\nlight refreshments.\nEarly bird registration (before April 1): $195. Regular price: $245.\nLimited to 25 participants to ensure personalized attention.\nCertificate of completion provided for continuing education requirements.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is this advertisement promoting?",
+     "options": {
+      "A": "A job training program for new employees",
+      "B": "A professional workshop on workplace communication",
+      "C": "A management certification course",
+      "D": "A conflict-resolution consulting service"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "What does someone gain by registering early?",
+     "options": {
+      "A": "A reduction in cost",
+      "B": "A special certificate",
+      "C": "Guaranteed seating in the front row",
+      "D": "A one-on-one session with a facilitator"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 15,
+     "question": "Why is participation limited to 25 people?",
+     "options": {
+      "A": "To keep costs affordable for participants",
+      "B": "To meet continuing education requirements",
+      "C": "To provide personalized attention to participants",
+      "D": "To ensure everyone receives a workbook Effective Communication in the Modern Workplace"
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR5",
+  "test_name": "Teacher Resources Test 5",
+  "category": "Teacher Resources Tests",
+  "module_num": 1,
+  "mod_key": "TR5_M1",
+  "passage1": {
+   "text": "Read an email.\nSubject: TechHub shipment\nDear Ms. Turner,\nTechHub has shipped the order you placed on Thursday. It should arrive by Monday.\nPlease make sure the package contains what you ordered. Returns will only be accepted\nwithin 3 business days of your package’s arrival. Thank you for your purchase.\nRegards,\nJames Lee",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "When is the latest Ms. Turner will receive her order?",
+     "options": {
+      "A": "By Monday",
+      "B": "By Tuesday",
+      "C": "By Wednesday",
+      "D": "By Thursday"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 12,
+     "question": "What is Ms. Turner advised to do?",
+     "options": {
+      "A": "Review the return policy",
+      "B": "Return the completed warranty form",
+      "C": "Send in the final payment",
+      "D": "Check the contents of the package"
+     },
+     "answer": "D"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read a notice.\nEnjoy author signings, book readings, and literary workshops. This event is perfect for\nbook lovers of all ages, with a special area dedicated to young readers.\nA variety of food and beverages will be available for purchase from local food trucks\nand vendors.\nFree parking is available at the Town Square parking lot and nearby streets.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is the main purpose of the notice?",
+     "options": {
+      "A": "To advertise a used-book sales event",
+      "B": "To announce an event for people who like reading",
+      "C": "To promote an event celebrating the publication of a new book",
+      "D": "To advertise prices for a series of writing workshops"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 14,
+     "question": "Where will the event take place?",
+     "options": {
+      "A": "At a local bookstore",
+      "B": "At the library",
+      "C": "At the town square",
+      "D": "At the community center"
+     },
+     "answer": "C"
+    },
+    {
+     "q_num": 15,
+     "question": "What can be concluded about the Summer Book Festival?",
+     "options": {
+      "A": "It is suitable for children.",
+      "B": "It has a registration fee.",
+      "C": "It will last all day.",
+      "D": "It requires tickets. Admission is free. Come join us at the Summer Book Festival! Date: July 18 Time: 10:00 A.M. – 4:00 P.M. Location: Town Square"
+     },
+     "answer": "A"
+    }
+   ]
+  }
+ },
+ {
+  "test_id": "TR5",
+  "test_name": "Teacher Resources Test 5",
+  "category": "Teacher Resources Tests",
+  "module_num": 2,
+  "mod_key": "TR5_M2",
+  "passage1": {
+   "text": "Read an email.\nSubject: Workshop registration\nDear Ms. Thompson,\nThis is to confirm your registration for the online coding workshop on November 3. We\nrecommend that you check your video and audio settings before joining the class.\nLogin details will be sent to this email address on November 2.\nRegards,\nAlex Kim",
+   "questions": [
+    {
+     "q_num": 11,
+     "question": "What is the main purpose of the email?",
+     "options": {
+      "A": "To confirm registration for a workshop",
+      "B": "To cancel registration for a workshop",
+      "C": "To request payment for a workshop",
+      "D": "To provide technical support for a workshop"
+     },
+     "answer": "A"
+    },
+    {
+     "q_num": 12,
+     "question": "What information should Ms. Thompson look for in her email?",
+     "options": {
+      "A": "A workshop schedule",
+      "B": "A payment receipt",
+      "C": "Login details",
+      "D": "Equipment requirements"
+     },
+     "answer": "C"
+    }
+   ]
+  },
+  "passage2": {
+   "text": "Read an article.\nDowntown Books, a family-owned bookstore operating for 15 years, recently added a\ncafé area and expanded its evening hours to accommodate working customers.\nOwner Janet Miller explains, “We noticed many people wanted to browse books after\nwork but couldn’t make it during our traditional hours.”\nThe store now stays open until 9 P.M. on weekdays and offers coffee, pastries, and light\nmeals alongside its selection of books, magazines, and gifts. The café area includes\ncomfortable seating and free Wi-Fi for customers who want to read or work.",
+   "questions": [
+    {
+     "q_num": 13,
+     "question": "What is this article mainly about?",
+     "options": {
+      "A": "The history of a family-owned bookstore",
+      "B": "How a small bookstore is competing with online retailers",
+      "C": "The growing popularity of bookstore cafés",
+      "D": "Changes that a local bookstore has made"
+     },
+     "answer": "D"
+    },
+    {
+     "q_num": 14,
+     "question": "Why does the bookstore close at 9 p.m. on weekdays?",
+     "options": {
+      "A": "To compete with other bookstores in the area",
+      "B": "To serve customers who work during traditional business hours",
+      "C": "To provide a place for people to use free Wi-Fi",
+      "D": "To increase sales of coffee and pastries"
+     },
+     "answer": "B"
+    },
+    {
+     "q_num": 15,
+     "question": "What new service is the bookstore offering?",
+     "options": {
+      "A": "Online ordering and home delivery",
+      "B": "Book club meetings and author readings",
+      "C": "A café area with food, drinks, and Wi-Fi",
+      "D": "Gift wrapping and special ordering BRUCKVILLE (May 16)"
+     },
+     "answer": "C"
+    }
+   ]
+  }
+ }
+]

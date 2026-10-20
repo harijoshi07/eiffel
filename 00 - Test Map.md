@@ -1,86 +1,99 @@
-# Test Map — TOEFL iBT from January 21, 2026
+# Test Map — TOEFL iBT (January 21, 2026 format)
 
-## The test at a glance
+## Section overview
 
-| Section | Items | Approx. base time | Task types |
+| Section | Items | Base time | Task types |
 |---|---:|---:|---|
-| Reading | 50 | 30 min | Complete the Words; Read in Daily Life; Read an Academic Passage |
-| Listening | 47 | 29 min | Listen and Choose a Response; Conversation; Announcement; Academic Talk |
-| Writing | 12 | 23 min | Build a Sentence; Write an Email; Academic Discussion |
-| Speaking | 11 | 8 min | Listen and Repeat; Take an Interview |
+| Reading | 50 | 30 min | Complete the Words · Read in Daily Life · Read an Academic Passage |
+| Listening | 47 | 29 min | Listen and Choose a Response · Conversation · Announcement · Academic Talk |
+| Writing | 12 | 23 min | Build a Sentence · Write an Email · Academic Discussion |
+| Speaking | 11 | 8 min | Listen and Repeat · Take an Interview |
 
-The published figures are base estimates. Reading and Listening are **multistage adaptive**, so the exact test experience may vary. You cannot safely infer your performance from whether a later module feels easier or harder.
+Total seated time is approximately **90 minutes of active work** plus check-in and instructions — expect around **2 hours at the centre**.
 
-## Adaptivity
-
-Reading and Listening adjust difficulty based on performance. Treat every item as consequential:
-
-1. Work accurately from the beginning.
-2. Do not deliberately rush an early module to “save time.”
-3. Do not panic when material becomes difficult; harder material may be consistent with strong performance.
-4. Follow the on-screen navigation rules. Do not assume you can return to an earlier module.
+---
 
 ## Scoring
 
-- Four section scores: **1–6**, reported in **0.5-point increments**.
-- Overall score: the average of the four section scores, rounded to the nearest half band.
-- CEFR alignment:
+| What | Detail |
+|---|---|
+| Scale | **1 – 6** per section, reported in **0.5-point increments** |
+| Overall | Average of four section scores, rounded to nearest half band |
+| Transition score | ETS also reports a comparable 0–120 score during the transition period |
 
-| TOEFL band | CEFR |
-|---:|---|
-| 6 | C2 |
-| 5–5.5 | C1 |
-| 4–4.5 | B2 |
-| 3–3.5 | B1 |
-| 2–2.5 | A2 |
-| 1–1.5 | A1 |
+### Band meanings
 
-During the transition period, ETS also reports a comparable overall score on the old 0–120 scale. Do not calculate a section score by converting raw practice accuracy: adaptive scoring is not a simple percentage formula.
+| Band | CEFR | What it signals |
+|---:|---|---|
+| 6 | C2 | Near-native; virtually no errors; full nuance |
+| 5 – 5.5 | C1 | Strong command; occasional minor slips; clear organisation |
+| 4 – 4.5 | B2 | Good functional ability; some errors; handles most tasks |
+| 3 – 3.5 | B1 | Basic competence; simplified language; frequent errors |
+| 2 – 2.5 | A2 | Very limited; handles only simple prompts |
+| 1 – 1.5 | A1 | Minimal ability; most language is inaccessible |
 
-## What changed from the pre-2026 test
+> **Do not convert raw practice accuracy into a band score directly.** Reading and Listening are multistage adaptive — your score depends on item difficulty, not a simple percentage.
 
-Do not prepare primarily with these retired structures:
+---
 
-- two 700-word Reading passages as the whole Reading section;
-- three long lectures plus two campus conversations as the whole Listening section;
-- Integrated Writing based on a reading and lecture;
-- one independent and three integrated Speaking tasks.
+## Adaptivity rules
 
-Older material can still build general English, but it does not simulate the current test.
+Reading and Listening adjust difficulty based on your performance. This means:
 
-## What each section really measures
+- Treat every item as consequential from the first.
+- Do not rush early modules to "save time" — it backfires.
+- Harder material in a later module is often a sign of strong early performance.
+- You cannot return to an earlier module once it closes.
+
+---
+
+## What each section actually measures
 
 ### Reading
-
-- rapid reconstruction of words from spelling and grammar;
-- practical comprehension of notices, messages, emails, and digital texts;
-- academic main ideas, detail, inference, vocabulary, and author purpose.
+- Spelling reconstruction from partial letters
+- Practical comprehension of notices, emails, schedules, and digital texts
+- Academic main ideas, detail, inference, vocabulary, and author purpose
 
 ### Listening
-
-- socially appropriate responses;
-- purpose, attitude, implication, and next action in conversations;
-- key details and organization in announcements;
-- concepts, examples, contrasts, and speaker purpose in academic talks.
+- Socially appropriate short replies
+- Purpose, attitude, implication, and next action in conversations
+- Key details and organisation in announcements
+- Concepts, contrasts, examples, and speaker purpose in academic talks
 
 ### Writing
-
-- sentence structure and word order;
-- clear functional email communication;
-- a concise, supported contribution to an academic discussion.
+- Word order and grammatical sentence assembly
+- Clear, functional email communication
+- A concise, supported contribution to an academic discussion
 
 ### Speaking
+- Accurate reproduction of spoken sentences
+- Intelligible pronunciation, rhythm, and phrasing
+- Direct, developed answers to interview questions
 
-- accurate reproduction of spoken language;
-- intelligible pronunciation, rhythm, and phrasing;
-- direct, developed answers to interview questions.
+---
 
-## Test-day operating principles
+## What is retired (do not train with these as format simulations)
+
+| Retired feature | Why it matters |
+|---|---|
+| Two long 700-word Reading passages as the full section | Current section is shorter and adaptive |
+| Three lectures + two campus conversations as full Listening | Current section has different task types |
+| Integrated Writing (read a passage, listen to a lecture, write) | Replaced by Write an Email + Academic Discussion |
+| Four Speaking tasks (1 independent + 3 integrated) | Replaced by Listen and Repeat + Take an Interview |
+| 0–120 total score / 0–30 per-section score | Now 1–6 per section |
+
+Older books and courses can still build vocabulary, grammar, and academic comprehension. Label them as **language drills**, not format practice.
+
+---
+
+## Test-day principles
 
 1. **Accuracy before drama.** Clear, controlled English scores better than forced sophistication.
-2. **Answer the exact task.** Relevance is part of language performance.
-3. **Use structure.** Signal purpose, reasons, examples, and conclusions.
-4. **Recover immediately.** One difficult item must not damage the next one.
-5. **Protect energy.** The full experience lasts about two hours; eat, hydrate, and sleep accordingly.
+2. **Answer the exact task.** Relevance is scored.
+3. **Use structure.** Signal purpose, reasons, examples, conclusions.
+4. **Recover immediately.** One bad item must not affect the next.
+5. **Protect energy.** Eat, hydrate, and sleep well before test day.
 
-Next: [[01 - Seven-Day Masterclass]]
+---
+
+Next: [[01 - Study Plan]]
