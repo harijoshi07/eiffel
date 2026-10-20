@@ -1,61 +1,23 @@
-# TOEFL iBT 2026 — Prep Vault
+# TOEFL iBT 2026 prep
 
-Format enforced from **January 21, 2026** · Score scale **1–6** per section · CEFR-aligned
+## Layout
+- `00 - Test Map.md`: format and scoring.
+- `01 - Study Plan.md`: 8-week plan.
+- `logs/`: one log per section (`reading.md`, `listening.md`, `writing.md`, `speaking.md`). Each entry holds your exact answers, the questions, your reasoning, the error, and the fix.
+- `practice/`: interactive pages. `complete-the-words.html` and `daily-life-reading.html` (Reading).
+- `resources/pdfs/`: the 7 test PDFs (`full-length-1/2`, `teacher-resources-1` to `-5`) and 3 guides (`guide-writing-rubrics`, `guide-lesson-writing`, `guide-lesson-listening`). Each PDF has a `.md` beside it. **Use the `.md` as the input.**
+- `resources/audio/`: `lessons/listening`, `lessons/speaking`, `samples/speaking`, and `tests/<student-1|student-2|teacher-1..5>/<listening|speaking>/`.
 
----
+## Log entry format
+1. Context: test, module, and the PDF page (`## p. N` in the `.md`).
+2. Exact question and options.
+3. Your answer and the correct answer (from the answer-key pages).
+4. Why it was wrong (your reasoning, or "not recorded").
+5. The fix: the rule to apply next time.
 
-## 🗺️ Start here
+Each section log also ends with Difficulties, Improvements, and Tips.
 
-| Step | File |
-|---:|---|
-| 1 | Read [[00 - Test Map]] — understand the format completely |
-| 2 | Set your target band and record baseline → [[workbook/Progress Tracker]] |
-| 3 | Follow the 8-week plan → [[01 - Study Plan]] |
-| 4 | Use section playbooks during each assigned block |
-| 5 | Log every session → [[daily/Day Log]] |
-| 6 | Review only current-format official tests → [[resources/Official Resources]] |
-
----
-
-## 📂 Vault layout
-
-```
-eiffel/
-├── 00 - Test Map.md           ← format, scoring, task types
-├── 01 - Study Plan.md         ← 8-week week-by-week plan
-│
-├── sections/
-│   ├── Reading Playbook.md
-│   ├── Listening Playbook.md
-│   ├── Writing Playbook.md
-│   └── Speaking Playbook.md
-│
-├── drills/
-│   ├── Reading Drills.md
-│   ├── Listening Drills.md
-│   ├── Writing Drills.md
-│   └── Speaking Drills.md
-│
-├── daily/
-│   └── Day Log.md             ← one row per study day
-│
-├── workbook/
-│   └── Progress Tracker.md   ← baseline, error log, targets
-│
-├── practice/
-│   ├── test-1/               ← ETS Sample Test 1 notes
-│   └── test-2/               ← ETS Sample Test 2 notes
-│
-└── resources/
-    └── Official Resources.md ← all links, resource filter
-```
-
----
-
-## ⚡ Ground rules
-
-1. **Timer always on.** Never practice without simulating real time pressure.
-2. **Review by cause, not answer.** Identify *why* you got it wrong.
-3. **Speak aloud. Record yourself.** Silent speaking practice does not count.
-4. **Official format only for full simulations.** Third-party material = drills only.
-5. **One vault, one error log.** Everything goes into [[workbook/Progress Tracker]].
+## Rules
+- Answers come from the PDF answer-key pages. Never from reasoning about the passage.
+- Write "not recorded" instead of guessing missing data.
+- PDFs and audio stay local (listed in `.gitignore`). Markdown, logs, and HTML are committed.
