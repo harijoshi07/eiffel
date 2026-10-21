@@ -1,7 +1,7 @@
 # TOEFL iBT 2026 prep
 
 ## Layout
-- `00 - Test Map.md`: format and scoring.
+- `00 - Test Map.md`: format at a glance (items per task, timing, can I go back) and scoring.
 - `01 - Study Plan.md`: 8-week plan.
 - `logs/`: **what happened.** One record per section (`reading.md`, `listening.md`, `writing.md`, `speaking.md`): exact questions, your answers, the key, your reasoning, the error.
 - `guides/`: **how to improve.** One playbook per section (same four names): failure modes, per-question-type routines, quick-reference tips, and the redo queue. Update these when the logs show a pattern.
