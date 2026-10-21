@@ -4,6 +4,41 @@ Records only: what happened, with exact answers. How to improve lives in `guides
 
 Sources: `resources/pdfs/*.pdf` (page refs = PDF page number). Answer keys: the answer-key pages of each PDF.
 
+## Reading scoreboard: all 7 tests (2026-10-21)
+
+Test numbers follow the order of the PDFs: Test 1 = Full-Length 1, Test 2 = Full-Length 2, Tests 3-7 = Teacher Resources 1-5. Each test has 2 modules of 20 questions (10 Complete the Words, 5 Daily Life, 5 Academic), so 40 per test.
+
+| Test | Source | CTW /20 | Daily Life /10 | Academic /10 | **Raw /40** | % | Scaled /30 | **Tentative band** | Lost points |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | FL1 | 20 | 10 | 10 | **40** | 100% | 30.0 | **6** | none |
+| 2 | FL2 | 19 | 9 | 10 | **38** | 95% | 28.5 | **5.5 (to 6)** | CTW M1 (unrecorded), DL Q13 |
+| 3 | TR1 | 19 | 9 | 10 | **38** | 95% | 28.5 | **5.5 (to 6)** | CTW `struc[5]`, DL Q13 |
+| 4 | TR2 | 19 | 10 | 8 | **37** | 92.5% | 27.75 | **5.5** | CTW `Discov[5]`, AP Q18, AP Q20 |
+| 5 | TR3 | 20 | 10 | 9 | **39** | 97.5% | 29.25 | **6** | AP Q19 |
+| 6 | TR4 | 20 | 8 | 10 | **38** | 95% | 28.5 | **5.5 (to 6)** | DL Q11, DL Q13 |
+| 7 | TR5 | 19 | 10 | 8 | **37** | 92.5% | 27.75 | **5.5** | CTW `proc[5]`, AP Q20 (M1), AP Q20 (M2) |
+| | **All 7** | **136/140** | **66/70** | **65/70** | **267/280** | **95.4%** | **28.6** | **5.5 (to 6)** | 13 points |
+
+Per-section accuracy: Complete the Words 97.1%, Daily Life 94.3%, Academic 92.9%. Average per test: 38.1/40.
+
+### How the band is estimated
+1. Scaled score = 30 x raw / 40, a straight-line estimate.
+2. Band = ETS's own mapping of the old 0-30 Reading scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6): 6 = 29-30, 5.5 = 27-28, 5 = 24-26, 4.5 = 22-23, 4 = 18-21.
+3. Where a test sits on a boundary the band is shown as a range: the lower number if you round the scaled score down, the upper if you round up. At 28.5 the result is 28 (5.5) or 29 (6).
+
+### Limits of this estimate
+- **No official raw-to-band table exists.** ETS scores Reading with item response theory and does not publish raw-to-scaled conversions. The linear step in 1 is my assumption.
+- **The real section is adaptive.** The second module is easier or harder depending on how you do on the first. Practice modules are fixed, so a score of 38/40 here does not equal 38 on a real upper-level module.
+- **One question matters at the top.** Each raw point is 0.75 scaled points, so one question is enough to move a result between 5.5 and 6.
+- **This is Reading only.** The overall band is the average of Reading, Listening, Writing and Speaking, rounded to the nearest half band.
+- Only 5.5 or 6 is claimed, because 267/280 is the only data. Treat it as an estimate and not a prediction.
+
+### What the seven tests show
+- **Lost points by type:** Academic 5, Daily Life 4, Complete the Words 4. They are spread out, so no single area explains the gap between 5.5 and 6.
+- **Weakest tests:** Tests 4 and 7 (37/40). Both lose two points on Academic, and each includes one of your two missed insert-sentence items (Test 4 AP Q20, Test 7 AP Q20 in M1).
+- **Clean sets:** there are 42 module-section scores (14 modules x 3 sections). 30 were perfect. The other 12 each lost one point, except Test 6 Daily Life M1, which lost two (3/5).
+- **Recurring losses:** the same causes repeat across tests (word-form traps, near-paraphrase options, insert sentences). They are listed in `guides/reading.md`.
+
 ## 1. Complete the Words
 
 ### Context
