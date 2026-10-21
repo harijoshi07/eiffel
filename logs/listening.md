@@ -105,9 +105,85 @@ Speaker text is from the PDF script, which matches the audio.
 - Decision time 15.6s, one of the longest in the run.
 
 ### Pattern
-- Accuracy by type so far: Type A 110/112, Type B 41/41, Type C 25/28. Announcements are the weakest of the three.
-- In all three misses the correct option restates the script in different words ("see you there" → attend, "general audience" → everyone, "start Friday" plus "move you to Monday" → first). The wrong option I chose uses a concrete, topic-flavoured word ("volunteer", "science students"). Small sample.
+- Accuracy by type so far: Type A 110/112, Type B 41/41, Type C 25/28, Type D 38/44 (11 talks).
+- In all three Type C misses the correct option restates the script in different words ("see you there" → attend, "general audience" → everyone, "start Friday" plus "move you to Monday" → first). The wrong option I chose uses a concrete, topic-flavoured word ("volunteer", "science students"). Small sample.
 - The tags: I called two of the three C1 Missed a detail. The details in misses 1 and 3 were said; I changed or reversed them. I would retag them as invented content (miss 1) and reversed sequence (miss 3).
+
+## Type D: Listen to an Academic Talk (page: `practice/2d. listen-to-academic-talk.html`)
+
+Exported 2026-10-21 17:15. Exam mode (talk plays once, questions after it ends, no going back). **38/44**, across 11 talks attempted (T1 M2, T2 M1, T2 M2 not attempted in this run), no replays. 8 of 11 talks were 4/4. One talk collapsed: T4 M2 (1/4).
+
+| Talk | Source | Score | Time | Avg decision | Replays |
+|---|---|---|---|---|---|
+| T1 M1 · Q15–18 | Full-Length 1 | 4/4 | 02:02 | 6.6s | 0 |
+| T3 M1 · Q15–18 | Teacher Resources 1 | 4/4 | 02:22 | 14.5s | 0 |
+| T3 M2 · Q13–16 | Teacher Resources 1 | 4/4 | 01:57 | 8.7s | 0 |
+| T4 M1 · Q15–18 | Teacher Resources 2 | 4/4 | 02:10 | 13.4s | 0 |
+| T4 M2 · Q13–16 | Teacher Resources 2 | 1/4 | 02:52 | 20.6s | 0 |
+| T5 M1 · Q15–18 | Teacher Resources 3 | 3/4 | 03:28 | 22.3s | 0 |
+| T5 M2 · Q13–16 | Teacher Resources 3 | 3/4 | 02:53 | 16.6s | 0 |
+| T6 M1 · Q15–18 | Teacher Resources 4 | 4/4 | 02:44 | 17.1s | 0 |
+| T6 M2 · Q13–16 | Teacher Resources 4 | 3/4 | 03:36 | 34.8s | 0 |
+| T7 M1 · Q15–18 | Teacher Resources 5 | 4/4 | 02:31 | 14.9s | 0 |
+| T7 M2 · Q13–16 | Teacher Resources 5 | 4/4 | 02:32 | 12.9s | 0 |
+
+Average decision time per question ranged from 6.6s to 34.8s. Slowest talk was T6 M2 (34.8s avg decision; Q14 was missed).
+
+### Misses
+Speaker text is from the PDF script, which matches the audio.
+
+**1. T4 M2 Q13** (Economics: behavioral economics). Question: *What is the main topic of the talk?*
+- Options: A. How the field of behavioral economics developed over time / **B. Why an assumption in traditional economics is not always correct** / C. Some examples of unusual human behavior / D. The role of policymakers in economics
+- My answer: A. Key: **B**.
+- Script: "Behavioral economics is a field that combines insights from psychology and economics to understand how people make economic decisions. Unlike traditional economics, which assumes that individuals act rationally, behavioral economics recognizes that people often behave irrationally due to cognitive biases and emotional factors."
+- Why A is wrong: The talk contains no historical timeline, dates, or stages of development ("developed over time").
+- What went wrong: I picked a generic academic cliché ("how X developed over time") instead of tracking the actual opening argument: behavioral economics challenges the traditional assumption that humans act rationally.
+
+**2. T4 M2 Q15** (Economics: stocks example). Question: *Why does the speaker mention stocks?*
+- Options: **A. To provide an example of people's desire to avoid losses** / B. To highlight the pleasure of gains / C. To describe the importance of rational decision-making / D. To discuss the benefits of heuristics.
+- My answer: C. Key: **A**.
+- Script: "Another important concept is loss aversion, which suggests that people experience the pain of loss more intensely than the pleasure of gain. This can lead to risk-averse behavior, where individuals are more likely to avoid losses than to pursue equivalent gains. For instance, investors might hold onto losing stocks for too long, hoping they will rebound, rather than cutting their losses."
+- Why C is wrong: Holding onto losing stocks is an *irrational* behavior driven by loss aversion; it is the opposite of rational decision-making.
+- What went wrong: I chose a term that sounded like a positive economics phrase ("rational decision-making") rather than looking at the concept it illustrated: *Loss aversion* → *desire to avoid losses*.
+
+**3. T4 M2 Q16** (Economics: next topic). Question: *What will the speaker most likely discuss next?*
+- Options: A. A popular practice among investors / B. A method that economists use to examine human behavior / C. An example of an intervention by policymakers / **D. A way of helping people improve their decision-making**
+- My answer: C. Key: **D**.
+- Script:
+  - Second-to-last sentence: "Understanding these and other behavioral biases can help policymakers design better economic policies and interventions."
+  - Final sentence: "Next, we will examine how nudges, or subtle changes in the way choices are presented, can help people reach better decisions."
+- Why C is wrong: C refers to policymakers from the preceding sentence. The speaker's explicit forward-looking transition is in the final sentence: nudges to help people reach better decisions.
+- What went wrong: I grabbed a noun from sentence N-1 ("policymakers") instead of answering directly from the final transition sentence ("help people reach better decisions" → "helping people improve their decision-making").
+
+**4. T5 M1 Q15** (Neuroscience: neuroplasticity). Question: *What is the main topic of the talk?*
+- Options: A. The importance of cognitive training to overall brain health / **B. The brain’s ability to reorganize itself by forming new connections** / C. Changes in the physical structure of the brain over a lifetime / D. The comprehensive anatomy of the human brain
+- My answer: A. Key: **B**.
+- Script: "Today we’re exploring neuroplasticity, which means the brain’s ability to reorganize itself by forming new neural connections throughout life."
+- Why A is wrong: "Cognitive training" was mentioned once in passing near the end as an activity that stimulates neuroplasticity. Choosing A collapses the whole lecture into a minor sub-example.
+- What went wrong: Sub-detail chosen as main idea. B is the literal word-for-word definition of the topic given in sentence 1.
+
+**5. T5 M2 Q16** (Chemistry: nanozymes). Question: *What does the example of environmental cleanup reveal about nanozymes?*
+- Options: A. They are expensive to produce. / B. They can be found abundantly in nature. / **C. They perform reliably in extreme settings.** / D. They are most effective at breaking down plastics.
+- My answer: D. Key: **C**. Cause tagged: D1 Missed a detail.
+- Script: "Now, let’s look at something even more advanced: nanozymes. These are tiny, artificial materials that mimic enzymes. They’re more stable in harsh conditions like heat or acidity, cheaper to produce, and can be tailored for specific tasks. For example, nanozymes are used in environmental cleanup efforts. They can break down harmful pollutants in extreme conditions—like polluted water or industrial waste—things like pesticides, dyes, or heavy metals—turning them into safer, less toxic substances."
+- Why D is wrong: Plastics were mentioned in the *previous paragraph* under general industrial catalysts ("In industry, they’re essential for making plastics..."). The nanozyme cleanup example specifically illustrated working in "extreme conditions / harsh conditions".
+- What went wrong: Blended distractor trap. I recognized the word "plastics" from earlier in the audio and attached it to the cleanup example. C captures the exact property being demonstrated: "extreme conditions" → "perform reliably in extreme settings".
+
+**6. T6 M2 Q14** (Environmental science: ecological footprint). Question: *According to the speaker, the ecological footprint is expressed in terms of*
+- Options: **A. area of land and water needed** / B. amount of greenhouse gas produced / C. global temperature increase / D. number of natural resources consumed
+- My answer: B. Key: **A**.
+- Script: "The ecological footprint is often expressed in terms of number of global hectares. This number represents the total area of biologically productive land or water needed in order to support human activity... One primary component of the ecological footprint is the carbon footprint, which measures the amount of greenhouse gases emitted due to consumption of fossil fuels..."
+- Why B is wrong: Greenhouse gas emission is the definition of *carbon footprint*, which is only one sub-component. The overarching *ecological footprint* is expressed as global hectares = area of productive land or water.
+- What went wrong: Component vs. Whole confusion. I recalled the definition of the sub-part (carbon footprint) instead of the main term asked about (ecological footprint).
+
+### Patterns
+- **Accuracy:** 38/44 (86.4%). 8 talks were perfect (4/4). 1 talk collapsed entirely: T4 M2 (1/4), accounting for half of all misses.
+- **Root Failure Modes:**
+  1. **Sub-detail chosen as Main Idea (Q13/Q15):** In T4 M2 Q13 and T5 M1 Q15, I chose either a generic academic title ("how it developed over time") or a minor passing detail ("cognitive training") rather than the core definition/thesis stated in the opening 2 sentences.
+  2. **Component vs. Whole Confusion:** In T6 M2 Q14, I matched the question to the sub-component's definition (carbon footprint = greenhouse gases) rather than the whole term's definition (ecological footprint = land/water area). In T5 M2 Q16, I grabbed "plastics" from general catalysts instead of "extreme conditions" from nanozymes.
+  3. **Ignoring the Final Pivot Sentence ("Discuss Next"):** In T4 M2 Q16, the answer was in the very last sentence ("Next, we will examine nudges... reach better decisions"). I grabbed a noun from the sentence before it ("policymakers").
+  4. **Opposite Polarity on "Why Mention":** In T4 M2 Q15, holding losing stocks is an irrational error. I chose "importance of rational decision-making" instead of the concept being illustrated (loss aversion).
 
 ## Difficulties
 - Answering statements: choosing the option that continues my own story rather than reacting to what she said.
+- Academic talks: isolating the overarching thesis from minor sub-examples in Q1, distinguishing a parent concept from its sub-components, and anchoring "next topic" directly to the final transition sentence.

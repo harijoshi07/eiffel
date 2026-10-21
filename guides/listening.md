@@ -15,6 +15,15 @@ Strategies and tips for Listening. Your attempts and mistakes are recorded in `l
 
 - **Announcements (Type C), 25/28.** In all 3 misses the key restated the script in other words. I picked an option with a vivid word instead ("volunteer", "science students"), or reversed a sequence. See T2 M2 Q12, T3 M1 Q13, T7 M1 Q14 in `logs/listening.md`.
 
+- **Academic Talks (Type D), 38/44 (11 talks).** Misses fell into four distinct traps: (1) picking a minor sub-detail or generic phrase for the Main Idea instead of the opening definition, (2) confusing an overarching concept with its sub-component (e.g., ecological footprint vs carbon footprint), (3) grabbing sentence N-1 instead of the final pivot for "discuss next", and (4) picking opposite polarity for "why mention" (treating an irrational error as rational practice). See T4 M2, T5 M1, T5 M2, T6 M2 in `logs/listening.md`.
+
+## Academic Talk checks (Type D)
+- **Q1 Main Idea:** Listen closely to the first 1–2 sentences. ETS almost always states the topic and defines it directly there. Reject options that focus on a sub-example from the second half (e.g., "cognitive training"), and reject generic phrases like "developed over time" unless the talk specifically gave dates, historical periods, or stages of development.
+- **"Why mention X?":** Identify the *parent concept* being demonstrated. If the speaker gives an example of flawed human behavior (e.g. investors holding losing stocks), the purpose is to illustrate the cognitive bias (loss aversion / avoiding loss), not to describe ideal or rational practice.
+- **"What will speaker discuss next?":** Look exclusively at the *very last sentence*. Listen for transition signposts like *"Next, we will examine..."* or *"Tomorrow, we'll turn to..."*. Do not pick a noun or topic from the preceding sentence.
+- **Whole vs. Sub-component:** When a talk introduces an umbrella term (e.g. *ecological footprint*) and then explains its parts (e.g. *carbon footprint*), keep their metrics and definitions separate. Do not assign the sub-part's unit or definition to the whole.
+- **Chronological ordering:** Questions 2–4 strictly follow the order of the audio. If Q2 asked about heuristics, Q3 must be about something mentioned after heuristics (loss aversion), and Q4 must be about the conclusion or final example.
+
 ## Announcement checks (Type C)
 - The questions appear after the audio ends, so jot the facts while listening: who, what, when, where, and any change or shuffle.
 - Before reading the options, say the answer in your own words. Then find the option that restates it, even if it sounds duller.
@@ -31,6 +40,8 @@ For a statement, ask: what does the speaker want back?
 If the option needs extra story to make sense, drop it.
 
 ## Redo queue
+- Type D: T4 M2 (Q13, Q15, Q16), T5 M1 (Q15), T5 M2 (Q16), T6 M2 (Q14). Replay the audio and write down the single spoken sentence that proves the key for each. Pass when I can state why the distractor I chose was either a sub-detail, a component confusion, or from the wrong sentence. Not yet done.
+- Unattempted Type D talks: T1 M2, T2 M1, T2 M2. Complete in exam mode on `practice/2d. listen-to-academic-talk.html`.
 - Type C: T2 M2 Q12, T3 M1 Q13, T7 M1 Q14. Replay the audio and write the one script sentence that decides each. Pass when I can name that sentence and say why my first choice has no support in the script. Not yet done.
 - T2 M1 Q8 and T6 M1 Q4: replay the audio. Pass when I can say, in one sentence each, why the other three options fail. Not yet done.
 - Type A statements: when I next do these 14 modules (Practice mode is fine), say the statement-reply pair aloud for all four options on every statement item.
