@@ -1,5 +1,7 @@
 # Reading log
 
+Records only: what happened, with exact answers. How to improve lives in `guides/reading.md`.
+
 Sources: `resources/pdfs/*.pdf` (page refs = PDF page number). Answer keys: the answer-key pages of each PDF.
 
 ## 1. Complete the Words
@@ -36,22 +38,6 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 ### Difficulties
 - Suffix traps: same-length pairs (structure/structures, discoveries/discovering, procedure/processes).
 - Speed was not the only cause: the slowest modules (TR1 M1 2:07, TR2 M2 2:23) both had misses, but FL2 M2 (0:32) was perfect.
-
-### Improvements
-1. Candidate check on every blank, in this order:
-   a. Count letters. It must equal `[N]`.
-   b. Write the word family: discover, discovers, discovered, discovering, discovery, discoveries.
-   c. Filter by slot: noun after "the/a"; plural noun in a list ("X, Y, and Z"); gerund at the start of a sentence; base verb after a modal.
-   d. Check meaning and collocation.
-   e. Check the next word.
-2. Re-do TR1 M1, TR2 M2, TR5 M2 with the check above, without a timer.
-3. Log FL2 M1's missed item.
-
-### Tips
-- Letter count is a hard limit. 3 or 5 letters when the blank says 4 is wrong.
-- Part of speech comes first. Look at the word before the blank: `the` means a noun, `can`/`may` means a base verb.
-- Suffix watch: noun -tion, -ment, -ity, -ure; adjective -ive, -ic, -ous; verb -ate, -ize, -ing, -ed; adverb -ly.
-- Function words are usually 1–3 letters: to, in, on, of, by, is, as, and, but, the.
 
 ## 2. Read in Daily Life (Questions 11–15)
 
@@ -131,17 +117,6 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 - Purpose and inference questions (Q13 in four modules) were the weakest type.
 - Counting question misread: the person named in the question is part of the total.
 
-### Improvements
-1. For Q13 (purpose/inference), state the purpose in one sentence before reading the options.
-2. For counting questions, subtract the person named in the question.
-3. Re-do FL2 M1 Q13, TR1 M1 Q13, TR4 M1 Q11 and Q13 without a timer, then log the new answers here.
-
-### Tips
-- Notice: find who sends it and what the reader must do (act, change, or know).
-- Social post or email: the first sentence usually states the purpose. Details support it.
-- Inference: the answer must be supported by the text. A true detail is not an inference.
-- Reject options that copy a passage word but do not match the meaning.
-
 ## 3. Read an Academic Passage (Q16–20)
 
 ### Context
@@ -172,7 +147,7 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 Timed modules averaged 3:41. The slowest (TR5 M1, 6:54) was still a miss, so the problem there was method, not time.
 
 ### Misses
-Failure-mode codes (F1–F5) are defined in `logs/reading-guide.md`.
+Failure-mode codes (F1–F5) are defined in `guides/reading.md`.
 
 **A1. TR2 M1 Q18** · Purpose · You: **D** · Key: **B** · Mode: **F2**
 - Why does the author mention the Pont du Gard in France?
@@ -226,13 +201,3 @@ Failure-mode codes (F1–F5) are defined in `logs/reading-guide.md`.
 - Insert questions: 2 of 4 missed.
 - Relationship questions, where the same word can refer to different things in different paragraphs.
 
-### Improvements
-1. Say the task in five words before reading the options, then point to the deciding sentence.
-2. For insert items, run the four-step check on all four positions.
-3. For relationship items, write a six-word job for each paragraph first.
-4. Start the timer on every module so the timing data is usable.
-
-### Tips
-- Vocabulary (14/14), inference (10/10) and main idea (2/2) were clean. Keep that approach.
-- The key is often the plainer option. A fancy phrase that sounds like the passage deserves a second look.
-- "Why mention X": the answer is the claim attached to X.

@@ -1,6 +1,6 @@
 # Reading: playbook
 
-Built from your 13 reading misses (log: `logs/reading.md`). Scores as of 2026-10-21.
+How to improve at Reading. Built from your 13 misses, which are recorded with exact questions in the log: `logs/reading.md`. Scores as of 2026-10-21.
 
 ## Dashboard
 | Task | Raw | % | Misses |
@@ -27,11 +27,13 @@ Vocabulary, inference and main idea were clean. **Do not change how you do those
 ## The five failure modes
 | Code | Name | What happens | Misses |
 |---|---|---|---|
-| F1 | Stopped at first fit | One word fits the letters, so you stop (Complete the Words). | 3 |
+| F1 | Stopped at first fit | One word fits the letters, or one option or position seems fine, so you stop before testing the rest. | 3 |
 | F2 | Answered a nearby question | You choose something true that the question did not ask for (the topic instead of the job of the example, or the reservation total instead of the guests). | 3 |
 | F3 | Echo | An option reuses a passage word or stretches a synonym, and you accept it. | 4 |
 | F4 | Insert without anchors | You pick a position because it "reads fine" and never test the sentences on either side. | 2 |
 | F5 | Not recorded | FL2 M1 Complete the Words miss. | 1 |
+
+The Academic page's cause dropdown uses these codes (F1-F4), so exports log them directly. Other options: Vocabulary, Changed answer, Misread question, Guessed, Careless, Other.
 
 **F2 + F3 = 7 of 13.** In these misses the key is the plain restatement of the sentence (an example of a preserved aqueduct, applied in layers, booking computer time). The distractor sounds more like the passage (engineering techniques, realistic colors, applying for a card).
 
@@ -96,6 +98,26 @@ Worked examples:
 4. Filter by meaning, then check the next word.
 
 Mark each miss as *not generated* (F1) or *generated but misjudged* in the log.
+
+## Quick reference
+
+### Complete the Words
+- Letter count is a hard limit. If the blank says 4 letters, 3 or 5 is wrong.
+- Part of speech comes first. Look at the word before the blank: `the` means a noun, `can`/`may` means a base verb.
+- Suffix watch: noun -tion, -ment, -ity, -ure; adjective -ive, -ic, -ous; verb -ate, -ize, -ing, -ed; adverb -ly.
+- Function words are usually 1-3 letters: to, in, on, of, by, is, as, and, but, the.
+
+### Daily Life (Q11-15)
+- Notice: find who sends it and what the reader must do (act, change, or know).
+- Social post or email: the first sentence usually states the purpose. Details support it.
+- Inference: the answer must be supported by the text. A true detail is not an inference.
+- Q13 (purpose/inference) was the weakest. State the purpose in one sentence before reading the options.
+- Counting: if the person named in the question is part of the total, subtract them.
+- Reject options that copy a passage word but do not match the meaning.
+
+### Academic (Q16-20)
+- The key is often the plainer option. A fancy phrase that sounds like the passage deserves a second look.
+- Time every module. Seven of the fourteen show 00:00, so timing data is incomplete.
 
 ## Redo queue
 Memory is a problem: you will half-remember the keys. A redo only counts if you **state, in one line, why each wrong option fails**.

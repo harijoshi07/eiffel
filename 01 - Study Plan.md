@@ -4,7 +4,7 @@
 
 ## How to use
 - 60–90 focused minutes a day. Core items first, optional only if time allows.
-- After every session, add the result to the section log: `logs/reading.md`, `logs/listening.md`, `logs/writing.md`, or `logs/speaking.md`.
+- After every session, add the result to the section log (`logs/reading.md`, `logs/listening.md`, `logs/writing.md`, `logs/speaking.md`). Put new rules in the matching `guides/` file.
 - Sources: [[resources/pdfs/full-length-1.pdf]] and [[resources/pdfs/full-length-2.pdf]] (full tests), `resources/pdfs/teacher-resources-1.pdf` to `-5.md` (extra practice), `resources/pdfs/guide-*.md` (writing and listening guides). Audio is in `resources/audio/`.
 
 ## Daily micro-routine (all 8 weeks, 35 min)
@@ -33,13 +33,13 @@
 ### Week 2 — Reading (`logs/reading.md`)
 | Day | Core work |
 |---:|---|
-| 1 | Complete the Words: candidate check (see logs/reading.md). 20 items, timed. |
+| 1 | Complete the Words: candidate check (see guides/reading.md). 20 items, timed. |
 | 2 | Read in Daily Life: find purpose first. 10 items, timed. |
 | 3 | Read an Academic Passage: paragraph map, then questions. One passage. |
 | 4 | Mixed timed set: 5 Complete the Words + 5 Daily Life + 1 Academic Passage. |
 | 5 | Review every miss. Write the cause and a prevention rule for each. |
 | 6 | Second mixed timed set. Cut the error count from Day 4. |
-| 7 | Update the reading log with three reading rules. |
+| 7 | Update `guides/reading.md` with three reading rules. |
 
 **Exit:** 80%+ accuracy on each task type.
 
@@ -52,7 +52,7 @@
 | 4 | Academic talks: structure first, then details. Two talks, each reconstructed in 20 seconds. |
 | 5 | Mixed set: 10 responses + 1 conversation + 1 announcement + 1 talk. |
 | 6 | Review every miss in the listening log. |
-| 7 | Update the listening log with three listening rules. |
+| 7 | Update `guides/listening.md` with three listening rules. |
 
 **Exit:** state a talk's main purpose within 5 seconds of its end.
 
@@ -65,7 +65,7 @@
 | 4 | 12 more interview questions. Score each one. |
 | 5 | Replay your five worst recordings. Redo each once. |
 | 6 | Full 8-minute speaking mock (11 items). Score and log. |
-| 7 | Update the speaking log with three speaking rules. |
+| 7 | Update `guides/speaking.md` with three speaking rules. |
 
 **Exit:** every answer starts within 2 seconds; repeats keep the meaning and the key content words.
 
@@ -78,7 +78,7 @@
 | 4 | Two more emails. Self-review against the rubric. |
 | 5 | Academic discussion: two timed responses. |
 | 6 | Two more responses. Score each 0–5 with the rubric. Rewrite anything below 4. |
-| 7 | Update the writing log with three writing rules. |
+| 7 | Update `guides/writing.md` with three writing rules. |
 
 **Exit:** emails address every point and state the purpose in the first sentence; discussion responses give a position, a reason, and an example.
 
@@ -92,7 +92,7 @@
 | 3 | Drill the section farthest from 5.5 for 90 minutes. |
 | 4 | Second 90-minute session on the same section. |
 | 5 | Mixed drill: 30 min per section. |
-| 6 | Review the logs. Choose three final priority rules. |
+| 6 | Review the logs. Choose three final priority rules from `guides/`. |
 | 7 | Rest. Confirm test logistics. |
 
 ### Week 7 — Timed precision (daily 2-hour block)
