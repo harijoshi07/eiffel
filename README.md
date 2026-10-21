@@ -10,7 +10,7 @@
 - `resources/audio/`: `lessons/listening`, `lessons/speaking`, `samples/speaking`, and `tests/<student-1|student-2|teacher-1..5>/<listening|speaking>/`.
 
 ## Log entry format
-1. Context: test, module, and the PDF page (`## p. N` in the `.md`).
+1. Context: test, module, and the PDF page (PDF page number).
 2. Exact question and options.
 3. Your answer and the correct answer (from the answer-key pages).
 4. Why it was wrong (your reasoning, or "not recorded").

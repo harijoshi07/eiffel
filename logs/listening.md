@@ -1,6 +1,6 @@
 # Listening log
 
-Sources: `resources/audio/lessons/listening/`, `resources/audio/tests/*/listening/`, and `resources/pdfs/guide-lesson-listening.md`.
+Sources: `resources/audio/lessons/listening/`, `resources/audio/tests/*/listening/`, and `resources/pdfs/guide-lesson-listening.pdf`.
 
 ## Attempts
 No attempts logged yet. Add one row per question:

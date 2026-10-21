@@ -5,7 +5,7 @@
 ## How to use
 - 60–90 focused minutes a day. Core items first, optional only if time allows.
 - After every session, add the result to the section log: `logs/reading.md`, `logs/listening.md`, `logs/writing.md`, or `logs/speaking.md`.
-- Sources: [[resources/pdfs/full-length-1.md]] and [[resources/pdfs/full-length-2.md]] (full tests), `resources/pdfs/teacher-resources-1.md` to `-5.md` (extra practice), `resources/pdfs/guide-*.md` (writing and listening guides). Audio is in `resources/audio/`.
+- Sources: [[resources/pdfs/full-length-1.pdf]] and [[resources/pdfs/full-length-2.pdf]] (full tests), `resources/pdfs/teacher-resources-1.pdf` to `-5.md` (extra practice), `resources/pdfs/guide-*.md` (writing and listening guides). Audio is in `resources/audio/`.
 
 ## Daily micro-routine (all 8 weeks, 35 min)
 | Min | Task |
@@ -20,7 +20,7 @@
 |---:|---|
 | 1 | Read [[00 - Test Map]]. Set your target band. |
 | 2 | Complete **Full-Length Test 1** under timed conditions (no pausing). |
-| 3 | Score Reading and Listening. Self-score Writing and Speaking with the rubric in `resources/pdfs/guide-writing-rubrics.md`. Log the baseline in each section log. |
+| 3 | Score Reading and Listening. Self-score Writing and Speaking with the rubric in `resources/pdfs/guide-writing-rubrics.pdf`. Log the baseline in each section log. |
 | 4 | Pick your two weakest sections. |
 | 5 | Confirm your test date. |
 | 6 | 30 min of your weakest section. |
@@ -69,7 +69,7 @@
 
 **Exit:** every answer starts within 2 seconds; repeats keep the meaning and the key content words.
 
-### Week 5 — Writing (`logs/writing.md`, `resources/pdfs/guide-writing-rubrics.md`)
+### Week 5 — Writing (`logs/writing.md`, `resources/pdfs/guide-writing-rubrics.pdf`)
 | Day | Core work |
 |---:|---|
 | 1 | Build a sentence: word order. 30 items. |

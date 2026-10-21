@@ -1,6 +1,6 @@
 # Reading log
 
-Sources: `resources/pdfs/*.md` (page refs = `## p. N`). Answer keys: the answer-key pages of each PDF.
+Sources: `resources/pdfs/*.pdf` (page refs = PDF page number). Answer keys: the answer-key pages of each PDF.
 
 ## 1. Complete the Words
 
@@ -8,7 +8,7 @@ Sources: `resources/pdfs/*.md` (page refs = `## p. N`). Answer keys: the answer-
 - Task: fill the missing letters of a paragraph. `[N]` = blank of N letters (`struc[5]` = 5 letters).
 - 10 items per module, 14 modules (FL1, FL2, TR1–TR5; M1 and M2 each).
 - Session 2026-10-20: **136/140 (97.1%)**, about 17 min total.
-- Source files: `full-length-1.md`, `full-length-2.md`, `teacher-resources-1.md` to `teacher-resources-5.md`.
+- Source files: `full-length-1.pdf`, `full-length-2.pdf`, `teacher-resources-1.pdf` to `teacher-resources-5.pdf`.
 
 ### Results
 | Test | M1 | M2 |
@@ -57,7 +57,7 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 
 ### Context
 - Each module: one notice (Q11–12) and one social-media post or email (Q13–15). 14 modules, 70 questions.
-- Source: `resources/pdfs/full-length-1.md` and the other test `.md` files. Keys verified against the answer-key pages on 2026-10-20 (70/70).
+- Source: `resources/pdfs/full-length-1.pdf` and the other test PDFs. Keys verified against the answer-key pages on 2026-10-20 (70/70).
 - Session 2026-10-20 (export 10:33 PM): **66/70 (94%)**, four misses. FL1 M1 was redone after a wrong saved note was fixed, and it scored 5/5.
 
 ### Results

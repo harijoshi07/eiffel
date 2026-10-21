@@ -1,6 +1,6 @@
 # Writing log
 
-Sources: `resources/pdfs/guide-writing-rubrics.md` (scoring guide, 0–5) and `resources/pdfs/guide-lesson-writing.md`.
+Sources: `resources/pdfs/guide-writing-rubrics.pdf` (scoring guide, 0–5) and `resources/pdfs/guide-lesson-writing.pdf`.
 
 ## Attempts
 No attempts logged yet. Add one row per task:

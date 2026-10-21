@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Reading — Academic Passages</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}
+.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:1240px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;min-width:56px}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:hover{filter:brightness(.97)}
+.grid{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+.passage{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 30px;position:sticky;top:76px;max-height:calc(100vh - 110px);overflow:auto}
+.passage h2,.qlabel{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 14px;font-weight:600}
+.passage p{margin:0 0 1em}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:14px}
+.qhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted)}
+.qnum{font-weight:600;color:var(--terra)}
+.qtext{font-weight:500;margin-bottom:12px;white-space:pre-line}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;background:#fff}
+.opt input{margin-top:6px}
+.opt.sel{border-color:var(--terra);background:var(--terra-soft)}
+.opt.right{border-color:var(--sage);background:var(--sage-soft)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.fb{margin-top:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.fb select,.fb textarea{width:100%;margin-top:6px;font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.fb textarea{min-height:56px}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+.exportbox{margin-top:24px}
+.exportbox textarea{width:100%;min-height:240px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}.grid{grid-template-columns:1fr}.passage{position:static;max-height:none}main{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside>
+    <h1>TOEFL Reading</h1>
+    <div class="sub">Academic Passages · 14 modules · Q16–20</div>
+    <div id="nav"></div>
+    <div class="totals" id="totals"></div>
+  </aside>
+  <main>
+    <div class="bar">
+      <div class="title" id="title"></div>
+      <span class="timer" id="timer">00:00</span>
+      <button id="startBtn">Start</button>
+      <button class="primary" id="checkBtn">Check answers</button>
+      <button id="resetBtn">Reset module</button>
+      <button id="exportBtn">Export log</button>
+    </div>
+    <div class="grid">
+      <section class="passage" id="passage"></section>
+      <section id="questions"></section>
+    </div>
+    <p class="note">Paragraph breaks were inferred from the PDF layout and may differ from the printed page. Answer keys for Q16–20 come from the PDF key pages.</p>
+    <div class="exportbox" id="exportBox" hidden>
+      <textarea id="exportText" readonly></textarea>
+      <div style="margin-top:8px"><button id="copyBtn">Copy to clipboard</button></div>
+    </div>
+  </main>
+</div>
+<script>
+const DATA = [{"id": "FL1_M1", "test": "FL1", "mod": 1, "title": "The Mirror Test", "paragraphs": ["Very young children cannot recognize themselves in a mirror; they usually achieve this milestone around 18 months of age. The ability to recognize oneself in the mirror is considered to be a key component of self-awareness and consciousness for humans. But what about animals?", "For many years, scientists have known that members of the great ape family could recognize themselves in mirrors. They measured this by the “mirror test,” which involved putting a colored mark on an ape’s body, and then showing the ape its reflection in a mirror. If the ape tried to remove the mark on its own body, the scientists knew that the ape was recognizing its reflection.", "Apes are close relatives of humans, but in recent years, scientists have discovered that other animals also pass the “mirror test.” Elephants and dolphins have shown signs of self-recognition. These, like apes, are highly intelligent animals. But in a more recent experiment, a type of fish called the cleaner fish tried to scrape a mark off its body when it saw itself in the mirror. This suggests that even less intelligent animals may possess more self-awareness than previously suspected."], "questions": [{"n": 16, "question": "What is the passage mainly about?", "options": {"A": "Stages of early childhood development", "B": "Research on animal cognition", "C": "Differences between apes, elephants, and dolphins", "D": "Recent experiments on fish"}, "answer": "B"}, {"n": 17, "question": "The word “milestone” in the first sentence is closest in meaning to", "options": {"A": "accomplishment", "B": "distance", "C": "weight", "D": "discovery"}, "answer": "A"}, {"n": 18, "question": "Why did scientists put colored marks on animals’ bodies?", "options": {"A": "It made it possible to track the animals’ movements.", "B": "It helped them determine whether the animals recognized themselves.", "C": "It made it easier to tell the animals apart.", "D": "It showed whether some animals can detect color differences."}, "answer": "B"}, {"n": 19, "question": "According to the passage, all of the following are true about elephants EXCEPT:", "options": {"A": "They can recognize themselves in mirrors.", "B": "They are highly intelligent animals.", "C": "They possess qualities in common with apes.", "D": "They understand certain signs from other animals."}, "answer": "D"}, {"n": 20, "question": "Why does the author mention cleaner fish?", "options": {"A": "To suggest that a wide range of animals may possess self-awareness", "B": "To imply that ocean animals are highly intelligent", "C": "To demonstrate a flaw in a recent experiment", "D": "To provide an example of an animal that does not recognize itself"}, "answer": "A"}]}, {"id": "FL1_M2", "test": "FL1", "mod": 2, "title": "The Paradox of Choice", "paragraphs": ["The paradox of choice, a concept popularized by psychologist Barry Schwartz, suggests that more options can lead to less satisfaction. While the freedom to choose is fundamental to consumer culture, an overabundance of choices—from groceries to electronics—can overwhelm individuals, causing anxiety and decision fatigue. This paradox implies that the vast array of possibilities available today might actually diminish consumer contentment, as the fear of making the wrong choice looms large.", "Research supports this notion. In an experiment, psychologist Sheena Iyengar found that shoppers were more likely to purchase jam when offered 6 varieties instead of 24. The limited selection eased the decision process, reducing the pressure to find the 'perfect' option and making the experience more enjoyable. This phenomenon reveals that fewer choices can sometimes make consumers happier, which is a valuable insight for marketers and retailers aiming to boost satisfaction by curating their offerings.", "The paradox also has broader implications. In individualistic cultures, where personal choice is highly valued, the burden of decision-making can be significant. Conversely, collectivist cultures, which often provide fewer choices, report higher levels of contentment. This dynamic suggests that understanding cultural differences in consumer psychology can help businesses optimize their product strategies and enhance overall well-being."], "questions": [{"n": 16, "question": "Which of the following best states a main idea of the passage?", "options": {"A": "Effective marketing strategies focus on increasing product options.", "B": "Modern consumer culture is driven by a demand for fewer products.", "C": "Individualism enhances consumer contentment.", "D": "Limiting consumer choices can lead to higher satisfaction."}, "answer": "D"}, {"n": 17, "question": "What is one effect of decision fatigue as mentioned in the passage?", "options": {"A": "Desire to make the same choices as other consumers", "B": "Anxiety about making the wrong choice", "C": "Preference for consumer cultures", "D": "Enhanced freedom to choose"}, "answer": "B"}, {"n": 18, "question": "Why does the author mention Sheena Iyengar’s experiment?", "options": {"A": "To highlight the effectiveness of marketing strategies", "B": "To explain the methodology used in consumer psychology", "C": "To provide evidence supporting the paradox of choice", "D": "To criticize the abundance of products in modern markets"}, "answer": "C"}, {"n": 19, "question": "The word “curating” in the passage is closest in meaning to", "options": {"A": "eliminating", "B": "organizing", "C": "increasing", "D": "changing"}, "answer": "B"}, {"n": 20, "question": "What can be inferred about consumers in collectivist cultures?", "options": {"A": "They tend to report lower levels of satisfaction.", "B": "They are more affected by the paradox of choice.", "C": "They generally have fewer choices available.", "D": "They prefer individual decision-making."}, "answer": "C"}]}, {"id": "FL2_M1", "test": "FL2", "mod": 1, "title": "The Impact of Sports on Social Integration", "paragraphs": ["Sports can promote social integration by bridging gaps between people of various backgrounds. Participation in sports can lead to increased social cohesion and improved relationships among diverse groups.", "For example, community soccer leagues often bring together people from different ethnicities, creating an environment where cultural differences are celebrated and mutual respect is cultivated. However, the impact of sports on social integration is not without challenges. Competitive environments can sometimes exacerbate social tensions, particularly when favoritism or exclusionary practices are present.", "Despite these issues, many initiatives aim to use sports as a platform for social change. One such initiative is the Sport for Peace program, which focuses on conflict resolution through team-building activities and collaborative sports events. The role of sports in social integration extends beyond participation. Spectatorship and fandom also play significant roles in uniting people. Major international sports events like the Olympics or the World Cup serve as opportunities for nations to come together and share common goals. The visibility of athletes from diverse backgrounds during these events fosters a sense of global harmony. These events often highlight stories of athletes overcoming adversity, inspiring spectators and fostering a collective sense of achievement."], "questions": [{"n": 16, "question": "The word \"cohesion\" in the passage is closest in meaning to", "options": {"A": "diversity", "B": "awareness", "C": "unity", "D": "celebration"}, "answer": "C"}, {"n": 17, "question": "In which of the following situations can sports have an especially negative impact on social integration?", "options": {"A": "When people from different ethnicities are brought together", "B": "When participants are unreasonably strict about the rules of competition", "C": "When the social environment is not favorable to competition", "D": "When social tensions are heightened by favoring or excluding certain participants"}, "answer": "D"}, {"n": 18, "question": "What is the relationship between paragraphs 2 and 3?", "options": {"A": "Paragraph 3 discusses ways of addressing a problem mentioned in paragraph 2.", "B": "Paragraph 3 contradicts a theory proposed in paragraph 2.", "C": "Paragraph 3 provides evidence for an idea presented in paragraph 2.", "D": "Paragraph 3 introduces a new challenge related to paragraph 2."}, "answer": "A"}, {"n": 19, "question": "What does the passage suggest about the Sport for Peace program?", "options": {"A": "Its main goal is to eliminate favoritism in sports.", "B": "It primarily targets professional athletes.", "C": "It uses team-building exercises to address conflicts.", "D": "It is only effective in local communities."}, "answer": "C"}, {"n": 20, "question": "Why does the author mention major international sports events like the Olympics and the World Cup?", "options": {"A": "To argue that these events have little impact on social integration", "B": "To illustrate how sports can unite people globally", "C": "To suggest that these events mainly benefit athletes", "D": "To highlight the competitive nature of these events"}, "answer": "B"}]}, {"id": "FL2_M2", "test": "FL2", "mod": 2, "title": "The Human Microbiome", "paragraphs": ["The human microbiome consists of trillions of microorganisms living in and on our bodies. These include bacteria, viruses, fungi, and other microbes. They play a pivotal role in functions such as digestion, immunity, and mood regulation. For instance, gut bacteria help break down food and produce essential vitamins.", "Recent studies show that the microbiome can be influenced by diet, lifestyle, and medication. Antibiotics, while effective against harmful bacteria, can disrupt the balance of beneficial microbes. This disruption can lead to health issues like digestive problems and weakened immunity. Researchers are exploring the connection between the microbiome and mental health. Certain gut bacteria produce neurotransmitters affecting brain function. An imbalance in these bacteria may be linked to conditions like depression and anxiety.", "Maintaining a healthy microbiome involves eating a varied diet rich in fiber, reducing stress, and avoiding unnecessary antibiotics. Bacteria that aid digestion, known as probiotics and prebiotics, are also beneficial. As understanding of the microbiome grows, it may lead to breakthroughs in treating diseases and improving health."], "questions": [{"n": 16, "question": "The word \"pivotal\" in the passage is closest in meaning to", "options": {"A": "very important", "B": "possible", "C": "combined", "D": "unwelcome"}, "answer": "A"}, {"n": 17, "question": "What is one way antibiotics can affect humans?", "options": {"A": "They enhance the production of neurotransmitters.", "B": "They can weaken immunity by harming beneficial microbes.", "C": "They can help relieve digestive problems.", "D": "They make it easier to produce essential vitamins."}, "answer": "B"}, {"n": 18, "question": "What connection are researchers exploring regarding the microbiome?", "options": {"A": "The link between gut bacteria and immunity", "B": "The role of fungi in mood regulation", "C": "The role of viruses in digestion", "D": "The link between gut bacteria and mental health"}, "answer": "D"}, {"n": 19, "question": "All of the following help to maintain a healthy microbiome EXCEPT", "options": {"A": "eating a varied diet rich in fiber", "B": "lowering stress levels", "C": "avoiding sources of bacteria", "D": "reducing the use of antibiotics"}, "answer": "C"}, {"n": 20, "question": "What is the relationship between paragraphs 2 and 3?", "options": {"A": "Paragraph 3 challenges the ideas proposed in paragraph 2.", "B": "Paragraph 3 provides examples of the disruptions mentioned in paragraph 2.", "C": "Paragraph 3 specifies how to achieve a healthy microbiome based on the factors mentioned in paragraph 2.", "D": "Paragraph 3 elaborates on the benefits of antibiotics mentioned in paragraph 2."}, "answer": "C"}]}, {"id": "TR1_M1", "test": "TR1", "mod": 1, "title": "The Effects of Urbanization on Bird Populations", "paragraphs": ["Urbanization has had a profound impact on bird populations worldwide. As cities expand, natural habitats are replaced with buildings, roads, and other infrastructure. This leads to a significant reduction in the availability of nesting sites and food sources for birds.", "Some species, such as pigeons and sparrows, have adapted well to urban environments, taking advantage of the new resources and structures. However, many other species struggle to survive in these altered landscapes. Therefore, it is imperative to find solutions that help birds adapt to city life. One notable effect of urbanization is the change in bird song. Birds living in cities often sing at higher pitches and volumes than their rural counterparts. This adaptation helps them communicate over the noise of traffic and human activity. Additionally, the artificial lighting in cities can disrupt the natural circadian (daily time-related) rhythms of birds, affecting their breeding and feeding behaviors. Conservationists are working to mitigate the negative effects of urbanization on birds. Initiatives such as creating urban green spaces, constructing bird-friendly buildings, and reducing light pollution are being implemented. These efforts aim to create a more hospitable environment for birds, allowing them to coexist with humans in urban settings."], "questions": [{"n": 16, "question": "The word “mitigate” in the passage is closest in meaning to", "options": {"A": "understand", "B": "analyze", "C": "communicate", "D": "reduce"}, "answer": "D"}, {"n": 17, "question": "Which of the following is NOT mentioned as an effect of urbanization on birds in the passage?", "options": {"A": "Reduced availability of nesting sites", "B": "Changes in bird song", "C": "Increased food sources", "D": "Disrupted circadian rhythms"}, "answer": "C"}, {"n": 18, "question": "Why does the author mention pigeons and sparrows?", "options": {"A": "To identify birds that struggle to survive in urban environments", "B": "To give examples of birds that have adjusted to living in urban settings", "C": "To highlight the diversity of urban bird species", "D": "To suggest that all birds can adapt to cities"}, "answer": "B"}, {"n": 19, "question": "What is one initiative mentioned in the passage to help birds in urban areas?", "options": {"A": "Introducing new bird species to urban areas", "B": "Providing human-made food sources to birds", "C": "Creating urban green spaces", "D": "Decreasing the amount of noise made by traffic"}, "answer": "C"}, {"n": 20, "question": "What can be inferred about the impact artificial lighting in cities has on birds?", "options": {"A": "It disrupts the natural behaviors of birds.", "B": "It allows birds to find food at night.", "C": "It helps birds to adapt to urban environments.", "D": "It increases the population of urban birds."}, "answer": "A"}]}, {"id": "TR1_M2", "test": "TR1", "mod": 2, "title": "The History of Photography", "paragraphs": ["The history of photography is marked by significant technological progress and artistic innovation. It began in the early nineteenth century with the invention of the camera obscura, a device that projected images onto a surface. The first permanent photograph was created byJoseph-Nicéphore Niépce in 1826 using a process called heliography, which required several hours of exposure to light. Photography quickly evolved with the development of daguerreotypes, introduced by Louis Daguerre in 1839. This method produced detailed images on silver-plated copper, but daguerreotypes needed delicate handling, and the exposure times required, although much shorter, still remained impractical for recording images of moving objects. The invention of the calotype by William Henry Fox Talbot in the 1840s allowed for multiple copies of an image to be made from a single negative, revolutionizing the field. (A) In the late nineteenth and early twentieth centuries, the introduction of film and roll cameras made photography more accessible to the public. (B) George Eastman’s establishment of the Kodak company in 1888 played a crucial role in this democratization, as his cameras were simple to use and affordable. (C) Today, digital photography has further transformed the medium, allowing instant image capture and sharing. (D)"], "questions": [{"n": 16, "question": "The word “innovation” in the passage is closest in meaning to", "options": {"A": "success", "B": "advancement", "C": "activity", "D": "expression"}, "answer": "B"}, {"n": 17, "question": "What is suggested about daguerreotypes?", "options": {"A": "They were introduced byJoseph-Nicéphore Niépce.", "B": "They allowed for multiple copies of an image.", "C": "They required shorter exposure times than heliographs did.", "D": "They made it unnecessary to use silver-plated copper."}, "answer": "C"}, {"n": 18, "question": "How did the calotype revolutionize photography?", "options": {"A": "By enabling instant image capture", "B": "By reducing the need for delicate handling", "C": "By providing detailed images on silver-plated copper", "D": "By allowing multiple copies from a single negative"}, "answer": "D"}, {"n": 19, "question": "Why does the author mention George Eastman’s establishment of the Kodak company?", "options": {"A": "To highlight the role of Kodak in making photography accessible to the public", "B": "To criticize the challenges of early photographic methods", "C": "To explain how film was invented", "D": "To suggest that Kodak introduced digital photography"}, "answer": "A"}, {"n": 20, "question": "There are four locations (A, B, C, and D) in the passage that indicate where the following sentence could be added. These developments have rendered the use of film and many types of cameras obsolete. Where would the sentence best fit? Select a location where the sentence could be added to the passage.", "options": {"A": "Location A", "B": "Location B", "C": "Location C", "D": "Location D"}, "answer": "D"}]}, {"id": "TR2_M1", "test": "TR2", "mod": 1, "title": "Aqueducts", "paragraphs": ["Aqueducts were designed to transport water from distant sources into cities and agricultural areas, and they were crucial engineering feats in ancient civilizations. This engineering marvel allowed civilizations to thrive in otherwise inhospitable environments.", "The Romans, in particular, mastered the construction of aqueducts, building extensive networks that supplied water to urban centers. These structures used a combination of gravity and meticulously calculated gradients to ensure a steady flow of water. Some Roman aqueducts, like the Pont du Gard in France, are still standing today, showcasing the Romans’ remarkable engineering skills. In addition to providing water for drinking and irrigation, aqueducts were integral to public health and sanitation. They supplied water to public baths, helping to maintain hygiene in densely populated urban areas. The availability of fresh water also supported the growth of cities and the expansion of the Roman Empire.", "Building aqueducts was a complex and labor-intensive process. Workers had to carve channels through mountains and construct bridges over valleys. Despite these challenges, the benefits of aqueducts far outweighed the difficulties. The legacy of Roman aqueducts continues to influence modern water management systems, highlighting the importance of sustainable engineering practices."], "questions": [{"n": 16, "question": "The word “meticulously” in the passage is closest in meaning to", "options": {"A": "inaccurately", "B": "precisely", "C": "vaguely", "D": "carelessly"}, "answer": "B"}, {"n": 17, "question": "What can be inferred about the workers who built the aqueducts?", "options": {"A": "They were not very skilled.", "B": "They faced significant physical challenges.", "C": "They primarily worked on bridges.", "D": "They were not aware of the aqueducts' importance."}, "answer": "B"}, {"n": 18, "question": "Why does the author mention the Pont du Gard in France?", "options": {"A": "To illustrate how aqueducts were constructed", "B": "To give an example of a well-preserved aqueduct", "C": "To explain the importance of aqueducts in France", "D": "To describe the engineering techniques used by the Romans"}, "answer": "B"}, {"n": 19, "question": "What role did aqueducts play in the expansion of the Roman Empire?", "options": {"A": "They facilitated the transportation of goods.", "B": "They provided water for drinking and sanitation.", "C": "They helped in building bridges over valleys.", "D": "They enabled the construction of public baths."}, "answer": "B"}, {"n": 20, "question": "What can be inferred about modern water management systems?", "options": {"A": "They no longer use principles from Roman engineering.", "B": "They are less efficient than Roman aqueducts.", "C": "They are influenced by Roman engineering practices.", "D": "They are not as labor-intensive as Roman aqueducts."}, "answer": "C"}]}, {"id": "TR2_M2", "test": "TR2", "mod": 2, "title": "Sleep Patterns", "paragraphs": ["Sleep patterns vary considerably among different animal species. Some animals, like dolphins, have unique sleep methods. Dolphins practice unihemispheric slow-wave sleep, meaning one half of their brain sleeps while the other remains awake. This adaptation allows them to surface for air and stay alert for predators even while resting.", "Birds also display interesting sleep behaviors. Many bird species can sleep while flying. (A) During long migratory flights, some birds may engage in unihemispheric sleep, similar to dolphins, enabling them to navigate and avoid threats. (B) Additionally, certain birds can sleep with both hemispheres of their brain but in short bursts, allowing them to maintain continuous flight for extended periods.", "(C) Sleep patterns have evolved based on environmental needs. For example, grazing animals like cows and horses sleep minimally, often standing up, which helps them stay vigilant against predators. (D) In contrast, predators such as lions and tigers can afford longer, deeper sleep because they face fewer threats. Understanding these varied sleep patterns provides insight into how animals have adapted to their habitats and survival challenges. The balance between rest and vigilance is crucial for survival, revealing the intricate adaptations across the animal kingdom."], "questions": [{"n": 16, "question": "The word “considerably” in the first paragraph is closest in meaning to", "options": {"A": "actively", "B": "significantly", "C": "predictably", "D": "consistently"}, "answer": "B"}, {"n": 17, "question": "According to the second paragraph, how do some birds sleep during migratory flights?", "options": {"A": "By flying in short bursts", "B": "By practicing unihemispheric sleep", "C": "By stopping regularly during flights", "D": "By sleeping deeply for long periods"}, "answer": "B"}, {"n": 18, "question": "Why do grazing animals like cows and horses sleep minimally?", "options": {"A": "To conserve energy", "B": "To maintain continuous flight", "C": "To stay alert against predators", "D": "To surface for air"}, "answer": "C"}, {"n": 19, "question": "Why does the author mention “predators such as lions and tigers”?", "options": {"A": "To illustrate how predators can afford longer sleep due to fewer threats", "B": "To highlight the sleep patterns of grazing animals", "C": "To emphasize the time it takes for certain animals to adapt their sleep patterns", "D": "To show that sleep patterns of predators can vary over time"}, "answer": "A"}, {"n": 20, "question": "There are four locations (A, B, C, and D) in the passage that indicate where the following sentence could be added. But what affects birds’ sleep norms? Where would the sentence best fit? Select a location where the sentence could be added to the passage.", "options": {"A": "Location A", "B": "Location B", "C": "Location C", "D": "Location D"}, "answer": "C"}]}, {"id": "TR3_M1", "test": "TR3", "mod": 1, "title": "Jet Stream Dynamics", "paragraphs": ["The jet stream is a fast-moving ribbon of air high in the atmosphere that affects global weather. Flowing west to east at speeds of up to 200 miles per hour, it forms due to the temperature contrast between cold polar air and warm tropical air, which creates pressure differences that generate strong winds. In the northern hemisphere, when the jet stream dips southward, it brings cold air and storms to lower latitudes.", "The jet stream also influences cyclones and anticyclones, affecting precipitation and wind patterns. The jet stream's dynamics are influenced by factors like the Earth's rotation and uneven heating of its surface. Seasonal changes play a role; it’s stronger in winter due to the greater temperature contrast between the poles and the equator. Understanding the jet stream's behavior helps meteorologists predict weather and plan for climate events.", "Recent research shows that climate change is impacting the jet stream. The warming Arctic reduces the temperature difference between polar and tropical air masses, which may weaken the jet stream. A weaker jet stream can lead to slower-moving weather systems, resulting in prolonged periods of extreme weather, such as heatwaves or heavy rainfall."], "questions": [{"n": 16, "question": "What causes the formation of the jet stream?", "options": {"A": "The behavior of cyclones", "B": "The uneven heating of the Earth's surface", "C": "The difference in temperature between air masses", "D": "The temperature changes that occur seasonally"}, "answer": "C"}, {"n": 17, "question": "How does the jet stream affect weather systems in the northern hemisphere when it dips southward?", "options": {"A": "It brings warmer air to lower latitudes.", "B": "It leads to more stable conditions.", "C": "It brings storms to places further south.", "D": "It brings cyclones to higher latitudes."}, "answer": "C"}, {"n": 18, "question": "What is one of the main factors influencing the jet stream’s behavior?", "options": {"A": "The Earth's rotation", "B": "The presence of cyclones", "C": "The amount of precipitation", "D": "The direction of wind patterns"}, "answer": "A"}, {"n": 19, "question": "What does the author suggest about the impact of climate change on the jet stream?", "options": {"A": "It will have no significant effect on the jet stream.", "B": "It is reducing the temperature difference between polar and tropical air masses.", "C": "It is causing the jet stream to move faster.", "D": "It is increasing the temperature contrast between the poles and the equator."}, "answer": "B"}, {"n": 20, "question": "The word “prolonged” in the passage is closest in meaning to", "options": {"A": "extended", "B": "seasonal", "C": "rapid", "D": "short-term"}, "answer": "A"}]}, {"id": "TR3_M2", "test": "TR3", "mod": 2, "title": "The Golden Age of Television", "paragraphs": ["The Golden Age of Television is often considered to have occurred during the 1950s and 1960s, when TV became a dominant cultural force. This era was marked by groundbreaking shows that experimented with new formats and storytelling techniques.", "During this time period, TV saw the rise of anthology series, which presented different stories and characters in each episode, in contrast to traditional ongoing narratives. One influential anthology series was The Twilight Zone, which blended science fiction, horror, and drama in thought-provoking ways. Sitcoms reflecting everyday life, like I Love Lucy, became a cultural phenomenon. Despite its simple format, the show tackled complex social issues including gender roles and family dynamics. There was also a new focus on live broadcasts, providing viewers with real-time coverage of events and entertainers.", "However, the Golden Age was not without challenges. TV networks navigated the balance between artistic innovation and commercial pressures. Advertisers sought to influence content to appeal to mass audiences, which sometimes clashed with creative visions. Nonetheless, the period left an indelible mark on the television industry, setting standards for future programming and contributing to the medium's evolution."], "questions": [{"n": 16, "question": "The word “dominant” in the passage is closest in meaning to", "options": {"A": "relevant", "B": "favorite", "C": "leading", "D": "entertaining"}, "answer": "C"}, {"n": 17, "question": "Why does the author mention The Twilight Zone?", "options": {"A": "To illustrate the popularity of science fiction during the Golden Age", "B": "To highlight the innovative nature of anthology series", "C": "To discuss the impact of horror on television", "D": "To compare different types of TV formats"}, "answer": "B"}, {"n": 18, "question": "What does the author suggest about sitcoms like I Love Lucy?", "options": {"A": "They made TV less popular during the Golden Age", "B": "They focused on people's daily lives.", "C": "They reduced the influence of advertisers", "D": "They were more popular than anthology series"}, "answer": "B"}, {"n": 19, "question": "What is the relationship between paragraphs 2 and 3?", "options": {"A": "Paragraph 3 expands on the challenges mentioned in paragraph 2.", "B": "Paragraph 3 provides examples of the formats discussed in paragraph 2.", "C": "Paragraph 3 introduces a new issue that was not covered in paragraph 2.", "D": "Paragraph 3 contradicts the success of TV shows mentioned in paragraph 2."}, "answer": "C"}, {"n": 20, "question": "Why does the author mention advertisers in the passage?", "options": {"A": "To explain a challenge faced by TV networks", "B": "To point out how TV shows were funded at the time", "C": "To illustrate the role of commercials during live broadcasts", "D": "To criticize the quality of programming during the Golden Age"}, "answer": "A"}]}, {"id": "TR4_M1", "test": "TR4", "mod": 1, "title": "Ancient Egyptian Medicine", "paragraphs": ["Ancient Egyptian medicine was advanced for its time and laid the foundation for many modern practices. Egyptians believed the body was a system of channels similar to the Nile River. Illness was thought to be caused by blockages in these channels, like a blocked canal causing flooding. Treatments focused on unblocking channels using herbal remedies and physical interventions. One significant contribution of Egyptian medicine was surgical techniques. Ancient texts describe procedures like the removal of tumors and the setting of broken bones. They also record practices like cleaning wounds and disinfecting medical instruments. This suggests that Egyptian doctors understood the connection between cleanliness and preventing infections, a concept widely accepted only much later in history. In addition to surgery, Egyptians were skilled in pharmacology. They used substances like honey and willow bark to treat ailments. Modern science has validated some ancient remedies; for example, willow bark contains salicin, a precursor to aspirin, with pain-relieving properties. While Egyptians demonstrated an impressive body of knowledge, Egyptian medicine was also intertwined with religion. Many treatments involved prayers and rituals to invoke the favor of the gods. This blend of empirical practice and spiritual belief shows the complexity of ancient Egyptian medicine."], "questions": [{"n": 16, "question": "The author mentions “a blocked canal causing flooding” to explain", "options": {"A": "the importance of the Nile River for Egyptian culture", "B": "the ancient Egyptians’ idea of why humans became sick", "C": "the wide variety of illnesses common in ancient Egypt", "D": "the connection between agriculture and medicine"}, "answer": "B"}, {"n": 17, "question": "The passage suggests that which of the following was a surprising achievement of ancient Egyptian medicine?", "options": {"A": "Its procedures improved greatly over time.", "B": "It understood the importance of cleanliness in preventing infections.", "C": "Its use of Nile River water was often successful.", "D": "Its understanding of the cause of illnesses was largely accurate."}, "answer": "B"}, {"n": 18, "question": "Why does the author discuss the use of willow bark?", "options": {"A": "To suggest that some ancient remedies could be harmful", "B": "To explain the invention of aspirin", "C": "To highlight the variety of natural remedies available in Egypt", "D": "To show that some ancient Egyptian remedies were effective"}, "answer": "D"}, {"n": 19, "question": "The word “invoke” in the passage is closest in meaning to", "options": {"A": "request", "B": "understand", "C": "increase", "D": "express"}, "answer": "A"}, {"n": 20, "question": "What role did religion play in ancient Egyptian medicine?", "options": {"A": "Doctors were trained by religious authorities.", "B": "Religious beliefs limited the kinds of medicine that could be used.", "C": "Prayers and rituals were often a part of medical treatment.", "D": "Doctors were thought to have special connections to the gods."}, "answer": "C"}]}, {"id": "TR4_M2", "test": "TR4", "mod": 2, "title": "The Origins of Theater", "paragraphs": ["European theater has ancient roots, evolving from the rituals and storytelling of early societies. The earliest performances took place in ancient Greece, where festivals honoring the god Dionysus included dramatic contests. These performances were essential to communal life and aimed to convey moral lessons. The Greeks developed distinct genres: tragedy and comedy. Tragedies by Aeschylus and others explored themes of fate, justice, and suffering. Comedies, like those by Aristophanes, satirized society and politics. The structure of Greek theater, with its chorus and masks, had a lasting impact on later cultures.", "The tradition of theater continued in the ancient Roman Empire, where it became popular entertainment. [A] Roman theater borrowed from Greek precedents but introduced new elements like elaborate stage designs including, for example, statues of heroes or portraits of the imperial family. [B] These added layers of meaning and context to the plays and helped to convey the themes and narratives more effectively. Despite its rich history, theater faced decline during the Middle Ages in Europe (the period between 500 and 1500 C.E.). [C] However, it saw a resurgence during the following Renaissance period, leading to the flourishing of theater that laid the groundwork for modern theater. [D]"], "questions": [{"n": 16, "question": "A goal of the earliest theater performances in ancient Greece was to", "options": {"A": "tell stories about the ancient societies that Greece evolved from", "B": "honor important people in the community", "C": "bring people from different groups together", "D": "provide guidance on good and bad behavior"}, "answer": "D"}, {"n": 17, "question": "How did the plays of Aristophanes compare to those of Aeschylus?", "options": {"A": "They were in a different genre.", "B": "They were more focused on fate, justice, and suffering.", "C": "They were more popular among politicians and other important members of society.", "D": "They had a greater impact on later cultures."}, "answer": "A"}, {"n": 18, "question": "What was one effect of the elaborate stage designs of Roman theater?", "options": {"A": "They added Greek elements to plays.", "B": "They directed attention to the plays' creators.", "C": "They increased the popularity of plays among members of the imperial family.", "D": "They improved the communication of the plays' themes and narratives to viewers."}, "answer": "D"}, {"n": 19, "question": "The word \"resurgence\" in the passage is closest in meaning to", "options": {"A": "change", "B": "debate", "C": "history", "D": "comeback"}, "answer": "D"}, {"n": 20, "question": "There are four locations in the passage that indicate where the following sentence could be added: Few performances occurred around this time.", "options": {"A": "Location A", "B": "Location B", "C": "Location C", "D": "Location D"}, "answer": "C"}]}, {"id": "TR5_M1", "test": "TR5", "mod": 1, "title": "Mysterious Viking Sunstones", "paragraphs": ["The Vikings, seafaring warriors from Scandinavia, are believed to have navigated their ships with remarkable precision across the North Atlantic during the medieval period (about 500-1500 C.E.). [A] One key to their navigational success may have been the use of so-called “sunstones,” as described in Icelandic sagas (medieval Icelandic texts). Some argue the sagas’ content is mythical, while others suggest these stones were real tools used by the Vikings, probably crystals, such as Iceland spar. Iceland spar is a transparent variety of calcite that possesses unique optical properties. [B] It polarizes light by splitting light into two beams, creating a double image when the stone is held up to the sky. By rotating the crystal, the Vikings could determine the location of the sun in the sky on cloudy days, which would help them maintain their course. [C] However, evidence of actual sunstone use remains scarce. Archaeologists have yet to uncover these stones in the remains of Viking settlements or ships. But an Iceland spar sunstone was recovered from a ship that sank in 1592, suggesting that this navigational tool was indeed used for quite some time. [D] The theoretical use of sunstones remains a fascinating example of Viking ingenuity."], "questions": [{"n": 16, "question": "Why does debate continue about the sunstones mentioned in Icelandic sagas?", "options": {"A": "The sagas describe other uses for sunstones.", "B": "Archaeologists have not found any such stones when examining Viking sites.", "C": "Research indicates that sunstones are not actually an effective navigation tool.", "D": "Researchers suspect that sunstones were not easy to obtain in the medieval period."}, "answer": "B"}, {"n": 17, "question": "In what way was Iceland spar useful to Vikings?", "options": {"A": "It helped them predict when clouds would disappear.", "B": "It was used as a tool to help maintain ships.", "C": "It helped them figure out where the sun was when it could not be seen.", "D": "It was used to improve seafarers’ vision."}, "answer": "C"}, {"n": 18, "question": "Why does the author mention a ship that sank in 1592 ?", "options": {"A": "To explain how Elizabethans refined a technology invented by Vikings", "B": "To support the theory that Vikings used Iceland spar for navigation", "C": "To give an example of a more modern navigational tool", "D": "To provide information about archaeological methods"}, "answer": "B"}, {"n": 19, "question": "The word “ingenuity” in the passage is closest in meaning to", "options": {"A": "education", "B": "cleverness", "C": "luck", "D": "fame"}, "answer": "B"}, {"n": 20, "question": "There are four locations in the passage that indicate where the following sentence could be added: This is all the more remarkable considering the lack of technology at the time. Where would the sentence best fit?", "options": {"A": "Location A", "B": "Location B", "C": "Location C", "D": "Location D"}, "answer": "A"}]}, {"id": "TR5_M2", "test": "TR5", "mod": 2, "title": "Renaissance Art Techniques", "paragraphs": ["During the European Renaissance (the period between the fourteenth and the seventeenth centuries), artists developed techniques that made their paintings appear more realistic. One technique, linear perspective, allowed the accurate depiction of three-dimensional space on a flat surface. Artists created the illusion of depth by using vanishing points on horizon lines, which are points in the background where parallel lines converge. Objects were depicted as increasingly smaller as they neared these points to appear farther from the viewer. This marked a significant departure from the flat, two- dimensional representations common in earlier European art.", "Another innovation was chiaroscuro, the use of strong contrasts between light and dark to give the impression of volume. The Italian artist Leonardo da Vinci used this technique in such works as the Mona Lisa and The Virgin of the Rocks. In the latter, the illuminated main figures contrast with the deep brown shadows of the rocks and trees in the background. The technique added drama and emotional intensity, captivating viewers and drawing them into the scene. Additionally, oil painting became popular during the Renaissance. Because oil paints dry more slowly than tempera paints, artists could use blending and layering to create more texture and richer colors."], "questions": [{"n": 16, "question": "What were artists able to achieve by using linear perspective?", "options": {"A": "Paintings that appeared to have depth", "B": "Paintings that could depict a wide variety of objects", "C": "The creation of more uniform representations", "D": "The creation of smaller artworks"}, "answer": "A"}, {"n": 17, "question": "The word “departure” in the passage is closest in meaning to", "options": {"A": "practice", "B": "change", "C": "work", "D": "choice"}, "answer": "B"}, {"n": 18, "question": "Why does the author discuss Leonardo da Vinci’s The Virgin of the Rocks?", "options": {"A": "To explain why much of Leonardo’s art was so dark", "B": "To indicate that Leonardo often painted rocks and trees", "C": "To illustrate Leonardo’s use of chiaroscuro", "D": "To show how Leonardo’s style changed after he painted the Mona Lisa"}, "answer": "C"}, {"n": 19, "question": "What does the author suggest about the impact of chiaroscuro?", "options": {"A": "It made paintings more engaging to viewers.", "B": "It allowed artists to depict nighttime landscapes.", "C": "It reduced the need for linear perspective.", "D": "It led to the development of more colors."}, "answer": "A"}, {"n": 20, "question": "What was one benefit of oil paints over tempera paints?", "options": {"A": "They were easier to make.", "B": "They could be applied in layers.", "C": "They were available in more realistic colors.", "D": "They could be easily removed if necessary."}, "answer": "B"}]}];
+const KEY = 'academicReading_v1';
+const CAUSES = ['Vocabulary','Missed detail','Inference','Purpose','Misread question','Guessed','Careless','Other'];
+const TEST_LABEL = {FL1:'Full-Length 1',FL2:'Full-Length 2',TR1:'Teacher Resources 1',TR2:'Teacher Resources 2',TR3:'Teacher Resources 3',TR4:'Teacher Resources 4',TR5:'Teacher Resources 5'};
+const L = ['A','B','C','D'];
+
+let state = load();
+let cur = (state.last != null && state.last < DATA.length) ? state.last : 0;
+let timer = null, running = false;
+
+function load(){
+  try { return JSON.parse(localStorage.getItem(KEY)) || {mods:{}}; }
+  catch(e){ return {mods:{}}; }
+}
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+function ensure(id){
+  if(!state.mods[id]) state.mods[id] = {answers:{}, causes:{}, notes:{}, checked:false, timeSec:0};
+  return state.mods[id];
+}
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text != null) e.textContent = text;
+  return e;
+}
+function fmt(s){
+  const m = Math.floor(s/60), x = s % 60;
+  return String(m).padStart(2,'0') + ':' + String(x).padStart(2,'0');
+}
+function qType(t){
+  const s = t.toLowerCase();
+  if(/where would the sentence|locations? .*sentence could be added|sentence could be added/.test(s)) return 'Insert';
+  if(/main idea|mainly about|main purpose|best states a main|best summarizes/.test(s)) return 'Main idea';
+  if(/closest in meaning|meaning of/.test(s)) return 'Vocabulary';
+  if(/except|\bnot\b.*mention|mentioned as/.test(s)) return 'Detail';
+  if(/relationship|organi[sz]ation|structure of/.test(s)) return 'Structure';
+  if(/why (does|did) the author|purpose|in order to|to explain/.test(s)) return 'Purpose';
+  if(/infer|imply|suggest|conclu|most likely/.test(s)) return 'Inference';
+  return 'Detail';
+}
+function score(id){
+  const d = DATA.find(x => x.id === id), s = ensure(id);
+  return d.questions.filter(q => s.answers[q.n] === q.answer).length;
+}
+
+function setRunning(on){
+  running = on;
+  document.getElementById('startBtn').textContent = on ? 'Pause' : 'Start';
+  clearInterval(timer);
+  if(on){
+    timer = setInterval(() => { ensure(DATA[cur].id).timeSec++; save(); updateTimer(); }, 1000);
+  }
+  save();
+}
+function updateTimer(){
+  document.getElementById('timer').textContent = fmt(ensure(DATA[cur].id).timeSec);
+}
+function select(i){
+  setRunning(false);
+  cur = i; state.last = i; save();
+  render(); updateTimer();
+}
+
+function render(){
+  const m = DATA[cur], s = ensure(m.id);
+
+  // sidebar
+  const nav = document.getElementById('nav'); nav.textContent = '';
+  let lastGroup = '';
+  DATA.forEach((d, i) => {
+    if(d.test !== lastGroup){ lastGroup = d.test; nav.appendChild(el('div','group', TEST_LABEL[d.test])); }
+    const b = el('button', 'mod' + (i === cur ? ' active' : ''));
+    b.appendChild(el('span','', 'Module ' + d.mod));
+    const st = state.mods[d.id];
+    let label = '—', cls = 'badge';
+    if(st && st.checked){ label = score(d.id) + '/5'; cls += ' done'; }
+    else if(st && Object.keys(st.answers).length){ label = 'in progress'; }
+    b.appendChild(el('span', cls, label));
+    b.onclick = () => select(i);
+    nav.appendChild(b);
+  });
+
+  // totals
+  let checked = 0, correct = 0;
+  DATA.forEach(d => { const st = state.mods[d.id]; if(st && st.checked){ checked++; correct += score(d.id); } });
+  document.getElementById('totals').textContent = 'Checked: ' + checked + '/14 modules · ' + correct + '/' + (checked*5) + ' correct';
+
+  // title
+  document.getElementById('title').textContent = TEST_LABEL[m.test] + ' · Module ' + m.mod + ' — ' + m.title;
+
+  // passage
+  const p = document.getElementById('passage'); p.textContent = '';
+  p.appendChild(el('h2', '', 'Passage'));
+  m.paragraphs.forEach(t => p.appendChild(el('p', '', t)));
+
+  // questions
+  const qs = document.getElementById('questions'); qs.textContent = '';
+  qs.appendChild(el('div','qlabel','Questions 16–20'));
+  m.questions.forEach(q => {
+    const picked = s.answers[q.n];
+    const card = el('div', 'q');
+    const head = el('div', 'qhead');
+    head.appendChild(el('span', 'qnum', 'Q' + q.n));
+    head.appendChild(el('span', '', qType(q.question)));
+    card.appendChild(head);
+    card.appendChild(el('div', 'qtext', q.question));
+
+    L.forEach((letter, idx) => {
+      const isPicked = picked === letter;
+      let cls = 'opt';
+      if(s.checked){
+        if(letter === q.answer) cls += ' right';
+        else if(isPicked) cls += ' wrong';
+      } else if(isPicked) cls += ' sel';
+      const row = el('label', cls);
+      const r = document.createElement('input');
+      r.type = 'radio'; r.name = 'q' + q.n; r.value = letter;
+      r.checked = isPicked; r.disabled = s.checked;
+      r.onchange = () => { s.answers[q.n] = letter; save(); render(); };
+      row.appendChild(r);
+      row.appendChild(el('span', '', letter + '. ' + q.options[letter]));
+      card.appendChild(row);
+    });
+
+    if(s.checked && picked !== q.answer){
+      const fb = el('div', 'fb', 'Key: ' + q.answer + (picked ? ' · your answer: ' + picked : ' · not answered'));
+      const sel = document.createElement('select');
+      const o0 = document.createElement('option'); o0.value = ''; o0.textContent = 'Root cause…'; sel.appendChild(o0);
+      CAUSES.forEach(c => {
+        const o = document.createElement('option'); o.value = c; o.textContent = c;
+        if(s.causes[q.n] === c) o.selected = true;
+        sel.appendChild(o);
+      });
+      sel.onchange = () => { s.causes[q.n] = sel.value; save(); };
+      const ta = document.createElement('textarea');
+      ta.placeholder = 'What went wrong, in your own words';
+      ta.value = s.notes[q.n] || '';
+      ta.oninput = () => { s.notes[q.n] = ta.value; save(); };
+      fb.appendChild(sel); fb.appendChild(ta);
+      card.appendChild(fb);
+    }
+    qs.appendChild(card);
+  });
+}
+
+document.getElementById('startBtn').onclick = () => setRunning(!running);
+
+document.getElementById('checkBtn').onclick = () => {
+  const m = DATA[cur], s = ensure(m.id);
+  const missing = m.questions.filter(q => !s.answers[q.n]).length;
+  if(missing && !confirm(missing + ' question(s) unanswered. Check anyway?')) return;
+  setRunning(false);
+  s.checked = true; save(); render();
+};
+
+document.getElementById('resetBtn').onclick = () => {
+  if(!confirm('Clear answers, notes and timer for this module?')) return;
+  setRunning(false);
+  delete state.mods[DATA[cur].id]; save(); render(); updateTimer();
+};
+
+function buildExport(){
+  const out = ['# Academic Passages log', 'Exported ' + new Date().toLocaleString(), ''];
+  let total = 0, n = 0;
+  DATA.forEach(d => {
+    const s = state.mods[d.id];
+    if(!s || (!Object.keys(s.answers).length && !s.checked)) return;
+    out.push('## ' + TEST_LABEL[d.test] + ' M' + d.mod + ' — ' + d.title);
+    out.push('Score: ' + (s.checked ? score(d.id) + '/5' : 'not checked') + ' · Time: ' + fmt(s.timeSec));
+    out.push('');
+    out.push('| Q | Type | Mine | Key | Result | Cause | Note |');
+    out.push('|---|---|---|---|---|---|---|');
+    d.questions.forEach(q => {
+      const a = s.answers[q.n] || '—';
+      const ok = a === q.answer;
+      const res = s.checked ? (ok ? '✓' : '✗') : '';
+      const cause = ok ? '' : (s.causes[q.n] || '');
+      const note = ok ? '' : (s.notes[q.n] || '').replace(/\|/g,'/').replace(/\n/g,' ');
+      out.push('| ' + q.n + ' | ' + qType(q.question) + ' | ' + a + ' | ' + q.answer + ' | ' + res + ' | ' + cause + ' | ' + note + ' |');
+    });
+    out.push('');
+    if(s.checked){ total += score(d.id); n += 5; }
+  });
+  if(out.length === 3) out.push('Nothing logged yet.');
+  else out.push('Total checked: ' + total + '/' + n);
+  return out.join('\n');
+}
+document.getElementById('exportBtn').onclick = () => {
+  const box = document.getElementById('exportBox');
+  document.getElementById('exportText').value = buildExport();
+  box.hidden = false;
+};
+document.getElementById('copyBtn').onclick = () => {
+  const t = document.getElementById('exportText');
+  if(navigator.clipboard) navigator.clipboard.writeText(t.value).catch(() => { t.select(); document.execCommand('copy'); });
+  else { t.select(); document.execCommand('copy'); }
+};
+
+window.addEventListener('beforeunload', save);
+render(); updateTimer();
+</script>
+</body>
+</html>
