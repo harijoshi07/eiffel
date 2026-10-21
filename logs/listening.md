@@ -49,5 +49,23 @@ Keys, prompt text and audio for all 112 items were checked against the official 
 - Both times I did not fully evaluate the option that turned out right.
 - Decision time does not explain it: the T6 Q4 miss came after my longest decision.
 
+## Type B: Listen to a Conversation (page: `practice/listen-to-conversation.html`)
+
+Exported 2026-10-21 13:25. Exam mode (conversation plays once, questions after it ends, no going back). **41/41 scored**, 21 conversations, no replays, no misses.
+
+- One question is not scored: **T6 M1 Q10**. The printed transcript has a closing turn by the man that is not in the audio, so the key cannot be checked against what was heard. Q9 of that conversation was correct. The export does not record which option I chose for Q10.
+- Time per conversation was 00:29 to 00:49, including the audio. Average decision time per question was 5.6s to 14.5s.
+- Slowest decisions, both still correct: T7 M1 Q9-10 (14.5s) and T6 M2 Q9-10 (13.4s). Nothing to fix, but these are the two to replay first if a miss ever points to conversations.
+
+| Test | M1 Q9-10 | M1 Q11-12 | M2 Q9-10 |
+|---|---|---|---|
+| T1 Full-Length 1 | 2/2 | 2/2 | 2/2 |
+| T2 Full-Length 2 | 2/2 | 2/2 | 2/2 |
+| T3 Teacher Resources 1 | 2/2 | 2/2 | 2/2 |
+| T4 Teacher Resources 2 | 2/2 | 2/2 | 2/2 |
+| T5 Teacher Resources 3 | 2/2 | 2/2 | 2/2 |
+| T6 Teacher Resources 4 | 1/1 (Q10 not scored) | 2/2 | 2/2 |
+| T7 Teacher Resources 5 | 2/2 | 2/2 | 2/2 |
+
 ## Difficulties
 - Answering statements: choosing the option that continues my own story rather than reacting to what she said.
