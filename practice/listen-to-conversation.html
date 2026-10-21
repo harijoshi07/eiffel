@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Listening — Listen to a Conversation</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:860px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;min-width:56px}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:hover:not(:disabled){filter:brightness(.97)}
+.bar select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}
+.muted{color:var(--muted)}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.dot{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.dot.on{background:var(--terra)}.dot.ok{background:var(--sage)}.dot.bad{background:var(--red)}.dot.skip{background:#cbbf9e}
+.listen{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:14px;background:var(--terra-soft);margin-bottom:18px}
+.listen .ico{font-size:26px}
+.listen.err{background:var(--red-soft);color:var(--red)}
+.listen.done{background:var(--sage-soft)}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px;cursor:pointer;background:#fff}
+.opt input{margin-top:6px}
+.opt .l{font-weight:600;color:var(--terra);min-width:18px}
+.opt.sel{border-color:var(--terra);background:var(--terra-soft)}
+.opt.right{border-color:var(--sage);background:var(--sage-soft)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.opt.static{cursor:default}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.qhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.qnum{font-weight:600;color:var(--terra)}
+.tag{font-size:12px;padding:1px 9px;border-radius:999px}
+.tag.ok{background:var(--sage-soft);color:#3f6143}.tag.bad{background:var(--red-soft);color:var(--red)}.tag.type{background:var(--line);color:var(--muted)}.tag.skip{background:var(--amber-soft);color:var(--amber)}
+.stem{font-weight:500;margin:4px 0 12px}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:12px}
+.turns{margin:10px 0 0}
+.turn{display:flex;gap:10px;margin-bottom:6px}
+.turn b{min-width:58px;color:var(--terra);font-weight:600}
+.fb{margin-top:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.fb select,.fb textarea{width:100%;margin-top:6px;font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.fb textarea{min-height:56px}
+.hint{font-size:12.5px;color:var(--muted);margin:6px 0 2px;line-height:1.4}
+.exportbox textarea{width:100%;min-height:260px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.score{font-size:34px;font-weight:700;color:var(--terra);line-height:1.1}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:18px}}
+</style></head>
+<body><div class="wrap">
+<aside>
+  <h1>Listen to a Conversation</h1>
+  <div class="sub">21 conversations · 42 questions</div>
+  <div id="nav"></div>
+  <div class="totals" id="totals"></div>
+  <div class="note">Audio plays from <code>../resources/audio</code>, so this page works only on this computer, in a browser that plays Ogg Vorbis (Arc and Chrome do; Safari does not).</div>
+</aside>
+<main>
+  <div class="bar">
+    <div class="title" id="title"></div>
+    <span class="timer" id="timer">00:00</span>
+    <select id="mode" title="Exam: the conversation plays once, then you answer, with no going back. Practice: replay and back allowed.">
+      <option value="exam">Exam mode (play once)</option><option value="practice">Practice mode (replay)</option>
+    </select>
+    <button id="resetBtn">Reset</button>
+    <button id="exportBtn">Export log</button>
+  </div>
+  <div id="view"></div>
+  <div class="exportbox" id="exportbox" hidden>
+    <h2 style="font-size:16px">Markdown log</h2>
+    <textarea id="exportText" readonly></textarea>
+    <div class="row" style="margin-top:8px"><button id="copyBtn">Copy</button><span class="muted" id="copied"></span></div>
+  </div>
+</main></div>
+<script>
+const DATA = [{"id": "T1_1_9", "test": 1, "src": "Full-Length 1", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/student-1/listening/conversations/Listening1_Conversation_Questions9-10.ogg", "questions": [{"n": 9, "question": "What does the woman imply that she was about to do?", "options": {"A": "See a play", "B": "Change her clothes", "C": "Go shopping", "D": "Eat dinner"}, "key": "C"}, {"n": 10, "question": "Why does the man say “I’d forget my head if it wasn’t screwed on”?", "options": {"A": "He forgot what the woman wanted him to buy.", "B": "He forgot about the timing of their plans.", "C": "He forgot what they were going to eat for dinner.", "D": "He forgot to buy salmon and salad at the supermarket."}, "key": "B"}], "turns": [["Woman", "Need anything from the supermarket?"], ["Man", "Huh? Aren’t we getting ready to go see that play in a few minutes?"], ["Woman", "That’s tomorrow."], ["Man", "Oh. Wow, I’d forget my head if it wasn’t screwed on.... Guess I don’t need to change my clothes after all."], ["Woman", "So, you weren’t planning to prepare dinner?"], ["Man", "No, but I can. What do you want?"], ["Woman", "Just something light and healthy. So, can you go shopping instead?"], ["Man", "Yeah, sure. How about salmon and salad? Want anything else?"], ["Woman", "No, that’s good. Thanks!"]]}, {"id": "T1_1_11", "test": 1, "src": "Full-Length 1", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/student-1/listening/conversations/Listening1_Conversation_Questions11-12.ogg", "questions": [{"n": 11, "question": "Why did the woman call a technician?", "options": {"A": "An air-conditioner is leaking.", "B": "A room is too hot.", "C": "An elevator needs maintenance.", "D": "A window will not open."}, "key": "B"}, {"n": 12, "question": "What does the woman suggest the man do?", "options": {"A": "Finish an assignment early", "B": "Wait for a service agent", "C": "Open a door", "D": "Take a break early"}, "key": "D"}], "turns": [["Man", "Did you see the maintenance request about the air-conditioning?"], ["Woman", "Yes, I called the technician this morning. They said someone should be here shortly."], ["Man", "That’s a relief. It’s getting uncomfortably warm in here."], ["Woman", "I know—I called as soon as I noticed. Hopefully, it’s just a minor issue and they can get it working again without too much delay. In the meantime, why don’t you go out to lunch early? Maybe it’ll be better when you get back."]]}, {"id": "T1_2_9", "test": 1, "src": "Full-Length 1", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/student-1/listening/conversations/Listening2_Conversations_Questions9-10.ogg", "questions": [{"n": 9, "question": "What is the man trying to decide between?", "options": {"A": "A laptop and a smartphone", "B": "A smartphone and a tablet", "C": "A tablet and a desktop computer", "D": "A smartphone and a smartwatch"}, "key": "B"}, {"n": 10, "question": "What reason does the woman give for her suggestion?", "options": {"A": "The device is cheaper.", "B": "The device is easier to use on the go.", "C": "The device has a larger screen.", "D": "The device has better battery life."}, "key": "B"}], "turns": [["Man", "I’m trying to decide whether to get a smartphone or a tablet. What do you think?"], ["Woman", "It depends on what you need it for. If you want something portable and easy to use on the go, a smartphone is better."], ["Man", "That’s true. But I like the larger screen on a tablet for watching videos and reading."], ["Woman", "In that case...."], ["Man", "I better think about it some more."]]}, {"id": "T2_1_9", "test": 2, "src": "Full-Length 2", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/student-2/listening/conversations/Listening1_Conversations_Questions9-10.ogg", "questions": [{"n": 9, "question": "What problem is the man experiencing with his laptop?", "options": {"A": "It has a cracked screen.", "B": "It won’t turn on.", "C": "It keeps freezing and shutting down.", "D": "It is running slowly."}, "key": "C"}, {"n": 10, "question": "What will the man most likely do next?", "options": {"A": "Buy a new laptop", "B": "Run another virus scan", "C": "Take his laptop to a repair shop", "D": "Restart his laptop"}, "key": "C"}], "turns": [["Man", "I think my laptop is acting up again. It keeps freezing and shutting down randomly."], ["Woman", "That’s frustrating. Have you tried restarting it or running a virus scan?"], ["Man", "Yes, I did both, but it didn’t help. I might need to take it to a repair shop."], ["Woman", "That sounds like a good idea. They should be able to diagnose and fix the issue."], ["Man", "I’ll do that this afternoon."]]}, {"id": "T2_1_11", "test": 2, "src": "Full-Length 2", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/student-2/listening/conversations/Listening1_Conversations_Questions11-12.ogg", "questions": [{"n": 11, "question": "What is the man’s problem?", "options": {"A": "He has nothing to eat for lunch.", "B": "He is unable to attend a meeting.", "C": "He forgot about an obligation at work.", "D": "He needs more resources to finish a project."}, "key": "C"}, {"n": 12, "question": "What does the woman imply when she says, “I stocked up yesterday”?", "options": {"A": "She does not plan to go to work tomorrow.", "B": "She will provide the man with drinks for his meeting.", "C": "The supermarket has plenty of drinks available.", "D": "The man will not need extra time to finish his project."}, "key": "B"}], "turns": [["Man", "Are you going to the supermarket today by any chance?"], ["Woman", "I was just there yesterday. Why?"], ["Man", "I suddenly remembered that I’m supposed to bring some drinks to my team’s lunch meeting tomorrow at work, and I’m in the middle of a project I need to finish tonight."], ["Woman", "You’re in luck. I stocked up yesterday."]]}, {"id": "T2_2_9", "test": 2, "src": "Full-Length 2", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/student-2/listening/conversations/Listening2_Conversations_Questions9-10.ogg", "questions": [{"n": 9, "question": "What was the woman not aware of?", "options": {"A": "The library’s new location", "B": "The library’s borrowing policy", "C": "The library’s holiday schedule", "D": "The library’s hours of operation"}, "key": "B"}, {"n": 10, "question": "What will the woman probably do next?", "options": {"A": "Return books to the library", "B": "Make a phone call to the library", "C": "Pay a fine for returning books late", "D": "Borrow a new book from the library"}, "key": "A"}], "turns": [["Man", "Have you returned the books we borrowed from the library?"], ["Woman", "Why? I thought we could keep them for six weeks."], ["Man", "Actually, it’s now four weeks. They changed the policy. I guess I forgot to tell you!"], ["Woman", "That means they’re due tomorrow!"], ["Man", "Exactly!"], ["Woman", "In that case, I’ll take care of it right now!"]]}, {"id": "T3_1_9", "test": 3, "src": "Teacher Resources 1", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/teacher-1/listening/short-conversation/Listening1_Conversation_Questions_9-10.mp3", "questions": [{"n": 9, "question": "What kind of job does the man most likely have?", "options": {"A": "Fitness instructor", "B": "Driver", "C": "Office worker", "D": "Equipment manufacturer"}, "key": "C"}, {"n": 10, "question": "What does the man indicate about weekends?", "options": {"A": "He sometimes needs to go to work on weekends.", "B": "He sometimes repairs equipment in his house on weekends.", "C": "He likes to exercise outdoors on weekends.", "D": "He exercises more on weekends than on other days."}, "key": "D"}], "turns": [["Woman", "Have you decided which gym to join?"], ["Man", "I'm torn between the Nano Fitness Gym near my house and the Downtown Trainers gym near my work."], ["Woman", "The second one might suit you. You'll enjoy working up some sweat right after sitting at your desk in front of the computer all day, five days a week."], ["Man", "True. And Downtown Trainers has the better instructors and nicer equipment, too. But weekends is actually when I do most of my working out, and it’d be easier to do it near home than drive downtown."]]}, {"id": "T3_1_11", "test": 3, "src": "Teacher Resources 1", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/teacher-1/listening/short-conversation/Listening1_Conversation_Questions_11-12.mp3", "questions": [{"n": 11, "question": "Why does the woman need professional help?", "options": {"A": "Her computer is not working properly.", "B": "She needs to choose a new computer.", "C": "She needs new software on her computer.", "D": "She has lost access to her email."}, "key": "A"}, {"n": 12, "question": "What will the man do after the meeting?", "options": {"A": "Offer the woman some advice", "B": "Call a downtown shop", "C": "Get his computer fixed", "D": "Share some contact information"}, "key": "D"}], "turns": [["Man", "Did you manage to fix your computer?"], ["Woman", "No, it's still acting up. I think I need professional help."], ["Man", "I know a great repair shop downtown. They fixed mine really quickly last month."], ["Woman", "Could you send me their contact information?"], ["Man", "Sure, I'll email it to you right after this meeting."]]}, {"id": "T3_2_9", "test": 3, "src": "Teacher Resources 1", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/teacher-1/listening/short-conversation/Listening2_Conversation_Question_9-10.mp3", "questions": [{"n": 9, "question": "What does the woman offer to help with?", "options": {"A": "Deciding which products to sell", "B": "Finding new clients", "C": "Producing goods", "D": "Describing items for sale"}, "key": "D"}, {"n": 10, "question": "Why does the woman mention a client?", "options": {"A": "To emphasize the need for an online store", "B": "To propose a strategy for increasing sales", "C": "To illustrate the importance of collaboration", "D": "To explain why she prefers not to plan a meeting after lunch"}, "key": "D"}], "turns": [["Woman", "Did you finish setting up the new online store?"], ["Man", "Almost. There's just a few more product descriptions to write."], ["Woman", "Do you need any help with that? I know the stuff we sell pretty intimately."], ["Man", "Thank you! I'd love to collaborate with you on this. Would you like to meet in my office after lunch?"], ["Woman", "Later in the afternoon would be safer. I have a lunch-time meeting with our newest client today, and I don't know how long that's gonna last."]]}, {"id": "T4_1_9", "test": 4, "src": "Teacher Resources 2", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/teacher-2/listening/short-conversation/Listening1_Conversation_Questions_9-10.mp3", "questions": [{"n": 9, "question": "What do the speakers dislike about the farmers market?", "options": {"A": "Its location is inconvenient.", "B": "Its supply of vegetables is limited.", "C": "It is often closed on Saturdays.", "D": "It can be expensive."}, "key": "A"}, {"n": 10, "question": "Why does the woman mention a wedding?", "options": {"A": "To make a point about rideshare prices", "B": "To explain why she needs to buy vegetables", "C": "To invite the man to an event", "D": "To identify a problem with the man's plan"}, "key": "D"}], "turns": [["Man", "Going to the farmers market on Saturday?"], ["Woman", "Yes, I need to pick up some fresh vegetables."], ["Man", "Me too. I love the produce there. I wish it were closer to downtown though."], ["Woman", "Yeah, changing two bus lines is a bit much."], ["Man", "Maybe let's try to recruit Michael and Sarah to come with us. Taking a rideshare wouldn't be so expensive if we split the fare among the four of us."], ["Woman", "That's a thought. Though I'm pretty sure the two of them are going to a wedding this Saturday."]]}, {"id": "T4_1_11", "test": 4, "src": "Teacher Resources 2", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/teacher-2/listening/short-conversation/Listening1_Conversation_Questions_11-12.mp3", "questions": [{"n": 11, "question": "What do the speakers imply about the book that will be discussed tonight?", "options": {"A": "It provides diverse perspectives.", "B": "It is less philosophical than its author's other books.", "C": "It is very popular among book club members.", "D": "It is difficult to understand."}, "key": "D"}, {"n": 12, "question": "What does the man say about Chen Wang's poems?", "options": {"A": "They are similar to novels in some ways.", "B": "They lack philosophical insights.", "C": "He could read them more quickly after a book club discussion.", "D": "A book of them took him a week to read."}, "key": "C"}], "turns": [["Man", "Are you going to the book club meeting tonight?"], ["Woman", "I haven't finished the book yet."], ["Man", "That's OK! And yeah, Jake Homgren's novels can be a slog sometimes. But the philosophical insights in them are fascinating."], ["Woman", "Maybe if I hear other club members’ perspectives, it'll help me follow the book better and make the reading go faster."], ["Man", "This was exactly my experience when we discussed Chen Wang's poems last week."]]}, {"id": "T4_2_9", "test": 4, "src": "Teacher Resources 2", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/teacher-2/listening/short-conversation/Listening2_Conversation_Questions_9-10.mp3", "questions": [{"n": 9, "question": "What problem are the speakers discussing?", "options": {"A": "A computer file is not opening.", "B": "A piece of equipment is not working.", "C": "A presentation time has been changed.", "D": "Some slides are not displaying properly."}, "key": "B"}, {"n": 10, "question": "What does the woman offer to do?", "options": {"A": "Attempt to repair a printer", "B": "Review the man's handouts", "C": "Help the man practice a presentation", "D": "Make copies of the man's presentation"}, "key": "A"}], "turns": [["Woman", "How are preparations for tomorrow’s meeting with the board coming along. Is your marketing presentation all set?"], ["Man", "Almost. I’ve finalized the slides, but I still need to print the handouts—and the printer’s acting up."], ["Woman", "Again? That’s the third time this week. Do you want me to check it out? The last couple of times I had an issue, I managed to get it working again."], ["Man", "That would be great. I’ve already tried fiddling with it, but no luck."], ["Woman", "I’ll head down to the copy room right now and see what I can do."]]}, {"id": "T5_1_9", "test": 5, "src": "Teacher Resources 3", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/teacher-3/listening/short-conversation/Listening1_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "Why was an event rescheduled?", "options": {"A": "Because of the weather", "B": "Because a park will be closed", "C": "Because of a schedule conflict", "D": "Because Saturday is a day off"}, "key": "A"}, {"n": 10, "question": "What will the speakers do this Saturday?", "options": {"A": "Go hiking in a park", "B": "Socialize with their coworkers", "C": "Go to a restaurant", "D": "Discuss the new schedule"}, "key": "B"}], "turns": [["Man", "I just got an email saying that the company picnic at Emerald Park has been rescheduled."], ["Woman", "Oh, really? How come?"], ["Man", "Apparently the forecast is terrible next Wednesday... heavy rain."], ["Woman", "Oh, that makes sense. Did they mention the new date?"], ["Man", "Yes, this Saturday, the tenth."], ["Woman", "I’ll mark my calendar. I’m looking forward to having some food in good company."]]}, {"id": "T5_1_11", "test": 5, "src": "Teacher Resources 3", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/teacher-3/listening/short-conversation/Listening1_Conversation_Questions_11-12.ogg", "questions": [{"n": 11, "question": "What is the man trying to choose?", "options": {"A": "A phone", "B": "A game", "C": "A computer", "D": "A pair of sneakers"}, "key": "C"}, {"n": 12, "question": "Why does the man mention a purchase that he made last month?", "options": {"A": "To imply that he no longer trusts product reviews", "B": "To explain why he prefers a durable product", "C": "To recommend a new product to the woman", "D": "To indicate why he does not want to buy an expensive product"}, "key": "A"}], "turns": [["Man", "I’m having trouble deciding which laptop to buy. There are so many options out there."], ["Woman", "Have you narrowed it down at all?"], ["Man", "Sort of. I’m debating between a high-performance model for gaming and a more budget-friendly one for everyday tasks."], ["Woman", "Have you read some user reviews? They might help you decide if the extra cost would be worthwhile."], ["Man", "Yeah, maybe. Though the reviews of the sneakers I bought last month said they're super-durable, and yet I have holes in them already."]]}, {"id": "T5_2_9", "test": 5, "src": "Teacher Resources 3", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/teacher-3/listening/short-conversation/Listening2_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "What does the man still need to do for his presentation?", "options": {"A": "Print handouts for the audience", "B": "Finish preparing the visual elements", "C": "Write his speech", "D": "Notify his colleagues about it"}, "key": "B"}, {"n": 10, "question": "What will the man most likely do this afternoon?", "options": {"A": "Practice his speech", "B": "Deliver his presentation to a group", "C": "Review the woman's presentation", "D": "Express his appreciation"}, "key": "A"}], "turns": [["Woman", "Are you all set for your presentation tomorrow?"], ["Man", "Almost. I still need to finalize my slides and add a couple more visuals to make it engaging."], ["Woman", "If you need any help, let me know. I'm done with mine already."], ["Man", "Well, it'd be helpful for me to practice my speech in front of someone..."], ["Woman", "I'm free at 4:30, if you want to come by my office."], ["Man", "Thanks! I appreciate it. I'd love to get your thoughts before I deliver it to the full audience tomorrow."]]}, {"id": "T6_1_9", "test": 6, "src": "Teacher Resources 4", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/teacher-4/listening/short-conversation/Listening1_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "What problem is the man having with his car?", "options": {"A": "It cannot start.", "B": "It makes a strange noise.", "C": "It is unable to move fast.", "D": "It is unsafe to drive."}, "key": "B"}, {"n": 10, "question": "What does the man imply at the end of the conversation?", "options": {"A": "He wants to buy a new car.", "B": "He needs his car for an important errand he must do.", "C": "He needs advice about a mechanic to use.", "D": "He hopes an issue is minor."}, "key": "D", "flag": "The printed transcript has a closing turn by the man (about an arm and a leg, Sunday, and picking up his mother at the airport) that is NOT in the audio. This question is unreliable and is not scored."}], "turns": [["Man", "I’ve been having trouble with my car lately. It makes a weird sound every time I start it."], ["Woman", "That's annoying. Have you taken it to get checked out?"], ["Man", "Not yet. I’m planning to go tomorrow."], ["Woman", "That’s a good idea. It might be something minor, but it's better to be safe."], ["Man", "Exactly. I just pray it doesn't cost me an arm and a leg. And I hope to get my car back by Sunday. I need to pick up my mother at the airport then."], ["Woman", "Fingers crossed!"]]}, {"id": "T6_1_11", "test": 6, "src": "Teacher Resources 4", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/teacher-4/listening/short-conversation/Listening1_Conversation_Questions_11-12.ogg", "questions": [{"n": 11, "question": "What does the man still need to book?", "options": {"A": "Transportation", "B": "A restaurant table", "C": "A cabin", "D": "Skiing equipment"}, "key": "D"}, {"n": 12, "question": "What will the woman do next?", "options": {"A": "Look up a recipe", "B": "Check the name of a restaurant", "C": "Offer the man some skiing advice", "D": "Make a phone call"}, "key": "B"}], "turns": [["Woman", "I heard you’re planning a trip to Sky-High Ski Resort this winter. Have you booked everything yet?"], ["Man", "Well, I’ve booked the cabin to stay, but I still need to reserve skis and ski boots."], ["Woman", "You don’t have your own?"], ["Man", "No, this will actually be my first time skiing. I’m a bit nervous."], ["Woman", "You’ll do fine. By the way, there’s a great Thai restaurant next to the resort, and I don’t think it requires reservations."], ["Man", "Great! What’s the name?"], ["Woman", "Can’t remember off the top of my head. Lemme look it up on my phone."]]}, {"id": "T6_2_9", "test": 6, "src": "Teacher Resources 4", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/teacher-4/listening/short-conversation/Listening2_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "What did the man dislike about the new gym?", "options": {"A": "The location", "B": "The facilities", "C": "The equipment", "D": "The prices for one-time use"}, "key": "D"}, {"n": 10, "question": "Why does the man mention a book?", "options": {"A": "To offer a reading suggestion for the woman", "B": "To explain how he found out about the new gym", "C": "To give an extra reason for getting a long-term membership", "D": "To point out that there are many different ways to get in shape"}, "key": "C"}], "turns": [["Man", "I’ve been eyeing the new gym downtown..."], ["Woman", "Have you checked their facilities?"], ["Man", "Yes, they have modern equipment and offer various classes."], ["Woman", "Are the prices reasonable?"], ["Man", "The daily use fees are higher than I expected. So maybe I’ll get a long-term membership instead."], ["Woman", "Well, if you think you’ll go regularly..."], ["Man", "Yeah, the fitness book I’m reading says that’s the way to get in shape anyway."]]}, {"id": "T7_1_9", "test": 7, "src": "Teacher Resources 5", "module": 1, "range": "9-10", "audio": "../resources/audio/tests/teacher-5/listening/short-conversation/Listening1_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "What is the woman trying to do?", "options": {"A": "Find a new job", "B": "Rent a new apartment", "C": "Renew a lease", "D": "Book a hotel room"}, "key": "B"}, {"n": 10, "question": "What does the man imply when he mentions a new hotel?", "options": {"A": "The woman should book a room in the new hotel.", "B": "The woman should check information about the new hotel online.", "C": "Downtown apartments are very expensive.", "D": "The downtown area was not a nice place to live until recently."}, "key": "D"}], "turns": [["Woman", "My lease is up at the end of the month."], ["Man", "Have you started looking for a new apartment to rent yet?"], ["Woman", "Yes, but I haven’t found anything that I like."], ["Man", "Have you tried looking downtown? Now that they’ve finally finished building the giant new hotel there, it’s a much cleaner and quieter area."], ["Woman", "That’s a good idea. I’ll check online tonight."]]}, {"id": "T7_1_11", "test": 7, "src": "Teacher Resources 5", "module": 1, "range": "11-12", "audio": "../resources/audio/tests/teacher-5/listening/short-conversation/Listening1_Conversation_Questions_11-12.ogg", "questions": [{"n": 11, "question": "What problem did the woman have with her computer?", "options": {"A": "A hardware issue", "B": "A software issue", "C": "A network issue", "D": "A power issue"}, "key": "B"}, {"n": 12, "question": "Why does the woman mention her manager?", "options": {"A": "To explain why she needed her computer urgently", "B": "To indicate that hardware issues can be particularly problematic", "C": "To provide details about how she solved a problem", "D": "To describe the benefits of a new operating system"}, "key": "B"}], "turns": [["Man", "Did you manage to fix the issue with your computer?"], ["Woman", "I did. It turned out to be a software problem."], ["Man", "Great. What did you do to resolve it?"], ["Woman", "I updated the operating system, and now everything is working fine."], ["Man", "It’s always a relief when it’s something simple and not hardware-related."], ["Woman", "Absolutely. My manager told me his computer suddenly powered off last month; it turned out to be a hardware issue, and he had to buy a new computer."]]}, {"id": "T7_2_9", "test": 7, "src": "Teacher Resources 5", "module": 2, "range": "9-10", "audio": "../resources/audio/tests/teacher-5/listening/short-conversation/Listening2_Conversation_Questions_9-10.ogg", "questions": [{"n": 9, "question": "Why does the woman mention the man’s parents?", "options": {"A": "To identify people that should be invited", "B": "To request an item from the supermarket", "C": "To explain the source of a lasagna recipe", "D": "To propose a dish for a party"}, "key": "D"}, {"n": 10, "question": "What will the man most likely do in the evening?", "options": {"A": "Buy some food", "B": "Speak with the Johnsons", "C": "Cook steak", "D": "Visit his parents"}, "key": "A"}], "turns": [["Man", "What main dish should we prepare for our dinner party this weekend?"], ["Woman", "The steak we ate at your parents’ place last week was fabulous. We could do something similar."], ["Man", "Hmm, I don’t think the Johnsons eat meat. I was thinking more along the lines of veggie lasagna."], ["Woman", "Oh, I do have a great recipe for that actually."], ["Man", "We have a winner then. I’ll need the list of ingredients for my trip to the supermarket tonight."]]}];
+const KEY = 'listenConv_v1';
+const CAUSES = [
+ ['', '— pick the cause —', ''],
+ ['B1 Missed a detail', 'B1 Missed a detail', 'Did I miss a fact the speakers said (a time, a place, a reason, a name)?'],
+ ['B2 Missed implied meaning', 'B2 Missed implied meaning', 'Was the answer something a speaker implied or meant, not stated word for word?'],
+ ['B3 Mixed up speakers', 'B3 Mixed up speakers', 'Did I give the man\'s idea to the woman, or the reverse?'],
+ ['B4 Echo / near-paraphrase', 'B4 Echo / near-paraphrase', 'Did I pick it because it repeated words I heard, while the meaning was off?'],
+ ['B5 Stopped at first fit', 'B5 Stopped at first fit', 'Did I stop at the first option that sounded fine without testing the other three?'],
+ ['B6 Lost the thread', 'B6 Lost the thread', 'Did I lose focus or fall behind while the audio was playing?'],
+ ['Changed answer', 'Changed answer', 'Did I switch from the right answer? What made me switch?'],
+ ['Guessed', 'Guessed', 'No idea. What could I have noted down while listening?'],
+ ['Careless', 'Careless', 'Knew it, mis-clicked or rushed.'],
+ ['Other', 'Other', 'Explain in the note.']
+];
+const CAUSE_HINT = Object.fromEntries(CAUSES.map(c => [c[0], c[2]]));
+// Heuristic tag from the question wording. Not an official label.
+function qtype(q) {
+  const t = q.toLowerCase();
+  if (/impl(y|ies)|suggest|infer/.test(t)) return 'Implication';
+  if (/why does .* (mention|say)|why did .* (mention|say)|what does .* mean when/.test(t)) return 'Why mention / say';
+  if (/will .* (most likely|next|do)|going to do|what should/.test(t)) return 'Next action';
+  if (/main|mainly|about|trying to|purpose|topic|decid/.test(t)) return 'Main idea';
+  return 'Detail';
+}
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let S = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })();
+S.mods = S.mods || {}; S.mode = S.mode || 'exam';
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const conv = id => DATA.find(c => c.id === id);
+const scored = c => c.questions.filter(q => !q.flag).length;
+const score = id => { const c = conv(id), s = S.mods[id]; return s ? c.questions.reduce((a, q, i) => a + (!q.flag && s.ans[i] === q.key ? 1 : 0), 0) : 0; };
+const fmt = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+const label = c => `M${c.module} · Q${c.range.replace('-', '–')}`;
+let cur = (S.cur && conv(S.cur)) ? S.cur : DATA[0].id;
+let view = 'intro', qi = 0, audio = null, audioDone = false, qStart = 0, runStart = 0, tick = null;
+let run = null;   // in-progress attempt: {ans, ms, replays}
+
+function stopAudio() { if (audio) { audio.pause(); audio.onended = audio.onerror = null; audio = null; } }
+function startTimer() { clearInterval(tick); tick = setInterval(() => { if (view === 'run') $('#timer').textContent = fmt(Math.floor((Date.now() - runStart) / 1000)); }, 500); }
+
+function renderNav() {
+  let h = '', last = 0;
+  DATA.forEach(c => {
+    if (c.test !== last) { last = c.test; h += `<div class="group">Test ${c.test} · ${esc(c.src)}</div>`; }
+    const s = S.mods[c.id], done = s && s.done;
+    h += `<button class="mod ${c.id === cur ? 'active' : ''}" data-id="${c.id}"><span>${label(c)}</span><span class="badge ${done ? 'done' : ''}">${done ? score(c.id) + '/' + scored(c) : '—'}</span></button>`;
+  });
+  $('#nav').innerHTML = h;
+  document.querySelectorAll('.mod').forEach(b => b.onclick = () => {
+    if (view === 'run' && !confirm('Leave this conversation? Your answers so far will be discarded.')) return;
+    open(b.dataset.id); });
+  const dc = DATA.filter(c => S.mods[c.id] && S.mods[c.id].done);
+  const tot = dc.reduce((a, c) => a + score(c.id), 0), den = dc.reduce((a, c) => a + scored(c), 0);
+  $('#totals').textContent = `Completed: ${dc.length}/21 · ${tot}/${den}${den ? ' (' + Math.round(100 * tot / den) + '%)' : ''}`;
+}
+
+function open(id) {
+  stopAudio(); clearInterval(tick); cur = id; S.cur = id; save(); run = null;
+  const s = S.mods[id]; view = s && s.done ? 'review' : 'intro'; render();
+}
+
+function render() {
+  const c = conv(cur); renderNav();
+  $('#title').textContent = `Test ${c.test} · ${c.src} · ${label(c)}`;
+  $('#mode').value = S.mode;
+  const s = S.mods[cur];
+  if (view !== 'run') $('#timer').textContent = fmt(s ? s.secs : 0);
+  if (view === 'intro') renderIntro(); else if (view === 'run') renderRun(); else renderReview();
+}
+
+function dots(c, s, active) {
+  return '<div class="prog">' + c.questions.map((q, i) => {
+    let k = '';
+    if (s && s.done) k = q.flag ? 'skip' : (s.ans[i] === q.key ? 'ok' : 'bad');
+    else if (run && i < run.ans.length) k = 'on'; else if (i === active) k = 'on';
+    return `<div class="dot ${k}"></div>`; }).join('') + '</div>';
+}
+
+function renderIntro() {
+  const c = conv(cur), exam = S.mode === 'exam';
+  $('#view').innerHTML = `<div class="card"><h2>Listen to a conversation</h2>
+    <p>You will hear a short conversation between two people, then answer ${c.questions.length} questions about it.</p>
+    <p class="muted">${exam ? 'Exam mode: the conversation plays once. The questions appear when it ends, and you cannot go back or replay.' : 'Practice mode: you can replay the conversation and go back between questions.'} Leaving the conversation midway discards your answers. Turn the volume up before you start.</p>
+    <button class="primary" id="startBtn">Start</button></div>`;
+  $('#startBtn').onclick = () => { run = {ans: [], ms: [], replays: [0, 0]}; qi = 0; view = 'run'; runStart = Date.now(); startTimer(); render(); };
+}
+
+function playConv(box) {
+  const c = conv(cur); stopAudio();
+  audio = new Audio(encodeURI(c.audio)); const a = audio;
+  a.onended = () => { audioDone = true; box.className = 'listen done'; box.innerHTML = '<span class="ico">✓</span><span>The conversation has ended.</span>'; revealQ(); };
+  a.onerror = () => { box.className = 'listen err'; box.innerHTML = `<span class="ico">⚠</span><span>Audio could not be loaded: <code>${esc(c.audio)}</code>. Use Arc or Chrome and check the file exists.</span><button id="skipAudio">Show questions anyway</button>`; box.querySelector('#skipAudio').onclick = () => { audioDone = true; revealQ(); }; };
+  box.className = 'listen'; box.innerHTML = '<span class="ico">🔊</span><span>Listening…</span>';
+  a.play().catch(e => {
+    if (audio !== a || e.name !== 'NotAllowedError') return;
+    box.innerHTML = '<span class="ico">▶</span><span>Your browser blocked autoplay. </span><button id="manual" class="primary">Play audio</button>';
+    box.querySelector('#manual').onclick = () => { box.className = 'listen'; box.innerHTML = '<span class="ico">🔊</span><span>Listening…</span>'; a.play(); };
+  });
+}
+
+function renderRun() {
+  const c = conv(cur), exam = S.mode === 'exam';
+  audioDone = false;
+  $('#view').innerHTML = `<div class="card"><div id="dots"></div>
+    <div class="listen" id="listen"></div>
+    ${exam ? '' : '<div class="row" style="margin-bottom:14px"><button id="replay">↻ Replay conversation</button></div>'}
+    <div id="qwrap"></div></div>`;
+  $('#dots').innerHTML = dots(c, null, qi);
+  if (!exam) { $('#replay').onclick = () => { run.replays[qi] = (run.replays[qi] || 0) + 1; playConv($('#listen')); }; renderQ(); }
+  playConv($('#listen'));
+}
+
+function revealQ() { if (S.mode === 'exam') renderQ(); }
+
+function renderQ() {
+  const c = conv(cur), q = c.questions[qi], exam = S.mode === 'exam', last = qi === c.questions.length - 1;
+  qStart = Date.now();
+  $('#dots').innerHTML = dots(c, null, qi);
+  $('#qwrap').innerHTML = `<div class="qhead"><span class="qnum">Question ${qi + 1} of ${c.questions.length}</span></div>
+    <div class="stem">${esc(q.question)}</div>
+    <div id="opts">${['A', 'B', 'C', 'D'].map(l => `<label class="opt"><input type="radio" name="o" value="${l}"><span class="l">${l}</span><span>${esc(q.options[l])}</span></label>`).join('')}</div>
+    <div class="row" style="margin-top:14px">
+      ${exam ? '' : `<button id="back" ${qi === 0 ? 'disabled' : ''}>← Back</button>`}
+      <button class="primary" id="nextBtn" disabled>${last ? 'Finish' : 'Next →'}</button></div>`;
+  document.querySelectorAll('input[name=o]').forEach(r => r.onchange = () => {
+    $('#nextBtn').disabled = false; run.pick = r.value;
+    document.querySelectorAll('.opt').forEach(o => o.classList.toggle('sel', o.querySelector('input').checked)); });
+  $('#nextBtn').onclick = next;
+  if (!exam) { const b = $('#back'); if (b) b.onclick = () => { qi--; renderQ(); }; }
+  if (run.ans[qi]) { const r = document.querySelector(`input[value=${run.ans[qi]}]`); if (r) { r.checked = true; r.onchange(); } }
+}
+
+function next() {
+  const c = conv(cur); if (!run.pick || !document.querySelector('input[name=o]:checked')) return;
+  run.ans[qi] = run.pick; run.ms[qi] = Math.max(0, Date.now() - qStart); run.pick = null;
+  if (qi < c.questions.length - 1) { qi++; renderQ(); return; }
+  stopAudio(); clearInterval(tick);
+  S.mods[cur] = {ans: run.ans, ms: run.ms, replays: run.replays, cause: {}, note: {}, done: true,
+    secs: Math.floor((Date.now() - runStart) / 1000), date: new Date().toISOString().slice(0, 16).replace('T', ' ')};
+  run = null; save(); view = 'review'; render();
+}
+
+function renderReview() {
+  const c = conv(cur), s = S.mods[cur], sc = score(cur), den = scored(c);
+  const miss = c.questions.filter((q, i) => !q.flag && s.ans[i] !== q.key).length;
+  let h = `<div class="card"><div class="score">${sc} / ${den}</div><div class="muted">${miss ? miss + ' to review' : 'All correct'}${den < c.questions.length ? ' · ' + (c.questions.length - den) + ' not scored' : ''} · time ${fmt(s.secs)} · ${esc(s.date || '')}</div>${dots(c, s, -1)}</div>`;
+  h += `<div class="card"><div class="row"><b>Transcript</b><button data-play="1">🔊 Play audio</button></div><div class="turns">${c.turns.map(t => `<div class="turn"><b>${esc(t[0])}</b><span>${esc(t[1])}</span></div>`).join('')}</div></div>`;
+  c.questions.forEach((q, i) => {
+    const a = s.ans[i], ok = a === q.key, fl = !!q.flag;
+    h += `<div class="card"><div class="qhead"><span class="qnum">Q${q.n}</span>${fl ? '<span class="tag skip">Not scored</span>' : `<span class="tag ${ok ? 'ok' : 'bad'}">${ok ? 'Correct' : 'Wrong'}</span>`}
+      <span class="tag type">${esc(qtype(q.question))}</span><span>decision ${(s.ms[i] / 1000).toFixed(1)}s${s.replays && s.replays[i] ? ' · ' + s.replays[i] + ' replay(s)' : ''}</span></div>
+      ${fl ? `<div class="warn">${esc(q.flag)}</div>` : ''}
+      <div class="stem">${esc(q.question)}</div>
+      ${['A', 'B', 'C', 'D'].map(l => `<div class="opt static ${l === q.key ? 'right' : (l === a ? 'wrong' : '')}"><span class="l">${l}</span><span>${esc(q.options[l])}${l === q.key ? ' ✓' : ''}${l === a && !ok ? ' ← your answer' : ''}</span></div>`).join('')}
+      ${ok || fl ? '' : `<div class="fb"><label>Why did I miss it?
+        <select data-cause="${i}">${CAUSES.map(x => `<option value="${esc(x[0])}" ${(s.cause[i] || '') === x[0] ? 'selected' : ''}>${esc(x[1])}</option>`).join('')}${s.cause[i] && !CAUSE_HINT.hasOwnProperty(s.cause[i]) ? `<option selected>${esc(s.cause[i])} (older)</option>` : ''}</select></label>
+        <div class="hint" id="hint${i}">${esc(CAUSE_HINT[s.cause[i] || ''] || '')}</div>
+        <textarea data-note="${i}" placeholder="What did I hear, and what exactly led me to the wrong option?">${esc(s.note[i] || '')}</textarea></div>`}</div>`;
+  });
+  $('#view').innerHTML = h;
+  document.querySelectorAll('[data-play]').forEach(b => b.onclick = () => { stopAudio(); audio = new Audio(encodeURI(c.audio)); audio.play(); });
+  document.querySelectorAll('[data-cause]').forEach(x => x.onchange = () => { s.cause[x.dataset.cause] = x.value; $('#hint' + x.dataset.cause).textContent = CAUSE_HINT[x.value] || ''; save(); });
+  document.querySelectorAll('[data-note]').forEach(x => x.oninput = () => { s.note[x.dataset.note] = x.value; save(); });
+}
+
+function exportMd() {
+  const pipe = t => String(t == null ? '' : t).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const dc = DATA.filter(c => S.mods[c.id] && S.mods[c.id].done);
+  const tot = dc.reduce((a, c) => a + score(c.id), 0), den = dc.reduce((a, c) => a + scored(c), 0);
+  let o = `# Listening Type B — Listen to a Conversation (exported ${new Date().toISOString().slice(0, 16).replace('T', ' ')})\n\nTotal: ${tot}/${den} across ${dc.length}/21 conversations · mode at export: ${S.mode}\n\n| Conversation | Source | Score | Time | Avg decision | Replays |\n|---|---|---|---|---|---|\n`;
+  dc.forEach(c => { const s = S.mods[c.id]; const avg = s.ms.reduce((a, b) => a + b, 0) / s.ms.length / 1000;
+    o += `| T${c.test} ${label(c)} | ${c.src} | ${score(c.id)}/${scored(c)}${scored(c) < c.questions.length ? ' (1 not scored)' : ''} | ${fmt(s.secs)} | ${avg.toFixed(1)}s | ${(s.replays || []).reduce((a, b) => a + (b || 0), 0)} |\n`; });
+  let any = false, rows = '';
+  dc.forEach(c => { const s = S.mods[c.id]; c.questions.forEach((q, i) => { if (!q.flag && s.ans[i] !== q.key) { any = true;
+    rows += `| T${c.test} M${c.module} Q${q.n} | ${pipe(q.question)} | ${pipe(qtype(q.question))} | ${s.ans[i]}. ${pipe(q.options[s.ans[i]])} | ${q.key}. ${pipe(q.options[q.key])} | ${pipe(s.cause[i] || '')} | ${pipe(s.note[i] || '')} |\n`; } }); });
+  o += any ? `\n## Misses\n\n| Item | Question | Type (auto) | My answer | Key | Cause | Note |\n|---|---|---|---|---|---|---|\n${rows}` : '\nNo misses recorded.\n';
+  $('#exportText').value = o; $('#exportbox').hidden = false; $('#exportText').scrollIntoView({behavior: 'smooth'});
+}
+
+$('#mode').onchange = e => { S.mode = e.target.value; save(); if (view === 'run') { stopAudio(); run = {ans: [], ms: [], replays: [0, 0]}; qi = 0; runStart = Date.now(); renderRun(); } else render(); };
+$('#resetBtn').onclick = () => { if (confirm('Reset this conversation? Your answers and notes for it will be deleted.')) { stopAudio(); clearInterval(tick); delete S.mods[cur]; save(); run = null; view = 'intro'; render(); } };
+$('#exportBtn').onclick = exportMd;
+$('#copyBtn').onclick = () => { $('#exportText').select(); document.execCommand('copy'); $('#copied').textContent = 'Copied'; setTimeout(() => $('#copied').textContent = '', 1500); };
+document.addEventListener('keydown', e => {
+  if (view !== 'run' || /TEXTAREA|SELECT/.test(e.target.tagName) || !$('#opts')) return;
+  const k = e.key.toUpperCase();
+  if (k.length === 1 && 'ABCD'.includes(k)) { const r = document.querySelector(`input[value=${k}]`); if (r) { r.checked = true; r.onchange(); } }
+  else if (e.key === 'Enter' && $('#nextBtn') && !$('#nextBtn').disabled) next();
+});
+open(cur);
+</script></body></html>
