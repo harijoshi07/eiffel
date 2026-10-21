@@ -70,7 +70,7 @@ Accents: North American, British and Australian.
 ### What is official and what is my assumption
 - Official: section table, task names, text lengths, item counts per task in the practice forms, the Back/Next rules above, order of sections, adaptive design.
 - Not stated in what I read: whether Writing allows going back, how long each Listening question clock runs, and how many items in Reading and Listening are unscored pretest.
-- My own design, not ETS: the "play once, options after the audio" behaviour of `practice/2a. listen-and-respond.html`, `2b. listen-to-conversation.html` and `2c. listen-to-announcement.html`. The official text says Listening has no return and that Type A prompts are not printed. It says nothing about replaying audio, so treat replay as unavailable.
+- My own design, not ETS: the "play once, options after the audio" behaviour of `practice/2a. listen-and-respond.html`, `2b. listen-to-conversation.html`, `2c. listen-to-announcement.html` and `2d. listen-to-academic-talk.html`. The official text says Listening has no return and that Type A prompts are not printed. It says nothing about replaying audio, so treat replay as unavailable.
 - Sources: ets.org content page (section table, checked online); Teacher FAQ and Test Overview PDFs (ETS); the instruction pages of `resources/pdfs/full-length-1.pdf`.
 
 ---
