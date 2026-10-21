@@ -7,8 +7,9 @@
 # Obsidian chat session
 ey.md
 
-# Source binaries (kept local; the .md copies are committed)
-resources/pdfs/*.pdf
+# Source binaries (kept local, not in git)
+resources/pdfs/
+resources/docx/
 resources/audio/
 
 # Live session transcript (written by the Pi app, not study content)
