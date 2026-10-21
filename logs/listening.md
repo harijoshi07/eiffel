@@ -4,7 +4,7 @@ Records only. How to improve lives in `guides/listening.md`.
 
 Sources: `resources/audio/lessons/listening/`, `resources/audio/tests/*/listening/`, and `resources/pdfs/guide-lesson-listening.pdf`.
 
-## Type A: Listen and Choose a Response (page: `practice/listen-and-respond.html`)
+## Type A: Listen and Choose a Response (page: `practice/2a. listen-and-respond.html`)
 
 Exported 2026-10-21 12:41. Exam mode (audio plays once, no going back). **110/112**, no replays.
 
@@ -49,7 +49,7 @@ Keys, prompt text and audio for all 112 items were checked against the official 
 - Both times I did not fully evaluate the option that turned out right.
 - Decision time does not explain it: the T6 Q4 miss came after my longest decision.
 
-## Type B: Listen to a Conversation (page: `practice/listen-to-conversation.html`)
+## Type B: Listen to a Conversation (page: `practice/2b. listen-to-conversation.html`)
 
 Exported 2026-10-21 13:25. Exam mode (conversation plays once, questions after it ends, no going back). **41/41 scored**, 21 conversations, no replays, no misses.
 
