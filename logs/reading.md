@@ -80,7 +80,7 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 
 ### Misses (exact text from the answer data)
 
-**1. FL2 M1, Q13** · type: Detail · You: **A** · Correct: **C**
+**1. FL2 M1, Q13** · type: Purpose (the page tagged it Detail) · You: **A** · Correct: **C**
 - Why did Ms. Rogers send the email to Mr. Suzuki?
   - A. To assist him with an audit process
   - B. To remind him to update inventory logs every day
@@ -142,5 +142,97 @@ Thought process: for #2 you explained it (generated only the plural noun). For #
 - Inference: the answer must be supported by the text. A true detail is not an inference.
 - Reject options that copy a passage word but do not match the meaning.
 
-## 3. Read an Academic Passage
-Not attempted yet. Add entries here in the same format.
+## 3. Read an Academic Passage (Q16–20)
+
+### Context
+- Each module: one passage of about 200 words (1–3 paragraphs) and 5 questions. 14 modules, 70 questions.
+- Keys: TR3–TR5 checked against the PDF answer-key pages; FL1, FL2, TR1 and TR2 checked against the Word key text.
+- Session 2026-10-21 (export 10:21 AM): **65/70 (92.9%)**. Page: `practice/academic-passages.html`.
+- Type tags come from keyword matching and can be wrong.
+- Timer: only 7 of 14 modules were timed (the rest show 00:00).
+
+### Results
+| Module | Passage | Score | Time |
+|---|---|---|---|
+| FL1 M1 | The Mirror Test | 5/5 | – |
+| FL1 M2 | The Paradox of Choice | 5/5 | – |
+| FL2 M1 | The Impact of Sports on Social Integration | 5/5 | – |
+| FL2 M2 | The Human Microbiome | 5/5 | – |
+| TR1 M1 | The Effects of Urbanization on Bird Populations | 5/5 | 03:06 |
+| TR1 M2 | The History of Photography | 5/5 | – |
+| TR2 M1 | Aqueducts | **4/5** | 03:02 |
+| TR2 M2 | Sleep Patterns | **4/5** | 02:40 |
+| TR3 M1 | Jet Stream Dynamics | 5/5 | – |
+| TR3 M2 | The Golden Age of Television | **4/5** | 03:00 |
+| TR4 M1 | Ancient Egyptian Medicine | 5/5 | – |
+| TR4 M2 | The Origins of Theater | 5/5 | 04:27 |
+| TR5 M1 | Mysterious Viking Sunstones | **4/5** | 06:54 |
+| TR5 M2 | Renaissance Art Techniques | **4/5** | 02:37 |
+
+Timed modules averaged 3:41. The slowest (TR5 M1, 6:54) was still a miss, so the problem there was method, not time.
+
+### Misses
+Failure-mode codes (F1–F5) are defined in `logs/reading-guide.md`.
+
+**A1. TR2 M1 Q18** · Purpose · You: **D** · Key: **B** · Mode: **F2**
+- Why does the author mention the Pont du Gard in France?
+  - A. To illustrate how aqueducts were constructed
+  - B. To give an example of a well-preserved aqueduct
+  - C. To explain the importance of aqueducts in France
+  - D. To describe the engineering techniques used by the Romans
+- Deciding sentence: "Some Roman aqueducts, like the Pont du Gard in France, **are still standing today**, showcasing the Romans' remarkable engineering skills."
+- Your reasoning: you were torn between B and D. You read "showcasing" as "describing", and noted that "still standing today" pointed to B but chose D. Your own verdict: "I made a mistake."
+- What went wrong: you answered with the topic of the sentence (engineering skill). The question asks about the job of the example. The claim attached to the example is *still standing*, so the answer is preserved. Nothing in that sentence describes techniques.
+- Rule: "why mention X" means the claim attached to X.
+
+**A2. TR2 M2 Q20** · Insert · You: **A** · Key: **C** · Mode: **F4** · Your cause tag: Guessed
+- Insert: "But what affects birds' sleep norms?"
+- Position C is the start of paragraph 3, right before "Sleep patterns have evolved based on environmental needs."
+- Your reasoning: you eliminated C and D early and compared only A and B. You rejected C because it starts a different paragraph. You liked A because the next sentence is about migratory flights affecting sleep.
+- What went wrong: you never tested C, and a paragraph start is a legal position. "But" needs a finished bird statement before it, and C follows the last bird sentence. The question needs its answer right after, and "environmental needs" answers it; "sleep norms" echoes "Sleep patterns" in that very sentence. At A, "But" follows only "Many bird species can sleep while flying", which gives it nothing to contrast with.
+- Rule: run the four-step insert check on all four positions, not two.
+
+**A3. TR3 M2 Q19** · Structure · You: **D** · Key: **C** · Mode: **F3** · Your cause tag: Vocabulary (reclassified)
+- What is the relationship between paragraphs 2 and 3?
+  - A. Paragraph 3 expands on the challenges mentioned in paragraph 2.
+  - B. Paragraph 3 provides examples of the formats discussed in paragraph 2.
+  - C. Paragraph 3 introduces a new issue that was not covered in paragraph 2.
+  - D. Paragraph 3 contradicts the success of TV shows mentioned in paragraph 2.
+- Deciding text: P2 describes shows (The Twilight Zone, I Love Lucy, live broadcasts). P3 opens "However, the Golden Age was not without challenges" and ends "Nonetheless, the period left an indelible mark".
+- Your reasoning: you thought paragraph 2 already covered "issues", so C looked false. You read "However" plus challenges as a contradiction of the success in paragraph 2, and chose D. (Your note has dictation garbles, "sows" and "sakshas", which I left out.)
+- What went wrong: "issues" does appear in P2, but there it is the social issues I Love Lucy tackled. In P3 the problems are the industry's challenges. Same word, different referent. D fails because P3 ends "Nonetheless… indelible mark", so it does not deny the success. A fails because P2 mentions no challenges.
+- Rule: write each paragraph's job in six words first. P2 is examples of the era's shows, and P3 is challenges and legacy.
+
+**A4. TR5 M1 Q20** · Insert · You: **C** · Key: **A** · Mode: **F4** · No cause tag
+- Insert: "This is all the more remarkable considering the lack of technology at the time."
+- Position A is right after sentence 1 ("…navigated their ships with remarkable precision across the North Atlantic during the medieval period").
+- Your note: "i thought it made sense at 3rd position. not initially." It is unclear whether A was your first choice.
+- What went wrong: "remarkable" echoes "remarkable precision" in sentence 1, and "at the time" echoes "medieval period". At C, the sentence follows a description of the sunstone, which is itself a tool, and sits just before "However, evidence of actual sunstone use remains scarce".
+- Rule: find the nearest earlier word the inserted sentence repeats.
+
+**A5. TR5 M2 Q20** · Detail · You: **C** · Key: **B** · Mode: **F3** · Your cause tag: Inference (reclassified)
+- What was one benefit of oil paints over tempera paints?
+  - A. They were easier to make.
+  - B. They could be applied in layers.
+  - C. They were available in more realistic colors.
+  - D. They could be easily removed if necessary.
+- Deciding sentence: "Because oil paints dry more slowly than tempera paints, artists could use blending and **layering** to create more texture and richer colors."
+- Your reasoning: the text says more texture and richer colors, and you took richer colors to mean more realistic colors.
+- What went wrong: "richer" is not "realistic". "More realistic" is from paragraph 1, about Renaissance paintings in general. No inference was needed; the stated result is layering.
+- Rule: choose the option whose words are in the sentence that holds both X and the contrast.
+
+### Difficulties
+- Options that sound like the passage but change one word (realistic, issues, techniques).
+- Insert questions: 2 of 4 missed.
+- Relationship questions, where the same word can refer to different things in different paragraphs.
+
+### Improvements
+1. Say the task in five words before reading the options, then point to the deciding sentence.
+2. For insert items, run the four-step check on all four positions.
+3. For relationship items, write a six-word job for each paragraph first.
+4. Start the timer on every module so the timing data is usable.
+
+### Tips
+- Vocabulary (14/14), inference (10/10) and main idea (2/2) were clean. Keep that approach.
+- The key is often the plainer option. A fancy phrase that sounds like the passage deserves a second look.
+- "Why mention X": the answer is the claim attached to X.
