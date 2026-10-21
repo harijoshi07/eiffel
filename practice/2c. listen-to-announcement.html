@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Listening — Listen to an Announcement</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:860px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;min-width:56px}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:hover:not(:disabled){filter:brightness(.97)}
+.bar select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}
+.muted{color:var(--muted)}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.dot{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.dot.on{background:var(--terra)}.dot.ok{background:var(--sage)}.dot.bad{background:var(--red)}.dot.skip{background:#cbbf9e}
+.listen{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:14px;background:var(--terra-soft);margin-bottom:18px}
+.listen .ico{font-size:26px}
+.listen.err{background:var(--red-soft);color:var(--red)}
+.listen.done{background:var(--sage-soft)}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border:1px solid var(--line);border-radius:12px;margin-bottom:9px;cursor:pointer;background:#fff}
+.opt input{margin-top:6px}
+.opt .l{font-weight:600;color:var(--terra);min-width:18px}
+.opt.sel{border-color:var(--terra);background:var(--terra-soft)}
+.opt.right{border-color:var(--sage);background:var(--sage-soft)}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.opt.static{cursor:default}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.qhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.qnum{font-weight:600;color:var(--terra)}
+.tag{font-size:12px;padding:1px 9px;border-radius:999px}
+.tag.ok{background:var(--sage-soft);color:#3f6143}.tag.bad{background:var(--red-soft);color:var(--red)}.tag.type{background:var(--line);color:var(--muted)}.tag.skip{background:var(--amber-soft);color:var(--amber)}
+.stem{font-weight:500;margin:4px 0 12px}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:12px}
+.turns{margin:10px 0 0}
+.turn{display:flex;gap:10px;margin-bottom:6px}
+.turn b{min-width:58px;color:var(--terra);font-weight:600}
+.fb{margin-top:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.fb select,.fb textarea{width:100%;margin-top:6px;font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.fb textarea{min-height:56px}
+.hint{font-size:12.5px;color:var(--muted);margin:6px 0 2px;line-height:1.4}
+.exportbox textarea{width:100%;min-height:260px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.score{font-size:34px;font-weight:700;color:var(--terra);line-height:1.1}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:18px}}
+</style></head>
+<body><div class="wrap">
+<aside>
+  <h1>Listen to an Announcement</h1>
+  <div class="sub">14 announcements · 28 questions</div>
+  <div id="nav"></div>
+  <div class="totals" id="totals"></div>
+  <div class="note">Audio plays from <code>../resources/audio</code>, so this page works only on this computer, in a browser that plays Ogg Vorbis (Arc and Chrome do; Safari does not).</div>
+</aside>
+<main>
+  <div class="bar">
+    <div class="title" id="title"></div>
+    <span class="timer" id="timer">00:00</span>
+    <select id="mode" title="Exam: the announcement plays once, then you answer, with no going back. Practice: replay and back allowed.">
+      <option value="exam">Exam mode (play once)</option><option value="practice">Practice mode (replay)</option>
+    </select>
+    <button id="resetBtn">Reset</button>
+    <button id="exportBtn">Export log</button>
+  </div>
+  <div id="view"></div>
+  <div class="exportbox" id="exportbox" hidden>
+    <h2 style="font-size:16px">Markdown log</h2>
+    <textarea id="exportText" readonly></textarea>
+    <div class="row" style="margin-top:8px"><button id="copyBtn">Copy</button><span class="muted" id="copied"></span></div>
+  </div>
+</main></div>
+<script>
+const DATA = [{"id": "T1_1_13", "test": 1, "src": "Full-Length 1", "module": 1, "range": "13-14", "setting": "in a classroom", "audio": "../resources/audio/tests/student-1/listening/announcements/Listening1_Announcements_Questions13-14.ogg", "questions": [{"n": 13, "question": "What is the announcement about?", "options": {"A": "A guest lecture", "B": "A different location for a class", "C": "Requirements for a class", "D": "A new university science course"}, "key": "A"}, {"n": 14, "question": "Why does the professor mention Dr. Palmer’s popularity?", "options": {"A": "To encourage students to read her work", "B": "To indicate why she was invited to the university", "C": "To compare her to other invited experts", "D": "To explain why students should arrive early"}, "key": "D"}], "turns": [["Man", "Good afternoon, everyone. I am excited to inform you that Dr. Cynthia Palmer, a renowned expert in environmental science, will be giving a guest lecture next Monday at 2 PM in Waldman Auditorium. Dr. Palmer will discuss the latest advancements in sustainable energy solutions and their impact on global climate change. Due to her popularity and the high interest in her work, I highly recommend arriving early to secure a seat."]]}, {"id": "T1_2_11", "test": 1, "src": "Full-Length 1", "module": 2, "range": "11-12", "setting": "in a student lounge", "audio": "../resources/audio/tests/student-1/listening/announcements/Listening2_Announcements_Questions11-12.ogg", "questions": [{"n": 11, "question": "What is the main purpose of the announcement?", "options": {"A": "To inform students about a schedule change", "B": "To announce new lounge amenities", "C": "To notify students of a new facility", "D": "To encourage students to use the lounge more"}, "key": "A"}, {"n": 12, "question": "What should students do during the closure?", "options": {"A": "Wait in the lounge", "B": "Assist with the maintenance", "C": "Use alternate spaces", "D": "Visit the library website"}, "key": "C"}], "turns": [["Man", "Attention everyone! The student lounge will be closed tomorrow from one P.M. to three P.M. for maintenance. We will be repairing a broken pipe in the ceiling. We apologize for any inconvenience this may cause. Please plan accordingly and consider using the library or the campus café during this time."]]}, {"id": "T2_1_13", "test": 2, "src": "Full-Length 2", "module": 1, "range": "13-14", "setting": "at a university club meeting", "audio": "../resources/audio/tests/student-2/listening/announcements/Listening1_Announcements_Questions13-14.ogg", "questions": [{"n": 13, "question": "Why does the speaker mention family?", "options": {"A": "It is the topic of the story they are reading.", "B": "It was discussed at last month’s meeting.", "C": "It is a contest theme.", "D": "Families are invited to the next meeting."}, "key": "C"}, {"n": 14, "question": "What does the speaker encourage the participants to do?", "options": {"A": "Observe the guidelines", "B": "Read last month’s submissions", "C": "Prepare for a presentation", "D": "Join the club’s mailing list"}, "key": "A"}], "turns": [["Announcer", "Welcome to the creative writing club's monthly meeting! Before we get started, I wanted to remind you of the guidelines for our upcoming short-story contest. We’re looking for stories on the theme of family, and all stories must be submitted by the end of November to be considered. Good luck to everyone participating!"]]}, {"id": "T2_2_11", "test": 2, "src": "Full-Length 2", "module": 2, "range": "11-12", "setting": "on the campus radio station", "audio": "../resources/audio/tests/student-2/listening/announcements/Listening2_Announcements_Questions11-12.ogg", "questions": [{"n": 11, "question": "What is the main topic of the announcement?", "options": {"A": "A new university event", "B": "A lecture on local charities", "C": "A change in venue", "D": "An upcoming fundraiser"}, "key": "D"}, {"n": 12, "question": "What does the speaker hope the listeners will do?", "options": {"A": "Attend an event", "B": "Prepare for a lecture", "C": "Donate online", "D": "Volunteer at an event"}, "key": "A"}], "turns": [["Announcer", "Good evening everyone. Just a friendly reminder that the university's annual charity auction will take place tomorrow at 7 P.M. in the Main Hall. All proceeds will go to local charities. We hope to see you there and appreciate your support!"]]}, {"id": "T3_1_13", "test": 3, "src": "Teacher Resources 1", "module": 1, "range": "13-14", "setting": "on the campus radio station", "audio": "../resources/audio/tests/teacher-1/listening/announcements/Listening1_Announcement_Questions_13-14.mp3", "questions": [{"n": 13, "question": "Who is the intended audience of the lectures?", "options": {"A": "Science students", "B": "University professors", "C": "Everyone at the science fair", "D": "A panel of judges"}, "key": "C"}, {"n": 14, "question": "What does the speaker hope the listeners will do?", "options": {"A": "Attend an event", "B": "Submit a science project", "C": "Join the university gym", "D": "Volunteer for an event"}, "key": "A"}], "turns": [["Man", "Hello everyone. We are excited to invite you to the annual science fair next Friday at 3 P.M. in the university gym. There will be exhibits from various departments showcasing innovative projects in the fields of biology, physics, and chemistry. In addition, there will be lectures on scientific topics aimed at a general audience. Don’t miss it!"]]}, {"id": "T3_2_11", "test": 3, "src": "Teacher Resources 1", "module": 2, "range": "11-12", "setting": "in a classroom", "audio": "../resources/audio/tests/teacher-1/listening/announcements/Listening2_Announcement_Questions_11-12.mp3", "questions": [{"n": 11, "question": "What is the reason for the change described in the announcement?", "options": {"A": "Repairs to a classroom", "B": "Increased class enrollment", "C": "A change in meeting time", "D": "An additional assignment"}, "key": "B"}, {"n": 12, "question": "Why does the speaker mention the east wing?", "options": {"A": "To announce the location of an event", "B": "To notify students of upcoming repairs", "C": "To direct students to the professor’s office", "D": "To help students find a classroom"}, "key": "D"}], "turns": [["Man", "Attention everyone. Several students have added this class in recent weeks, and as you can see, it is a bit crowded in here. So starting next week, our class will meet in Room 204 instead of Room 105. Room 204 is in the same building, but one floor up in the east wing. Please remember the change and arrive on time."]]}, {"id": "T4_1_13", "test": 4, "src": "Teacher Resources 2", "module": 1, "range": "13-14", "setting": "on the campus radio station", "audio": "../resources/audio/tests/teacher-2/listening/announcements/Listening1_Announcement_Questions_13-14.mp3", "questions": [{"n": 13, "question": "What is the purpose of the event?", "options": {"A": "To support professional musicians", "B": "To raise funds", "C": "To increase awareness of an issue", "D": "To celebrate spring"}, "key": "D"}, {"n": 14, "question": "What can students do during the last hour of the event?", "options": {"A": "Listen to music", "B": "Attend lectures", "C": "Watch a sports competition", "D": "Purchase arts and crafts"}, "key": "A"}], "turns": [["Man", "Good afternoon, everyone. Just a reminder that the annual Spring Festival will be held this Saturday to celebrate the coming warm weather and the end of the school year. It will take place on the main campus lawn from 1 to 4 P.M.. There will be food stands, games, and, from 3 to 4 P.M., live music from student bands. We hope you all can join us for a fun-filled day!"]]}, {"id": "T4_2_11", "test": 4, "src": "Teacher Resources 2", "module": 2, "range": "11-12", "setting": "in a student lounge", "audio": "../resources/audio/tests/teacher-2/listening/announcements/Listening2_Announcement_Questions_11-12.mp3", "questions": [{"n": 11, "question": "What is the main purpose of the announcement?", "options": {"A": "To request help with renovations", "B": "To apologize for the inconvenience", "C": "To announce the availability of new study areas", "D": "To inform students about lounge closure"}, "key": "D"}, {"n": 12, "question": "What are students advised to do during the lounge closure?", "options": {"A": "Request alternative study spaces", "B": "Schedule meetings elsewhere", "C": "Use the library or other study areas", "D": "Participate in renovation activities"}, "key": "C"}], "turns": [["Man", "Attention everyone! The student lounge will be closed next week from Monday to Friday for renovations. Please use the library or other study areas during this time. We apologize for any inconvenience."]]}, {"id": "T5_1_13", "test": 5, "src": "Teacher Resources 3", "module": 1, "range": "13-14", "setting": "in a classroom", "audio": "../resources/audio/tests/teacher-3/listening/announcements/Listening1_Announcement_Questions_13-14.ogg", "questions": [{"n": 13, "question": "What is the main purpose of the announcement?", "options": {"A": "To point out flaws in a research paper", "B": "To remind students about an assignment", "C": "To explain how to write a thesis statement", "D": "To invite students to a lecture on Monday"}, "key": "B"}, {"n": 14, "question": "What does the speaker suggest about the first draft?", "options": {"A": "It must contain no errors.", "B": "It should include all final sources.", "C": "It is a major part of the students' grade.", "D": "It is intended for feedback and improvement."}, "key": "D"}], "turns": [["Man", "Before we get started, don't forget that the first draft of your research paper is due on Monday. This draft should include your thesis statement, main arguments, and a preliminary list of sources. It's only a draft, so it's okay if it's not perfect. The goal is to get feedback and refine your ideas. Please submit your draft electronically via the course portal by midnight on Monday."]]}, {"id": "T5_2_11", "test": 5, "src": "Teacher Resources 3", "module": 2, "range": "11-12", "setting": "on a campus radio station", "audio": "../resources/audio/tests/teacher-3/listening/announcements/Listening2_Announcement_Questions_11-12.ogg", "questions": [{"n": 11, "question": "According to the talk, what do agriculture students do each day?", "options": {"A": "Place composting bins around the campus", "B": "Water plants at the student center", "C": "Recruit volunteers for a recycling program", "D": "Empty the contents of compost containers"}, "key": "D"}, {"n": 12, "question": "What should be placed in the new bins?", "options": {"A": "Plastic bottles", "B": "Paper products", "C": "Food waste", "D": "Metal cans"}, "key": "C"}], "turns": [["Man", "Environmentally minded students will be happy to know that compost collection bins have been placed next to every paper and plastic recycling receptacle in the student center food court. Now, any uneaten food can be placed into a compost bin. The contents of the bins are collected daily by agriculture students who are transforming our food waste into plant food through the process of composting. Please do your part to keep our campus sustainable through recycling and composting."]]}, {"id": "T6_1_13", "test": 6, "src": "Teacher Resources 4", "module": 1, "range": "13-14", "setting": "in a class", "audio": "../resources/audio/tests/teacher-4/listening/announcements/Listening1_Announcement_Questions_13-14.ogg", "questions": [{"n": 13, "question": "What is the main topic of the announcement?", "options": {"A": "A revision to a schedule", "B": "The process for making an appointment", "C": "Updates to course material", "D": "An upcoming exam"}, "key": "A"}, {"n": 14, "question": "What does the professor encourage students to do?", "options": {"A": "Form study groups with classmates", "B": "Begin planning their schedule for next semester", "C": "Meet with her if they have questions", "D": "Email her a list of their concerns"}, "key": "C"}], "turns": [["Woman", "I want to let everyone know that my office hours will be changing. Starting next week, I will be available on Mondays and Wednesdays from 2 to 4 p.m., instead of the current 1 to 3 p.m. If you have an urgent need to meet with me and these times don't work for you, please email me and I can schedule an appointment. Keep in mind that office hours are a great opportunity to discuss any questions or concerns you have about the course material."]]}, {"id": "T6_2_11", "test": 6, "src": "Teacher Resources 4", "module": 2, "range": "11-12", "setting": "on a campus radio station", "audio": "../resources/audio/tests/teacher-4/listening/announcements/Listening2_Announcement_Questions_11-12.ogg", "questions": [{"n": 11, "question": "Why does the speaker mention class cancellations and emergency alerts?", "options": {"A": "To inform students about recent policy changes", "B": "To emphasize the importance of updating contact information", "C": "To promote a new program on personal health", "D": "To point out that classes are often canceled because of bad weather"}, "key": "B"}, {"n": 12, "question": "What does the speaker imply when he says, \"Don't take a chance on missing out on critical information\"?", "options": {"A": "Students should makes updates quickly.", "B": "Class attendance is mandatory.", "C": "The portal can be difficult to navigate.", "D": "Important information has just been posted."}, "key": "A"}], "turns": [["Man", "Due to some recent changes in university policy, we need everyone to update their contact information in the student portal. Doing so will ensure that you receive important notifications, including about class cancellations and emergency alerts. Please complete the update by the end of this week. Don't take a chance on missing out on critical information."]]}, {"id": "T7_1_13", "test": 7, "src": "Teacher Resources 5", "module": 1, "range": "13-14", "setting": "in a classroom", "audio": "../resources/audio/tests/teacher-5/listening/announcements/Listening1_Announcement_Questions_13-14.ogg", "questions": [{"n": 13, "question": "What will the speaker be doing on Friday?", "options": {"A": "Traveling to a conference", "B": "Listening to student presentations", "C": "Grading student projects", "D": "Giving a presentation to her colleagues"}, "key": "A"}, {"n": 14, "question": "What can be concluded about Julie and Max?", "options": {"A": "They asked for extra time to work on a project.", "B": "They recently attended a conference.", "C": "They will have to miss class on Monday.", "D": "They are the first students who will give presentations."}, "key": "D"}], "turns": [["Woman", "Please note that we will not be meeting on Friday. I just received a last-minute invitation to present at a conference this weekend, and I'll be flying on Friday. I know that you were going to start your presentations then. Julie and Max, we'll just move you to Monday, and those scheduled for Monday will move to Wednesday, and so on. This will actually give everyone a few extra days to work on your presentations."]]}, {"id": "T7_2_11", "test": 7, "src": "Teacher Resources 5", "module": 2, "range": "11-12", "setting": "on a campus radio station", "audio": "../resources/audio/tests/teacher-5/listening/announcements/Listening2_Announcement_Questions_11-12.ogg", "questions": [{"n": 11, "question": "What is the main topic of the announcement?", "options": {"A": "A new process for ordering tickets", "B": "A survey of student music preferences", "C": "A change of venue for concert", "D": "An upcoming musical performance"}, "key": "D"}, {"n": 12, "question": "What is different about this year's event?", "options": {"A": "It will be held outdoors.", "B": "It will include a performance by a former student.", "C": "It will focus on music from various countries.", "D": "It will feature dance performances."}, "key": "B"}], "turns": [["Man", "Tickets for this year's spring music extravaganza at Gladstone Auditorium are now available for purchase online and at the student union box office. As always, the event will feature a lineup of your fellow students performing music from various genres, including rock, jazz, and country. This year features a special guest performer, internationally renowned cellist Ben Bernal, who graduated from our university twenty years ago. Tickets are expected to sell out quickly, so make sure to get yours today."]]}];
+const KEY = 'listenAnn_v1';
+const CAUSES = [
+ ['', '— pick the cause —', ''],
+ ['C1 Missed a detail', 'C1 Missed a detail', 'Did I miss a fact the speaker said (a time, a date, a place, a name, a number)?'],
+ ['C2 Missed the purpose', 'C2 Missed the purpose', 'Did I mix up the main point of the announcement with an example or a side detail?'],
+ ['C3 Missed implied meaning', 'C3 Missed implied meaning', 'Was the answer something the speaker implied or meant, not stated word for word?'],
+ ['C4 Echo / near-paraphrase', 'C4 Echo / near-paraphrase', 'Did I pick it because it repeated words I heard, while the meaning was off?'],
+ ['C5 Stopped at first fit', 'C5 Stopped at first fit', 'Did I stop at the first option that sounded fine without testing the other three?'],
+ ['C6 Lost the thread', 'C6 Lost the thread', 'Did I lose focus while the audio played, or forget a detail by the time the questions appeared?'],
+ ['Changed answer', 'Changed answer', 'Did I switch from the right answer? What made me switch?'],
+ ['Guessed', 'Guessed', 'No idea. What could I have noted down while listening?'],
+ ['Careless', 'Careless', 'Knew it, mis-clicked or rushed.'],
+ ['Other', 'Other', 'Explain in the note.']
+];
+const CAUSE_HINT = Object.fromEntries(CAUSES.map(c => [c[0], c[2]]));
+// Heuristic tag from the question wording. Not an official label.
+function qtype(q) {
+  const t = q.toLowerCase();
+  if (/impl(y|ies)|suggest|infer/.test(t)) return 'Implication';
+  if (/why does .* (mention|say)|why did .* (mention|say)|what does .* mean when/.test(t)) return 'Why mention / say';
+  if (/will .* (most likely|next|do)|going to do|what should/.test(t)) return 'Next action';
+  if (/main|mainly|about|trying to|purpose|topic|decid/.test(t)) return 'Main idea';
+  return 'Detail';
+}
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let S = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } })();
+S.mods = S.mods || {}; S.mode = S.mode || 'exam';
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+const conv = id => DATA.find(c => c.id === id);
+const scored = c => c.questions.filter(q => !q.flag).length;
+const score = id => { const c = conv(id), s = S.mods[id]; return s ? c.questions.reduce((a, q, i) => a + (!q.flag && s.ans[i] === q.key ? 1 : 0), 0) : 0; };
+const fmt = s => String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+const label = c => `M${c.module} · Q${c.range.replace('-', '–')}`;
+let cur = (S.cur && conv(S.cur)) ? S.cur : DATA[0].id;
+let view = 'intro', qi = 0, audio = null, audioDone = false, qStart = 0, runStart = 0, tick = null;
+let run = null;   // in-progress attempt: {ans, ms, replays}
+
+function stopAudio() { if (audio) { audio.pause(); audio.onended = audio.onerror = null; audio = null; } }
+function startTimer() { clearInterval(tick); tick = setInterval(() => { if (view === 'run') $('#timer').textContent = fmt(Math.floor((Date.now() - runStart) / 1000)); }, 500); }
+
+function renderNav() {
+  let h = '', last = 0;
+  DATA.forEach(c => {
+    if (c.test !== last) { last = c.test; h += `<div class="group">Test ${c.test} · ${esc(c.src)}</div>`; }
+    const s = S.mods[c.id], done = s && s.done;
+    h += `<button class="mod ${c.id === cur ? 'active' : ''}" data-id="${c.id}"><span>${label(c)}</span><span class="badge ${done ? 'done' : ''}">${done ? score(c.id) + '/' + scored(c) : '—'}</span></button>`;
+  });
+  $('#nav').innerHTML = h;
+  document.querySelectorAll('.mod').forEach(b => b.onclick = () => {
+    if (view === 'run' && !confirm('Leave this announcement? Your answers so far will be discarded.')) return;
+    open(b.dataset.id); });
+  const dc = DATA.filter(c => S.mods[c.id] && S.mods[c.id].done);
+  const tot = dc.reduce((a, c) => a + score(c.id), 0), den = dc.reduce((a, c) => a + scored(c), 0);
+  $('#totals').textContent = `Completed: ${dc.length}/14 · ${tot}/${den}${den ? ' (' + Math.round(100 * tot / den) + '%)' : ''}`;
+}
+
+function open(id) {
+  stopAudio(); clearInterval(tick); cur = id; S.cur = id; save(); run = null;
+  const s = S.mods[id]; view = s && s.done ? 'review' : 'intro'; render();
+}
+
+function render() {
+  const c = conv(cur); renderNav();
+  $('#title').textContent = `Test ${c.test} · ${c.src} · ${label(c)}`;
+  $('#mode').value = S.mode;
+  const s = S.mods[cur];
+  if (view !== 'run') $('#timer').textContent = fmt(s ? s.secs : 0);
+  if (view === 'intro') renderIntro(); else if (view === 'run') renderRun(); else renderReview();
+}
+
+function dots(c, s, active) {
+  return '<div class="prog">' + c.questions.map((q, i) => {
+    let k = '';
+    if (s && s.done) k = q.flag ? 'skip' : (s.ans[i] === q.key ? 'ok' : 'bad');
+    else if (run && i < run.ans.length) k = 'on'; else if (i === active) k = 'on';
+    return `<div class="dot ${k}"></div>`; }).join('') + '</div>';
+}
+
+function renderIntro() {
+  const c = conv(cur), exam = S.mode === 'exam';
+  $('#view').innerHTML = `<div class="card"><h2>Listen to an announcement</h2>
+    <p>You will hear a short announcement (${esc(c.setting)}), then answer ${c.questions.length} questions about it.</p>
+    <p class="muted">${exam ? 'Exam mode: the announcement plays once. The questions appear when it ends, and you cannot go back or replay.' : 'Practice mode: you can replay the announcement and go back between questions.'} Leaving the announcement midway discards your answers. Turn the volume up before you start.</p>
+    <button class="primary" id="startBtn">Start</button></div>`;
+  $('#startBtn').onclick = () => { run = {ans: [], ms: [], replays: [0, 0]}; qi = 0; view = 'run'; runStart = Date.now(); startTimer(); render(); };
+}
+
+function playConv(box) {
+  const c = conv(cur); stopAudio();
+  audio = new Audio(encodeURI(c.audio)); const a = audio;
+  a.onended = () => { audioDone = true; box.className = 'listen done'; box.innerHTML = '<span class="ico">✓</span><span>The announcement has ended.</span>'; revealQ(); };
+  a.onerror = () => { box.className = 'listen err'; box.innerHTML = `<span class="ico">⚠</span><span>Audio could not be loaded: <code>${esc(c.audio)}</code>. Use Arc or Chrome and check the file exists.</span><button id="skipAudio">Show questions anyway</button>`; box.querySelector('#skipAudio').onclick = () => { audioDone = true; revealQ(); }; };
+  box.className = 'listen'; box.innerHTML = '<span class="ico">🔊</span><span>Listening…</span>';
+  a.play().catch(e => {
+    if (audio !== a || e.name !== 'NotAllowedError') return;
+    box.innerHTML = '<span class="ico">▶</span><span>Your browser blocked autoplay. </span><button id="manual" class="primary">Play audio</button>';
+    box.querySelector('#manual').onclick = () => { box.className = 'listen'; box.innerHTML = '<span class="ico">🔊</span><span>Listening…</span>'; a.play(); };
+  });
+}
+
+function renderRun() {
+  const c = conv(cur), exam = S.mode === 'exam';
+  audioDone = false;
+  $('#view').innerHTML = `<div class="card"><div id="dots"></div>
+    <div class="listen" id="listen"></div>
+    ${exam ? '' : '<div class="row" style="margin-bottom:14px"><button id="replay">↻ Replay announcement</button></div>'}
+    <div id="qwrap"></div></div>`;
+  $('#dots').innerHTML = dots(c, null, qi);
+  if (!exam) { $('#replay').onclick = () => { run.replays[qi] = (run.replays[qi] || 0) + 1; playConv($('#listen')); }; renderQ(); }
+  playConv($('#listen'));
+}
+
+function revealQ() { if (S.mode === 'exam') renderQ(); }
+
+function renderQ() {
+  const c = conv(cur), q = c.questions[qi], exam = S.mode === 'exam', last = qi === c.questions.length - 1;
+  qStart = Date.now();
+  $('#dots').innerHTML = dots(c, null, qi);
+  $('#qwrap').innerHTML = `<div class="qhead"><span class="qnum">Question ${qi + 1} of ${c.questions.length}</span></div>
+    <div class="stem">${esc(q.question)}</div>
+    <div id="opts">${['A', 'B', 'C', 'D'].map(l => `<label class="opt"><input type="radio" name="o" value="${l}"><span class="l">${l}</span><span>${esc(q.options[l])}</span></label>`).join('')}</div>
+    <div class="row" style="margin-top:14px">
+      ${exam ? '' : `<button id="back" ${qi === 0 ? 'disabled' : ''}>← Back</button>`}
+      <button class="primary" id="nextBtn" disabled>${last ? 'Finish' : 'Next →'}</button></div>`;
+  document.querySelectorAll('input[name=o]').forEach(r => r.onchange = () => {
+    $('#nextBtn').disabled = false; run.pick = r.value;
+    document.querySelectorAll('.opt').forEach(o => o.classList.toggle('sel', o.querySelector('input').checked)); });
+  $('#nextBtn').onclick = next;
+  if (!exam) { const b = $('#back'); if (b) b.onclick = () => { qi--; renderQ(); }; }
+  if (run.ans[qi]) { const r = document.querySelector(`input[value=${run.ans[qi]}]`); if (r) { r.checked = true; r.onchange(); } }
+}
+
+function next() {
+  const c = conv(cur); if (!run.pick || !document.querySelector('input[name=o]:checked')) return;
+  run.ans[qi] = run.pick; run.ms[qi] = Math.max(0, Date.now() - qStart); run.pick = null;
+  if (qi < c.questions.length - 1) { qi++; renderQ(); return; }
+  stopAudio(); clearInterval(tick);
+  S.mods[cur] = {ans: run.ans, ms: run.ms, replays: run.replays, cause: {}, note: {}, done: true,
+    secs: Math.floor((Date.now() - runStart) / 1000), date: new Date().toISOString().slice(0, 16).replace('T', ' ')};
+  run = null; save(); view = 'review'; render();
+}
+
+function renderReview() {
+  const c = conv(cur), s = S.mods[cur], sc = score(cur), den = scored(c);
+  const miss = c.questions.filter((q, i) => !q.flag && s.ans[i] !== q.key).length;
+  let h = `<div class="card"><div class="score">${sc} / ${den}</div><div class="muted">${miss ? miss + ' to review' : 'All correct'}${den < c.questions.length ? ' · ' + (c.questions.length - den) + ' not scored' : ''} · time ${fmt(s.secs)} · ${esc(s.date || '')}</div>${dots(c, s, -1)}</div>`;
+  h += `<div class="card"><div class="row"><b>Transcript</b><button data-play="1">🔊 Play audio</button></div><div class="turns">${c.turns.map(t => `<div class="turn"><b>${esc(t[0])}</b><span>${esc(t[1])}</span></div>`).join('')}</div></div>`;
+  c.questions.forEach((q, i) => {
+    const a = s.ans[i], ok = a === q.key, fl = !!q.flag;
+    h += `<div class="card"><div class="qhead"><span class="qnum">Q${q.n}</span>${fl ? '<span class="tag skip">Not scored</span>' : `<span class="tag ${ok ? 'ok' : 'bad'}">${ok ? 'Correct' : 'Wrong'}</span>`}
+      <span class="tag type">${esc(qtype(q.question))}</span><span>decision ${(s.ms[i] / 1000).toFixed(1)}s${s.replays && s.replays[i] ? ' · ' + s.replays[i] + ' replay(s)' : ''}</span></div>
+      ${fl ? `<div class="warn">${esc(q.flag)}</div>` : ''}
+      <div class="stem">${esc(q.question)}</div>
+      ${['A', 'B', 'C', 'D'].map(l => `<div class="opt static ${l === q.key ? 'right' : (l === a ? 'wrong' : '')}"><span class="l">${l}</span><span>${esc(q.options[l])}${l === q.key ? ' ✓' : ''}${l === a && !ok ? ' ← your answer' : ''}</span></div>`).join('')}
+      ${ok || fl ? '' : `<div class="fb"><label>Why did I miss it?
+        <select data-cause="${i}">${CAUSES.map(x => `<option value="${esc(x[0])}" ${(s.cause[i] || '') === x[0] ? 'selected' : ''}>${esc(x[1])}</option>`).join('')}${s.cause[i] && !CAUSE_HINT.hasOwnProperty(s.cause[i]) ? `<option selected>${esc(s.cause[i])} (older)</option>` : ''}</select></label>
+        <div class="hint" id="hint${i}">${esc(CAUSE_HINT[s.cause[i] || ''] || '')}</div>
+        <textarea data-note="${i}" placeholder="What did I hear, and what exactly led me to the wrong option?">${esc(s.note[i] || '')}</textarea></div>`}</div>`;
+  });
+  $('#view').innerHTML = h;
+  document.querySelectorAll('[data-play]').forEach(b => b.onclick = () => { stopAudio(); audio = new Audio(encodeURI(c.audio)); audio.play(); });
+  document.querySelectorAll('[data-cause]').forEach(x => x.onchange = () => { s.cause[x.dataset.cause] = x.value; $('#hint' + x.dataset.cause).textContent = CAUSE_HINT[x.value] || ''; save(); });
+  document.querySelectorAll('[data-note]').forEach(x => x.oninput = () => { s.note[x.dataset.note] = x.value; save(); });
+}
+
+function exportMd() {
+  const pipe = t => String(t == null ? '' : t).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  const dc = DATA.filter(c => S.mods[c.id] && S.mods[c.id].done);
+  const tot = dc.reduce((a, c) => a + score(c.id), 0), den = dc.reduce((a, c) => a + scored(c), 0);
+  let o = `# Listening Type C — Listen to an Announcement (exported ${new Date().toISOString().slice(0, 16).replace('T', ' ')})\n\nTotal: ${tot}/${den} across ${dc.length}/14 announcements · mode at export: ${S.mode}\n\n| Announcement | Source | Score | Time | Avg decision | Replays |\n|---|---|---|---|---|---|\n`;
+  dc.forEach(c => { const s = S.mods[c.id]; const avg = s.ms.reduce((a, b) => a + b, 0) / s.ms.length / 1000;
+    o += `| T${c.test} ${label(c)} | ${c.src} | ${score(c.id)}/${scored(c)}${scored(c) < c.questions.length ? ' (1 not scored)' : ''} | ${fmt(s.secs)} | ${avg.toFixed(1)}s | ${(s.replays || []).reduce((a, b) => a + (b || 0), 0)} |\n`; });
+  let any = false, rows = '';
+  dc.forEach(c => { const s = S.mods[c.id]; c.questions.forEach((q, i) => { if (!q.flag && s.ans[i] !== q.key) { any = true;
+    rows += `| T${c.test} M${c.module} Q${q.n} | ${pipe(q.question)} | ${pipe(qtype(q.question))} | ${s.ans[i]}. ${pipe(q.options[s.ans[i]])} | ${q.key}. ${pipe(q.options[q.key])} | ${pipe(s.cause[i] || '')} | ${pipe(s.note[i] || '')} |\n`; } }); });
+  o += any ? `\n## Misses\n\n| Item | Question | Type (auto) | My answer | Key | Cause | Note |\n|---|---|---|---|---|---|---|\n${rows}` : '\nNo misses recorded.\n';
+  $('#exportText').value = o; $('#exportbox').hidden = false; $('#exportText').scrollIntoView({behavior: 'smooth'});
+}
+
+$('#mode').onchange = e => { S.mode = e.target.value; save(); if (view === 'run') { stopAudio(); run = {ans: [], ms: [], replays: [0, 0]}; qi = 0; runStart = Date.now(); renderRun(); } else render(); };
+$('#resetBtn').onclick = () => { if (confirm('Reset this announcement? Your answers and notes for it will be deleted.')) { stopAudio(); clearInterval(tick); delete S.mods[cur]; save(); run = null; view = 'intro'; render(); } };
+$('#exportBtn').onclick = exportMd;
+$('#copyBtn').onclick = () => { $('#exportText').select(); document.execCommand('copy'); $('#copied').textContent = 'Copied'; setTimeout(() => $('#copied').textContent = '', 1500); };
+document.addEventListener('keydown', e => {
+  if (view !== 'run' || /TEXTAREA|SELECT/.test(e.target.tagName) || !$('#opts')) return;
+  const k = e.key.toUpperCase();
+  if (k.length === 1 && 'ABCD'.includes(k)) { const r = document.querySelector(`input[value=${k}]`); if (r) { r.checked = true; r.onchange(); } }
+  else if (e.key === 'Enter' && $('#nextBtn') && !$('#nextBtn').disabled) next();
+});
+open(cur);
+</script></body></html>
