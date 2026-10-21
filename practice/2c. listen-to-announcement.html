@@ -106,7 +106,7 @@ const CAUSE_HINT = Object.fromEntries(CAUSES.map(c => [c[0], c[2]]));
 // Heuristic tag from the question wording. Not an official label.
 function qtype(q) {
   const t = q.toLowerCase();
-  if (/impl(y|ies)|suggest|infer/.test(t)) return 'Implication';
+  if (/impl(y|ies)|suggest|infer|conclu/.test(t)) return 'Implication';
   if (/why does .* (mention|say)|why did .* (mention|say)|what does .* mean when/.test(t)) return 'Why mention / say';
   if (/will .* (most likely|next|do)|going to do|what should/.test(t)) return 'Next action';
   if (/main|mainly|about|trying to|purpose|topic|decid/.test(t)) return 'Main idea';

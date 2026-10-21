@@ -67,5 +67,47 @@ Exported 2026-10-21 13:25. Exam mode (conversation plays once, questions after i
 | T6 Teacher Resources 4 | 1/1 (Q10 not scored) | 2/2 | 2/2 |
 | T7 Teacher Resources 5 | 2/2 | 2/2 | 2/2 |
 
+## Type C: Listen to an Announcement (page: `practice/2c. listen-to-announcement.html`)
+
+Exported 2026-10-21 13:58. Exam mode (announcement plays once, questions after it ends, no going back). **25/28**, 14 announcements, no replays. 11 of 14 announcements were 2/2. The three misses are in three different tests.
+
+| Test | M1 Q13-14 | M2 Q11-12 |
+|---|---|---|
+| T1 Full-Length 1 | 2/2 | 2/2 |
+| T2 Full-Length 2 | 2/2 | **1/2** |
+| T3 Teacher Resources 1 | **1/2** | 2/2 |
+| T4 Teacher Resources 2 | 2/2 | 2/2 |
+| T5 Teacher Resources 3 | 2/2 | 2/2 |
+| T6 Teacher Resources 4 | 2/2 | 2/2 |
+| T7 Teacher Resources 5 | **1/2** | 2/2 |
+
+Decision time per question ranged from 4.9s to 17.1s. The three slowest were T6 M1 (17.1s), T7 M1 (15.6s) and T5 M2 (14.1s). Only T7 M1 had a miss.
+
+### Misses
+Speaker text is from the PDF script, which matches the audio.
+
+**1. T2 M2 Q12** (campus radio, announcer). Question: *What does the speaker hope the listeners will do?* I chose D. Volunteer at an event. Key: **A. Attend an event**. I tagged it C1 Missed a detail; no note.
+- Script: "...the university's annual charity auction will take place tomorrow at 7 P.M. in the Main Hall. All proceeds will go to local charities. We hope to see you there and appreciate your support!"
+- Deciding sentence: "We hope to see you there."
+- Nothing in the script mentions volunteering. The word "support" was probably turned into "volunteer". That is invented content, not a missed detail, because the key sentence was said plainly. It is the same habit as the two Type A misses.
+- Decision time 10.7s, the longest of this module pair.
+
+**2. T3 M1 Q13** (campus radio, man). Question: *Who is the intended audience of the lectures?* I chose A. Science students. Key: **C. Everyone at the science fair**. No cause tagged; no note.
+- Script: "...In addition, there will be lectures on scientific topics aimed at a general audience."
+- Deciding phrase: "a general audience" means everyone at the fair.
+- Likely cause (my reading, not confirmed): the topic was science, so "science students" felt natural. The question asks who the lectures are aimed at, and the script says it directly.
+
+**3. T7 M1 Q14** (classroom, woman). Question: *What can be concluded about Julie and Max?* I chose C. They will have to miss class on Monday. Key: **D. They are the first students who will give presentations**. I tagged it C1 Missed a detail. My note: "thought sb will be moved to monday and julie and max would be moved to following days".
+- Script: "...I know that you were going to start your presentations then [Friday]. Julie and Max, we'll just move you to Monday, and those scheduled for Monday will move to Wednesday, and so on."
+- Two facts give the answer: presentations were due to start Friday, and Julie and Max are the ones moved to Monday. So they were first.
+- My note shows I reversed the shuffle: I put Julie and Max after the others. The script moves Julie and Max to Monday and pushes the Monday group later. The page's auto tag said "Main idea", but this is an inference question. I fixed the tag for this wording in the page.
+- Option C does not follow from the script. Moving to Monday means presenting on Monday, not missing it.
+- Decision time 15.6s, one of the longest in the run.
+
+### Pattern
+- Accuracy by type so far: Type A 110/112, Type B 41/41, Type C 25/28. Announcements are the weakest of the three.
+- In all three misses the correct option restates the script in different words ("see you there" → attend, "general audience" → everyone, "start Friday" plus "move you to Monday" → first). The wrong option I chose uses a concrete, topic-flavoured word ("volunteer", "science students"). Small sample.
+- The tags: I called two of the three C1 Missed a detail. The details in misses 1 and 3 were said; I changed or reversed them. I would retag them as invented content (miss 1) and reversed sequence (miss 3).
+
 ## Difficulties
 - Answering statements: choosing the option that continues my own story rather than reacting to what she said.
