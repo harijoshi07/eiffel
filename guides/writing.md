@@ -1,7 +1,7 @@
 # Writing: how to improve
 
 Records and exact answers go in `logs/writing.md`. This file is the playbook.
-Sources: `resources/pdfs/guide-lesson-writing.pdf` (ETS lesson plans, "Lesson N, p.X" = its page) and `resources/pdfs/guide-writing-rubrics.pdf` ("Rubric"). The full-length and teacher-resources PDFs give the task format.
+Sources: `resources/pdfs/guide-lesson-writing.pdf` (ETS lesson plans, "Lesson N, p.X" = the page number printed on that page, which is one less than the PDF page number) and `resources/pdfs/guide-writing-rubrics.pdf` ("Rubric"). The full-length and teacher-resources PDFs give the task format.
 **Tags:** unmarked statements come from ETS. **[mine]** is my suggestion and not an ETS rule. **[data]** is counted from the PDFs.
 
 ## 0. Target: band 6 and full raw marks
@@ -150,7 +150,7 @@ ETS calls both "high-level" (Lessons 3 and 5). **ETS gives no numeric score for 
 | "Could you please confirm if you recieved my submissions?" | Bullet 3: a direct polite request |
 | "I'm really excited to be a part of your magazine ... Looking forward to your response. Best regards." | Warm close and sign-off |
 - It follows the bullet order and gives each bullet its own detail.
-- It has typos (engageing, sucessfully, recieved), a missing article ("online submission form"), and one grammar slip ("my poems can sucessfully sent"). This is what a response the rubric treats as high-level can still contain, but it also shows exactly the sort of error the 5 row says to avoid. Do not copy the slip.
+- It has typos (engageing, sucessfully, recieved), a missing article ("online submission form"), and one grammar slip ("my poems can sucessfully sent"). ETS still presents it as high-level, but the grammar slip is the kind of error the 5 row asks you to avoid. Do not copy it.
 
 **Discussion sample (79 words, Lesson 5, p.22)**
 | Sentence | What it does |
@@ -161,7 +161,7 @@ ETS calls both "high-level" (Lessons 3 and 5). **ETS gives no numeric score for 
 | "What's more, volunteering can be a break from academic pressure, allowing students to engage in meaningful activities outside school." | Reason 2 |
 | "For example, helping at a comunity garden is both fulfilling and educational." | One concrete example |
 - **The sample is 79 words, which is below ETS's own "at least 100 words".** It is not a length target. Aim for 100 or more.
-- It has two small errors ("student's" and "comunity"). Typos are tolerated at 5, but "student's schedules" is a number or possessive slip, so don't rely on that.
+- It has two small errors ("student's" and "comunity"). "comunity" is a typo. "student's schedules" is a possessive slip (students' schedules), which is a grammar error, not a typo.
 
 ## 8. Before-you-submit checklists
 
