@@ -31,16 +31,18 @@ Tests 1-4: 40/40. Tests 5-7: 25/29. Average 4:07 per set, about 25 s per item. E
 
 You did not use a spare tile in any of the four. No notes were written, so the reasons below are my reading of the sentences, not your words.
 
-### What went wrong (my reading)
-- **TR3 Q7:** "to complete" and "the new assignment" were in the wrong order. "Expect the new assignment to complete" makes the assignment do the completing. The key is "expect to complete the new assignment".
-- **TR3 Q8:** "any of" needs a plural group after it ("any of your coworkers"). "Any of the position" does not make sense. The tile "your coworkers" belongs after "any of".
-- **TR5 Q6:** after "tell me how long" the clause takes statement order: subject, then verb ("each workshop session was"). You wrote the verb first, as in a direct question.
-- **TR4 Q1:** your sentence is grammatical, and "last month" can modify "had a sale" as easily as "visited". The page counts only the key, so it shows as a miss. It is an arguable item and I do not know whether the real test would accept it. With it accepted the total is 66/69.
+### What went wrong (my reading, from the sentences only; no notes were written)
+- **TR5 Q6 (rule violation).** Inside "Could you tell me how long ...", the clause takes statement order: "each workshop session was". The sentence used direct-question order ("how long was each workshop session").
+- **TR3 Q8 (rule violation).** "any of" must be followed by a plural group. "any of the position" is not English. The sentence built "Have your coworkers applied for the position" correctly, then attached the leftover tiles "any of" to "the position".
+- **TR3 Q7 (meaning mismatch).** "expect the new assignment to complete" is grammatical in form, but it says the assignment completes itself. "You" is the one doing the completing, so the natural form is "expect to complete the new assignment".
+- **TR4 Q1 (arguable).** "last month" can modify "visited" or "had a sale". No grammar rule picks one. I could not find a method that settles it.
 
-### Patterns
-- 3 of 4 misses are real structure errors: verb-phrase order (Q7), a group word placed in the wrong spot (Q8), and the verb before the subject inside an embedded question (Q6).
-- All 4 are in Tests 5-7, the question-heavy sets that use embedded clauses. Tests 1-2 are also question-heavy and were perfect, so this is a small sample, not a rule.
-- Spare-tile errors: 0 of 27 items with a spare tile were missed because of it.
+### Patterns (n = 4, tentative)
+- **All four are attachment errors:** a chunk was placed next to the wrong neighbour ("was" to "how long", "any of" to "the position", "to complete" after its object, "last month" to the main verb).
+- **Three of four have the right opening and the error in the last 1-3 tiles** (Q7, Q6, Q1). Q8 went wrong right after "Have".
+- **Embedded clauses are not a general weakness.** 25 of the 26 items whose key is an embedded question were correct. 40 of the 43 other items were correct.
+- **Spare tiles:** 0 of 27 items with a spare tile were missed because of it.
+- **Time:** the export has no per-item time, so no miss can be tied to rushing. The two slowest sets (Tests 6 and 7, about 5.5 min) each had one miss. The fastest set with misses was Test 5 (3:24, two misses).
 
 ### Item flags (source defects)
 - TR1 Q10: the printed tile says "some reliable sources" and the PDF key says "resources". Graded against the tile.

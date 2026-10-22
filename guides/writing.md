@@ -182,17 +182,18 @@ ETS calls both "high-level" (Lessons 3 and 5). **ETS gives no numeric score for 
 For the two written tasks I can give a rubric-based second opinion. It is not an official score. Log your own estimate beside mine so the gap is visible.
 
 ## Patterns from my log
-Build a Sentence: 65/69. Tests 1-4 were 40/40 and Tests 5-7 were 25/29. Details are in `logs/writing.md`.
-- **Embedded question order.** In "Could you tell me how long ___?" the clause after "how long" is statement order: subject then verb ("each workshop session was"). You wrote the verb first (TR5 Q6). Check every "tell me / know / wondering / wanted to know" item for this.
-- **Verb phrase and its object (TR3 Q7).** "Expect to complete the new assignment" is correct. "Expect the new assignment to complete" is not. Build the verb phrase first, then the object.
-- **Quantity phrase (TR3 Q8).** "any of" must be followed by a plural group ("any of your coworkers"). Say the phrase out loud before you place the last tile.
-- **Arguable item (TR4 Q1).** "The shop I visited had a sale last month" is grammatical, but it is not the key. When two placements of a time phrase both work, there is nothing to learn from the item. Do not change your method because of it.
-- **Spare tiles are not a problem.** You did not use a spare tile once.
+Build a Sentence: 65/69. Tests 1-4 were 40/40 and Tests 5-7 were 25/29. Details and exact sentences are in `logs/writing.md`.
+- **Every miss was an attachment error:** a chunk placed next to the wrong neighbour. Ask of each leftover tile, "which word does this belong to?"
+- **Embedded question order (TR5 Q6):** after "tell me / know / wonder", the clause is statement order: subject, then verb. You got 25 of 26 such items right, so this is one slip, not a weakness.
+- **"any of" + plural group (TR3 Q8):** build the skeleton first, then ask where "any of" can go.
+- **Same-subject "expect" (TR3 Q7):** when "you expect" and "you complete" share a subject, use "expect to complete" with no object between them.
+- **Arguable item (TR4 Q1):** both placements of "last month" are grammatical. No method settles it. Do not change your approach for it.
+- **"Sounds fine" is not the test.** Three of the four wrong sentences read smoothly. The test is whether the sentence fits the printed frame and the context line.
 
 ## Redo queue
 | Item | Pass condition |
 |---|---|
-| TR3 Q7 | Build the key and say why "to complete" comes before "the new assignment" |
+| TR3 Q7 | Build the key and say who does the completing |
 | TR3 Q8 | Build the key and say what "any of" must be followed by |
 | TR5 Q6 | Build the key and say why "was" comes last |
 | TR4 Q1 | Optional (arguable item) |
