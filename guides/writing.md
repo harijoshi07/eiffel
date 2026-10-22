@@ -204,7 +204,12 @@ Say **why** a word goes where it goes. Example: "who" follows "know" because "kn
 | **Request (closing line)** | Could you please … · I would appreciate it if you could … · Please let me know … |
 | **Sign-off** | Best regards, · Sincerely, · Thank you, |
 
-The connectors are the ones ETS teaches in Lesson 2 (section 4).
+The connectors are the ones ETS teaches in Lesson 2 (section 4).Hi Maria,
+
+Since you've been to Paris recently, I wanted to ask you for recommendations for something fun to do and eat healthy during my business trip next month.
+
+I'm traveling to Paris for the meeting with this client who is a marketing head of the team there. While I'll be staying
+
 
 ### Register by recipient (**[mine]**)
 
@@ -432,6 +437,18 @@ Build a Sentence: **65/69**. Tests 1-4 were 40/40. Tests 5-7 were 25/29. Exact s
 - **Arguable item (TR4 Q1).** Both placements of "last month" are grammatical. No method settles it. Do not change your approach for it.
 - **"Sounds fine" is not the test.** Three of the four wrong sentences read smoothly. The test is whether the sentence fits the printed frame and the context line.
 
+## Email patterns (from 5 emails; details in `logs/writing.md`)
+My ratings: 4, 3, 3, 3 (high), 3. These are my estimates against the rubric, not ETS scores.
+
+- **Content is not the problem. Language accuracy and elaboration decide 3 versus 4.**
+- **Verb form and fixed phrases.** "speaked", "been not participating", "looking forward to hear", "I'd like if", "in regards to". You fixed two of these unprompted by Test 5.
+- **Agreement with "X and Y" or "who".** Test 5: "the plants and garden area looks", "a gardener and a caretaker who manages". Before you submit, find each "X and Y" subject and each "who", and check its verb.
+- **Fixed lines that now work:** "I'd appreciate it if you could...", "Looking forward to hearing from you", "Best regards,".
+- **Each bullet needs a specific.** One concrete detail (what broke, when, how many) lifts a bullet from vague to elaborated. A consequence ("if X is not fixed, then...") lifts a "why it matters" bullet.
+- **Suggest "ways" with a first step.** Prompts that say "ways" want more than one option, or one option with a next step.
+- **Tone when criticising or asking.** Ask in question form. Avoid orders ("make future arrangements accordingly", "make it happen") and warnings ("the gravity of the situation").
+- **Time.** Four of five emails used 6:23 or more. Aim to stop writing at about 5:45 [mine] and use the last minute to check every verb after "to", "since" and "looking forward to".
+
 ## Redo queue
 
 | Item | Pass condition |
@@ -440,5 +457,6 @@ Build a Sentence: **65/69**. Tests 1-4 were 40/40. Tests 5-7 were 25/29. Exact s
 | TR3 Q8 | Build the key and say what "any of" must be followed by |
 | TR5 Q6 | Build the key and say why "was" comes last |
 | TR4 Q1 | Optional (arguable item) |
+| Emails 2-5 | Optional redo from a blank page once the errors above are fixed |
 
 Redo these in 2 days from a blank page, not straight after the review.
