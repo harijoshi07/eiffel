@@ -163,29 +163,104 @@ Say **why** a word goes where it goes. Example: "who" follows "know" because "kn
 
 ## 5. Write an Email: playbook
 
-### ETS guidance (Lesson 3, p.12; Lesson 1, p.3)
-- Read the scenario carefully.
-- Answer the assigned question.
-- Write complete sentences, with correct vocabulary and grammar.
-- The three bullets are the content you must cover.
-- You share information "for a specific communicative purpose".
+### What is official and what is not
+
+| | Status |
+|---|---|
+| ETS requires: goal achieved, social conventions, adequate elaboration, clear and cohesive, accurate grammar and vocabulary, mechanics | **Official** (test overview PDF, Rubric) |
+| A fixed order of greeting, body, closing | **No ETS rule.** ETS's own sample email follows it, but ETS does not require it |
+| One paragraph per bullet, an "I am writing to" line | **[web]** Test-prep sites only (Magoosh, House of TOEFL, Courselo, master-toefl). Not ETS |
+| Word count | **No ETS target found.** Sites give differing figures that I did not verify. ETS's own sample email is 118 words, and the page flags under 80 as a reference point of mine |
+| Templates | ETS's FAQ, as quoted on toeflresources.com (I did not read it on the ETS page), says a template can help "establish a general structure" but the words must be your own, and that similarity software is used |
+
+> **Rule for using this frame.** Memorise the **skeleton** and two or three of your own phrases per slot. Do **not** memorise whole sentences or paragraphs.
+
+### The skeleton
+
+| # | Slot | Job | Length |
+|---|---|---|---|
+| 1 | **Greeting** | Match the recipient (see register table) | 1 line |
+| 2 | **Purpose** | One sentence on why you are writing. Optional: ETS's sample has none | 1 sentence |
+| 3 | **Body: one paragraph per bullet, in the order given** | The answer **plus** one reason, detail or example | 2-3 sentences each |
+| 4 | **Closing line** | The action you want, with a polite request | 1-2 sentences |
+| 5 | **Sign-off** | Closing word and your name | 2 lines |
+
+**What each paragraph must contain.** The rubric's 3-to-4 gap is elaboration, so a bullet needs more than one statement:
+
+> **Answer** the bullet, then add **one** of: a reason (because…), a detail (what, when, how many), or an example (for instance…).
+
+### Phrase options per slot (**[mine]**, choose your own)
+
+| Slot | Options |
+|---|---|
+| **Greeting** | Dear Professor Lee, · Dear Mr. Williams, · Hi Maria, · Hi Kevin, |
+| **Purpose** | I'm writing to … · I wanted to … · I'm contacting you about … |
+| **Describe a problem** | The issue is that … · What happened was … · After I …, … |
+| **Explain a reason** | This matters because … · As a result, … · This has caused … |
+| **Say what you liked or found useful** | What I appreciated most was … · I particularly liked … because … |
+| **Suggest** | One option would be to … · I suggest that we … · It might help if … |
+| **Add a detail** | For example, … · In particular, … · Specifically, … |
+| **Contrast** | However, … · Although …, … · While …, … |
+| **Request (closing line)** | Could you please … · I would appreciate it if you could … · Please let me know … |
+| **Sign-off** | Best regards, · Sincerely, · Thank you, |
+
+The connectors are the ones ETS teaches in Lesson 2 (section 4).
+
+### Register by recipient (**[mine]**)
+
+| Prompt | Recipient | Register |
+|---|---|---|
+| T1 | Magazine editor | Polite. ETS's own sample uses "Hi Editor," |
+| T2 | Coworker Kevin | Friendly, but keep the criticism of the restaurant calm |
+| T3 | Colleague Maria | Friendly, you are asking a favour |
+| T4 | Classmate Alex | Direct but not blaming. You are criticising, so soften it |
+| T5 | Association president Mr. Williams | Formal |
+| T6 | Classmates (group) | Friendly, inviting |
+| T7 | Presenter Ms. Clark | Formal, grateful |
+
+The rubric names "forming requests, refusals, criticisms" as social conventions. T4 asks you to criticise, so it tests that directly.
+
+### An illustration, not a model answer (**[mine]**, 93 words)
+
+Prompt: T4, email to Alex about the group project. This is my own writing and has no score. It shows the skeleton, not wording to copy.
+
+> Hi Alex,
+>
+> I wanted to update you on our group project. We have finished the research and the outline, but the presentation slides are still empty, and the draft is due on Friday.
+>
+> Because three assignments are still missing, the rest of us have had to do your share. This has made everyone tired and has slowed down our progress.
+>
+> Could you take responsibility for the slides? If you send me a first version by Wednesday, we can review it together. Please let me know if you need any help.
+>
+> Best regards,
+> Sam
+
+| Part | Slot |
+|---|---|
+| "Hi Alex," | 1 Greeting |
+| "I wanted to update you…" | 2 Purpose |
+| "We have finished the research… due on Friday." | 3 Bullet 1: progress, with specifics |
+| "Because three assignments are still missing… slowed down our progress." | 3 Bullet 2: effect, with a reason |
+| "Could you take responsibility for the slides? If you send me a first version by Wednesday…" | 3 Bullet 3 and 4 Closing: suggestion, request |
+| "Best regards, Sam" | 5 Sign-off |
+
+Bullet 3 and the closing line merge here. That is fine when the last bullet is itself a request. The "Because…" sentence uses a subordinating conjunction and a comma, per Lesson 2.
 
 ### [mine] A 7-minute shape
 
 | Time | Do |
 |---|---|
 | ~1 min | Read. Jot one detail per bullet. |
-| ~5 min | Write. |
+| ~5 min | Write, following the skeleton. |
 | ~1 min | Check word forms, agreement, and that every bullet has a detail. |
 
-**Order of the email**
-1. Greeting
-2. Why you are writing
-3. One part per bullet, in the order given
-4. A closing line with the action you want
-5. Sign-off
-
-The 3-to-4 gap is elaboration, so give each bullet more than one bare statement.
+### Slot check before you submit
+- [ ] Greeting matches the recipient
+- [ ] Every bullet has its own paragraph, in the given order
+- [ ] Every bullet has a reason, detail or example
+- [ ] The closing line asks for something specific
+- [ ] Sign-off with a name
+- [ ] No sentence copied from the prompt, and none memorised
 
 ---
 
