@@ -182,7 +182,18 @@ ETS calls both "high-level" (Lessons 3 and 5). **ETS gives no numeric score for 
 For the two written tasks I can give a rubric-based second opinion. It is not an official score. Log your own estimate beside mine so the gap is visible.
 
 ## Patterns from my log
-- None yet. After the first attempts, list repeated mistakes here with a one-line fix for each.
+Build a Sentence: 65/69. Tests 1-4 were 40/40 and Tests 5-7 were 25/29. Details are in `logs/writing.md`.
+- **Embedded question order.** In "Could you tell me how long ___?" the clause after "how long" is statement order: subject then verb ("each workshop session was"). You wrote the verb first (TR5 Q6). Check every "tell me / know / wondering / wanted to know" item for this.
+- **Verb phrase and its object (TR3 Q7).** "Expect to complete the new assignment" is correct. "Expect the new assignment to complete" is not. Build the verb phrase first, then the object.
+- **Quantity phrase (TR3 Q8).** "any of" must be followed by a plural group ("any of your coworkers"). Say the phrase out loud before you place the last tile.
+- **Arguable item (TR4 Q1).** "The shop I visited had a sale last month" is grammatical, but it is not the key. When two placements of a time phrase both work, there is nothing to learn from the item. Do not change your method because of it.
+- **Spare tiles are not a problem.** You did not use a spare tile once.
 
 ## Redo queue
-- None yet.
+| Item | Pass condition |
+|---|---|
+| TR3 Q7 | Build the key and say why "to complete" comes before "the new assignment" |
+| TR3 Q8 | Build the key and say what "any of" must be followed by |
+| TR5 Q6 | Build the key and say why "was" comes last |
+| TR4 Q1 | Optional (arguable item) |
+Redo these in 2 days from a blank page, not straight after the review. Redoing right away only tests short-term memory.
