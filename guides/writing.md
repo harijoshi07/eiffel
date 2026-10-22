@@ -1,85 +1,185 @@
 # Writing: how to improve
 
-Records and exact answers go in `logs/writing.md`. This file is the playbook: format, scoring, what each task tests, and the plan. Sources: `resources/pdfs/` (full-length-1 pp.27-32 and the same pages in the other six tests, `guide-lesson-writing.pdf`, `guide-writing-rubrics.pdf`).
+Records and exact answers go in `logs/writing.md`. This file is the playbook.
+Sources: `resources/pdfs/guide-lesson-writing.pdf` (ETS lesson plans, "Lesson N, p.X" = its page) and `resources/pdfs/guide-writing-rubrics.pdf` ("Rubric"). The full-length and teacher-resources PDFs give the task format.
+**Tags:** unmarked statements come from ETS. **[mine]** is my suggestion and not an ETS rule. **[data]** is counted from the PDFs.
 
-## Dashboard
-- No Writing attempts yet. 0 of 7 Build a Sentence sets, 0 of 7 emails, 0 of 7 discussions.
-- Reading 267/280 and Listening 214/225 are strong. Writing is the first section with no data, so the overall band cannot be estimated yet.
+## 0. Target: band 6 and full raw marks
 
-## Format (verified in the PDFs)
+What "full marks" means per task:
 
-| Task | Items per test | Time | What you do | Scoring |
-|---|---|---|---|---|
-| Build a Sentence | 10 | One clock for the whole task (length not stated) | Read a context line, then drag the word tiles into blanks to make one grammatical sentence | One answer key sentence per item (PDF key page) |
-| Write an Email | 1 | 7 minutes | Read a situation with 3 bullet points. Write an email that does all three | Rubric 0-5 |
-| Write for an Academic Discussion | 1 | 10 minutes | Read a professor post and two student posts. Write your own post | Rubric 0-5 |
-
-- All 7 tests have the same shape: 10 + 1 + 1 = 12 items. The official overview says up to 12 on the real test.
-- Real Writing is about 23 minutes in total. 23 - 7 - 10 leaves about 6 for Build a Sentence. That 6 is my subtraction, not an ETS figure.
-- ETS lesson plan: the Email and Discussion tasks have a word count function. No task has a spell-check.
-- Discussion: ETS says an effective response has at least 100 words.
-- The Email prompt tells you to "write as much as you can and in complete sentences".
-
-## How the two written tasks are scored
-Both use a 0-5 scale (`guide-writing-rubrics.pdf`). The difference between a 4 and a 5 is small, so the 4/5 rows matter most.
-
-| Score | Email | Discussion |
+| Task | Full marks | How it is scored |
 |---|---|---|
-| 5 | Elaboration that supports the purpose. Varied syntax, precise word choice. Polite, appropriate conventions. Almost no errors beyond typos | Relevant, well-elaborated explanations or examples. Varied syntax, precise word choice. Almost no errors beyond typos |
-| 4 | Adequate elaboration. Appropriate word choice. Mostly appropriate conventions. Few errors | Relevant, adequately elaborated. Appropriate word choice. Few errors |
-| 3 | Elaboration only partly supports the purpose. Some noticeable errors in structure, word forms, idiom or conventions | Mostly relevant, but part of an example or explanation is missing, unclear or irrelevant. Noticeable errors |
-| 2 | Limited or irrelevant elaboration. Accumulation of errors | Poorly elaborated or partly relevant. Accumulation of errors |
-| 1 | Very little elaboration. Telegraphic language. Mostly borrowed from the prompt | Few coherent ideas. Mostly borrowed from the prompt |
-| 0 | Blank, off-topic, copied from the prompt, or not English | Same |
+| Build a Sentence | 10/10 per test | One answer key sentence per item. Auto-scored on `practice/3a. build-a-sentence.html` |
+| Write an Email | 5/5 | ETS rubric, 0-5, human or AI rater |
+| Academic Discussion | 5/5 | ETS rubric, 0-5 |
 
-What this means in practice:
-- **Elaboration is the 3-to-4 gap.** A response that answers every bullet with one flat sentence each sits near 3.
-- **Typos are explicitly tolerated at 5** ("common typos or common misspellings"). Grammar and word-form errors are not.
-- **Copying from the prompt scores low.** Use your own words.
+- **ETS publishes no conversion from these raw marks to a 1-6 band.** I can't say what raw total gives a 6. Treat 10/10, 5/5 and 5/5 as the target, and a 4 on a written task as the first thing to fix.
+- **A 5 is a "fully successful response"** (Rubric). The rubric tolerates typos but not grammar or word-form errors. Section 3 turns this into a checklist.
+- Only Build a Sentence can be scored by a page. For Email and Discussion your own estimate will be noisy. Write the estimate next to the rubric row you think you hit.
 
-## What ETS's own samples show
-- **Email sample** (Lesson 3, the poetry magazine task, about 114 words by my count): it covers all three bullets in order. It praises the magazine, describes what happened step by step (uploaded, hit submit, page kept loading), then asks one direct question. It has typos (engageing, sucessfully, recieved) and one grammar slip ("my poems can sucessfully sent"), and ETS still presents it as high-level.
-- **Discussion sample** (Lesson 5, volunteering, about 80 words by my count): it takes a side, names a student ("I get Andrew's point about limited free time"), answers that objection (flexible weekend or summer options), adds a second reason, then gives one concrete example (a community garden). It is under 100 words, so do not use it as a length target.
-- Both samples are in `resources/pdfs/guide-lesson-writing.pdf`, pp.14-15 and pp.22-23.
+## 1. One-page cheat sheet
 
-## Task by task
+**Both written tasks**
+1. Do exactly what the prompt bullets or question ask. Read everything first (Lessons 3 and 5, p.12 and p.20).
+2. Write complete sentences with correct vocabulary and grammar (same pages).
+3. Elaborate: add a detail, reason or example, not a bare statement (Rubric: elaboration is the first criterion in both).
+4. Use your own words. A response that is "mostly borrowed from the stimulus" scores 1 (Rubric).
+5. There is a word-count tool and no spell-check (Lesson 1, p.6). Typos and there/their swaps are tolerated at 5. Word-form and grammar mistakes are not.
 
-### 1. Build a Sentence (10 items, 70 across the 7 tests)
-- **What it tests:** grammar. Word order, embedded questions, reported speech, relative clauses, negation, punctuation (ETS Lesson 2 covers coordinating and subordinating conjunctions and conjunctive adverbs).
-- **Two families in the 70 answer keys:** 44 of 70 end in a question mark and 26 are statements. FL1 is 7 questions, FL2 9, TR3 10, TR4 9, TR5 9, and TR1 and TR2 are all statements (reported speech such as "She wanted to know if...", and negation).
-- **Context line first.** It is a sentence from another speaker, and your sentence answers or follows it.
-- **27 of the 70 items have one spare tile** (a tile the answer does not use). Examples: FL1 Q1 gives "was" and "were" and the key uses only "were"; FL1 Q10 gives "it"; TR3 Q4 gives "planning" next to "plan". The other 43 use every tile. Counted from the PDFs while building `practice/3a. build-a-sentence.html`.
-- **Three printed items do not match their keys** (TR3 Q1 and TR5 Q1 checked on the PDF page image; TR3 and TR5 have no text Word file to compare; TR1 Q10 appears the same way in the PDF and the Word file):
-  - TR3 Q1 prints 7 blanks and "to visit.", but the key has 6 words and ends with "?". The page shows 6 blanks and "?" and does not score it.
-  - TR5 Q1 prints 7 blanks and 7 tiles. The key "Do you want me to send you a copy?" leaves the tile "of it" unused. The page grades "Do you want me to send you a copy of it?".
-  - TR1 Q10 has the tile "some reliable sources", but the key says "resources". The page grades against the tile.
-- **Fixed words are printed in the sentence.** Examples: "The ___ fantastic.", "Do you know if ___?", "I used ___."
-- **First move to try:** fix the printed words, then decide whether the sentence is a question or a statement, then place the verb chunk.
+**Email (7 min):** one clear response to each bullet, in the order given, with polite, appropriate tone and a clear request or action. Sample shape in section 7.
 
-### 2. Write an Email (7 minutes)
-- **What it tests:** doing every bullet, with detail, in a polite and natural register.
-- **Plan, about 30 seconds:** one line per bullet with the one concrete detail you will add to each.
-- **Shape:** greeting, one sentence stating why you are writing, one paragraph per bullet (detail, not just a statement), a closing request or thanks, sign-off.
-- **Typical cost:** skipping a bullet, or answering a bullet in one flat sentence.
+**Discussion (10 min, 100 words minimum):** (1) state your opinion, (2) explain why with details and examples, (3) move the discussion on with a new perspective or your own question (Lesson 4, p.17). Use what the other students said.
 
-### 3. Write for an Academic Discussion (10 minutes)
-- **What it tests:** a relevant opinion that adds something to the discussion, with a reason and an example.
-- **Plan, about 1 minute:** position, two reasons, one example, and which student you will answer.
-- **Shape:** position in sentence 1, reason, example, a response to one student, then a short closing line.
-- **Aim for 100+ words.** The 10 minutes include reading the three posts.
-- **Typical cost:** repeating what a student already said, or stating an opinion with no example.
+**Build a Sentence:** the whole item is a grammar problem. Section 4 has the clause and punctuation facts ETS teaches.
 
-## Open gaps (not stated in what I read)
-- How long Build a Sentence is timed, and whether the three tasks are weighted equally.
-- Whether Build a Sentence gives credit when your sentence differs from the key but is also grammatical.
+## 2. Verified format facts
+
+| Fact | Source |
+|---|---|
+| Three tasks: Build a Sentence, Write an Email, Write for an Academic Discussion | Lesson 1, p.3 |
+| Build a Sentence: move words or phrases into order to make a grammatical sentence or question. On the real test you drag tiles into blanks | Lesson 1, p.1, p.3 |
+| Email: a scenario in an academic or social setting, with text and visuals. You share information for a purpose, such as a recommendation, an invitation or a proposed solution | Lesson 1, p.3 |
+| Email time: 7 minutes in total to read and respond | Lesson 1 answer key, p.6 |
+| Discussion time: 10 minutes in total to read and type | Lesson 1, p.3 and p.6 |
+| Discussion length: "minimum of 100 words" / "at least 100 words" | Lesson 1 p.3, Lesson 4 p.18, Lesson 5 p.21 |
+| Discussion: the professor's question and the student posts stay on screen the whole time | Lesson 1, p.3 |
+| Word count: available on Email and Discussion. Spell-check: on no Writing task | Lesson 1 answer key, p.6 |
+| Email and Discussion are not the same length of time (7 vs 10) | Lesson 1 answer key, p.6 |
+| Email prompt ends: "Write as much as you can and in complete sentences" | Lesson 3, p.13 |
+| Build a Sentence has no stated time on its own page. [mine] Real Writing is about 23 min, so about 6 is left after 7 and 10. That is subtraction, not an ETS figure | `00 - Test Map.md` |
+
+## 3. The rubric as a checklist (Rubric, pp.1-2)
+
+### What separates the scores
+| | Email | Discussion |
+|---|---|---|
+| **5** | Elaboration that *effectively* supports the purpose. *Effective* syntactic variety, *precise, idiomatic* word choice. *Consistent* appropriate social conventions (politeness, register, organisation of information, forming requests, refusals, criticisms). Almost no errors beyond typos and swaps like there/their | Relevant, *well*-elaborated explanations, examples or details. Variety of structures, *precise, idiomatic* word choice. Almost no errors beyond typos and swaps |
+| **4** | *Adequate* elaboration. Syntactic variety, *appropriate* word choice. *Mostly* appropriate conventions. *Few* errors | *Adequately* elaborated. Variety of structures, *appropriate* word choice. *Few* errors |
+| **3** | Elaboration only *partially* supports the purpose. Moderate range. *Noticeable* errors in structure, **word forms**, idiom and/or conventions | Part of an explanation, example or detail is *missing, unclear or irrelevant*. Some variety. *Noticeable* errors in structure, **word form**, idiom |
+| **2** | Limited or irrelevant elaboration. Limited syntax. An *accumulation* of errors | Poorly elaborated or only partly relevant. Limited range. An accumulation of errors in structure, word forms or use |
+| **1** | Very little elaboration. Telegraphic language. Serious, frequent errors. Mostly borrowed from the stimulus | Few or no coherent ideas. Severely limited range. Mostly borrowed from the stimulus |
+| **0** | Blank, rejects the topic, not English, entirely copied, or unconnected | Same |
+
+### Reading the 4-to-5 gap
+Each word that changes between 4 and 5 is a thing to check in your draft:
+
+| Rubric word at 5 | Check on your draft |
+|---|---|
+| effectively / well-elaborated | Does each point have a reason, a detail or an example, and does it link back to the purpose? |
+| precise, idiomatic word choice | Could any word be a more exact one? Does any phrase sound translated? |
+| syntactic variety | Not every sentence has the same shape (see the connectors in section 4) |
+| consistent social conventions (Email only) | Greeting, polite request, closing. Tone does not slip from formal to casual |
+| almost no errors beyond typos | Subject-verb agreement, tense, articles, word forms (-ing / -ed / -s / noun vs verb) |
+
+- **Word forms** are named in the rubric at level 3 for both tasks. Your Reading misses (suffix and word-form errors) point the same way.
+- **The email-only criterion** is social conventions. The Discussion rubric has no such line.
+- The Discussion rubric asks for a "relevant" contribution to the discussion. A response that ignores the professor's question is not relevant.
+
+## 4. Build a Sentence toolkit (Lessons 1-2)
+
+**What it tests (ETS):** command of sentence structure, which "is essential for all written communication" (Lesson 1, p.3).
+
+**Clause terms (Lesson 2, p.7)**
+- Independent clause: has a subject and a verb and can stand alone.
+- Dependent clause: has a subject and a verb but cannot stand alone.
+- Phrase: missing a subject or a verb.
+- Examples from the ETS handout (answer key, p.11): "do you know the time" = independent; "even though the weather was nice", "unless they lower the price", "until the meeting ended" = dependent; "in spite of the cold", "by the river", "approximately 50 years ago" = phrases; "moreover, she forgot to bring the report" = independent.
+
+**Connectors (Lesson 2, p.11)**
+
+| Type | Words | Punctuation |
+|---|---|---|
+| Coordinating conjunction | and, for, nor, but, or, yet, so | Comma before it: *I couldn't find my phone this morning, so I was late for class.* |
+| Subordinating conjunction | because, although, even though, since, unless, while | No comma if the dependent clause comes second. Comma if it comes first: *Because I preferred reading, I didn't like sports.* |
+| Conjunctive adverb | however, furthermore, moreover, nevertheless, therefore | Comma after it at the start of a sentence. Also usable after a semicolon: *I took the bus; however, the train would have been faster.* |
+
+**How ETS explains an answer (Lesson 1, p.1):** say why. Example from the lesson plan: "who" must follow "know" because the verb "know" needs an object and "who" connects the verb to the clause that follows. Practise explaining every placement this way.
+
+**[data] What the 70 items look like**
+- 44 of 70 answers are questions and 26 are statements. Tests 1, 2, 5, 6 and 7 are mostly questions. Tests 3 and 4 are all statements (reported speech, negation).
+- 27 of 70 items give one spare tile that the answer does not use. 43 use every tile.
+- Three printed items disagree with their keys (TR3 Q1, TR5 Q1, TR1 Q10). The page flags them in the review. Details are in `logs/writing.md` once logged.
+
+**[mine] Method for each item**
+1. Read the line they say. Decide whether your sentence answers it, or follows it.
+2. Write the fixed words first. They give you the first and last word and the final punctuation.
+3. Question or statement? That decides where the subject and verb go.
+4. Look for an embedded clause (know, wondering, wanted to know, whether, if). Inside it the order is subject then verb, not a question order.
+5. If one tile does not fit anywhere, it may be the spare one.
+6. Read the full sentence once before moving on.
+
+## 5. Write an Email: playbook
+
+**Official guidance:** read the email or scenario carefully and make sure you understand it. Answer the assigned question carefully. Write complete sentences, use correct vocabulary, use correct grammar (Lesson 3, p.12). The three bullets in the task are the content you must cover. The task asks you to share information "for a specific communicative purpose" (Lesson 1, p.3).
+
+**[mine] A 7-minute shape**
+- About 1 minute: read, then jot one detail for each bullet.
+- About 5 minutes: write.
+- About 1 minute: check word forms, agreement, and that every bullet has its own detail.
+- Greeting, then why you are writing, then one part for each bullet in the order given, then a closing line with the action you want, then a sign-off.
+- Go beyond a bare statement for each bullet. The rubric's 3-to-4 gap is elaboration.
+
+## 6. Academic Discussion: playbook
+
+**Official guidance:**
+- Three actions (Lesson 4, p.17): state your opinion, recommendation or thought; explain why with details and examples; further the discussion by adding a new perspective or your own question.
+- A successful contribution "involves more than simply stating your opinion" (Lesson 4, p.15).
+- Read the professor and student posts before you write (Lesson 5, p.20).
+- Answer the assigned question and write complete sentences with correct vocabulary and grammar (same page).
+- The sample criteria (Lesson 5, p.21): clearly elaborates an argument for a position, responds to arguments and/or uses information from the posts; adequately supported, clear and cohesive; accurate range of grammar and vocabulary; follows spelling, punctuation and capitalisation conventions.
+- The task wording: "Make a contribution to the discussion in your own words" (Lesson 1, p.4).
+
+**[mine] A 10-minute shape**
+- About 1.5 minutes: read the three posts, choose your side, pick one student to answer.
+- About 7 minutes: write at least 100 words.
+- About 1.5 minutes: check.
+- Sentence 1: your position, tied to one student's point. Then your reason. Then an example. Then something new: a second reason or a question.
+- Repeating what a student already said does not add anything new.
+
+## 7. What the two official samples do
+
+ETS calls both "high-level" (Lessons 3 and 5). **ETS gives no numeric score for either, so do not assume they are 5s.**
+
+**Email sample (118 words including greeting and sign-off, Lesson 3, p.14)**
+| Part | What it does |
+|---|---|
+| "Hi Editor, I hope you are well!" | Greeting and polite opener |
+| "I wanted to say that I really love the new Sunshine Poetry Magazine. It's refreshing to see such a diverse range of voices, and the layout is very engageing." | Bullet 1: names what it likes, with two specifics |
+| "However, I had some trouble with online submission form ... the page just kept loading and loading, and eventually, I wasn't sure if my poems can sucessfully sent." | Bullet 2: the problem, step by step (uploaded, hit submit, kept loading) |
+| "Could you please confirm if you recieved my submissions?" | Bullet 3: a direct polite request |
+| "I'm really excited to be a part of your magazine ... Looking forward to your response. Best regards." | Warm close and sign-off |
+- It follows the bullet order and gives each bullet its own detail.
+- It has typos (engageing, sucessfully, recieved), a missing article ("online submission form"), and one grammar slip ("my poems can sucessfully sent"). This is what a response the rubric treats as high-level can still contain, but it also shows exactly the sort of error the 5 row says to avoid. Do not copy the slip.
+
+**Discussion sample (79 words, Lesson 5, p.22)**
+| Sentence | What it does |
+|---|---|
+| "While I get Andrew's point about limited free time, I think it's good to have mandatory volunteer hours at high schools." | Names a student, concedes, then states the position |
+| "Volunteering teaches students empathy and community service, helping them grow into responsible adults." | Reason 1 |
+| "Schools can give flexible options that fit student's schedules, like weekend or summer volunteering." | Answers Andrew's objection |
+| "What's more, volunteering can be a break from academic pressure, allowing students to engage in meaningful activities outside school." | Reason 2 |
+| "For example, helping at a comunity garden is both fulfilling and educational." | One concrete example |
+- **The sample is 79 words, which is below ETS's own "at least 100 words".** It is not a length target. Aim for 100 or more.
+- It has two small errors ("student's" and "comunity"). Typos are tolerated at 5, but "student's schedules" is a number or possessive slip, so don't rely on that.
+
+## 8. Before-you-submit checklists
+
+**Email:** every bullet answered, in order, with a detail? Polite opener and a clear request? Complete sentences? Word forms and agreement checked? Not copied from the prompt?
+**Discussion:** opinion stated? Reason and example? One student's point used or answered? Something new added? At least 100 words (check the count)? Own words?
+
+## 9. What ETS does not say
+- Real Build a Sentence time limit, and whether a different grammatical answer gets credit.
 - Whether you can go back between Writing tasks.
-- How Writing raw scores (0-5 per written task plus the Build a Sentence count) convert to a 1-6 band. ETS publishes no table I could find, so any band I give will be a rough guess.
+- How raw scores become a 1-6 band.
+- How the real test weights Build a Sentence against the two written tasks.
+- What the ETS samples would score. Treat them as "high-level" examples only.
 
-## Plan
-1. **Build a Sentence** first. It is the only task a page can score automatically, because the key is in the PDFs for all 7 tests.
-2. **Write an Email** next: timed drafts against the rubric.
-3. **Academic Discussion** last, with the same rubric check.
-For the two written tasks I can give a rubric-based second opinion, but it is not an official score. Record your own estimate next to mine so the gap is visible.
+## 10. Plan
+1. **Build a Sentence** on `practice/3a. build-a-sentence.html`: 7 sets, aim for 10/10 and fix every miss by cause.
+2. **Write an Email:** timed 7-minute drafts, rated against the rubric rows above.
+3. **Academic Discussion:** timed 10-minute drafts, 100+ words, rated the same way.
+For the two written tasks I can give a rubric-based second opinion. It is not an official score. Log your own estimate beside mine so the gap is visible.
 
 ## Patterns from my log
 - None yet. After the first attempts, list repeated mistakes here with a one-line fix for each.
