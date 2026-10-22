@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Writing — Academic Discussion</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}.badge.run{background:var(--amber-soft);color:var(--amber)}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:900px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:15px;min-width:56px}
+.timer.low{color:var(--red);font-weight:600}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}.card h3{margin:18px 0 6px;font-size:15px}
+.muted{color:var(--muted)}
+.mail{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:14px 0 8px;font-size:15px}
+.mail div{padding:2px 0}.mail b{display:inline-block;width:72px;color:var(--muted);font-weight:500}
+ul.bul{margin:6px 0 10px 20px;padding:0}ul.bul li{margin:3px 0}
+textarea{width:100%;min-height:300px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font:inherit;background:#fff;color:var(--ink);resize:vertical;line-height:1.6}
+textarea:focus{outline:2px solid var(--terra-soft);border-color:var(--terra)}
+textarea:disabled{background:#faf6ef;color:#4a453f}
+.live{display:flex;gap:16px;align-items:center;margin-top:8px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.live .sp{flex:1}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:12px}
+.resp{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.ok{color:#3f6143}.no{color:var(--red)}.na{color:var(--muted)}
+.rate label{display:block;padding:8px 12px;border:1px solid var(--line);border-radius:12px;margin:6px 0;cursor:pointer;background:#fff;font-size:14.5px}
+.rate label.sel{border-color:var(--terra);background:var(--terra-soft)}
+.rate input{margin-right:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.chips label{border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;background:#fff;font-size:14px}
+.chips label.sel{border-color:var(--terra);background:var(--terra-soft)}
+.chips input{display:none}
+input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;background:#fff}
+.note{font-size:13px;color:var(--muted);line-height:1.5}
+pre#exp{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;max-height:420px;overflow:auto}
+.post{display:flex;gap:14px;align-items:flex-start;margin:12px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.post .av{flex:0 0 38px;height:38px;border-radius:50%;background:var(--terra-soft);color:var(--terra);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px}
+.post.stu .av{background:var(--sage-soft);color:#3f6143}
+.post .who{font-size:13px;color:var(--muted);margin-bottom:2px}
+.live .ok2{color:#3f6143;font-weight:600}
+</style></head><body>
+<div class="wrap">
+<aside>
+<h1>Academic Discussion</h1>
+<div class="sub">Writing · 7 tests · 10 min each</div>
+<div class="group">Tests</div><div id="list"></div>
+<div class="totals" id="totals"></div>
+</aside>
+<main id="main"></main>
+</div>
+<script>
+const DATA=[{"id": "T1", "label": "Test 1 · Full-Length 1", "course": "social studies", "prof": "Professor", "names": [], "post": "Volunteerism refers to the act of offering your time and service without financial compensation to benefit a community, organization, or cause. While many people volunteer mainly to help others, some institutions have mandatory volunteer programs. High schools are one example, where students may be required to complete a certain number of volunteer hours to graduate. What do you think? Should high school students be required to do volunteer work? Why or why not?", "replies": ["Yes, I think high schools should require volunteer hours because it helps students build a sense of civic responsibility. Many teenagers don’t naturally think about helping others, and this requirement can introduce them to the idea that their time and effort can make a real difference in the lives of others.", "I don’t think volunteer hours should be required because many students already have limited free time. Some have part-time jobs or take care of younger siblings after school. Adding a mandatory volunteer requirement could create extra stress and make it harder for those students to balance their existing responsibilities."]}, {"id": "T2", "label": "Test 2 · Full-Length 2", "course": "psychology", "prof": "Professor", "names": [], "post": "Today we’ll discuss the effects of exercise on mental health. Clearly, regular physical activity can improve mood and reduce stress. On the other hand, some people believe that mental health is primarily influenced by other factors such as genetics and the environment. Which do you believe plays a larger role in mental health? Why?", "replies": ["I think regular exercise has a significant positive impact on mental health. It can reduce stress, improve mood, and increase overall well-being by releasing endorphins and promoting a healthy lifestyle.", "I believe that while exercise is important, other factors like genetics and environment play a larger role in mental health. A supportive environment and good mental health practices are crucial for overall well-being."]}, {"id": "T3", "label": "Test 3 · Teacher Res. 1", "course": "labor studies", "prof": "Professor", "names": ["Claire"], "post": "More and more people can work remotely on portable electronic devices rather than in a dedicated office. These workers often have more flexibility regarding when and where they work, allowing them to become what are known as “digital nomads”—that is, workers who travel regularly and work from different locations, both inside and outside their own countries. Do you think digital nomadism is likely to continue increasing? Why or why not?", "replies": ["While digital nomadism does offer unparalleled freedom, it's important to note that it heavily relies on strong Internet connectivity. This requirement can significantly limit the destinations one can choose to work from, so digital nomadism probably won’t increase globally as much as some people think.", "While Claire makes a good point, Internet technologies and speed are always improving, so I think digital nomadism will continue to grow. Why work in a stuffy city office building just so you can afford to travel to someplace beautiful once or twice a year when you could work from such places all year round?"]}, {"id": "T4", "label": "Test 4 · Teacher Res. 2", "course": "environmental science", "prof": "Professor", "names": [], "post": "Art and media have the power to influence public opinion and behavior on environmental issues. For example, movies and social media can bring attention to climate change and inspire action with powerful words, images, and stories. However, some worry that art and media may oversimplify complex environmental issues or focus too much on negative aspects for dramatic effect. Do you think art and media are an appropriate way to increase public awareness of complex environmental issues? Why or why not?", "replies": ["It's evident that commercial interests in media can slant the representation of issues like climate change, pushing certain agendas. This bias can mislead the public, overshadowing impartial scientific evidence.", "I believe innovative media campaigns and interactive artworks have a unique ability to connect with people on a personal level, driving home the urgency of environmental issues more than dry facts ever could. Such creative expressions can motivate individuals to take immediate action, showcasing practical ways to contribute to environmental sustainability."]}, {"id": "T5", "label": "Test 5 · Teacher Res. 3", "course": "sociology", "prof": "Dr. Diaz", "names": [], "post": "Next week we’ll be discussing the impact of urbanization on community life. Urbanization has led to the development of large cities with diverse populations. Some people believe that urbanization fosters a sense of community and cultural exchange, while others think it leads to social isolation and the breakdown of close-knit communities usually found in small towns and villages. What are your thoughts on this and why?", "replies": ["I believe urbanization fosters a sense of community and cultural exchange. Large cities bring together people from different backgrounds, creating opportunities for cultural interaction and mutual understanding. Urban areas often have vibrant social scenes that encourage community building.", "In my opinion, urbanization leads to social isolation and the breakdown of close-knit communities. The fast-paced city life can make it difficult for people to form meaningful connections. Traditional community bonds, often found in smaller towns, tend to weaken in urban settings."]}, {"id": "T6", "label": "Test 6 · Teacher Res. 4", "course": "digital media", "prof": "Dr. Achebe", "names": [], "post": "Next week we’ll be discussing the impact of digital media on traditional forms of communication. Some argue that digital media has had a beneficial effect overall, as it has greatly improved global communication and connectivity. Others believe it has had a largely negative effect, leading to the decline of face-to-face interactions and reduced quality of relationships. What is your opinion on this?", "replies": ["I believe digital media has primarily had a positive effect. It allows people to stay in touch over long distances with friends and family with whom they may not have had much contact otherwise. The convenience and speed of digital media allow people to communicate with ease.", "Although it seems like a good thing on the surface, I think digital media has led to some serious problems. People often spend more time online than engaging in real-life conversations, which can erode social bonds and reduce the quality of communication with others. We need to find a balance between digital and traditional communication."]}, {"id": "T7", "label": "Test 7 · Teacher Res. 5", "course": "environmental science", "prof": "Dr. Gupta", "names": [], "post": "Human activities like pollution and deforestation harm the environment. Some argue we must reduce or eliminate these actions to mitigate their impact. Others support technologies and initiatives that lessen the damage without stopping the activities—such as pollution cleanup or forest restoration. This alternative approach focuses on managing consequences rather than prevention. What do you think is the most effective way to address environmental issues—eliminating harmful activities or minimizing their impact? Why?", "replies": ["The best way to protect the environment is to stop harmful activities like pollution and deforestation. If we don’t end them, the damage will continue and get worse. Prevention is more effective than trying to fix problems after they happen. Reducing future damage only delays the inevitable destruction these activities cause.", "Human development has increased to the extent that stopping all harmful activities in time for it to make a difference would be nearly impossible. Instead, we should focus on smarter solutions that reduce harm. Innovations like carbon capture to reduce climate change help limit damage while allowing progress. This approach supports environmental protection without demanding drastic lifestyle changes."]}];
+const KEY='discWrite_v1',LIM=600;
+let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){S={}}
+S.t=S.t||{};S.last=S.last||DATA[0].id;S.limit=S.limit===undefined?LIM:S.limit;
+const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+const get=id=>S.t[id]||(S.t[id]={text:'',started:null,limit:LIM,done:false,used:null,rate:null,act:[],errs:[],note:''});
+const D=id=>DATA.find(x=>x.id===id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let cur=S.last,tick=null,showExp=false;
+
+const RATE=[
+[5,'Relevant, well-elaborated explanations, examples and/or details. A variety of structures and precise, idiomatic word choice. Almost no errors beyond timed-writer slips (typos, there/their).'],
+[4,'Relevant, adequately elaborated explanations, examples and/or details. Variety of structures, appropriate word choice. Few errors.'],
+[3,'Part of an explanation, example or detail may be missing, unclear or irrelevant. Some variety, a range of vocabulary. Noticeable errors in structure, word form or idiom.'],
+[2,'Poorly elaborated or only partly relevant. Limited structures and vocabulary. An accumulation of errors.'],
+[1,'Few or no coherent ideas. Severely limited language. Serious, frequent errors. Mostly borrowed from the posts.'],
+[0,'Blank, rejects the topic, not English, copied from the prompt, unconnected, or arbitrary keystrokes.']];
+const ERRS=['Word form','Subject-verb agreement','Tense','Article / preposition','Run-on or fragment','Opinion unclear','Did not answer the question asked','No example or detail','Did not respond to another post','Repeated a student\'s idea','Copied wording from the posts','Under 100 words','Ran out of time','Typos'];
+const ACTS=[
+ ['Stated my opinion or recommendation',['Missing','Unclear','Clear']],
+ ['Explained why, with a detail or example',['Missing','Reason only','Reason + detail/example']],
+ ['Added a new perspective or asked a question',['Missing','Weak or generic','Clear and new']],
+ ['Responded to a specific point in another post',['Missing','Generic ("I agree with them")','Names the specific point']]];
+const CONN=['because','although','even though','since','unless','while','however','therefore','moreover','furthermore','nevertheless','so','but','which','who','if','when','whereas','instead','for example','for instance'];
+
+function words(t){return t.trim()?t.trim().split(/\s+/):[]}
+function sents(t){return t.split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean)}
+function norm(s){return s.toLowerCase().replace(/[^a-z0-9' ]/g,' ').split(/\s+/).filter(Boolean)}
+function fmt(s){s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function remaining(s){return s.limit?Math.max(0,s.limit-(Date.now()-s.started)/1000):null}
+
+function checks(t,d){
+  const w=words(t),ss=sents(t),n=w.length,out=[],low=t.toLowerCase();
+  out.push([n>=100,'At least 100 words (ETS: "An effective response will contain at least 100 words")',n+' words']);
+  out.push([/\b(i (think|believe|agree|disagree|feel|prefer|would argue|would say|support|oppose)|in my opinion|in my view|from my perspective|i'd argue|personally)\b/i.test(t),'States an opinion in the first person (surface check)']);
+  const names=(d.names||[]).map(x=>x.toLowerCase());
+  const ref=/\b(student|classmate|first (post|comment|speaker)|second (post|comment|speaker)|agree with|disagree with|point (about|that|on)|(makes?|made|raises?|raised) (a|an) [a-z]+ (point|argument)|as .{1,30} (said|mentioned|noted|pointed out|suggested)|brought up|your point)\b/i.test(t)||names.some(x=>low.includes(x));
+  out.push([ref,'Seems to refer to another post (surface check: names, "agree with", "point that ...")']);
+  out.push([/\b(because|since|as a result|therefore|this is why|which means|so that|due to)\b/i.test(t),'Gives a reason']);
+  out.push([/\b(for example|for instance|such as|e\.g\.|in my experience|imagine|consider)\b/i.test(t),'Gives an example']);
+  out.push([/\?/.test(t)||/\b(another|in addition|also worth|furthermore|moreover|what about|not only|beyond)\b/i.test(t),'Looks like it adds something (a question or an extra angle). Weak check, read it yourself']);
+  const found=CONN.filter(c=>new RegExp('\\b'+c+'\\b').test(low));
+  out.push([found.length>=3,'Uses 3+ different connectors',found.length+': '+found.join(', ')]);
+  const lens=ss.map(s=>words(s).length);
+  out.push([ss.length>0&&Math.max(...lens)>=15,'At least one longer sentence (15+ words)',lens.length?'longest '+Math.max(...lens)+', shortest '+Math.min(...lens):'']);
+  const startI=ss.filter(s=>/^I\b/.test(s)).length;
+  out.push([ss.length>0&&startI/ss.length<=0.4,'No more than 40% of sentences start with "I"',startI+' of '+ss.length]);
+  const pn=norm(d.post+' '+d.replies.join(' ')),rn=norm(t);
+  const g=a=>{const r=new Set;for(let i=0;i+4<=a.length;i++)r.add(a.slice(i,i+4).join(' '));return r};
+  const pg=g(pn),rg=[...g(rn)],hit=rg.filter(x=>pg.has(x)).length;
+  const pct=rg.length?Math.round(100*hit/rg.length):0;
+  out.push([pct<=15,'Little 4-word phrasing copied from the posts',pct+'% of your 4-word runs appear in the posts']);
+  return out;
+}
+
+function renderList(){
+  document.getElementById('list').innerHTML=DATA.map(d=>{const s=S.t[d.id];
+    const b=s&&s.done?'<span class="badge done">'+(s.rate===null?'done':s.rate+'/5')+'</span>':s&&s.started?'<span class="badge run">running</span>':'';
+    return '<button class="mod'+(d.id===cur?' active':'')+'" data-id="'+d.id+'">'+esc(d.label)+b+'</button>'}).join('');
+  document.querySelectorAll('.mod').forEach(b=>b.onclick=()=>{cur=b.dataset.id;S.last=cur;save();showExp=false;render()});
+  const dn=DATA.map(d=>S.t[d.id]).filter(s=>s&&s.done);
+  const rated=dn.filter(s=>s.rate!==null);
+  const wc=dn.map(s=>words(s.text).length);
+  document.getElementById('totals').innerHTML=dn.length?('Finished: '+dn.length+'/7<br>Average words: '+Math.round(wc.reduce((a,b)=>a+b,0)/wc.length)+'<br>'+(rated.length?'Average self-rating: '+(rated.reduce((a,s)=>a+s.rate,0)/rated.length).toFixed(1)+' / 5<br><span class="note">Your own estimate, not an ETS score.</span>':'No self-ratings yet')):'Nothing finished yet.';
+}
+
+function promptCard(d){
+  const stu=d.replies.map((r,i)=>'<div class="post stu"><div class="av">S'+(i+1)+'</div><div><div class="who">Student '+(i+1)+'</div>'+esc(r)+'</div></div>').join('');
+  const note=(d.names&&d.names.length)?'<p class="note">In the PDF the posters are shown as photos with no names. This post mentions "'+esc(d.names[0])+'", presumably Student 1 (my inference).</p>':'<p class="note">In the PDF the posters are shown as photos with no names, so they are labelled Student 1 and Student 2 here.</p>';
+  return '<div class="card"><h2>Write for an Academic Discussion</h2><p>Your professor is teaching a '+(d.id==='T3'?'course':'class')+' on '+esc(d.course)+'. Write a post responding to the professor\'s question.</p><p style="margin:0">In your response, you should do the following.</p><ul class="bul"><li>Express and support your opinion.</li><li>Make a contribution to the discussion in your own words.</li></ul><p class="muted" style="margin:0 0 8px">An effective response will contain at least 100 words.</p>'+
+  '<div class="post"><div class="av">P</div><div><div class="who">'+esc(d.prof)+'</div>'+esc(d.post)+'</div></div>'+stu+note+'</div>';
+}
+
+function render(){
+  clearInterval(tick);renderList();
+  const d=D(cur),s=get(cur),m=document.getElementById('main');
+  const head='<div class="bar"><span class="title">'+esc(d.label)+'</span><span class="timer" id="tm"></span>';
+  if(!s.started){
+    m.innerHTML=head+'<select id="lim"><option value="600">10:00 (real test)</option><option value="0">No limit</option></select><button class="primary" id="go">Start</button></div>'+
+    '<div class="card"><h2>Write for an Academic Discussion</h2><p>The professor\'s post and two student posts stay on screen once you start. The clock starts when you click Start, and reading counts toward the time, as on the real test.</p><p>ETS lists three actions for a good post: state your opinion, explain why with details and examples, and add a new perspective or ask a question (ETS Writing lesson plan, Lesson 4). Its Lesson 5 criteria also include responding to the other posts or using their information.</p><p class="note">Spell-check is off, as on the real test. Typing only: no paste. Word count is shown, as on the real test. There is no model answer for this task in the practice-test PDFs, so you score yourself against the ETS rubric afterwards.</p></div>';
+    const l=document.getElementById('lim');l.value=String(S.limit);l.onchange=()=>{S.limit=+l.value;save()};
+    document.getElementById('go').onclick=()=>{s.started=Date.now();s.limit=+l.value;s.done=false;save();render()};
+    document.getElementById('tm').textContent=S.limit?'10:00':'';
+    return;
+  }
+  const prompt=promptCard(d);
+  if(!s.done){
+    m.innerHTML=head+'<button class="primary" id="fin">Finish</button></div>'+prompt+'<div class="card"><textarea id="ta" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type your post here"></textarea><div class="live"><span id="wc"></span><span class="sp"></span><span class="note">Drafts save as you type.</span></div></div>';
+    const ta=document.getElementById('ta');ta.value=s.text;ta.focus();
+    const up=()=>{const n=words(ta.value).length,e=document.getElementById('wc');e.textContent=n+' words'+(n>=100?' · 100 reached':'');e.className=n>=100?'ok2':''};up();
+    ta.oninput=()=>{s.text=ta.value;save();up()};
+    ta.onpaste=e=>e.preventDefault();ta.ondrop=e=>e.preventDefault();
+    document.getElementById('fin').onclick=()=>finish(true);
+    const t=()=>{const r=remaining(s),tm=document.getElementById('tm');
+      if(!tm)return;
+      if(r===null){tm.textContent=fmt(Math.floor((Date.now()-s.started)/1000))}
+      else{tm.textContent=fmt(Math.ceil(r));tm.classList.toggle('low',r<=60);if(r<=0)finish(false)}};
+    t();tick=setInterval(t,500);
+    return;
+  }
+  const w=words(s.text),ck=checks(s.text,d);
+  s.act=s.act&&s.act.length===ACTS.length?s.act:ACTS.map(()=>null);
+  m.innerHTML=head+'<button id="again">Redo this task</button><button id="exp">Export all</button></div>'+
+  (s.timeUp?'<div class="warn">Time ran out. The response was locked at the limit.</div>':'')+prompt+
+  '<div class="card"><h2>Your response</h2><div class="muted" style="font-size:13px;margin-bottom:8px">'+w.length+' words · time used '+fmt(s.used)+(s.limit?' of '+fmt(s.limit):'')+'</div><div class="resp">'+(esc(s.text)||'<span class="muted">(empty)</span>')+'</div></div>'+
+  '<div class="card"><h2>Mechanical checks</h2><p class="note">These count surface features only. They are not a score and say nothing about meaning or grammar. Only the 100-word line is an ETS statement; the rest are my own heuristics.</p><table>'+ck.map(c=>'<tr><td class="'+(c[0]?'ok':'no')+'" style="width:24px">'+(c[0]?'✓':'✗')+'</td><td>'+esc(c[1])+(c[2]?'<div class="note">'+esc(c[2])+'</div>':'')+'</td></tr>').join('')+'</table></div>'+
+  '<div class="card"><h2>Your review</h2><h3>1. The four moves</h3><p class="note">The first three are ETS\'s "three actions" (Lesson 4). The fourth comes from the Lesson 5 criteria. Elaboration is the gap between a 3 and a 4 in the rubric.</p><table>'+ACTS.map((a,i)=>'<tr><td>'+esc(a[0])+'</td><td style="width:230px"><select data-b="'+i+'"><option value="">choose</option>'+a[1].map((x,j)=>'<option value="'+j+'"'+(s.act[i]===j?' selected':'')+'>'+esc(x)+'</option>').join('')+'</select></td></tr>').join('')+'</table>'+
+  '<h3>2. Reread once. What errors did you find?</h3><div class="chips">'+ERRS.map(e=>'<label class="'+(s.errs.includes(e)?'sel':'')+'"><input type="checkbox" value="'+esc(e)+'"'+(s.errs.includes(e)?' checked':'')+'>'+esc(e)+'</label>').join('')+'</div><p class="note">These tags are my own list, not ETS categories.</p>'+
+  '<h3>3. Your score against the ETS rubric (Academic Discussion, 0-5)</h3><div class="rate">'+RATE.map(r=>'<label class="'+(s.rate===r[0]?'sel':'')+'"><input type="radio" name="r" value="'+r[0]+'"'+(s.rate===r[0]?' checked':'')+'><b>'+r[0]+'</b> — '+esc(r[1])+'</label>').join('')+'</div><p class="note">No model answers and no raw-to-band table exist for this task, so this is your own estimate. Rate down if you are torn between two rows.</p>'+
+  '<h3>4. One sentence you would rewrite, and how</h3><input type="text" id="nt" value="'+esc(s.note||'')+'" placeholder="e.g. &quot;I agree with student 1&quot; -> name the point you agree with"></div>'+
+  (showExp?'<div class="card"><h2>Export</h2><pre id="exp-t"></pre><button class="primary" id="cp">Copy</button></div>':'');
+  m.querySelectorAll('select[data-b]').forEach(e=>e.onchange=()=>{s.act[+e.dataset.b]=e.value===''?null:+e.value;save()});
+  m.querySelectorAll('.chips input').forEach(e=>e.onchange=()=>{s.errs=[...m.querySelectorAll('.chips input:checked')].map(x=>x.value);e.parentNode.classList.toggle('sel',e.checked);save()});
+  m.querySelectorAll('.rate input').forEach(e=>e.onchange=()=>{s.rate=+e.value;m.querySelectorAll('.rate label').forEach(l=>l.classList.toggle('sel',l.querySelector('input').checked));save();renderList()});
+  document.getElementById('nt').oninput=e=>{s.note=e.target.value;save()};
+  document.getElementById('again').onclick=()=>{if(confirm('Clear this response and its review, and start again?')){delete S.t[cur];save();render()}};
+  document.getElementById('exp').onclick=()=>{showExp=true;render()};
+  if(showExp){document.getElementById('exp-t').textContent=exportMd();
+    document.getElementById('cp').onclick=()=>{const t=exportMd();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById('cp').textContent='Copied'},()=>{const r=document.createRange();r.selectNode(document.getElementById('exp-t'));getSelection().removeAllRanges();getSelection().addRange(r)})};}
+}
+
+function finish(manual){
+  const s=get(cur),ta=document.getElementById('ta');
+  if(ta)s.text=ta.value;
+  const el=(Date.now()-s.started)/1000;
+  s.used=s.limit?Math.min(el,s.limit):el;
+  s.done=true;s.timeUp=!manual&&!!s.limit;
+  save();render();
+}
+
+function exportMd(){
+  const L=['## Academic Discussion — exported '+new Date().toLocaleString(),''];
+  const dn=DATA.filter(d=>S.t[d.id]&&S.t[d.id].done);
+  if(!dn.length)return L.concat(['Nothing finished yet.']).join('\n');
+  L.push('| Test | Words | Time | Self-rating (0-5) | Errors I found |','|---|---|---|---|---|');
+  dn.forEach(d=>{const s=S.t[d.id];L.push('| '+d.label+' | '+words(s.text).length+' | '+fmt(s.used)+(s.timeUp?' (time up)':'')+' | '+(s.rate===null?'—':s.rate)+' | '+((s.errs||[]).join(', ')||'—').replace(/\|/g,'\\|')+' |')});
+  L.push('','Self-rating is my own estimate against the ETS Academic Discussion rubric, not an ETS score.','');
+  dn.forEach(d=>{const s=S.t[d.id];
+    L.push('### '+d.label+' — '+d.course+(d.prof!=='Professor'?' ('+d.prof+')':''),'');
+    L.push('Professor: '+d.post,'');
+    d.replies.forEach((r,i)=>L.push('Student '+(i+1)+': '+r,''));
+    ACTS.forEach((a,i)=>L.push('- '+a[0]+' → '+(s.act&&s.act[i]!=null?a[1][s.act[i]]:'not rated')));
+    L.push('');
+    L.push('Mechanical checks: '+checks(s.text,d).map(c=>(c[0]?'✓ ':'✗ ')+c[1].replace(/ \(.*$/,'')).join('; '),'');
+    if(s.note)L.push('Rewrite note: '+s.note,'');
+    L.push('Response:','');
+    s.text.split('\n').forEach(x=>L.push('> '+x));L.push('')});
+  return L.join('\n');
+}
+render();
+</script></body></html>
