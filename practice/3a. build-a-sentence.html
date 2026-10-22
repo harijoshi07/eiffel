@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Writing — Build a Sentence</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}.badge.run{background:var(--amber-soft);color:var(--amber)}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:900px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;min-width:56px}
+.timer.low{color:var(--red);font-weight:600}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:hover:not(:disabled){filter:brightness(.97)}
+select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}
+.muted{color:var(--muted)}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.dot{flex:1;height:8px;border-radius:4px;background:var(--line);cursor:pointer;border:0;padding:0}
+.dot.filled{background:#cbbf9e}.dot.cur{background:var(--terra)}.dot.ok{background:var(--sage)}.dot.bad{background:var(--red)}.dot.skip{background:var(--amber-soft)}
+.ctx{background:var(--bg);border-radius:12px;padding:12px 16px;margin-bottom:18px}
+.ctx .who{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.sent{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:18px;border:1px dashed var(--line);border-radius:14px;background:#fff;min-height:70px;font-size:17px}
+.fixed{font-weight:600}
+.slot{min-width:64px;height:40px;border:2px dashed #cbbf9e;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;background:var(--bg);cursor:pointer;font:inherit}
+.slot.over{border-color:var(--terra);background:var(--terra-soft)}
+.slot.full{border-style:solid;border-color:var(--terra);background:var(--terra-soft)}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px;min-height:46px}
+.tile{border:1px solid var(--terra);background:#fff;color:var(--ink);border-radius:9px;padding:6px 14px;cursor:grab;font-size:16px}
+.tile:hover{background:var(--terra-soft)}
+.tile.used{opacity:.25;pointer-events:none}
+.nav{display:flex;gap:10px;align-items:center;margin-top:18px}
+.nav .sp{flex:1}
+.hint{font-size:12.5px;color:var(--muted);margin:6px 0 2px;line-height:1.4}
+.qhead{display:flex;gap:10px;align-items:center;margin-bottom:8px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.qnum{font-weight:600;color:var(--terra)}
+.tag{font-size:12px;padding:1px 9px;border-radius:999px}
+.tag.ok{background:var(--sage-soft);color:#3f6143}.tag.bad{background:var(--red-soft);color:var(--red)}.tag.type{background:var(--line);color:var(--muted)}.tag.skip{background:var(--amber-soft);color:var(--amber)}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:12px}
+.yours,.keyl{padding:10px 14px;border-radius:12px;margin:8px 0;font-size:16.5px}
+.yours{background:#fff;border:1px solid var(--line)}
+.yours.ok{background:var(--sage-soft);border-color:var(--sage)}
+.yours.bad{background:var(--red-soft);border-color:var(--red)}
+.keyl{background:var(--sage-soft)}
+.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:block}
+.w{padding:0 3px;border-radius:4px}.w.x{background:#f0b9b0;text-decoration:line-through}.w.sp{background:#f0d28a}
+.fb{margin-top:10px;font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.fb select,.fb textarea{width:100%;margin-top:6px;font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px;background:#fff}
+.fb textarea{min-height:52px}
+.exportbox textarea{width:100%;min-height:260px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.score{font-size:34px;font-weight:700;color:var(--terra);line-height:1.1}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:18px}}
+</style></head>
+<body><div class="wrap">
+<aside>
+  <h1>Build a Sentence</h1>
+  <div class="sub">7 tests · 10 items each · 70 items</div>
+  <div id="nav"></div>
+  <div class="totals" id="totals"></div>
+  <div class="note">Click a tile to place it in the next empty slot, or drag it onto a slot. Click a filled slot to take the tile back. Backspace removes the last tile. ← → move between items.</div>
+</aside>
+<main>
+  <div class="bar">
+    <div class="title" id="title"></div>
+    <span class="timer" id="timer"></span>
+    <span id="barBtns" class="row"></span>
+  </div>
+  <div id="view"></div>
+  <div class="card exportbox" id="exportCard" hidden>
+    <h2>Export</h2>
+    <p class="muted">Copy this into <code>logs/writing.md</code>.</p>
+    <textarea id="exportText" readonly></textarea>
+    <div class="row" style="margin-top:10px"><button class="primary" id="copyBtn">Copy</button></div>
+  </div>
+</main></div>
+<script>
+const TESTS=[{"id": "FL1", "name": "Test 1 · Full-Length 1", "items": [{"n": 1, "ctx": "What was the highlight of your trip?", "tpl": [["f", "The"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "fantastic."]], "tiles": ["were", "the", "was", "old city", "showed us around", "who", "tour guides"], "ans": [6, 5, 4, 1, 3, 0], "key": "The tour guides who showed us around the old city were fantastic.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 2, "ctx": "I heard Anna got a promotion.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "she will be"], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["a different department", "if", "moving to", "know", "do", "you"], "ans": [4, 5, 3, 1, 2, 0], "key": "Do you know if she will be moving to a different department?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "We're planning a trip to the mountains next weekend.", "tpl": [["b", ""], ["b", ""], ["f", "tell me"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["the cabins", "available", "whether", "can", "will be", "you"], "ans": [3, 5, 2, 0, 4, 1], "key": "Can you tell me whether the cabins will be available?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "I'm looking forward to the concert this weekend.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["does", "what", "time", "it", "start"], "ans": [1, 2, 0, 3, 4], "key": "What time does it start?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "The museum exhibition opens next month.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["do", "you", "how", "know", "tickets", "will cost", "much"], "ans": [0, 1, 3, 2, 6, 4, 5], "key": "Do you know how much tickets will cost?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "I'm planning to go to the beach tomorrow.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["is", "time of year", "what", "the water", "this", "like", "temperature"], "ans": [2, 0, 3, 6, 5, 4, 1], "key": "What is the water temperature like this time of year?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "I need to buy groceries today.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["list", "do", "a", "have", "shopping", "you"], "ans": [1, 5, 3, 2, 4, 0], "key": "Do you have a shopping list?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "I'll be taking a cooking class this weekend.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["learn", "what", "will", "you", "recipes"], "ans": [1, 4, 2, 3, 0], "key": "What recipes will you learn?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "What did Maria ask you about the book you're reading?", "tpl": [["f", "She"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["she", "wanted", "a copy", "buy", "to know", "could", "where"], "ans": [1, 4, 6, 0, 5, 3, 2], "key": "She wanted to know where she could buy a copy.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "How did you prepare for the exam?", "tpl": [["f", "I used"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["by", "the professor", "that", "the study guide", "was provided", "it"], "ans": [3, 2, 4, 0, 1], "key": "I used the study guide that was provided by the professor.", "flag": null, "scored": true, "keyPrinted": null}]}, {"id": "FL2", "name": "Test 2 · Full-Length 2", "items": [{"n": 1, "ctx": "I need to buy a new laptop.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["has", "the best", "which", "store", "deals"], "ans": [2, 3, 0, 1, 4], "key": "Which store has the best deals?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 2, "ctx": "I'm thinking about starting a blog.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "yet?"]], "tiles": ["decided", "you", "a topic", "have", "on"], "ans": [3, 1, 0, 4, 2], "key": "Have you decided on a topic yet?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "I'm going to study at the library this afternoon.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["to", "do", "borrow", "any books", "you", "need"], "ans": [1, 4, 5, 0, 2, 3], "key": "Do you need to borrow any books?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "I'm thinking about getting a pet.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["are", "you", "considering", "kind", "of", "what", "animal"], "ans": [5, 3, 4, 6, 0, 1, 2], "key": "What kind of animal are you considering?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "I'm excited to see the new science fiction movie tonight.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["it", "showing", "is", "where"], "ans": [3, 2, 0, 1], "key": "Where is it showing?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "I have an interview for a new job next week.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["ready", "resume", "have", "you", "do", "your"], "ans": [4, 3, 2, 5, 1, 0], "key": "Do you have your resume ready?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "I need to submit my assignment by tomorrow.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["writing", "finished", "you", "it", "have"], "ans": [4, 2, 1, 0, 3], "key": "Have you finished writing it?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "I'm planning a trip to Europe this summer.", "tpl": [["b", ""], ["b", ""], ["f", "book your"], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["did", "flight", "you", "yet"], "ans": [0, 2, 1, 3], "key": "Did you book your flight yet?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "I just started learning French.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["you", "taking", "are", "where", "classes"], "ans": [3, 2, 0, 1, 4], "key": "Where are you taking classes?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "Why are you asking about the project deadline?", "tpl": [["f", "I'm"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["checking", "to see", "if", "has been", "extended", "it"], "ans": [0, 1, 2, 5, 3, 4], "key": "I'm checking to see if it has been extended.", "flag": null, "scored": true, "keyPrinted": null}]}, {"id": "TR1", "name": "Test 3 · Teacher Res. 1", "items": [{"n": 1, "ctx": "What did Andre ask you at the party?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["wanted", "does", "he", "ended", "when", "to know", "it"], "ans": [2, 0, 5, 4, 6, 3], "key": "He wanted to know when it ended.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 2, "ctx": "Why was the meeting rescheduled?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["was moved", "to", "it", "a time", "when", "everyone", "could attend"], "ans": [2, 0, 1, 3, 4, 5, 6], "key": "It was moved to a time when everyone could attend.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "I just spoke with the boss about applying for the open position.", "tpl": [["f", "I am"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["curious", "if", "mentioned", "any specific requirements", "because", "he"], "ans": [0, 1, 5, 2, 3], "key": "I am curious if he mentioned any specific requirements.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "Why are you asking about the new restaurant?", "tpl": [["f", "My"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["is wondering", "it", "when", "is going", "to open", "she", "friend", "Jenna"], "ans": [6, 7, 0, 2, 1, 3, 4], "key": "My friend Jenna is wondering when it is going to open.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "Do you know anyone who can give me directions to the Big Tree Bistro?", "tpl": [["b", ""], ["b", ""], ["f", "Sally"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["there", "to get", "how", "think", "I", "where", "knows"], "ans": [4, 3, 6, 2, 1, 0], "key": "I think Sally knows how to get there.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "What are your plans for the summer?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "yet."]], "tiles": ["I", "don't", "I'm", "where", "to do", "going", "know", "what"], "ans": [0, 1, 6, 7, 2, 5, 4], "key": "I don't know what I'm going to do yet.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "What did Ruby ask about the new software?", "tpl": [["f", "She wanted"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["help", "however", "if", "it", "to know", "with", "need", "you"], "ans": [4, 2, 7, 6, 0, 5, 3], "key": "She wanted to know if you need help with it.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "Why did Gustavo call you this morning?", "tpl": [["f", "He wanted"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["where", "a leak", "could find", "he", "to know", "a plumber", "to fix", "is"], "ans": [4, 0, 3, 2, 5, 6, 1], "key": "He wanted to know where he could find a plumber to fix a leak.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "I heard that the supervisor was looking for you.", "tpl": [["f", "She"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["we", "wanted", "to finish", "finished", "to know", "when", "the project", "expect"], "ans": [1, 4, 5, 0, 7, 6, 2], "key": "She wanted to know when we expect the project to finish.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "Julio said you had a question about the research paper.", "tpl": [["f", "I'm hoping"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "I might"], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["me", "you", "can", "tell", "where", "some reliable sources", "find"], "ans": [1, 2, 3, 0, 4, 6, 5], "key": "I'm hoping you can tell me where I might find some reliable sources.", "flag": "The printed tile says 'some reliable sources' but the PDF answer key says 'resources'. Graded against the tiles that are printed.", "scored": true, "keyPrinted": "I'm hoping you can tell me where I might find some reliable resources."}]}, {"id": "TR2", "name": "Test 4 · Teacher Res. 2", "items": [{"n": 1, "ctx": "Are you going to the concert tonight?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "music."]], "tiles": ["do", "kind", "of", "that", "not", "like", "I"], "ans": [6, 0, 4, 5, 3, 1, 2], "key": "I do not like that kind of music.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 2, "ctx": "Did you enjoy the book I lent you?", "tpl": [["f", "I did not"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["find", "to be", "was", "very engaging", "the story"], "ans": [0, 4, 1, 3], "key": "I did not find the story to be very engaging.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "The latest marketing campaign was a tremendous success!", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "can be."]], "tiles": ["realized", "I", "never", "too", "social media", "how", "effective"], "ans": [1, 2, 0, 5, 6, 4], "key": "I never realized how effective social media can be.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "Why was Martha talking to the owner of the garden shop?", "tpl": [["f", "She wanted"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["planting", "some flowers", "start", "when", "to know", "to", "so"], "ans": [4, 3, 5, 2, 0, 1], "key": "She wanted to know when to start planting some flowers.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "Evan said you have a question for me.", "tpl": [["f", "I'd like"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["to know", "where", "because", "the programming job", "you", "about", "found out"], "ans": [0, 1, 4, 6, 5, 3], "key": "I'd like to know where you found out about the programming job.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "What did you think of the movie?", "tpl": [["f", "In"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["was", "very", "my opinion", "it", "not", "entertaining"], "ans": [2, 3, 0, 4, 1, 5], "key": "In my opinion it was not very entertaining.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "Do you want to try the new recipe I found?", "tpl": [["f", "No, I"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["at cooking", "am", "good", "not", "complex dishes"], "ans": [1, 3, 2, 0, 4], "key": "No, I am not good at cooking complex dishes.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "Have you finished reading the novel?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "yet."]], "tiles": ["reached", "I", "the last chapter", "already", "haven't"], "ans": [1, 4, 0, 2], "key": "I haven't reached the last chapter yet.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "Will you attend the seminar tomorrow?", "tpl": [["f", "I"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["have", "topic", "interest", "in", "that", "no", "not"], "ans": [0, 5, 2, 3, 4, 1], "key": "I have no interest in that topic.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "Did you buy the groceries I asked for?", "tpl": [["f", "The store"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["not", "did", "have", "everything", "on", "none", "the list"], "ans": [1, 0, 2, 3, 4, 6], "key": "The store did not have everything on the list.", "flag": null, "scored": true, "keyPrinted": null}]}, {"id": "TR3", "name": "Test 5 · Teacher Res. 3", "items": [{"n": 1, "ctx": "I'm planning to study abroad next year.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "to visit?"]], "tiles": ["you", "which", "planning", "countries", "in Europe", "are", "plan"], "ans": [1, 3, 4, 5, 0, 2], "key": "Which countries in Europe are you planning to visit?", "flag": "The PDF prints 7 blanks and 'to visit.' but its key is 'Which countries in Europe are you planning to visit?' (6 words, ends in ?). Shown here with 6 blanks and '?'. Not scored.", "scored": false, "keyPrinted": null}, {"n": 2, "ctx": "I'm excited to go camping this weekend.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "near the campground?"]], "tiles": ["that", "you", "have", "black bears", "live", "heard"], "ans": [2, 1, 5, 0, 3, 4], "key": "Have you heard that black bears live near the campground?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "I'm planning to take a photography class.", "tpl": [["b", ""], ["f", "type"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["the", "interests", "what", "more", "you", "photography", "most", "of"], "ans": [2, 7, 5, 1, 4, 0, 6], "key": "What type of photography interests you the most?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "I'm thinking of adopting a dog this summer.", "tpl": [["b", ""], ["f", "breed"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["which", "plan", "of dog", "you", "do", "to adopt", "planning"], "ans": [0, 2, 4, 3, 1, 5], "key": "Which breed of dog do you plan to adopt?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "I'm going to start writing a biography", "tpl": [["b", ""], ["f", "historical figure"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["have", "about", "to write", "which", "chosen", "you", "choose"], "ans": [3, 0, 5, 4, 2, 1], "key": "Which historical figure have you chosen to write about?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "I'm moving to a new city next month.", "tpl": [["b", ""], ["b", ""], ["f", "you"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["to move", "from here", "away", "why", "have", "chosen"], "ans": [3, 4, 5, 0, 2, 1], "key": "Why have you chosen to move away from here?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "I'm planning to start a new project at work.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["to complete", "the new assignment", "when", "expect", "you", "do"], "ans": [2, 5, 4, 3, 0, 1], "key": "When do you expect to complete the new assignment?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "I'm going to submit my application today.", "tpl": [["f", "Have"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["the position", "applied", "your coworkers", "any", "has", "of", "for"], "ans": [3, 5, 2, 1, 6, 0], "key": "Have any of your coworkers applied for the position?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "I'm attending a friend's wedding next week.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "afterward?"]], "tiles": ["plan to attend", "the wedding reception", "you", "do"], "ans": [3, 2, 0, 1], "key": "Do you plan to attend the wedding reception afterward?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "I had a great time at the dinner party last night.", "tpl": [["f", "Did"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["serve", "they", "the main course", "before", "any appetizers"], "ans": [1, 0, 4, 3, 2], "key": "Did they serve any appetizers before the main course?", "flag": null, "scored": true, "keyPrinted": null}]}, {"id": "TR4", "name": "Test 6 · Teacher Res. 4", "items": [{"n": 1, "ctx": "Where did you get your shoes?", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "."]], "tiles": ["visited", "had", "it", "last month", "the shop", "a sale", "I"], "ans": [4, 6, 0, 3, 1, 5], "key": "The shop I visited last month had a sale.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 2, "ctx": "The workshop yesterday was very informative.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "soon?"]], "tiles": ["another one", "do", "there", "if", "be", "you know", "will"], "ans": [1, 5, 3, 2, 6, 4, 0], "key": "Do you know if there will be another one soon?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "The new restaurant downtown has amazing reviews.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["know", "do", "if", "has", "vegetarian options", "have", "you", "they"], "ans": [1, 6, 0, 2, 7, 5, 4], "key": "Do you know if they have vegetarian options?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "That was a great movie we watched last night.", "tpl": [["b", ""], ["f", "you"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["that", "by", "director", "would", "like", "another film", "to see"], "ans": [3, 4, 6, 5, 1, 0, 2], "key": "Would you like to see another film by that director?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "I'm planning to visit my grandparents next weekend.", "tpl": [["b", ""], ["f", "you"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["to the airport", "tell me", "you", "can", "need", "a lift", "whether"], "ans": [3, 1, 6, 2, 4, 5, 0], "key": "Can you tell me whether you need a lift to the airport?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "The book you lent me was fascinating.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "written"], ["b", ""], ["f", "?"]], "tiles": ["has", "you know", "have", "the author", "if", "other books", "do"], "ans": [6, 1, 4, 3, 0, 5], "key": "Do you know if the author has written other books?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "The new software update looks promising.", "tpl": [["f", "On"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["able", "which", "the download", "website", "to find", "were you"], "ans": [1, 3, 5, 0, 4, 2], "key": "On which website were you able to find the download?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "The new coffee shop downtown is very popular.", "tpl": [["f", "Is"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["that", "football matches", "you can", "on screen", "watch", "where", "the one"], "ans": [0, 6, 5, 2, 4, 1, 3], "key": "Is that the one where you can watch football matches on screen?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "We had a great time at the concert last night.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["that band", "is performing", "when", "how", "find out", "again", "can we"], "ans": [3, 6, 4, 2, 0, 1, 5], "key": "How can we find out when that band is performing again?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "I really enjoyed the hiking trip last weekend.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "for this month?"]], "tiles": ["if", "more trips", "planned", "there are", "you", "tell me", "can"], "ans": [6, 4, 5, 0, 3, 1, 2], "key": "Can you tell me if there are more trips planned for this month?", "flag": null, "scored": true, "keyPrinted": null}]}, {"id": "TR5", "name": "Test 7 · Teacher Res. 5", "items": [{"n": 1, "ctx": "Your presentation yesterday was impressive.", "tpl": [["f", "Thanks."], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["you want", "of it", "me", "you", "to send", "do", "a copy"], "ans": [5, 0, 2, 4, 3, 6, 1], "key": "Thanks. Do you want me to send you a copy of it?", "flag": "The PDF key reads 'Do you want me to send you a copy?', which leaves the tile 'of it' unused, but the item prints 7 blanks and 7 tiles. Graded against the sentence that uses all 7 tiles. The printed 'Thanks.' is not in the key.", "scored": true, "keyPrinted": "Do you want me to send you a copy?"}, {"n": 2, "ctx": "I wish I hadn't missed the conference last week.", "tpl": [["b", ""], ["f", "you"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["the recordings", "where", "don't", "know", "the sessions", "of", "to get"], "ans": [2, 3, 1, 6, 0, 5, 4], "key": "Don't you know where to get the recordings of the sessions?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 3, "ctx": "The new yoga class was very relaxing.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "on Saturdays."]], "tiles": ["are", "a few", "classes", "wonder", "I", "held", "if"], "ans": [4, 3, 6, 1, 2, 0, 5], "key": "I wonder if a few classes are held on Saturdays.", "flag": null, "scored": true, "keyPrinted": null}, {"n": 4, "ctx": "We had a blast at the national park yesterday.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "all year long?"]], "tiles": ["does", "it", "anybody", "whether", "is open", "know", "they"], "ans": [0, 2, 5, 3, 1, 4], "key": "Does anybody know whether it is open all year long?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 5, "ctx": "The film festival this weekend was amazing.", "tpl": [["b", ""], ["f", "we"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["they", "if", "are", "can", "find out", "planning", "another one"], "ans": [3, 4, 1, 0, 2, 5, 6], "key": "Can we find out if they are planning another one?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 6, "ctx": "The workshop on graphic design was very helpful.", "tpl": [["b", ""], ["f", "you"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["why", "each", "tell me", "how long", "was", "workshop session", "could"], "ans": [6, 2, 3, 1, 5, 4], "key": "Could you tell me how long each workshop session was?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 7, "ctx": "The new art exhibit at the museum is stunning.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "exhibit information ?"]], "tiles": ["would", "to know", "how", "I", "you", "happen", "can get"], "ans": [0, 4, 5, 1, 2, 3, 6], "key": "Would you happen to know how I can get exhibit information?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 8, "ctx": "Let's go to that new gym this afternoon.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "at this time ?"]], "tiles": ["know", "you", "do", "is", "usually crowded", "if", "it"], "ans": [2, 1, 0, 5, 6, 3, 4], "key": "Do you know if it is usually crowded at this time?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 9, "ctx": "I really enjoyed the documentary we watched yesterday.", "tpl": [["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "about"], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["you", "how", "heard", "it", "they filmed", "any details", "have"], "ans": [6, 0, 2, 5, 1, 4, 3], "key": "Have you heard any details about how they filmed it?", "flag": null, "scored": true, "keyPrinted": null}, {"n": 10, "ctx": "I'm applying for a position at that new technology hub.", "tpl": [["b", ""], ["b", ""], ["f", "know"], ["b", ""], ["b", ""], ["b", ""], ["b", ""], ["f", "?"]], "tiles": ["do", "they", "have", "how many", "you", "open positions"], "ans": [0, 4, 3, 5, 1, 2], "key": "Do you know how many open positions they have?", "flag": null, "scored": true, "keyPrinted": null}]}];
+const KEY="buildSentence_v1";
+const CAUSES=[["","— pick a cause —"],
+["W1","W1 · Spare tile used (a tile the key does not use)"],
+["W2","W2 · Question word order kept inside an embedded clause (e.g. 'if does it')"],
+["W3","W3 · Verb form or tense (including the reported-speech shift)"],
+["W4","W4 · A multi-word tile in the wrong place"],
+["W5","W5 · Did not use the fixed words / punctuation as printed"],
+["W6","W6 · Misread the context line"],
+["Changed answer","Changed a right answer"],["Guessed","Guessed"],["Careless","Careless"],["Other","Other"]];
+const LIMITS=[[0,"No time limit"],[360,"6 min (my estimate, not ETS)"],[480,"8 min"],[600,"10 min"]];
+let S=load();
+let cur={tid:(S.last&&TESTS.some(t=>t.id===S.last))?S.last:TESTS[0].id,i:Number.isInteger(S.lasti)?S.lasti:0};
+let tick=null;
+function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.tests)return s}catch(e){}return {tests:{}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(S))}
+const T=id=>TESTS.find(t=>t.id===id);
+function st(id){
+  if(!S.tests[id]){const t=T(id);S.tests[id]={status:"new",ans:t.items.map(it=>it.tpl.filter(x=>x[0]==="b").map(()=>null)),t:t.items.map(()=>0),elapsed:0,limit:0,cause:{},note:{},date:null}}
+  return S.tests[id];
+}
+function norm(s){s=s.toLowerCase().replace(/[\u2019\u2018]/g,"'");s=s.replace(/\s+([?.,!])/g,"$1");return s.replace(/\s+/g," ").trim()}
+function compose(it,arr){let k=0,parts=[];for(const [a,v] of it.tpl){if(a==="f")parts.push(v);else{const x=arr[k++];if(x!==null&&x!==undefined)parts.push(it.tiles[x])}}return parts.join(" ")}
+function isRight(it,arr){return arr.every(x=>x!==null)&&norm(compose(it,arr))===norm(it.ans_sentence)}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+// key sentence from printed key (display) and grading sentence
+for(const t of TESTS)for(const it of t.items){it.ans_sentence=it.key;it.nb=it.tpl.filter(x=>x[0]==="b").length;it.spare=it.tiles.map((_,i)=>i).filter(i=>!it.ans.includes(i));
+  it.type=/\?$/.test(it.key)?"Question":"Statement";it.embed=/(know|tell me|wondering|curious|wanted|hoping|whether|if )/i.test(it.key)}
+function h(tag,attrs,...kids){const e=document.createElement(tag);for(const k in(attrs||{})){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else if(k==="text")e.textContent=attrs[k];else if(attrs[k]===false||attrs[k]==null)continue;else e.setAttribute(k,attrs[k]===true?"":attrs[k])}for(const c of kids.flat())if(c!=null)e.append(c.nodeType?c:document.createTextNode(c));return e}
+const fmt=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+function score(id){const t=T(id),s=st(id);let r=0,n=0;t.items.forEach((it,i)=>{if(!it.scored)return;n++;if(isRight(it,s.ans[i]))r++});return{r,n}}
+
+function stop(){if(tick){clearInterval(tick);tick=null}}
+function startTick(){
+  stop();const s=st(cur.tid);
+  tick=setInterval(()=>{
+    s.elapsed++;s.t[cur.i]=(s.t[cur.i]||0)+1;
+    const tm=document.getElementById("timer");
+    if(s.limit){const left=s.limit-s.elapsed;tm.textContent=fmt(Math.max(left,0))+" left";tm.className="timer"+(left<=60?" low":"");if(left<=0){finish(true);return}}
+    else tm.textContent=fmt(s.elapsed);
+    if(s.elapsed%5===0)save();
+  },1000);
+}
+function selectTest(id){leave();cur={tid:id,i:0};S.last=id;S.lasti=0;save();render();if(st(id).status==="run")startTick()}
+function leave(){stop();save()}
+function render(){renderNav();const s=st(cur.tid),t=T(cur.tid);
+  document.getElementById("title").textContent=t.name;
+  const tm=document.getElementById("timer");tm.className="timer";tm.textContent=s.status==="new"?"":fmt(s.elapsed);
+  const bb=document.getElementById("barBtns");bb.replaceChildren();
+  const v=document.getElementById("view");v.replaceChildren();
+  if(s.status==="new")viewIntro(v,s);else if(s.status==="run"){viewItem(v,s,t);
+    bb.append(h("button",{onclick:()=>{if(confirm("Stop this set and discard the answers?"))resetTest()}},"Reset"),h("button",{class:"primary",onclick:()=>finish(false)},"Finish & check"));}
+  else{viewReview(v,s,t);bb.append(h("button",{onclick:()=>{if(confirm("Reset this set? Answers, causes and notes will be deleted."))resetTest()}},"Reset"))}
+  const ex=document.getElementById("exportCard");ex.hidden=false;document.getElementById("exportText").value=exportMd();
+}
+function renderNav(){
+  const nav=document.getElementById("nav");nav.replaceChildren(h("div",{class:"group"},"Tests"));
+  let R=0,N=0,done=0;
+  for(const t of TESTS){const s=st(t.id);let b;
+    if(s.status==="done"){const sc=score(t.id);R+=sc.r;N+=sc.n;done++;b=h("span",{class:"badge done"},`${sc.r}/${sc.n}`)}
+    else b=h("span",{class:"badge"+(s.status==="run"?" run":"")},s.status==="run"?"in progress":"—");
+    nav.append(h("button",{class:"mod"+(t.id===cur.tid?" active":""),onclick:()=>selectTest(t.id)},h("span",{},t.name),b))}
+  document.getElementById("totals").textContent=done?`Checked: ${done} of 7 tests · ${R}/${N} (${(100*R/N).toFixed(1)}%)`:"No set checked yet.";
+}
+function viewIntro(v,s){
+  const t=T(cur.tid);
+  const sel=h("select",{onchange:e=>{s.limit=+e.target.value;save()}},LIMITS.map(([a,b])=>{const o=h("option",{value:a},b);if(a===s.limit)o.selected=true;return o}));
+  v.append(h("div",{class:"card"},h("h2",{},t.name),
+    h("p",{},"10 items. Build each sentence from the tiles so it answers or follows the line above it. You can move between items and change answers until you press Finish & check."),
+    h("p",{class:"muted"},"Some items have a spare tile that the answer does not use. ETS does not publish the real time limit for this task, so the default here is no limit."),
+    h("div",{class:"row"},sel,h("button",{class:"primary",onclick:()=>{s.status="run";s.date=new Date().toISOString();save();render();startTick()}},"Start"))));
+}
+function viewItem(v,s,t){
+  const it=t.items[cur.i],arr=s.ans[cur.i];
+  const prog=h("div",{class:"prog"});
+  t.items.forEach((x,i)=>{const full=s.ans[i].every(y=>y!==null);prog.append(h("button",{class:"dot "+(i===cur.i?"cur":full?"filled":""),title:"Item "+x.n,onclick:()=>go(i)}))});
+  const sent=h("div",{class:"sent"});
+  let k=0;
+  for(const [a,val] of it.tpl){
+    if(a==="f"){sent.append(h("span",{class:"fixed"},val));continue}
+    const si=k++,x=arr[si];
+    const slot=h("button",{class:"slot"+(x!==null?" full":""),"data-slot":si,onclick:()=>{if(arr[si]!==null){arr[si]=null;save();render0()}}},x!==null?it.tiles[x]:"");
+    slot.draggable=x!==null;
+    slot.addEventListener("dragstart",e=>{e.dataTransfer.setData("text/plain","s"+si)});
+    slot.addEventListener("dragover",e=>{e.preventDefault();slot.classList.add("over")});
+    slot.addEventListener("dragleave",()=>slot.classList.remove("over"));
+    slot.addEventListener("drop",e=>{e.preventDefault();slot.classList.remove("over");const d=e.dataTransfer.getData("text/plain");
+      if(d[0]==="t"){arr[si]=+d.slice(1)}
+      else if(d[0]==="s"){const from=+d.slice(1);const tmp=arr[si];arr[si]=arr[from];arr[from]=tmp}
+      save();render0()});
+    sent.append(slot);
+  }
+  const bank=h("div",{class:"bank"});
+  bank.addEventListener("dragover",e=>e.preventDefault());
+  bank.addEventListener("drop",e=>{e.preventDefault();const d=e.dataTransfer.getData("text/plain");if(d[0]==="s"){arr[+d.slice(1)]=null;save();render0()}});
+  it.tiles.forEach((tx,i)=>{const used=arr.includes(i);const b=h("button",{class:"tile"+(used?" used":""),onclick:()=>{const e=arr.indexOf(null);if(e>=0){arr[e]=i;save();render0()}}},tx);
+    b.draggable=!used;b.addEventListener("dragstart",e=>{e.dataTransfer.setData("text/plain","t"+i)});bank.append(b)});
+  const nav=h("div",{class:"nav"},
+    h("button",{disabled:cur.i===0,onclick:()=>go(cur.i-1)},"← Back"),
+    h("button",{onclick:()=>{arr.fill(null);save();render0()}},"Clear"),h("span",{class:"sp"}),
+    cur.i<t.items.length-1?h("button",{class:"primary",onclick:()=>go(cur.i+1)},"Next →"):h("button",{class:"primary",onclick:()=>finish(false)},"Finish & check"));
+  v.append(h("div",{class:"card"},prog,
+    h("div",{class:"qhead"},h("span",{class:"qnum"},"Item "+it.n+" of 10"),h("span",{},`${it.nb} slots · ${it.tiles.length} tiles`)),
+    h("div",{class:"ctx"},h("span",{class:"who"},"They say"),h("div",{},it.ctx)),
+    h("span",{class:"lbl"},"Your sentence"),sent,bank,nav));
+}
+function render0(){const s=st(cur.tid),t=T(cur.tid);const v=document.getElementById("view");v.replaceChildren();viewItem(v,s,t);renderNav();}
+function go(i){const t=T(cur.tid);if(i<0||i>=t.items.length)return;cur.i=i;S.lasti=i;save();render0()}
+function resetTest(){stop();delete S.tests[cur.tid];save();cur.i=0;render()}
+function finish(auto){
+  const s=st(cur.tid),t=T(cur.tid);
+  const empty=s.ans.filter(a=>a.some(x=>x===null)).length;
+  if(!auto&&empty&&!confirm(empty+" item(s) are not fully built. Finish anyway? They count as missed."))return;
+  stop();s.status="done";save();render();window.scrollTo(0,0);
+}
+function wordsDiff(it,arr){ // mark slots that differ from the key arrangement
+  const out=[];let k=0;
+  for(const [a,val] of it.tpl){
+    if(a==="f"){out.push(h("span",{},val,"\u00a0"));continue}
+    const si=k++,x=arr[si],want=it.ans[si];
+    if(x===null)out.push(h("span",{class:"w x"},"(empty)"),"\u00a0");
+    else if(x===want||it.tiles[x]===it.tiles[want])out.push(h("span",{class:"w"},it.tiles[x]),"\u00a0");
+    else out.push(h("span",{class:"w "+(it.spare.includes(x)?"sp":"x")},it.tiles[x]),"\u00a0");
+  }
+  return out;
+}
+function viewReview(v,s,t){
+  const sc=score(t.id);
+  v.append(h("div",{class:"card"},h("div",{class:"score"},`${sc.r}/${sc.n}`),
+    h("div",{class:"muted"},`Time ${fmt(s.elapsed)}${s.limit?" of "+fmt(s.limit):""} · ${s.date?new Date(s.date).toLocaleString():""}`),
+    h("p",{class:"hint"},"Red words are tiles in the wrong slot. Yellow marks the spare tile that the answer does not use.")));
+  t.items.forEach((it,i)=>{
+    const arr=s.ans[i],ok=isRight(it,arr),sp=arr.filter(x=>x!==null&&it.spare.includes(x)).map(x=>it.tiles[x]);
+    const card=h("div",{class:"card"});
+    card.append(h("div",{class:"qhead"},h("span",{class:"qnum"},"Item "+it.n),
+      !it.scored?h("span",{class:"tag skip"},"not scored"):h("span",{class:"tag "+(ok?"ok":"bad")},ok?"correct":"missed"),
+      h("span",{class:"tag type"},it.type),it.embed?h("span",{class:"tag type"},"embedded / reported"):null,
+      it.spare.length?h("span",{class:"tag type"},"has spare tile: "+it.spare.map(x=>it.tiles[x]).join(", ")):null,
+      h("span",{},(s.t[i]||0)+" s")));
+    if(it.flag)card.append(h("div",{class:"warn"},"Item flag: "+it.flag));
+    card.append(h("div",{class:"ctx"},h("span",{class:"who"},"They say"),h("div",{},it.ctx)));
+    card.append(h("div",{class:"yours "+(ok?"ok":"bad")},h("span",{class:"lbl"},"Your sentence"),wordsDiff(it,arr)));
+    if(!ok)card.append(h("div",{class:"keyl"},h("span",{class:"lbl"},"Key"+(it.keyPrinted?" (corrected, see flag)":"")),it.key));
+    if(!ok&&sp.length)card.append(h("div",{class:"hint"},"You used the spare tile: "+sp.join(", ")+". Suggested cause W1."));
+    if(!ok&&it.scored){
+      const sel=h("select",{onchange:e=>{s.cause[it.n]=e.target.value;save();document.getElementById("exportText").value=exportMd()}},CAUSES.map(([a,b])=>{const o=h("option",{value:a},b);if((s.cause[it.n]||"")===a)o.selected=true;return o}));
+      const ta=h("textarea",{placeholder:"Why did this go wrong? Which tile or word did you misplace?",oninput:e=>{s.note[it.n]=e.target.value;save();document.getElementById("exportText").value=exportMd()}});ta.value=s.note[it.n]||"";
+      card.append(h("div",{class:"fb"},h("span",{class:"lbl"},"Cause"),sel,ta));
+    }
+    v.append(card);
+  });
+}
+function esc(x){return String(x||"").replace(/\|/g,"\\|").replace(/\n/g," ")}
+function exportMd(){
+  const L=["## Build a Sentence — exported "+new Date().toLocaleString(),"","| Test | Score | Time |","|---|---|---|"];
+  const done=TESTS.filter(t=>st(t.id).status==="done");
+  if(!done.length)return "Nothing checked yet.";
+  let R=0,N=0;
+  for(const t of done){const sc=score(t.id);R+=sc.r;N+=sc.n;L.push(`| ${t.name} | ${sc.r}/${sc.n} | ${fmt(st(t.id).elapsed)} |`)}
+  L.push("",`Total: ${R}/${N}`,"","### Misses","","| Test | Item | They say | Your sentence | Key | Cause | Note |","|---|---|---|---|---|---|---|");
+  for(const t of done){const s=st(t.id);t.items.forEach((it,i)=>{if(!it.scored||isRight(it,s.ans[i]))return;
+    L.push(`| ${t.id} | Q${it.n} | ${esc(it.ctx)} | ${esc(compose(it,s.ans[i])||"(empty)")} | ${esc(it.key)} | ${esc(s.cause[it.n])} | ${esc(s.note[it.n])} |`)})}
+  const fl=[];for(const t of done)t.items.forEach(it=>{if(it.flag)fl.push(`- ${t.id} Q${it.n}: ${it.flag}`)});
+  if(fl.length)L.push("","### Item flags","",...fl);
+  return L.join("\n");
+}
+document.getElementById("copyBtn").onclick=async()=>{const v=document.getElementById("exportText").value;try{await navigator.clipboard.writeText(v)}catch(e){document.getElementById("exportText").select();document.execCommand("copy")}};
+document.addEventListener("keydown",e=>{
+  if(["TEXTAREA","SELECT","INPUT"].includes(document.activeElement.tagName))return;
+  const s=st(cur.tid);if(s.status!=="run")return;
+  const arr=s.ans[cur.i];
+  if(e.key==="ArrowRight")go(cur.i+1);
+  else if(e.key==="ArrowLeft")go(cur.i-1);
+  else if(e.key==="Backspace"){for(let k=arr.length-1;k>=0;k--)if(arr[k]!==null){arr[k]=null;break}save();render0();e.preventDefault()}
+});
+window.addEventListener("beforeunload",save);
+render();if(st(cur.tid).status==="run")startTick();
+</script></body></html>

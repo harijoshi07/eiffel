@@ -48,7 +48,11 @@ What this means in practice:
 - **What it tests:** grammar. Word order, embedded questions, reported speech, relative clauses, negation, punctuation (ETS Lesson 2 covers coordinating and subordinating conjunctions and conjunctive adverbs).
 - **Two families in the 70 answer keys:** 44 of 70 end in a question mark and 26 are statements. FL1 is 7 questions, FL2 9, TR3 10, TR4 9, TR5 9, and TR1 and TR2 are all statements (reported speech such as "She wanted to know if...", and negation).
 - **Context line first.** It is a sentence from another speaker, and your sentence answers or follows it.
-- **Tiles can include a word you do not use.** FL1 Q1 gives "was" and "were" and the key uses only "were". FL1 Q10 gives "it" and the key does not use it. TR3 Q1 gives "plan" and "planning" and the key uses "planning". I saw this in those items only. I will count it across all 70 when I build the page.
+- **27 of the 70 items have one spare tile** (a tile the answer does not use). Examples: FL1 Q1 gives "was" and "were" and the key uses only "were"; FL1 Q10 gives "it"; TR3 Q4 gives "planning" next to "plan". The other 43 use every tile. Counted from the PDFs while building `practice/3a. build-a-sentence.html`.
+- **Three printed items do not match their keys** (TR3 Q1 and TR5 Q1 checked on the PDF page image; TR3 and TR5 have no text Word file to compare; TR1 Q10 appears the same way in the PDF and the Word file):
+  - TR3 Q1 prints 7 blanks and "to visit.", but the key has 6 words and ends with "?". The page shows 6 blanks and "?" and does not score it.
+  - TR5 Q1 prints 7 blanks and 7 tiles. The key "Do you want me to send you a copy?" leaves the tile "of it" unused. The page grades "Do you want me to send you a copy of it?".
+  - TR1 Q10 has the tile "some reliable sources", but the key says "resources". The page grades against the tile.
 - **Fixed words are printed in the sentence.** Examples: "The ___ fantastic.", "Do you know if ___?", "I used ___."
 - **First move to try:** fix the printed words, then decide whether the sentence is a question or a statement, then place the verb chunk.
 
