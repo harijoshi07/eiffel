@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Writing — Write an Email</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}.badge.run{background:var(--amber-soft);color:var(--amber)}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:900px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);font-size:15px;min-width:56px}
+.timer.low{color:var(--red);font-weight:600}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}.card h3{margin:18px 0 6px;font-size:15px}
+.muted{color:var(--muted)}
+.mail{border:1px solid var(--line);border-radius:12px;background:#fff;padding:10px 14px;margin:14px 0 8px;font-size:15px}
+.mail div{padding:2px 0}.mail b{display:inline-block;width:72px;color:var(--muted);font-weight:500}
+ul.bul{margin:6px 0 10px 20px;padding:0}ul.bul li{margin:3px 0}
+textarea{width:100%;min-height:300px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font:inherit;background:#fff;color:var(--ink);resize:vertical;line-height:1.6}
+textarea:focus{outline:2px solid var(--terra-soft);border-color:var(--terra)}
+textarea:disabled{background:#faf6ef;color:#4a453f}
+.live{display:flex;gap:16px;align-items:center;margin-top:8px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.live .sp{flex:1}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:12px}
+.resp{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.ok{color:#3f6143}.no{color:var(--red)}.na{color:var(--muted)}
+.rate label{display:block;padding:8px 12px;border:1px solid var(--line);border-radius:12px;margin:6px 0;cursor:pointer;background:#fff;font-size:14.5px}
+.rate label.sel{border-color:var(--terra);background:var(--terra-soft)}
+.rate input{margin-right:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.chips label{border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;background:#fff;font-size:14px}
+.chips label.sel{border-color:var(--terra);background:var(--terra-soft)}
+.chips input{display:none}
+input[type=text]{width:100%;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font:inherit;background:#fff}
+.note{font-size:13px;color:var(--muted);line-height:1.5}
+pre#exp{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:13px;max-height:420px;overflow:auto}
+</style></head><body>
+<div class="wrap">
+<aside>
+<h1>Write an Email</h1>
+<div class="sub">Writing · 7 tests · 7 min each</div>
+<div class="group">Tests</div><div id="list"></div>
+<div class="totals" id="totals"></div>
+</aside>
+<main id="main"></main>
+</div>
+<script>
+const DATA=[{"id": "T1", "label": "Test 1 · Full-Length 1", "scenario": "A new poetry magazine has asked its readers for submissions, and you decided to submit two of your poems. However, you had a problem using the online submission form, and you are not certain that your submissions were received.", "task": "Write an email to the editor of the magazine.", "to": "editor@sunshinepoetrymagazine.com", "subject": "Problem using submission form", "bullets": ["Tell the editor what you like about the new magazine.", "Describe the problem you experienced.", "Ask about the status of your submissions."]}, {"id": "T2", "label": "Test 2 · Full-Length 2", "scenario": "Your coworker, Kevin, recently recommended a new restaurant for your team to visit. You took the team there, but everyone was disappointed. The food was not as good as expected, and the service was slow. You need to inform Kevin about the situation and discuss future lunch options.", "task": "Write an email to Kevin.", "to": "Kevin", "subject": "Team Lunch Experience", "bullets": ["Explain what was wrong with the restaurant.", "Describe the team's reaction to the visit.", "Suggest alternative lunch arrangements."]}, {"id": "T3", "label": "Test 3 · Teacher Res. 1", "scenario": "You are planning a business trip to another city. Your colleague, Maria, recently traveled to the same city for work. You want to ask her recommendations for places to eat and things to do during your free time.", "task": "Write an email to Maria.", "to": "Maria", "subject": "Recommendations for Upcoming Business Trip", "bullets": ["Explain why you are traveling to the city.", "Ask for her recommendations about restaurants and activities.", "Mention what you'd most like to do and what you'd like to avoid."]}, {"id": "T4", "label": "Test 4 · Teacher Res. 2", "scenario": "You have been working on a group project with several classmates for a course. One of your group members, Alex, has not been participating actively and has missed several assignments. You want to address this issue and find a solution.", "task": "Write an email to Alex.", "to": "Alex", "subject": "Group Project Participation", "bullets": ["Describe the current progress of the group project.", "Explain how his lack of participation is affecting the group.", "Suggest ways he can contribute to the project moving forward."]}, {"id": "T5", "label": "Test 5 · Teacher Res. 3", "scenario": "You are a member of the neighborhood association, and you have noticed that the local park needs some maintenance. You decide to contact the association president, Mr. Williams, to discuss the issues and offer a suggestion.", "task": "Write an email to Mr. Williams.", "to": "Mr. Williams", "subject": "Concern about park maintenance", "bullets": ["Describe the maintenance issue you have observed in the park.", "Explain why it is important to address the issue.", "Make a suggestion for how to deal with the issue."]}, {"id": "T6", "label": "Test 6 · Teacher Res. 4", "scenario": "You are a student organizing a study group for an upcoming exam. You want to invite your classmates to join the group and explain to them your ideas about how the group should proceed.", "task": "Write an email to your classmates.", "to": "Classmates", "subject": "Invitation to join study group", "bullets": ["Explain the purpose of the study group.", "Describe the topics you plan to cover during the study sessions and other ideas you have for the sessions.", "Suggest a time and location for the first meeting."]}, {"id": "T7", "label": "Test 7 · Teacher Res. 5", "scenario": "You recently attended a workshop on digital marketing and found it to be very informative. You want to thank the presenter, Ms. Clark, and ask for additional resources to further your understanding of the topic.", "task": "Write an email to Ms. Clark.", "to": "Ms. Clark", "subject": "Appreciation and request for additional resources", "bullets": ["Thank her for the workshop.", "Provide a detailed explanation of why you found the workshop to be informative.", "Ask for additional resources or recommendations for further study."]}];
+const KEY='emailWrite_v1';
+let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){S={}}
+S.t=S.t||{};S.last=S.last||DATA[0].id;S.limit=S.limit===undefined?420:S.limit;
+const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+const get=id=>S.t[id]||(S.t[id]={text:'',started:null,limit:420,done:false,used:null,rate:null,bul:[],errs:[],note:''});
+const D=id=>DATA.find(x=>x.id===id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let cur=S.last,tick=null,showExp=false;
+
+const RATE=[
+[5,'Elaboration effectively supports the purpose. Varied structures, precise idiomatic words, consistently appropriate politeness and register. Almost no errors beyond typos.'],
+[4,'Adequate elaboration. Appropriate words, mostly appropriate conventions. Few errors.'],
+[3,'Elaboration only partly supports the purpose. Noticeable errors in structure, word forms, idiom or conventions.'],
+[2,'Limited or irrelevant elaboration. Limited structures. An accumulation of errors.'],
+[1,'Very little elaboration. Telegraphic language. Serious, frequent errors. Mostly borrowed from the prompt.'],
+[0,'Blank, off-topic, not English, copied, or unconnected.']];
+const ERRS=['Word form','Subject-verb agreement','Tense','Article / preposition','Run-on or fragment','Missed a bullet','Bullet had no detail','Tone or politeness','Repeated sentence shape','Copied prompt wording','Ran out of time','Typos'];
+const BSTATE=['Missing','Covered, bare','Covered with a detail'];
+const CONN=['because','although','even though','since','unless','while','however','therefore','moreover','furthermore','nevertheless','so','but','which','who','if','when','after','before','as'];
+
+function words(t){return t.trim()?t.trim().split(/\s+/):[]}
+function sents(t){return t.split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(Boolean)}
+function norm(s){return s.toLowerCase().replace(/[^a-z0-9' ]/g,' ').split(/\s+/).filter(Boolean)}
+function fmt(s){s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function remaining(s){return s.limit?Math.max(0,s.limit-(Date.now()-s.started)/1000):null}
+
+function checks(t,d){
+  const w=words(t),ss=sents(t),n=w.length,out=[];
+  const gr=/^\s*(hi|hello|dear|good (morning|afternoon|evening)|hey)\b/i.test(t);
+  out.push([gr,'Opens with a greeting']);
+  const tail=t.trim().slice(-90);
+  out.push([/(regards|sincerely|thanks|thank you|best|cheers|yours|take care)/i.test(tail),'Ends with a closing or sign-off']);
+  out.push([/\b(could you|can you|would you|please|i would appreciate|i'd appreciate|let me know|i was wondering)\b/i.test(t),'Has a polite request or action line']);
+  out.push([n>=80,'At least 80 words (no official minimum for Email; this is my reference point)',n+' words']);
+  const lens=ss.map(s=>words(s).length);
+  const startI=ss.filter(s=>/^I\b/.test(s)).length;
+  out.push([ss.length>0&&startI/ss.length<=0.4,'No more than 40% of sentences start with "I"',startI+' of '+ss.length]);
+  const low=t.toLowerCase();
+  const found=CONN.filter(c=>new RegExp('\\b'+c+'\\b').test(low));
+  out.push([found.length>=3,'Uses 3+ different connectors (because, however, which, if ...)',found.length+': '+found.join(', ')]);
+  out.push([ss.length>0&&Math.max(...lens)>=15,'At least one longer sentence (15+ words)',lens.length?'longest '+Math.max(...lens)+', shortest '+Math.min(...lens):'']);
+  const pn=norm(d.scenario+' '+d.bullets.join(' ')+' '+d.task),rn=norm(t);
+  const g=a=>{const r=new Set;for(let i=0;i+4<=a.length;i++)r.add(a.slice(i,i+4).join(' '));return r};
+  const pg=g(pn),rg=[...g(rn)],hit=rg.filter(x=>pg.has(x)).length;
+  const pct=rg.length?Math.round(100*hit/rg.length):0;
+  out.push([pct<=15,'Little 4-word phrasing copied from the prompt',pct+'% of your 4-word runs appear in the prompt']);
+  return out;
+}
+
+function renderList(){
+  document.getElementById('list').innerHTML=DATA.map(d=>{const s=S.t[d.id];
+    const b=s&&s.done?'<span class="badge done">'+(s.rate===null?'done':s.rate+'/5')+'</span>':s&&s.started?'<span class="badge run">running</span>':'';
+    return '<button class="mod'+(d.id===cur?' active':'')+'" data-id="'+d.id+'">'+esc(d.label)+b+'</button>'}).join('');
+  document.querySelectorAll('.mod').forEach(b=>b.onclick=()=>{cur=b.dataset.id;S.last=cur;save();showExp=false;render()});
+  const dn=DATA.map(d=>S.t[d.id]).filter(s=>s&&s.done);
+  const rated=dn.filter(s=>s.rate!==null);
+  const wc=dn.map(s=>words(s.text).length);
+  document.getElementById('totals').innerHTML=dn.length?('Finished: '+dn.length+'/7<br>Average words: '+Math.round(wc.reduce((a,b)=>a+b,0)/wc.length)+'<br>'+(rated.length?'Average self-rating: '+(rated.reduce((a,s)=>a+s.rate,0)/rated.length).toFixed(1)+' / 5<br><span class="note">Your own estimate, not an ETS score.</span>':'No self-ratings yet')):'Nothing finished yet.';
+}
+
+function render(){
+  clearInterval(tick);renderList();
+  const d=D(cur),s=get(cur),m=document.getElementById('main');
+  const head='<div class="bar"><span class="title">'+esc(d.label)+'</span><span class="timer" id="tm"></span>';
+  if(!s.started){
+    m.innerHTML=head+'<select id="lim"><option value="420">7:00 (real test)</option><option value="0">No limit</option></select><button class="primary" id="go">Start</button></div>'+
+    '<div class="card"><h2>Write an Email</h2><p>The scenario stays on screen once you start. The clock starts when you click Start, and reading counts toward the time, as on the real test.</p><p class="note">Spell-check is off, as on the real test. Typing only: no paste, no editing tools. Word count is shown, as on the real test.</p></div>';
+    const l=document.getElementById('lim');l.value=String(S.limit);l.onchange=()=>{S.limit=+l.value;save()};
+    document.getElementById('go').onclick=()=>{s.started=Date.now();s.limit=+l.value;s.done=false;save();render()};
+    document.getElementById('tm').textContent=S.limit?'07:00':'';
+    return;
+  }
+  const prompt='<div class="card"><h2>Write an Email</h2><p>'+esc(d.scenario)+'</p><p>'+esc(d.task)+' In your email, do the following.</p><ul class="bul">'+d.bullets.map(b=>'<li>'+esc(b)+'</li>').join('')+'</ul><p class="muted" style="margin:0">Write as much as you can and in complete sentences.</p><div class="mail"><div><b>To:</b> '+esc(d.to)+'</div><div><b>Subject:</b> '+esc(d.subject)+'</div></div></div>';
+  if(!s.done){
+    m.innerHTML=head+'<button class="primary" id="fin">Finish</button></div>'+prompt+'<div class="card"><textarea id="ta" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="Type your email here"></textarea><div class="live"><span id="wc"></span><span class="sp"></span><span class="note">Drafts save as you type.</span></div></div>';
+    const ta=document.getElementById('ta');ta.value=s.text;ta.focus();
+    const up=()=>{document.getElementById('wc').textContent=words(ta.value).length+' words'};up();
+    ta.oninput=()=>{s.text=ta.value;save();up()};
+    ta.onpaste=e=>e.preventDefault();ta.ondrop=e=>e.preventDefault();
+    document.getElementById('fin').onclick=()=>finish(true);
+    const t=()=>{const r=remaining(s),tm=document.getElementById('tm');
+      if(!tm)return;
+      if(r===null){tm.textContent=fmt(Math.floor((Date.now()-s.started)/1000))}
+      else{tm.textContent=fmt(Math.ceil(r));tm.classList.toggle('low',r<=60);if(r<=0)finish(false)}};
+    t();tick=setInterval(t,500);
+    return;
+  }
+  const w=words(s.text),ck=checks(s.text,d);
+  s.bul=s.bul&&s.bul.length===d.bullets.length?s.bul:d.bullets.map(()=>null);
+  m.innerHTML=head+'<button id="again">Redo this email</button><button id="exp">Export all</button></div>'+
+  (s.timeUp?'<div class="warn">Time ran out. The response was locked at the limit.</div>':'')+prompt+
+  '<div class="card"><h2>Your response</h2><div class="muted" style="font-size:13px;margin-bottom:8px">'+w.length+' words · time used '+fmt(s.used)+(s.limit?' of '+fmt(s.limit):'')+'</div><div class="resp">'+(esc(s.text)||'<span class="muted">(empty)</span>')+'</div></div>'+
+  '<div class="card"><h2>Mechanical checks</h2><p class="note">These count surface features only. They are not a score and say nothing about meaning or grammar.</p><table>'+ck.map(c=>'<tr><td class="'+(c[0]?'ok':'no')+'" style="width:24px">'+(c[0]?'✓':'✗')+'</td><td>'+esc(c[1])+(c[2]?'<div class="note">'+esc(c[2])+'</div>':'')+'</td></tr>').join('')+'</table></div>'+
+  '<div class="card"><h2>Your review</h2><h3>1. Each bullet</h3><p class="note">Elaboration is the gap between a 3 and a 4 in the rubric. A bullet answered with one bare statement is "bare".</p><table>'+d.bullets.map((b,i)=>'<tr><td>'+esc(b)+'</td><td style="width:200px"><select data-b="'+i+'"><option value="">choose</option>'+BSTATE.map((x,j)=>'<option value="'+j+'"'+(s.bul[i]===j?' selected':'')+'>'+x+'</option>').join('')+'</select></td></tr>').join('')+'</table>'+
+  '<h3>2. Reread once. What errors did you find?</h3><div class="chips">'+ERRS.map(e=>'<label class="'+(s.errs.includes(e)?'sel':'')+'"><input type="checkbox" value="'+esc(e)+'"'+(s.errs.includes(e)?' checked':'')+'>'+e+'</label>').join('')+'</div><p class="note">These tags are my own list, not ETS categories.</p>'+
+  '<h3>3. Your score against the ETS rubric (Email, 0-5)</h3><div class="rate">'+RATE.map(r=>'<label class="'+(s.rate===r[0]?'sel':'')+'"><input type="radio" name="r" value="'+r[0]+'"'+(s.rate===r[0]?' checked':'')+'><b>'+r[0]+'</b> — '+r[1]+'</label>').join('')+'</div><p class="note">ETS gives no model answers for Email and no raw-to-band table, so this is your own estimate. Rate down if you are torn between two rows.</p>'+
+  '<h3>4. One sentence you would rewrite, and how</h3><input type="text" id="nt" value="'+esc(s.note||'')+'" placeholder="e.g. &quot;my poems can sucessfully sent&quot; -> &quot;my poems were successfully sent&quot;"></div>'+
+  (showExp?'<div class="card"><h2>Export</h2><pre id="exp-t"></pre><button class="primary" id="cp">Copy</button></div>':'');
+  m.querySelectorAll('select[data-b]').forEach(e=>e.onchange=()=>{s.bul[+e.dataset.b]=e.value===''?null:+e.value;save()});
+  m.querySelectorAll('.chips input').forEach(e=>e.onchange=()=>{s.errs=[...m.querySelectorAll('.chips input:checked')].map(x=>x.value);e.parentNode.classList.toggle('sel',e.checked);save()});
+  m.querySelectorAll('.rate input').forEach(e=>e.onchange=()=>{s.rate=+e.value;m.querySelectorAll('.rate label').forEach(l=>l.classList.toggle('sel',l.querySelector('input').checked));save();renderList()});
+  document.getElementById('nt').oninput=e=>{s.note=e.target.value;save()};
+  document.getElementById('again').onclick=()=>{if(confirm('Clear this email and its review, and start again?')){S.t[cur]=null;delete S.t[cur];save();render()}};
+  document.getElementById('exp').onclick=()=>{showExp=true;render()};
+  if(showExp){document.getElementById('exp-t').textContent=exportMd();
+    document.getElementById('cp').onclick=()=>{const t=exportMd();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{document.getElementById('cp').textContent='Copied'},()=>{const r=document.createRange();r.selectNode(document.getElementById('exp-t'));getSelection().removeAllRanges();getSelection().addRange(r)})};}
+}
+
+function finish(manual){
+  const s=get(cur),ta=document.getElementById('ta');
+  if(ta)s.text=ta.value;
+  const el=(Date.now()-s.started)/1000;
+  s.used=s.limit?Math.min(el,s.limit):el;
+  s.done=true;s.timeUp=!manual&&!!s.limit;
+  save();render();
+}
+
+function exportMd(){
+  const L=['## Write an Email — exported '+new Date().toLocaleString(),''];
+  const dn=DATA.filter(d=>S.t[d.id]&&S.t[d.id].done);
+  if(!dn.length)return L.concat(['Nothing finished yet.']).join('\n');
+  L.push('| Test | Words | Time | Self-rating (0-5) | Errors I found |','|---|---|---|---|---|');
+  dn.forEach(d=>{const s=S.t[d.id];L.push('| '+d.label+' | '+words(s.text).length+' | '+fmt(s.used)+(s.timeUp?' (time up)':'')+' | '+(s.rate===null?'—':s.rate)+' | '+((s.errs||[]).join(', ')||'—').replace(/\|/g,'\\|')+' |')});
+  L.push('','Self-rating is my own estimate against the ETS Email rubric, not an ETS score.','');
+  dn.forEach(d=>{const s=S.t[d.id];
+    L.push('### '+d.label+' — '+d.subject,'');
+    d.bullets.forEach((b,i)=>L.push('- '+b+' → '+(s.bul&&s.bul[i]!=null?BSTATE[s.bul[i]]:'not rated')));
+    L.push('');
+    L.push('Mechanical checks: '+checks(s.text,d).map(c=>(c[0]?'✓ ':'✗ ')+c[1].replace(/ \(.*$/,'')).join('; '),'');
+    if(s.note)L.push('Rewrite note: '+s.note,'');
+    L.push('Response:','');
+    s.text.split('\n').forEach(x=>L.push('> '+x));L.push('')});
+  return L.join('\n');
+}
+render();
+</script></body></html>
