@@ -35,7 +35,7 @@ Source: `resources/pdfs/guide-speaking-rubrics.pdf` (page 1).
 - The page `practice/4a. listen-and-repeat.html` has a calibration screen with these three.
 
 ## 4. How I score your recordings
-1. `practice/4a. listen-and-repeat.html` plays each sentence once and records your answer. Files go to `recordings/speaking/listen-and-repeat/` (git ignores this folder, so your voice is not pushed).
+1. `practice/4a. listen-and-repeat.html` plays each sentence once and records your answer. Each recording downloads to your **Downloads** folder as it ends, and I read them from there. They are not in the vault, so they are never pushed.
 2. `python tools/lr_transcribe.py` transcribes each clip locally with faster-whisper `small.en` and `medium.en`. **Verbatim**: temperature 0, no script given to the model, no LLM clean-up, so an error is not repaired by the tool.
 3. It aligns the transcript with the prompt word by word and lists: missing, added and changed words, fillers (not counted), low-confidence words, timing, and warnings (quiet, clipped, cut off).
 4. I read that report and give each sentence 0-5 against the table in section 3, quoting the rubric line. The tool itself never scores.

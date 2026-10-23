@@ -4,7 +4,7 @@
 Usage:
   python tools/lr_transcribe.py [DIR] [--test 3] [--models small.en medium.en]
 
-DIR defaults to recordings/speaking/listen-and-repeat. It must hold the files written by
+DIR defaults to ~/Downloads, where the page's downloads land. It must hold the files written by
 practice/4a. listen-and-repeat.html: LR_T<test>_<run>.json (manifest) + LR_T<test>_<run>_Q<n>.webm.
 Output: LR_T<test>_<run>_report.json and _report.md next to the manifest.
 
@@ -176,7 +176,7 @@ def to_md(rep, mnames):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("dir", nargs="?", default="recordings/speaking/listen-and-repeat")
+    ap.add_argument("dir", nargs="?", default=os.path.expanduser("~/Downloads"))
     ap.add_argument("--test"); ap.add_argument("--models", nargs="+", default=["small.en", "medium.en"])
     ap.add_argument("--redo", action="store_true")
     a = ap.parse_args()

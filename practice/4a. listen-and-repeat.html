@@ -126,7 +126,6 @@ function render(){
 function viewSetup(){
   const t=test();
   $('#title').textContent=`Test ${t.id} · ${t.label}`;
-  const fsa=!!window.showDirectoryPicker;
   $('#view').innerHTML=`
   <div class="card"><h2>Before you start</h2>
     <p class="muted">${esc(t.scenario)}</p>
@@ -141,14 +140,12 @@ function viewSetup(){
     <div class="meter"><i id="lvl"></i></div>
     <div class="hint">Say a sentence at your normal volume. The bar should reach about half way and not stay full.</div>
     <h3>2. Where the recordings go</h3>
-    <div class="row">${fsa?'<button id="dir">Choose a folder</button>':''}<span class="muted" id="dirMsg">${ctx.dir?esc('Saving to folder: '+ctx.dirName):(fsa?'No folder chosen.':'This browser cannot pick a folder.')}</span></div>
-    <div class="hint">${fsa?'Pick <code>recordings/speaking/listen-and-repeat</code> inside the vault (git ignores it). If you skip this, the files download to your Downloads folder instead; move them into that folder before transcribing.':'Files will download to your Downloads folder. Move them into <code>recordings/speaking/listen-and-repeat</code> before transcribing.'}</div>
+    <div class="hint">Each recording downloads to your <b>Downloads</b> folder as soon as it ends. If the browser asks to allow multiple downloads, allow it.</div>
     <div class="row" style="margin-top:18px"><button class="primary" id="start" disabled>Start test ${t.id}</button></div>
     <div class="hint" id="startHint">Check the microphone first.</div>
   </div>
   ${runsOf(t.id).length?`<div class="card"><h3 style="margin-top:0">Earlier runs of this test</h3>${runsOf(t.id).map(r=>`<div class="item"><span class="q">${esc(r.run)}</span> · ${r.items.length}/7 saved ${r.finished?'':'(unfinished)'} · ${esc(r.mode)} <button data-run="${esc(r.run)}" class="revbtn">View</button></div>`).join('')}</div>`:''}`;
   $('#mic').onclick=checkMic;
-  if($('#dir'))$('#dir').onclick=pickDir;
   $('#start').onclick=()=>runTest();
   document.querySelectorAll('.revbtn').forEach(b=>b.onclick=()=>{currentRun=runsOf(T).find(r=>r.run===b.dataset.run);S.view='review';save();render()});
   refreshStart();
@@ -179,10 +176,6 @@ async function checkMic(){
     refreshStart();
   }catch(e){const m=$('#micMsg');if(m)m.innerHTML='<span style="color:var(--red)">Cannot use the microphone: '+esc(e.name||e.message)+'. Allow it for this page in the browser.</span>'}
 }
-async function pickDir(){
-  try{ctx.dir=await window.showDirectoryPicker({mode:'readwrite'});ctx.dirName=ctx.dir.name;$('#dirMsg').textContent='Saving to folder: '+ctx.dirName}
-  catch(e){if(e.name!=='AbortError')$('#dirMsg').textContent='Could not open the folder: '+e.message}
-}
 
 /* ---------- running a test ---------- */
 const MIME=(window.MediaRecorder&&MediaRecorder.isTypeSupported('audio/webm;codecs=opus'))?'audio/webm;codecs=opus':'';
@@ -197,7 +190,6 @@ function playPrompt(it){
   });
 }
 async function saveFile(name,blob){
-  if(ctx.dir){const fh=await ctx.dir.getFileHandle(name,{create:true});const w=await fh.createWritable();await w.write(blob);await w.close();return}
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);
 }
 function recordFor(ms,onTick){
@@ -219,7 +211,7 @@ async function runTest(){
   const t=test();const practice=S.mode==='practice';
   const stamp=new Date();const p2=n=>String(n).padStart(2,'0');
   const run=`${stamp.getFullYear()}${p2(stamp.getMonth()+1)}${p2(stamp.getDate())}-${p2(stamp.getHours())}${p2(stamp.getMinutes())}${p2(stamp.getSeconds())}`;
-  currentRun={run,test:t.id,mode:S.mode,started:stamp.toISOString(),items:[],finished:false,saveMode:ctx.dir?'folder':'download'};
+  currentRun={run,test:t.id,mode:S.mode,started:stamp.toISOString(),items:[],finished:false,saveMode:'download'};
   (S.runs[t.id]=S.runs[t.id]||[]).push(currentRun);save();
   ctx.running=true;ctx.abort=false;ctx.blobs={};render();
   $('#title').textContent=`Test ${t.id} · ${t.label} · in progress`;
@@ -294,7 +286,7 @@ function viewReview(){
       ${x.peak<0.03?'<div class="warn">Almost silent. The microphone may not have recorded this one.</div>':''}</div>`}).join('');
   const nSaved=r.items.length;
   $('#view').innerHTML=`<div class="card"><h2>${r.finished?'Test finished':'Test stopped early'}</h2>
-    <div class="${r.saveMode==='folder'?'good':'warn'}">${nSaved} recording(s) and a manifest were ${r.saveMode==='folder'?'written to the folder you chose':'downloaded to your Downloads folder. Move <code>LR_T'+r.test+'_'+esc(r.run)+'*</code> into <code>recordings/speaking/listen-and-repeat</code>'}.</div>
+    <div class="good">${nSaved} recording(s) and a manifest were downloaded to your Downloads folder (<code>LR_T${r.test}_${esc(r.run)}*</code>).</div>
     <p class="muted">Next step: tell me the test is done. I transcribe locally (<code>python tools/lr_transcribe.py</code>) and score each sentence against the ETS rubric. The "how did it feel" notes below are optional. They help me tell a real slip from a transcription error.</p></div>
   <div class="card"><h3 style="margin-top:0">Sentences and your recordings</h3>${rows}</div>
   <div class="card exportbox"><h3 style="margin-top:0">Export</h3><div class="row"><button id="exp">Build markdown</button><button id="cp">Copy</button><button id="again" class="primary">Back to Test ${t.id}</button></div><textarea id="out" readonly placeholder="Press Build markdown"></textarea></div>`;
