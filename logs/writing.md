@@ -10,31 +10,31 @@ Test numbers follow the order of the PDFs: Test 1 = Full-Length 1, Test 2 = Full
 
 Progress: **A 7 of 7 tests, B 5 of 7, C 2 of 7.** Only Tests 1 and 2 are complete on all three tasks, so only they get a band. The other rows show the raw results so far.
 
-| Test | Source | A: Build a Sentence | B: Email (0-5) | C: Discussion (0-5) | Scaled /30, equal weights | Band | Scaled /30, by item count | Band |
-|---|---|---|---|---|---|---|---|---|
-| 1 | FL1 | 10/10 | 4 | 3 | **24.0** | **5** | **28.5** | **5.5 (to 6)** |
-| 2 | FL2 | 10/10 | 3 | 3 | **22.0** | **4.5** | **28.0** | **5.5** |
-| 3 | TR1 | 10/10 | 3 | — | — | — | — | — |
-| 4 | TR2 | 10/10 | 3 | — | — | — | — | — |
-| 5 | TR3 | 7/9 | 3 | — | — | — | — | — |
-| 6 | TR4 | 9/10 | — | — | — | — | — | — |
-| 7 | TR5 | 9/10 | — | — | — | — | — | — |
+| Test | Source | A: Build a Sentence | B: Email (0-5) | C: Discussion (0-5) | Scaled /30, equal weights | Band | Raw /20 (10+5+5) | Scaled /30 | Band |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | FL1 | 10/10 | 4 | 3 | **24.0** | **5** | **17/20** | **25.5** | **5** |
+| 2 | FL2 | 10/10 | 3 | 3 | **22.0** | **4.5** | **16/20** | **24.0** | **5** |
+| 3 | TR1 | 10/10 | 3 | — | — | — | — | — | — |
+| 4 | TR2 | 10/10 | 3 | — | — | — | — | — | — |
+| 5 | TR3 | 7/9 | 3 | — | — | — | — | — | — |
+| 6 | TR4 | 9/10 | — | — | — | — | — | — | — |
+| 7 | TR5 | 9/10 | — | — | — | — | — | — | — |
 
 - **A** is the only task scored by a key: 65/69 overall (Test 5 has 9 scored items, because TR3 Q1 is unscored; see Item flags below).
 - **B and C are my ratings against the ETS rubric (0-5), not ETS scores.** The page's own self-rating was left blank every time. Test 4's Email is a high 3 and Test 2's Discussion is a high 3; both are entered as 3. Details are in the Email section below. The two Discussion attempts are not yet written up in this log.
 
 ### How the band is estimated
 1. Each task becomes a fraction: A = correct / scored, B and C = my rating / 5.
-2. **ETS does not publish how Writing tasks are weighted**, so two assumptions are shown. *Equal weights*: each task counts one third. *By item count*: A's ten items count one point each and B and C count one point each (10 : 1 : 1), so A dominates. The truth is probably between the two.
-3. Scaled = 30 x weighted fraction.
+2. **ETS does not state how Writing tasks are weighted**, so two assumptions are shown. *Equal weights*: each task counts one third. *Raw /20*: ETS's *Updated TOEFL iBT Test Overview*, Table 1, gives the Writing raw range as 0-20. That equals 10 (Build a Sentence, one point per item) + 5 (Email) + 5 (Discussion), so I treat the raw score as that sum. **The 10 + 5 + 5 split is my inference from the total; ETS does not spell it out.** (Speaking's raw range of 0-55 is exactly 11 items x 5, which supports reading these ranges as sums of item scores.) I now treat *Raw /20* as the better estimate and equal weights as a cautious floor.
+3. Scaled = 30 x weighted fraction. For *Raw /20* this is 30 x raw / 20. ETS gives no raw-to-scaled table, so that straight proportion is my assumption.
 4. Band = ETS's mapping of the old 0-30 Writing scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6, Writing column): 6 = 29-30, 5.5 = 27-28, 5 = 24-26, 4.5 = 21-23, 4 = 17-20, 3.5 = 15-16, 3 = 13-14. Read from the scaled score rounded down. A band is shown as a range when rounding up would change it.
 
 ### Limits of this estimate
-- **The weighting is unknown, and it matters here.** Test 1 comes out at 5 to 5.5 and Test 2 at 4.5 to 5.5. The gap is the assumption, not your performance.
+- **The weighting is inferred, and it matters here.** Test 1 comes out at 5 under both columns. Test 2 comes out at 4.5 (equal weights) or 5 (raw /20). The gap is the assumption, not your performance.
 - **Turning a 0-5 rubric rating into a fraction is the weakest step.** ETS publishes no table for it. Treating 3/5 as 60% is my choice, and a 3 on the rubric may map higher or lower.
 - **The ratings are one rater's (mine), on one pass each.** Several sat between a 3 and a 4, so a different rater could move them by a point.
-- **A perfect Build a Sentence run pulls the result up.** A is 10/10 in Tests 1 and 2, so the by-item-count column mostly measures A. With the same Email and Discussion ratings, 8/10 on A would give Test 1 = 22.0 (band 4.5) and Test 2 = 20.0 (band 4) under equal weights.
-- **This is a practice form.** Nothing here shows how the real section weights its tasks.
+- **Build a Sentence is half the raw score.** A is 10/10 in Tests 1 and 2. With the same Email and Discussion ratings, 8/10 on A would give Test 1 = 22.5 (band 4.5) and Test 2 = 21.0 (band 4.5) under raw /20.
+- **This is a practice form.** The real section may weight tasks differently from my 10 + 5 + 5 reading.
 - **This is Writing only.** The overall band is the average of the four sections, rounded to the nearest half band.
 
 ## Build a Sentence

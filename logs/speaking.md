@@ -7,7 +7,7 @@ Sources: `resources/audio/lessons/speaking/`, `resources/audio/samples/speaking/
 ## Attempts
 No attempts logged yet. Add one row per item:
 
-| Task | Test | Prompt or sentence (exact) | Recording file | Score (0–4) | What was wrong | Fix |
+| Task | Test | Prompt or sentence (exact) | Recording file | Score (0–5) | What was wrong | Fix |
 |---|---|---|---|---|---|---|
 
 ## Difficulties
