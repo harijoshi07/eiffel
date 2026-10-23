@@ -4,12 +4,6 @@ Records only. How to improve lives in `guides/speaking.md`.
 
 Sources: `resources/audio/lessons/speaking/`, `resources/audio/samples/speaking/` (model answers), and `resources/audio/tests/*/speaking/`.
 
-# Speaking log
-
-Records only. How to improve lives in `guides/speaking.md`.
-
-Sources: `resources/audio/lessons/speaking/`, `resources/audio/samples/speaking/` (model answers), and `resources/audio/tests/*/speaking/`.
-
 ## Scoreboard (2026-10-23)
 
 Scoring model: 11 items total (7 Listen & Repeat + 4 Take an Interview) scored 0-5 each = **raw max 55** (Updated Test Overview, Table 1). Scaled score is linear approximation (`30 * raw / 55`). Bands map tentatively to ETS Table 6 Speaking column (28-30 -> 6, 27 -> 5.5, 25-26 -> 5, 23-24 -> 4.5, 20-22 -> 4).
@@ -17,14 +11,14 @@ Scoring model: 11 items total (7 Listen & Repeat + 4 Take an Interview) scored 0
 
 | Test | Source | Listen & Repeat (/35) | Take an Interview (/20) | Raw (/55) | Scaled (/30) | Tentative Band |
 |---|---|---:|---:|---:|---:|---:|
-| 1 | Full-length 1 | 28–30 | (pending) | | | |
+| 1 | Full-length 1 | 28–30 | 18–19 | 46–49 | 25.1–26.7 | 5.0 (to 5.5) |
 | 2 | Full-length 2 | 28–32 | (pending) | | | |
 | 3 | Teacher Resources 1 | | | | | |
 | 4 | Teacher Resources 2 | | | | | |
 | 5 | Teacher Resources 3 | | | | | |
 | 6 | Teacher Resources 4 | | | | | |
 | 7 | Teacher Resources 5 | | | | | |
-| **Attempted** | | **56–62 / 70** | | | | |
+| **Attempted** | | **56–62 / 70** | **18–19 / 20** | **46–49 / 55** | **25.1–26.7** | **5.0 (to 5.5)** |
 
 ## Tool and data checks (2026-10-23)
 - **Task A (Listen & Repeat):** `practice/4a. listen-and-repeat.html` + `tools/lr_transcribe.py` (faster-whisper small.en + medium.en).
@@ -52,13 +46,15 @@ Scoring model: 11 items total (7 Listen & Repeat + 4 Take an Interview) scored 0
 | 6 | For those with children, we offer summer camps and educational opportunities. | exact | 5 | Exact repetition. |
 | 7 | The visitor’s center, located near the front entrance, can give you more information. | "visitor... at" | 4 | Possessive dropped ("visitor's" -> "visitor") and preposition swapped ("near" -> "at"). Meaning preserved. |
 
-#### Take an Interview (pending)
-| Q | Interviewer question | Your response | Spoken (s) | Words | WPM | Score | Notes |
+#### Take an Interview (run 20261023-120624) · Score: 18–19 / 20
+Scenario: Research study on urban life.
+
+| Q | Interviewer question | Your response (verbatim transcript) | Spoken (s) | Words | WPM | Score | Analysis |
 |---|---|---|---|---|---|:---:|---|
-| 1 | Last time you visited a city | | | | | | |
-| 2 | Reaction to cities & why | | | | | | |
-| 3 | Do city dwellers live more interesting lives? | | | | | | |
-| 4 | Should city governments create more parks? | | | | | | |
+| 1 | Last time you visited a city | "The last time I visited a different city than the one I live in was Pokhara. I visited Pokhara about six months ago and I really like the ambitious and I really like the vibe and the nightlife of Pokhara. You see, it's lively and it never fades away. And the purpose for my visit was for refreshment and for celebrating my birthday party." | 37.2 | 64 | 103.2 | 4.5–5 | Fully answers both parts (why traveled: refreshment & birthday; what liked: vibe, nightlife). Conversational markers ("You see, it's lively and it never fades away"). Minor vocabulary approximation slip: "ambitious" for "ambiance/ambience". |
+| 2 | Reaction to cities & why | "Yes, cities can feel draining and overwhelming, but for me, cities have always been exciting and it's full of life for me. And I feel so because the night life and the sunsets and the people we find to interact in our daily lives is really mesmerizing. I love interacting with people, I love having those long meetings, I love having access to talk with all the influential people and everybody, I can pick minds from everybody. That's why I find cities exciting." | 39.9 | 83 | 124.9 | 5 | Outstanding response. 83 words matches the ETS sample 5 benchmark (83 words / 133 WPM). Directly acknowledges the prompt contrast ("draining and overwhelming, but for me..."), elaborates with concrete details (sunsets, meetings, influential people), and wraps up cleanly. Minor idiom slip ("pick minds" for "pick brains") does not affect high score. |
+| 3 | Do city dwellers live more interesting lives? | "In my opinion, the people who live in the cities definitely have more exciting life and interesting life. As you have mentioned, they have a lot of more professional opportunities and exciting things to do every day. I completely agree with the stance that people here have more opportunities than there in the village. It's not only about professional opportunities, but it's also about having access to all the transportation and food and beverages, etc." | 42.1 | 77 | 109.8 | 4–4.5 | Clear stance taken and supported. Connects prompt points with original ideas (transportation, food, beverages). Pacing steady (110 WPM). Leans slightly on prompt wording early on and ends on "etc." rather than a full concluding wrap-up sentence. |
+| 4 | Should city governments create more parks? | "I completely agree with the fact that cities should have more green spaces such as parks. It directly contributes to the happiness of the individuals living around the city. As you know most of the cities are made haphazardly there's no proper planning and urbanization and due to that there are no trees and parks available but the government should definitely separate places to make more parks because that allows people to gather together in a natural environment and enjoy." | 43.6 | 80 | 110.1 | 4.5–5 | Strong, confident flow for 43.6s without long pauses. Uses strong vocabulary ("haphazardly", "natural environment", "directly contributes"). Solid policy reasoning (unplanned growth leads to lack of trees, so government must set aside park land for social gathering). Minor slip: "separate places" (meant "set aside space") and "planning and urbanization" (meant "urban planning"). |
 
 ### Test 2 · Full-length 2
 
