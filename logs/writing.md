@@ -26,7 +26,7 @@ Progress: **A 7 of 7 tests, B 5 of 7, C 2 of 7.** Only Tests 1 and 2 are complet
 ### How the band is estimated
 1. Each task becomes a fraction: A = correct / scored, B and C = my rating / 5.
 2. **ETS does not state how Writing tasks are weighted**, so two assumptions are shown. *Equal weights*: each task counts one third. *Raw /20*: ETS's *Updated TOEFL iBT Test Overview*, Table 1, gives the Writing raw range as 0-20. That equals 10 (Build a Sentence, one point per item) + 5 (Email) + 5 (Discussion), so I treat the raw score as that sum. **The 10 + 5 + 5 split is my inference from the total; ETS does not spell it out.** (Speaking's raw range of 0-55 is exactly 11 items x 5, which supports reading these ranges as sums of item scores.) I now treat *Raw /20* as the better estimate and equal weights as a cautious floor.
-3. Scaled = 30 x weighted fraction. For *Raw /20* this is 30 x raw / 20. ETS gives no raw-to-scaled table, so that straight proportion is my assumption.
+3. Scaled = 30 x weighted fraction. For *Raw /20* this is 30 x raw / 20. ETS gives no raw-to-scaled table, and its Teacher FAQ says Writing and Speaking raw scores are converted with *weighted equipercentile linking*, not a straight proportion. So 30 x raw / 20 is only an approximation of the real conversion.
 4. Band = ETS's mapping of the old 0-30 Writing scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6, Writing column): 6 = 29-30, 5.5 = 27-28, 5 = 24-26, 4.5 = 21-23, 4 = 17-20, 3.5 = 15-16, 3 = 13-14. Read from the scaled score rounded down. A band is shown as a range when rounding up would change it.
 
 ### Limits of this estimate

@@ -1,0 +1,216 @@
+{
+ "1": {
+  "1": {
+   "text": "We have a variety of wildlife.",
+   "alts": []
+  },
+  "2": {
+   "text": "Bears, wolves, and large cats are to the right.",
+   "alts": []
+  },
+  "3": {
+   "text": "You can find sea lions and elephants further down the path.",
+   "alts": []
+  },
+  "4": {
+   "text": "Please, no outside food or drinks, and do not feed the animals.",
+   "alts": []
+  },
+  "5": {
+   "text": "Avoid banging or tapping on the displays and enclosures.",
+   "alts": []
+  },
+  "6": {
+   "text": "For those with children, we offer summer camps and educational opportunities.",
+   "alts": []
+  },
+  "7": {
+   "text": "The visitor’s center, located near the front entrance, can give you more information.",
+   "alts": []
+  }
+ },
+ "2": {
+  "1": {
+   "text": "Welcome to our campus gym.",
+   "alts": []
+  },
+  "2": {
+   "text": "Cardio machines are near the entrance.",
+   "alts": []
+  },
+  "3": {
+   "text": "Free weights are in the back.",
+   "alts": []
+  },
+  "4": {
+   "text": "All of our locker rooms are equipped with showers and towels.",
+   "alts": []
+  },
+  "5": {
+   "text": "Our fitness instructors hold exercise classes over here.",
+   "alts": []
+  },
+  "6": {
+   "text": "You can check the schedule for available classes and timings.",
+   "alts": []
+  },
+  "7": {
+   "text": "If you have any questions, please seek assistance from the attendants at the help desk.",
+   "alts": []
+  }
+ },
+ "3": {
+  "1": {
+   "text": "Welcome to our event.",
+   "alts": []
+  },
+  "2": {
+   "text": "Get your name badge at the registration desk.",
+   "alts": []
+  },
+  "3": {
+   "text": "Our event is in the auditorium.",
+   "alts": []
+  },
+  "4": {
+   "text": "For small group sessions, we will be in the breakout rooms over here.",
+   "alts": []
+  },
+  "5": {
+   "text": "Snacks can be found in the vending area throughout the event.",
+   "alts": []
+  },
+  "6": {
+   "text": "Please see the information desk if you need an agenda.",
+   "alts": []
+  },
+  "7": {
+   "text": "If you want to check session times and locations, please use the schedule provided.",
+   "alts": []
+  }
+ },
+ "4": {
+  "1": {
+   "text": "Welcome to the library.",
+   "alts": []
+  },
+  "2": {
+   "text": "Our self-checkout station is for quick service.",
+   "alts": []
+  },
+  "3": {
+   "text": "You can start here to scan your library card.",
+   "alts": []
+  },
+  "4": {
+   "text": "Student aids are at the help desk in case you need assistance.",
+   "alts": [
+    "Student aides are at the help desk in case you need assistance."
+   ]
+  },
+  "5": {
+   "text": "We hope everyone will ensure that books are returned on time.",
+   "alts": []
+  },
+  "6": {
+   "text": "Check your account online for updates on due dates and fines.",
+   "alts": []
+  },
+  "7": {
+   "text": "When you are finished reading them, please place all your books in the return bin.",
+   "alts": []
+  }
+ },
+ "5": {
+  "1": {
+   "text": "Welcome, let's get started and check you in.",
+   "alts": []
+  },
+  "2": {
+   "text": "There is a reception desk over here for you.",
+   "alts": []
+  },
+  "3": {
+   "text": "The elevators are located just off the main lobby.",
+   "alts": []
+  },
+  "4": {
+   "text": "Our hotel lounge is available for relaxation.",
+   "alts": []
+  },
+  "5": {
+   "text": "If needed, we can store your bags in the luggage storage room.",
+   "alts": []
+  },
+  "6": {
+   "text": "Our amenities and services are listed on the notice boards throughout the building.",
+   "alts": []
+  },
+  "7": {
+   "text": "To avoid being charged a late-departure fee, be sure to check out of your room on time.",
+   "alts": []
+  }
+ },
+ "6": {
+  "1": {
+   "text": "Welcome to our local nature reserve.",
+   "alts": []
+  },
+  "2": {
+   "text": "Take a nature walk on our hiking trails.",
+   "alts": []
+  },
+  "3": {
+   "text": "The picnic area’s a perfect place to enjoy your lunch.",
+   "alts": [
+    "The picnic area is a perfect place to enjoy your lunch."
+   ]
+  },
+  "4": {
+   "text": "The visitor center has helpful information for guests.",
+   "alts": []
+  },
+  "5": {
+   "text": "The observation tower offers a great view of the forest.",
+   "alts": []
+  },
+  "6": {
+   "text": "Our restroom facilities are located just beside the entrance.",
+   "alts": []
+  },
+  "7": {
+   "text": "While you're exploring the grounds, please respect all wildlife and follow the posted rules at all times.",
+   "alts": []
+  }
+ },
+ "7": {
+  "1": {
+   "text": "Here is how to start and adjust the treadmill.",
+   "alts": []
+  },
+  "2": {
+   "text": "There are many benches in the weightlifting area.",
+   "alts": []
+  },
+  "3": {
+   "text": "We do encourage the use of yoga mats for stretching out.",
+   "alts": []
+  },
+  "4": {
+   "text": "The rowing machine is excellent for a full-body workout.",
+   "alts": []
+  },
+  "5": {
+   "text": "We have plenty of exercise bikes for cardio training.",
+   "alts": []
+  },
+  "6": {
+   "text": "Please use the wipes provided at each station for cleaning equipment after use.",
+   "alts": []
+  },
+  "7": {
+   "text": "If you want to see great results quickly, consider joining our daily fitness classes.",
+   "alts": []
+  }
+ }
+}

@@ -22,11 +22,11 @@ Test numbers follow the order of the PDFs: Test 1 = Full-Length 1, Test 2 = Full
 Per-type accuracy: Type A 98.2%, Type B 100%, Type C 89.3%, Type D 86.4%.
 
 ### How the band is estimated
-1. Scaled score = 30 x raw / total attempted, a straight-line linear estimate.
+1. Scaled score = 30 x raw / total attempted, a straight-line linear estimate. ETS actually uses IRT equating with item difficulty weights (Teacher FAQ), so this is only an approximation.
 2. Band = ETS's mapping of the 0–30 scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6): Listening column: 6 = 28–30, 5.5 = 26–27, 5 = 22–25, 4.5 = 20–21, 4 = 17–19. (Each section has its own column. Reading's is 6 = 29–30, 5.5 = 27–28, so the two are not interchangeable.)
 3. The band is read from the scaled score rounded down. Where rounding up would change the band (27.7 rounds to 28), it is shown as a range, e.g. 5.5 (to 6).
 
-> **Correction (2026-10-22).** This board first used Reading's column for Listening, which understated several bands. T5, T6 and the overall result moved from 5.5 (to 6) to 6, and T2 from 5.5 to 5.5 (to 6). The raw scores did not change.
+> **Correction (2026-10-23).** This board first used Reading's column for Listening, which understated several bands. T5, T6 and the overall result moved from 5.5 (to 6) to 6, and T2 from 5.5 to 5.5 (to 6). The raw scores did not change.
 4. Tests 1 and 2 currently reflect attempted items only (T1 M2 talk, T2 M1 talk, T2 M2 talk pending).
 
 ## Type A: Listen and Choose a Response (page: `practice/2a. listen-and-respond.html`)

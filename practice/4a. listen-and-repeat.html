@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Speaking — Listen and Repeat</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}.badge.part{background:var(--amber-soft);color:var(--amber)}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:860px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:hover:not(:disabled){filter:brightness(.97)}
+select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}
+.card h3{margin:16px 0 6px;font-size:15px}
+.muted{color:var(--muted)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.dot{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.dot.on{background:var(--terra)}.dot.ok{background:var(--sage)}
+.status{display:flex;align-items:center;gap:14px;padding:22px 22px;border-radius:14px;background:var(--terra-soft);margin:6px 0 14px;font-size:20px;font-weight:600}
+.status .ico{font-size:30px}
+.status.rec{background:var(--red-soft);color:var(--red)}
+.status.ok{background:var(--sage-soft);color:#3f6143}
+.status.err{background:var(--red-soft);color:var(--red)}
+.meter{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;width:0;background:var(--sage);transition:width .06s}
+.cd{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin:6px 0 14px}
+.cd i{display:block;height:100%;width:100%;background:var(--red)}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.good{background:var(--sage-soft);color:#3f6143;border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.hint{font-size:12.5px;color:var(--muted);margin:6px 0 2px;line-height:1.4}
+.item{border-top:1px solid var(--line);padding:12px 0}
+.item:first-of-type{border-top:0}
+.item .q{font-weight:600;color:var(--terra)}
+.item .script{font-weight:500;margin:2px 0}
+.item select{width:100%;max-width:300px;margin-top:6px;border-radius:10px}
+.item audio{width:100%;height:34px;margin-top:6px}
+.exportbox textarea{width:100%;min-height:260px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+code{background:var(--bg);padding:1px 6px;border-radius:6px;font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.s{display:inline-block;min-width:22px;text-align:center;font-weight:700;border-radius:8px;padding:0 6px}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+.samp{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px;background:#fff}
+.samp audio{width:100%;height:34px}
+details summary{cursor:pointer;font-weight:600}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:18px}}
+</style></head>
+<body><div class="wrap">
+<aside>
+  <h1>Listen and Repeat</h1>
+  <div class="sub">7 tests · 7 sentences each · 49 recordings</div>
+  <div id="nav"></div>
+  <div class="group">Reference</div>
+  <button class="mod" id="navCal"><span>ETS scored samples</span><span class="badge">3-4-5</span></button>
+  <div class="totals" id="totals"></div>
+  <div class="note">Prompt audio plays from <code>../resources/audio</code>, so this page works only on this computer, in a Chromium browser such as Arc or Chrome. Your voice is saved locally and never uploaded.</div>
+</aside>
+<main>
+  <div class="bar">
+    <div class="title" id="title"></div>
+    <select id="mode" title="Exam: each prompt plays once and recording starts by itself. Practice: replay allowed, you press Record.">
+      <option value="exam">Exam mode</option><option value="practice">Practice mode</option>
+    </select>
+    <button id="abort" style="display:none">Stop test</button>
+  </div>
+  <div id="view"></div>
+</main></div>
+<script>
+const DATA=[{"id": 1, "label": "Full-length 1", "scenario": "You are learning to welcome visitors to the zoo. Listen to your manager and repeat what she says.", "items": [{"n": 1, "text": "We have a variety of wildlife.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question1.ogg", "dur": 2.69, "win": 8, "alts": []}, {"n": 2, "text": "Bears, wolves, and large cats are to the right.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question2.ogg", "dur": 3.83, "win": 10, "alts": []}, {"n": 3, "text": "You can find sea lions and elephants further down the path.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question3.ogg", "dur": 4.03, "win": 10, "alts": []}, {"n": 4, "text": "Please, no outside food or drinks, and do not feed the animals.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question4.ogg", "dur": 5.24, "win": 10, "alts": []}, {"n": 5, "text": "Avoid banging or tapping on the displays and enclosures.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question5.ogg", "dur": 3.96, "win": 10, "alts": []}, {"n": 6, "text": "For those with children, we offer summer camps and educational opportunities.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question6.ogg", "dur": 5.19, "win": 10, "alts": []}, {"n": 7, "text": "The visitor’s center, located near the front entrance, can give you more information.", "audio": "../resources/audio/tests/student-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question7.ogg", "dur": 5.72, "win": 10, "alts": []}]}, {"id": 2, "label": "Full-length 2", "scenario": "You are learning how to guide new students through the campus gym. Listen to the speaker and repeat what she says.", "items": [{"n": 1, "text": "Welcome to our campus gym.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question1.ogg", "dur": 1.79, "win": 8, "alts": []}, {"n": 2, "text": "Cardio machines are near the entrance.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question2.ogg", "dur": 2.68, "win": 8, "alts": []}, {"n": 3, "text": "Free weights are in the back.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question3.ogg", "dur": 1.48, "win": 8, "alts": []}, {"n": 4, "text": "All of our locker rooms are equipped with showers and towels.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question4.ogg", "dur": 3.23, "win": 10, "alts": []}, {"n": 5, "text": "Our fitness instructors hold exercise classes over here.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question5.ogg", "dur": 3.31, "win": 8, "alts": []}, {"n": 6, "text": "You can check the schedule for available classes and timings.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question6.ogg", "dur": 3.31, "win": 10, "alts": []}, {"n": 7, "text": "If you have any questions, please seek assistance from the attendants at the help desk.", "audio": "../resources/audio/tests/student-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question7.ogg", "dur": 3.96, "win": 12, "alts": []}]}, {"id": 3, "label": "Teacher Resources 1", "scenario": "You are training to assist visitors at a university orientation event. Listen to the speaker and repeat what she says.", "items": [{"n": 1, "text": "Welcome to our event.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question1.mp3", "dur": 1.41, "win": 8, "alts": []}, {"n": 2, "text": "Get your name badge at the registration desk.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question2.mp3", "dur": 2.27, "win": 8, "alts": []}, {"n": 3, "text": "Our event is in the auditorium.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question3.mp3", "dur": 1.96, "win": 8, "alts": []}, {"n": 4, "text": "For small group sessions, we will be in the breakout rooms over here.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question4.mp3", "dur": 3.16, "win": 10, "alts": []}, {"n": 5, "text": "Snacks can be found in the vending area throughout the event.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question5.mp3", "dur": 3.24, "win": 10, "alts": []}, {"n": 6, "text": "Please see the information desk if you need an agenda.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question6.mp3", "dur": 2.77, "win": 10, "alts": []}, {"n": 7, "text": "If you want to check session times and locations, please use the schedule provided.", "audio": "../resources/audio/tests/teacher-1/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question7.mp3", "dur": 4.52, "win": 12, "alts": []}]}, {"id": 4, "label": "Teacher Resources 2", "scenario": "You are guiding students through the process of checking out books at the university library. Listen to the speaker and repeat what she says.", "items": [{"n": 1, "text": "Welcome to the library.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question1.mp3", "dur": 1.41, "win": 8, "alts": []}, {"n": 2, "text": "Our self-checkout station is for quick service.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question2.mp3", "dur": 2.69, "win": 8, "alts": []}, {"n": 3, "text": "You can start here to scan your library card.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question3.mp3", "dur": 2.59, "win": 10, "alts": []}, {"n": 4, "text": "Student aids are at the help desk in case you need assistance.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question4.mp3", "dur": 3.24, "win": 10, "alts": ["Student aides are at the help desk in case you need assistance."]}, {"n": 5, "text": "We hope everyone will ensure that books are returned on time.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question5.mp3", "dur": 2.93, "win": 10, "alts": []}, {"n": 6, "text": "Check your account online for updates on due dates and fines.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question6.mp3", "dur": 3.4, "win": 10, "alts": []}, {"n": 7, "text": "When you are finished reading them, please place all your books in the return bin.", "audio": "../resources/audio/tests/teacher-2/speaking/listen-and-repeat/Speaking_Listen_Repeat_Question7.mp3", "dur": 7.08, "win": 12, "alts": []}]}, {"id": 5, "label": "Teacher Resources 3", "scenario": "You are being trained to assist customers at a hotel front desk. Listen to your manager and repeat what he says.", "items": [{"n": 1, "text": "Welcome, let's get started and check you in.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_1.ogg", "dur": 2.59, "win": 8, "alts": []}, {"n": 2, "text": "There is a reception desk over here for you.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_2.ogg", "dur": 2.35, "win": 10, "alts": []}, {"n": 3, "text": "The elevators are located just off the main lobby.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_3.ogg", "dur": 2.69, "win": 10, "alts": []}, {"n": 4, "text": "Our hotel lounge is available for relaxation.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_4.ogg", "dur": 2.69, "win": 8, "alts": []}, {"n": 5, "text": "If needed, we can store your bags in the luggage storage room.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_5.ogg", "dur": 3.24, "win": 10, "alts": []}, {"n": 6, "text": "Our amenities and services are listed on the notice boards throughout the building.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_6.ogg", "dur": 4.28, "win": 10, "alts": []}, {"n": 7, "text": "To avoid being charged a late-departure fee, be sure to check out of your room on time.", "audio": "../resources/audio/tests/teacher-3/speaking/listen-and-repeat/Speaking_Listen_Repeat_7.ogg", "dur": 4.83, "win": 12, "alts": []}]}, {"id": 6, "label": "Teacher Resources 4", "scenario": "You are being trained to assist visitors at a nature reserve. Listen to your trainer and repeat what he says.", "items": [{"n": 1, "text": "Welcome to our local nature reserve.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_1.ogg", "dur": 2.12, "win": 8, "alts": []}, {"n": 2, "text": "Take a nature walk on our hiking trails.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_2.ogg", "dur": 2.27, "win": 8, "alts": []}, {"n": 3, "text": "The picnic area’s a perfect place to enjoy your lunch.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_3.ogg", "dur": 2.93, "win": 10, "alts": ["The picnic area is a perfect place to enjoy your lunch."]}, {"n": 4, "text": "The visitor center has helpful information for guests.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_4.ogg", "dur": 3.08, "win": 8, "alts": []}, {"n": 5, "text": "The observation tower offers a great view of the forest.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_5.ogg", "dur": 3.32, "win": 10, "alts": []}, {"n": 6, "text": "Our restroom facilities are located just beside the entrance.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_6.ogg", "dur": 3.32, "win": 10, "alts": []}, {"n": 7, "text": "While you're exploring the grounds, please respect all wildlife and follow the posted rules at all times.", "audio": "../resources/audio/tests/teacher-4/speaking/listen-and-repeat/Speaking_Listen_Repeat_7.ogg", "dur": 8.91, "win": 12, "alts": []}]}, {"id": 7, "label": "Teacher Resources 5", "scenario": "You are being trained to help customers use gym equipment properly. Listen to your trainer and repeat what he says.", "items": [{"n": 1, "text": "Here is how to start and adjust the treadmill.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_1.ogg", "dur": 2.68, "win": 10, "alts": []}, {"n": 2, "text": "There are many benches in the weightlifting area.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_2.ogg", "dur": 2.27, "win": 8, "alts": []}, {"n": 3, "text": "We do encourage the use of yoga mats for stretching out.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_3.ogg", "dur": 3.0, "win": 10, "alts": []}, {"n": 4, "text": "The rowing machine is excellent for a full-body workout.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_4.ogg", "dur": 3.08, "win": 10, "alts": []}, {"n": 5, "text": "We have plenty of exercise bikes for cardio training.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_5.ogg", "dur": 3.01, "win": 10, "alts": []}, {"n": 6, "text": "Please use the wipes provided at each station for cleaning equipment after use.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_6.ogg", "dur": 4.68, "win": 10, "alts": []}, {"n": 7, "text": "If you want to see great results quickly, consider joining our daily fitness classes.", "audio": "../resources/audio/tests/teacher-5/speaking/listen-and-repeat/Speaking_Listen_Repeat_7.ogg", "dur": 4.68, "win": 12, "alts": []}]}];
+const SAMPLES={"prompt": "When you're finished using them, please return checked-out materials promptly and on time.", "items": [{"score": 3, "file": "../resources/audio/samples/speaking/Listen_Repeat - Response 1.mp3", "small": "When you're done using them, please return unchecked materials on time and in the reducing time.", "medium": "When you're done using them, please return unchecked materials on time and in the reducing time.", "note": "Several words changed ('done', 'unchecked', 'in the reducing time'), so the meaning is not accurate. The sentence is complete, which fits ETS's 3."}, {"score": 4, "file": "../resources/audio/samples/speaking/Listen_Repeat - Response 2.mp3", "small": "When you're finished using them, please return the printout materials. Promptly. And on time.", "medium": "When you're finished using them, please return the printout materials promptly and on time.", "note": "'checked-out' became 'printout', a content word replaced with a related word. The meaning is kept. That is the ETS 4 pattern. medium.en gave 'promptly' a probability of only 0.12, which may point to imprecise pronunciation (my reading, not ETS's)."}, {"score": 5, "file": "../resources/audio/samples/speaking/Listen_Repeat - Response 3.mp3", "small": "When you are finished using them, please return checked out materials promptly and on time.", "medium": "When you are finished using them, please return checked out materials promptly and on time.", "note": "The speaker says 'you are' for 'you're' and ETS still gives a 5. So expanding a contraction does not count against you (my inference from this sample)."}]};
+const KEY='listenRepeat_v1';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SELF=['','Fine','Lost the sentence','Missed a word','Swapped a word','Mumbled or ran words together','Mic or noise problem'];
+
+function load(){try{return Object.assign({mode:'exam',runs:{},last:1,view:'setup'},JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){return{mode:'exam',runs:{},last:1,view:'setup'}}}
+let S=load();
+const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+let T=S.last||1;
+const ctx={stream:null,ac:null,dir:null,dirName:'',blobs:{},running:false,abort:false,meterOn:false};
+let currentRun=null;
+
+function test(){return DATA.find(t=>t.id===T)}
+function runsOf(t){return S.runs[t]||[]}
+
+function nav(){
+  $('#nav').innerHTML='<div class="group">Tests</div>'+DATA.map(t=>{
+    const r=runsOf(t.id),fin=r.filter(x=>x.finished).length;
+    const b=fin?`<span class="badge done">${fin} run${fin>1?'s':''}</span>`:(r.length?'<span class="badge part">unfinished</span>':'<span class="badge">new</span>');
+    return `<button class="mod ${t.id===T&&S.view!=='calib'?'active':''}" data-t="${t.id}"><span>Test ${t.id} · ${esc(t.label)}</span>${b}</button>`}).join('');
+  document.querySelectorAll('#nav .mod').forEach(b=>b.onclick=()=>{if(ctx.running)return;T=+b.dataset.t;S.last=T;S.view='setup';save();render()});
+  $('#navCal').classList.toggle('active',S.view==='calib');
+  const all=Object.values(S.runs).flat();
+  $('#totals').innerHTML=`Runs finished: ${all.filter(x=>x.finished).length}<br>Recordings: ${all.reduce((a,r)=>a+r.items.length,0)}`;
+}
+$('#navCal').onclick=()=>{if(ctx.running)return;S.view='calib';save();render()};
+$('#mode').value=S.mode;
+$('#mode').onchange=()=>{S.mode=$('#mode').value;save()};
+
+function render(){
+  nav();
+  $('#abort').style.display=ctx.running?'':'none';
+  $('#mode').disabled=ctx.running;
+  if(S.view==='calib')return viewCalib();
+  if(S.view==='review')return viewReview();
+  viewSetup();
+}
+
+/* ---------- setup ---------- */
+function viewSetup(){
+  const t=test();
+  $('#title').textContent=`Test ${t.id} · ${t.label}`;
+  const fsa=!!window.showDirectoryPicker;
+  $('#view').innerHTML=`
+  <div class="card"><h2>Before you start</h2>
+    <p class="muted">${esc(t.scenario)}</p>
+    <ul>
+      <li><b>Wear headphones.</b> The prompt plays through the speakers, and the microphone must not pick it up.</li>
+      <li>Seven sentences. Each plays <b>once</b>, then a beep, then the clock runs for 8, 10 or 12 seconds depending on length. <i>(The window lengths are my guess from sentence length. ETS says only that it is 8-12 s.)</i></li>
+      <li>Say exactly what you heard. Do not stop to restart.</li>
+      <li>No sentence text is shown until the test is over.</li>
+    </ul>
+    <h3>1. Microphone</h3>
+    <div class="row"><button id="mic">Test microphone</button><span class="muted" id="micMsg">Not checked yet.</span></div>
+    <div class="meter"><i id="lvl"></i></div>
+    <div class="hint">Say a sentence at your normal volume. The bar should reach about half way and not stay full.</div>
+    <h3>2. Where the recordings go</h3>
+    <div class="row">${fsa?'<button id="dir">Choose a folder</button>':''}<span class="muted" id="dirMsg">${ctx.dir?esc('Saving to folder: '+ctx.dirName):(fsa?'No folder chosen.':'This browser cannot pick a folder.')}</span></div>
+    <div class="hint">${fsa?'Pick <code>recordings/speaking/listen-and-repeat</code> inside the vault (git ignores it). If you skip this, the files download to your Downloads folder instead; move them into that folder before transcribing.':'Files will download to your Downloads folder. Move them into <code>recordings/speaking/listen-and-repeat</code> before transcribing.'}</div>
+    <div class="row" style="margin-top:18px"><button class="primary" id="start" disabled>Start test ${t.id}</button></div>
+    <div class="hint" id="startHint">Check the microphone first.</div>
+  </div>
+  ${runsOf(t.id).length?`<div class="card"><h3 style="margin-top:0">Earlier runs of this test</h3>${runsOf(t.id).map(r=>`<div class="item"><span class="q">${esc(r.run)}</span> · ${r.items.length}/7 saved ${r.finished?'':'(unfinished)'} · ${esc(r.mode)} <button data-run="${esc(r.run)}" class="revbtn">View</button></div>`).join('')}</div>`:''}`;
+  $('#mic').onclick=checkMic;
+  if($('#dir'))$('#dir').onclick=pickDir;
+  $('#start').onclick=()=>runTest();
+  document.querySelectorAll('.revbtn').forEach(b=>b.onclick=()=>{currentRun=runsOf(T).find(r=>r.run===b.dataset.run);S.view='review';save();render()});
+  refreshStart();
+}
+function refreshStart(){const b=$('#start');if(!b)return;const ok=!!ctx.stream;b.disabled=!ok;$('#startHint').textContent=ok?'Ready. The first prompt plays as soon as you press Start.':'Check the microphone first.'}
+
+async function getStream(){
+  if(ctx.stream&&ctx.stream.active)return ctx.stream;
+  ctx.stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false,channelCount:1}});
+  return ctx.stream;
+}
+function audioCtx(){if(!ctx.ac)ctx.ac=new (window.AudioContext||window.webkitAudioContext)();if(ctx.ac.state==='suspended')ctx.ac.resume();return ctx.ac}
+function makeAnalyser(){const ac=audioCtx();const src=ac.createMediaStreamSource(ctx.stream);const an=ac.createAnalyser();an.fftSize=1024;src.connect(an);return{an,src,buf:new Float32Array(an.fftSize)}}
+function levelOf(a){a.an.getFloatTimeDomainData(a.buf);let p=0;for(const v of a.buf){const x=Math.abs(v);if(x>p)p=x}return p}
+
+async function checkMic(){
+  try{
+    await getStream();
+    const a=makeAnalyser();let peak=0;ctx.meterOn=true;
+    $('#micMsg').textContent='Listening... speak now.';
+    const t0=performance.now();
+    await new Promise(res=>{(function tick(){const p=levelOf(a);peak=Math.max(peak,p);const el=$('#lvl');if(el)el.style.width=Math.min(100,p*200)+'%';
+      if(performance.now()-t0<4000&&$('#lvl'))requestAnimationFrame(tick);else res()})()});
+    a.src.disconnect();ctx.meterOn=false;
+    const m=$('#micMsg');if(!m)return;
+    if(peak<0.03){m.innerHTML='<span style="color:var(--red)">Heard almost nothing (peak '+peak.toFixed(3)+'). Check the input device in System Settings, then test again.</span>';ctx.micOK=false}
+    else{m.innerHTML='<span style="color:#3f6143">Microphone works (peak '+peak.toFixed(2)+').</span>';ctx.micOK=true}
+    refreshStart();
+  }catch(e){const m=$('#micMsg');if(m)m.innerHTML='<span style="color:var(--red)">Cannot use the microphone: '+esc(e.name||e.message)+'. Allow it for this page in the browser.</span>'}
+}
+async function pickDir(){
+  try{ctx.dir=await window.showDirectoryPicker({mode:'readwrite'});ctx.dirName=ctx.dir.name;$('#dirMsg').textContent='Saving to folder: '+ctx.dirName}
+  catch(e){if(e.name!=='AbortError')$('#dirMsg').textContent='Could not open the folder: '+e.message}
+}
+
+/* ---------- running a test ---------- */
+const MIME=(window.MediaRecorder&&MediaRecorder.isTypeSupported('audio/webm;codecs=opus'))?'audio/webm;codecs=opus':'';
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function beep(){const ac=audioCtx();const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=880;g.gain.value=.15;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+.15);return sleep(260)}
+
+function playPrompt(it){
+  return new Promise((res,rej)=>{
+    const a=new Audio(it.audio);ctx.cur=a;
+    a.onended=()=>res();a.onerror=()=>rej(new Error('Prompt audio did not load: '+it.audio));
+    a.play().catch(rej);
+  });
+}
+async function saveFile(name,blob){
+  if(ctx.dir){const fh=await ctx.dir.getFileHandle(name,{create:true});const w=await fh.createWritable();await w.write(blob);await w.close();return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000);
+}
+function recordFor(ms,onTick){
+  return new Promise(res=>{
+    const chunks=[];const rec=new MediaRecorder(ctx.stream,MIME?{mimeType:MIME}:undefined);
+    const an=makeAnalyser();let peak=0,early=false,done=false;const t0=performance.now();
+    ctx.stopRec=()=>{early=true;fin()};
+    function fin(){if(done)return;done=true;clearInterval(iv);clearTimeout(to);if(rec.state!=='inactive')rec.stop()}
+    rec.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data)};
+    rec.onstop=()=>{an.src.disconnect();res({blob:new Blob(chunks,{type:rec.mimeType||MIME||'audio/webm'}),peak,early,ms:Math.round(performance.now()-t0)})};
+    rec.start();
+    const iv=setInterval(()=>{peak=Math.max(peak,levelOf(an));onTick&&onTick(performance.now()-t0,levelOf(an))},50);
+    const to=setTimeout(fin,ms);
+  });
+}
+function status(cls,ico,txt,extra=''){ $('#view').querySelector('#st').className='status '+cls; $('#st').innerHTML=`<span class="ico">${ico}</span><span>${txt}</span>`; $('#ex').innerHTML=extra }
+
+async function runTest(){
+  const t=test();const practice=S.mode==='practice';
+  const stamp=new Date();const p2=n=>String(n).padStart(2,'0');
+  const run=`${stamp.getFullYear()}${p2(stamp.getMonth()+1)}${p2(stamp.getDate())}-${p2(stamp.getHours())}${p2(stamp.getMinutes())}${p2(stamp.getSeconds())}`;
+  currentRun={run,test:t.id,mode:S.mode,started:stamp.toISOString(),items:[],finished:false,saveMode:ctx.dir?'folder':'download'};
+  (S.runs[t.id]=S.runs[t.id]||[]).push(currentRun);save();
+  ctx.running=true;ctx.abort=false;ctx.blobs={};render();
+  $('#title').textContent=`Test ${t.id} · ${t.label} · in progress`;
+  $('#view').innerHTML=`<div class="card"><div class="prog" id="prog">${t.items.map(()=>'<div class="dot"></div>').join('')}</div>
+    <div class="muted" id="qn"></div><div class="status" id="st"></div>
+    <div class="cd" id="cdw" style="visibility:hidden"><i id="cd"></i></div><div id="ex"></div></div>`;
+  let err=null;
+  try{
+    for(const [i,it] of t.items.entries()){
+      if(ctx.abort)break;
+      document.querySelectorAll('#prog .dot').forEach((d,k)=>d.className='dot'+(k<i?' ok':(k===i?' on':'')));
+      $('#qn').textContent=`Sentence ${i+1} of ${t.items.length}`;
+      let replays=0;
+      status('','🎧','Listen...');
+      await playPrompt(it);
+      if(ctx.abort)break;
+      if(practice){
+        while(true){
+          status('','🎤','Ready when you are','<div class="row"><button id="rp">Replay prompt</button><button class="primary" id="go">Record my answer</button></div>');
+          const act=await new Promise(r=>{$('#rp').onclick=()=>r('rp');$('#go').onclick=()=>r('go');ctx._pw=r});
+          if(ctx.abort)break;
+          if(act==='go')break;
+          replays++;status('','🎧','Listen...');await playPrompt(it);
+        }
+        if(ctx.abort)break;
+      }
+      await beep();
+      $('#cdw').style.visibility='visible';
+      status('rec','⏺','Speak now','<div class="row"><button id="done">Done speaking</button></div>');
+      $('#done').onclick=()=>ctx.stopRec&&ctx.stopRec();
+      const r=await recordFor(it.win*1000,(el,lv)=>{const c=$('#cd');if(c)c.style.width=Math.max(0,100-el/(it.win*10))+'%'});
+      $('#cdw').style.visibility='hidden';
+      const ext=r.blob.type.includes('webm')?'webm':(r.blob.type.includes('mp4')?'m4a':'ogg');
+      const file=`LR_T${t.id}_${run}_Q${it.n}.${ext}`;
+      status('','💾','Saving...');
+      await saveFile(file,r.blob);
+      ctx.blobs[it.n]=URL.createObjectURL(r.blob);
+      currentRun.items.push({n:it.n,file,win:it.win,recMs:r.ms,stoppedEarly:r.early,replays,peak:+r.peak.toFixed(3),self:''});
+      save();
+      status('ok','✓','Saved');
+      await sleep(700);
+    }
+  }catch(e){err=e}
+  ctx.running=false;
+  currentRun.finished=!ctx.abort&&!err&&currentRun.items.length===t.items.length;
+  try{await saveManifest()}catch(e){err=err||e}
+  save();
+  S.view='review';save();render();
+  if(err)$('#view').insertAdjacentHTML('afterbegin',`<div class="warn"><b>The test stopped early:</b> ${esc(err.message||err)}</div>`);
+}
+$('#abort').onclick=()=>{ctx.abort=true;if(ctx.cur)ctx.cur.pause();if(ctx.stopRec)ctx.stopRec();if(ctx._pw)ctx._pw('x');if(ctx.cur)ctx.cur.dispatchEvent(new Event('ended'));try{ctx.cur.onended&&ctx.cur.onended()}catch(e){}};
+
+async function saveManifest(){
+  const r=currentRun;
+  const m={test:r.test,run:r.run,started:r.started,mode:r.mode,items:r.items.map(({self,...x})=>x)};
+  await saveFile(`LR_T${r.test}_${r.run}.json`,new Blob([JSON.stringify(m,null,1)],{type:'application/json'}));
+}
+
+/* ---------- review ---------- */
+function viewReview(){
+  const r=currentRun||runsOf(T).slice(-1)[0];
+  if(!r){S.view='setup';return render()}
+  currentRun=r;const t=DATA.find(x=>x.id===r.test);T=r.test;
+  $('#title').textContent=`Test ${t.id} · review · ${r.run}`;
+  const rows=t.items.map(it=>{
+    const x=r.items.find(y=>y.n===it.n);
+    if(!x)return `<div class="item"><span class="q">Q${it.n}</span> <span class="muted">not recorded</span><div class="script">${esc(it.text)}</div></div>`;
+    return `<div class="item"><span class="q">Q${it.n}</span> <span class="muted">· ${x.file} · ${(x.recMs/1000).toFixed(1)}s of ${x.win}s${x.stoppedEarly?' · stopped early':''}${x.replays?' · '+x.replays+' replay(s)':''} · peak ${x.peak}</span>
+      <div class="script">${esc(it.text)}</div>
+      ${ctx.blobs[it.n]?`<audio controls src="${ctx.blobs[it.n]}"></audio>`:''}
+      <select data-n="${it.n}">${SELF.map(o=>`<option value="${esc(o)}" ${x.self===o?'selected':''}>${o||'How did it feel? (optional)'}</option>`).join('')}</select>
+      ${x.peak<0.03?'<div class="warn">Almost silent. The microphone may not have recorded this one.</div>':''}</div>`}).join('');
+  const nSaved=r.items.length;
+  $('#view').innerHTML=`<div class="card"><h2>${r.finished?'Test finished':'Test stopped early'}</h2>
+    <div class="${r.saveMode==='folder'?'good':'warn'}">${nSaved} recording(s) and a manifest were ${r.saveMode==='folder'?'written to the folder you chose':'downloaded to your Downloads folder. Move <code>LR_T'+r.test+'_'+esc(r.run)+'*</code> into <code>recordings/speaking/listen-and-repeat</code>'}.</div>
+    <p class="muted">Next step: tell me the test is done. I transcribe locally (<code>python tools/lr_transcribe.py</code>) and score each sentence against the ETS rubric. The "how did it feel" notes below are optional. They help me tell a real slip from a transcription error.</p></div>
+  <div class="card"><h3 style="margin-top:0">Sentences and your recordings</h3>${rows}</div>
+  <div class="card exportbox"><h3 style="margin-top:0">Export</h3><div class="row"><button id="exp">Build markdown</button><button id="cp">Copy</button><button id="again" class="primary">Back to Test ${t.id}</button></div><textarea id="out" readonly placeholder="Press Build markdown"></textarea></div>`;
+  document.querySelectorAll('.item select').forEach(s=>s.onchange=()=>{r.items.find(y=>y.n===+s.dataset.n).self=s.value;save()});
+  $('#exp').onclick=()=>{$('#out').value=toMD(r)};
+  $('#cp').onclick=()=>{const o=$('#out');if(!o.value)o.value=toMD(r);o.select();document.execCommand('copy')};
+  $('#again').onclick=()=>{S.view='setup';save();render()};
+}
+function toMD(r){
+  const t=DATA.find(x=>x.id===r.test);
+  const L=[`## Listen and Repeat - Test ${t.id} (${t.label}) - run ${r.run}`,'',`Mode: ${r.mode} · saved via ${r.saveMode} · started ${r.started} · ${r.finished?'finished':'UNFINISHED'}`,'','| Q | Script | Recording | Spoke (s) | Window (s) | Early stop | Replays | Peak | Self-report |','|---|---|---|---|---|---|---|---|---|'];
+  for(const it of t.items){const x=r.items.find(y=>y.n===it.n);
+    L.push(x?`| ${it.n} | ${it.text.replace(/\|/g,'\\|')} | ${x.file} | ${(x.recMs/1000).toFixed(1)} | ${x.win} | ${x.stoppedEarly?'yes':''} | ${x.replays||''} | ${x.peak} | ${x.self||''} |`:`| ${it.n} | ${it.text.replace(/\|/g,'\\|')} | not recorded | | | | | | |`)}
+  return L.join('\n');
+}
+
+/* ---------- calibration ---------- */
+function viewCalib(){
+  $('#title').textContent='ETS scored samples';
+  $('#view').innerHTML=`<div class="card"><h2>What a 3, a 4 and a 5 sound like</h2>
+    <p class="muted">ETS published three scored student responses to one Listen and Repeat sentence (ETS, <i>Speaking performance: sample responses across score levels</i>). Listen to each, guess its score, then reveal.</p>
+    <div class="hint">Prompt (manager): <b>${esc(SAMPLES.prompt)}</b></div></div>
+    ${SAMPLES.items.map((s,i)=>`<div class="samp"><b>Student response ${i+1}</b>
+      <audio controls src="${encodeURI(s.file)}"></audio>
+      <div class="row" style="margin-top:8px"><select id="g${i}"><option value="">My guess</option>${[0,1,2,3,4,5].map(n=>`<option>${n}</option>`).join('')}</select><button data-i="${i}" class="rev">Reveal</button></div>
+      <div id="r${i}" class="hint"></div></div>`).join('')}
+    <div class="card"><details><summary>ETS Listen and Repeat scoring guide (short)</summary>
+      <table><tr><th>5</th><td>Exactly repeats the prompt. Fully intelligible.</td></tr>
+      <tr><th>4</th><td>Captures the meaning but not exact. One or two function words missing or changed, a content word missing (longer prompts) or replaced by a related word, tense/number marker wrong, or two words swapped. Imprecise pronunciation may leave one or two content words ambiguous. A self-correction that succeeds is fine.</td></tr>
+      <tr><th>3</th><td>Essentially a full sentence but the meaning is not accurate. Majority of the content words present. Multiple function words changed or missing; one or more content words missing or substantively changed. Intelligibility problems cause occasional difficulty.</td></tr>
+      <tr><th>2</th><td>A significant part is missing and/or highly inaccurate. Often the first part is repeated and then the speaker stops or fills with inaccurate content. Meaning is fragmentary. Low intelligibility.</td></tr>
+      <tr><th>1</th><td>Very little of the prompt captured, or largely unintelligible.</td></tr>
+      <tr><th>0</th><td>No response, entirely unintelligible, no English, or unconnected to the prompt.</td></tr></table>
+      <div class="hint">Condensed from ETS's published Speaking Scoring Guide. Use ETS's own wording when in doubt.</div></details></div>`;
+  document.querySelectorAll('.rev').forEach(b=>b.onclick=()=>{const i=+b.dataset.i,s=SAMPLES.items[i];const g=$('#g'+i).value;
+    $('#r'+i).innerHTML=`<b>ETS score: ${s.score}</b>${g!==''?' · you guessed '+g+(+g===s.score?' ✓':''):''}<br>Verbatim transcript (faster-whisper small.en): <i>${esc(s.small)}</i><br>Verbatim transcript (medium.en): <i>${esc(s.medium)}</i><br>${esc(s.note)}`});
+}
+
+render();
+</script></body></html>

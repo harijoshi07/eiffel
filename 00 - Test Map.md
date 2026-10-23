@@ -67,6 +67,8 @@ Accents: North American, British and Australian.
 | Listen and Repeat | 7 sentences in one scenario, getting longer | 8-12 s to speak after each sentence. Heard once. No preparation. |
 | Take an Interview | 4 questions from a recorded interviewer | 45 s per answer. No preparation. |
 
+Speaking and Writing responses are scored by ETS's AI scoring engine. Each Speaking item is 0-5, so the Speaking raw range is 0-55 (11 items x 5). Teacher FAQ and Test Overview, Table 1.
+
 ### What is official and what is my assumption
 - Official: section table, task names, text lengths, item counts per task in the practice forms, the Back/Next rules above, order of sections, adaptive design.
 - Not stated in what I read: whether Writing allows going back, how long each Listening question clock runs, and how many items in Reading and Listening are unscored pretest.

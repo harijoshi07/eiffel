@@ -14,3 +14,6 @@ resources/audio/
 
 # Live session transcript (written by the Pi app, not study content)
 log.md
+
+# My own voice recordings (local only)
+recordings/

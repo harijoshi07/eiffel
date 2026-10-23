@@ -27,7 +27,7 @@ Per-section accuracy: Complete the Words 97.1%, Daily Life 94.3%, Academic 92.9%
 3. Where a test sits on a boundary the band is shown as a range: the lower number if you round the scaled score down, the upper if you round up. At 28.5 the result is 28 (5.5) or 29 (6).
 
 ### Limits of this estimate
-- **No official raw-to-band table exists.** ETS scores Reading with item response theory and does not publish raw-to-scaled conversions. The linear step in 1 is my assumption.
+- **No official raw-to-band table exists.** ETS scores Reading with item response theory and does not publish raw-to-scaled conversions (ETS Teacher FAQ: Reading and Listening use IRT equating, and each item is weighted by difficulty). The linear step in 1 is my assumption.
 - **The real section is adaptive.** The second module is easier or harder depending on how you do on the first. Practice modules are fixed, so a score of 38/40 here does not equal 38 on a real upper-level module.
 - **One question matters at the top.** Each raw point is 0.75 scaled points, so one question is enough to move a result between 5.5 and 6.
 - **This is Reading only.** The overall band is the average of Reading, Listening, Writing and Speaking, rounded to the nearest half band.
