@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TOEFL Speaking — Take an Interview</title>
+<style>
+:root{--bg:#f7f2ea;--card:#fffdf9;--ink:#2d2a26;--muted:#8a8178;--line:#e6ddd0;--terra:#c46a4a;--terra-soft:#f3e0d6;--sage:#7d9a7e;--sage-soft:#e2ebe2;--red:#b5483a;--red-soft:#f6dcd7;--amber-soft:#f8ecd0;--amber:#8a6a1d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6}
+.wrap{display:grid;grid-template-columns:270px 1fr;min-height:100vh}
+aside{background:var(--card);border-right:1px solid var(--line);padding:24px 18px;position:sticky;top:0;height:100vh;overflow:auto}
+h1{font-size:18px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px}
+.group{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+.mod{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer;color:var(--ink);font:inherit;text-align:left}
+.mod:hover{background:var(--bg)}.mod.active{background:var(--terra-soft)}
+.badge{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.done{background:var(--sage-soft);color:#3f6143}.badge.part{background:var(--amber-soft);color:var(--amber)}
+.totals{margin-top:22px;font-size:13px;color:var(--muted)}
+main{padding:28px 36px;max-width:880px;width:100%}
+.bar{position:sticky;top:0;z-index:5;background:rgba(247,242,234,.94);backdrop-filter:blur(6px);display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:22px}
+.bar .title{font-weight:600;margin-right:auto;font-size:15px}
+button,select{font:inherit}
+button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 14px;border-radius:999px;cursor:pointer}
+button.primary{background:var(--terra);border-color:var(--terra);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:hover:not(:disabled){filter:brightness(.97)}
+select{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 30px;margin-bottom:16px}
+.card h2{margin:0 0 10px;font-size:20px}
+.card h3{margin:16px 0 6px;font-size:15px}
+.muted{color:var(--muted)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.prog{display:flex;gap:6px;margin-bottom:18px}
+.dot{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.dot.on{background:var(--terra)}.dot.ok{background:var(--sage)}
+.status{display:flex;align-items:center;gap:14px;padding:18px 22px;border-radius:14px;background:var(--terra-soft);margin:6px 0 14px;font-size:18px;font-weight:600}
+.status .ico{font-size:26px}
+.status.rec{background:var(--red-soft);color:var(--red)}
+.status.ok{background:var(--sage-soft);color:#3f6143}
+.status.err{background:var(--red-soft);color:var(--red)}
+.meter{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;width:0;background:var(--sage);transition:width .06s}
+.cd{height:10px;border-radius:5px;background:var(--line);overflow:hidden;margin:8px 0 14px}
+.cd i{display:block;height:100%;width:100%;background:var(--red);transition:width .1s linear}
+.timer-val{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--red);margin-left:auto}
+.warn{background:var(--amber-soft);color:var(--amber);border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.good{background:var(--sage-soft);color:#3f6143;border-radius:12px;padding:10px 14px;font-size:14px;margin:10px 0}
+.hint{font-size:12.5px;color:var(--muted);margin:6px 0 2px;line-height:1.4}
+.video-box{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:16px 0;background:#1a1917;border-radius:16px;padding:12px;overflow:hidden}
+video{width:100%;max-width:440px;border-radius:10px;display:block}
+.audio-interviewer{display:flex;align-items:center;gap:18px;padding:24px;background:#262320;border-radius:14px;color:#fff;width:100%;max-width:440px}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--terra);display:flex;align-items:center;justify-content:center;font-size:26px}
+.item{border-top:1px solid var(--line);padding:14px 0}
+.item:first-of-type{border-top:0}
+.item .q{font-weight:600;color:var(--terra)}
+.item .script{font-weight:500;margin:4px 0}
+.item select{width:100%;max-width:320px;margin-top:6px;border-radius:10px}
+.item audio{width:100%;height:34px;margin-top:6px}
+.exportbox textarea{width:100%;min-height:260px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+code{background:var(--bg);padding:1px 6px;border-radius:6px;font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+td,th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+.samp{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px;background:#fff}
+.samp audio{width:100%;height:34px}
+details summary{cursor:pointer;font-weight:600}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}aside{position:static;height:auto}main{padding:18px}}
+</style></head>
+<body><div class="wrap">
+<aside>
+  <h1>Take an Interview</h1>
+  <div class="sub">7 tests · 4 questions each · 45s responses</div>
+  <div id="nav"></div>
+  <div class="group">Reference</div>
+  <button class="mod" id="navCal"><span>ETS scored samples</span><span class="badge">3-4-5</span></button>
+  <div class="totals" id="totals"></div>
+  <div class="note">Media plays from <code>../resources/audio</code>. Works in Arc, Chrome, or any Chromium browser. Recordings save directly to Downloads.</div>
+</aside>
+<main>
+  <div class="bar">
+    <div class="title" id="title"></div>
+    <select id="mode" title="Exam: interview flows naturally with 45s timers. Practice: replay allowed.">
+      <option value="exam">Exam mode</option><option value="practice">Practice mode</option>
+    </select>
+    <button id="abort" style="display:none">Stop interview</button>
+  </div>
+  <div id="view"></div>
+</main></div>
+<script>
+const DATA = [{"id": 1, "label": "Test 1", "scenario": "You have agreed to take part in a research study about urban life. You will have a short online interview with a researcher. The researcher will ask you some questions.", "directionsAudio": "../resources/audio/tests/student-1/speaking/interview/Speaking_Interview_Directions.ogg", "items": [{"n": 1, "text": "Thank you for speaking with me today. Now, I'd like you to think back to the last time you visited a city in your country. A city that you didn't live in. Why did you travel to that city? What did you like about that city?", "alt": "Thank you for speaking with me today. I’m conducting a study about people’s experiences and perceptions of living in a city. I’d like to ask you some questions. [2-second pause] Now, do you currently live in a big city, a small town, or a village?", "media": "../resources/audio/tests/student-1/speaking/interview/Speaking_Interview_Question1.mp4", "mediaType": "video", "win": 45}, {"n": 2, "text": "Great. Cities affect people in different ways. Some people find cities dynamic and exciting. Others find that cities are overwhelming and drain them of energy. What kind of reaction do you have to cities? Why do you think you react in this way?", "alt": null, "media": "../resources/audio/tests/student-1/speaking/interview/Speaking_Interview_Question2.mp4", "mediaType": "video", "win": 45}, {"n": 3, "text": "OK. Next, I’d like to ask your opinion. Some people believe that those who live in cities lead more interesting lives. They would argue, for example, that people who live in cities have more access to professional opportunities and interesting leisure activities. Do you agree that people who live in cities lead more interesting lives? Why or why not?", "alt": null, "media": "../resources/audio/tests/student-1/speaking/interview/Speaking_Interview_Question3.mp4", "mediaType": "video", "win": 45}, {"n": 4, "text": "Good points. Let me ask you one final question. For some time now, researchers have been interested in whether green spaces, such as parks, make people who live in cities happier. Do you think that city governments should create more parks in urban areas to promote a general sense of happiness and life satisfaction? Why or why not?", "alt": null, "media": "../resources/audio/tests/student-1/speaking/interview/Speaking_Interview_Question4.mp4", "mediaType": "video", "win": 45}]}, {"id": 2, "label": "Test 2", "scenario": "You have volunteered for a research study about commuting habits. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/student-2/speaking/interview/Speaking_Interview_Directions.ogg", "items": [{"n": 1, "text": "Thank you for joining the study. Today, I'd like to ask you some questions about your commuting habits. First, is it important to live close to your school or work? Why?", "alt": null, "media": "../resources/audio/tests/student-2/speaking/interview/Speaking_Interview_Question1.mp4", "mediaType": "video", "win": 45}, {"n": 2, "text": "I see. Imagine that you could choose to commute by car, which is faster but more expensive, or by public transportation, which is slower but less expensive. Which would you choose, and why?", "alt": null, "media": "../resources/audio/tests/student-2/speaking/interview/Speaking_Interview_Question2.mp4", "mediaType": "video", "win": 45}, {"n": 3, "text": "Interesting. Some people believe that commuting can be stressful and tiring. What do you think are one or two different ways to make commuting more enjoyable? Give reasons for your answer.", "alt": null, "media": "../resources/audio/tests/student-2/speaking/interview/Speaking_Interview_Question3.mp4", "mediaType": "video", "win": 45}, {"n": 4, "text": "Good points. Lastly, considering advances in technology, some people believe that commuting might disappear entirely. How do you think a severe decline in commuting might affect businesses in positive ways and negative ways? Please give one example of each.", "alt": null, "media": "../resources/audio/tests/student-2/speaking/interview/Speaking_Interview_Question4.mp4", "mediaType": "video", "win": 45}]}, {"id": 3, "label": "Test 3", "scenario": "You have volunteered for a research study about work-life balance. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/teacher-1/speaking/interview/Speaking_Interview_Directions.mp3", "items": [{"n": 1, "text": "Thank you for participating. Today, I'd like to ask you some questions about your work-life balance. First, can you share one or two strategies that you use that you think are effective in managing your work-life balance?", "alt": null, "media": "../resources/audio/tests/teacher-1/speaking/interview/Speaking_Interview_Question1.mp3", "mediaType": "audio", "win": 45}, {"n": 2, "text": "I see. Many companies are now developing programs to help employees manage work-life balance. Would programs like this affect your interest in working for a particular company? Why or why not?", "alt": null, "media": "../resources/audio/tests/teacher-1/speaking/interview/Speaking_Interview_Question2.mp3", "mediaType": "audio", "win": 45}, {"n": 3, "text": "Interesting. Some companies also offer flexible working hours or remote work options to help employees achieve a better work-life balance, but they are concerned that these options would reduce employee attention to tasks or engagement in the workplace. Do you think such programs are a good strategy for companies? Why or why not?", "alt": null, "media": "../resources/audio/tests/teacher-1/speaking/interview/Speaking_Interview_Question3.mp3", "mediaType": "audio", "win": 45}, {"n": 4, "text": "Good points. Lastly, looking to the future, do you think people's attitudes towards work-life balance will change? For example, do you think people will prioritize personal life over work, or work over personal life? Explain your thoughts.", "alt": null, "media": "../resources/audio/tests/teacher-1/speaking/interview/Speaking_Interview_Question4.mp3", "mediaType": "audio", "win": 45}]}, {"id": 4, "label": "Test 4", "scenario": "You have volunteered for a research study about exercise habits. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/teacher-2/speaking/interview/Speaking_Interview_Directions.mp3", "items": [{"n": 1, "text": "Thank you for taking part in this study. Today, I'd like to ask you some questions about your exercise habits. First, can you describe the type of exercise you or someone you know typically does regularly, such as running, yoga, or weightlifting? Why?", "alt": null, "media": "../resources/audio/tests/teacher-2/speaking/interview/Speaking_Interview_Question1.mp3", "mediaType": "audio", "win": 45}, {"n": 2, "text": "I see. Some exercise programs are done alone, and some are designed to be done with others. Would you prefer to exercise alone, or would you prefer to exercise with others? Why?", "alt": null, "media": "../resources/audio/tests/teacher-2/speaking/interview/Speaking_Interview_Question2.mp3", "mediaType": "audio", "win": 45}, {"n": 3, "text": "Interesting. Some people believe that exercising outdoors is both more beneficial and more enjoyable than exercising indoors. Do you agree or disagree and why?", "alt": null, "media": "../resources/audio/tests/teacher-2/speaking/interview/Speaking_Interview_Question3.mp3", "mediaType": "audio", "win": 45}, {"n": 4, "text": "Good points. Lastly, I would like to ask about using fitness apps. Some people like to use fitness apps on smart phones to organize their fitness schedules. Do you agree this is a good way to keep track of your exercising goals? Why or why not?", "alt": null, "media": "../resources/audio/tests/teacher-2/speaking/interview/Speaking_Interview_Question4.mp3", "mediaType": "audio", "win": 45}]}, {"id": 5, "label": "Test 5", "scenario": "You have volunteered for a research study about social media use. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/teacher-3/speaking/interview/Speaking_Interview_Directions.ogg", "items": [{"n": 1, "text": "Thank you for participating in this study. Today, I'd like to ask you some questions about how you use social media. First, if you were to choose a social media platform to use most regularly, which one would you choose, and why?", "alt": null, "media": "../resources/audio/tests/teacher-3/speaking/interview/Speaking_Interview_1.mp4", "mediaType": "video", "win": 45}, {"n": 2, "text": "Interesting. Do you think social media is more beneficial for younger people or older people? Why?", "alt": null, "media": "../resources/audio/tests/teacher-3/speaking/interview/Speaking_Interview_2.mp4", "mediaType": "video", "win": 45}, {"n": 3, "text": "Alright. Some people believe that social media can help people stay connected, while others think it can lead to feelings of isolation. What are your thoughts on this? Do you agree or disagree? Why?", "alt": null, "media": "../resources/audio/tests/teacher-3/speaking/interview/Speaking_Interview_3.mp4", "mediaType": "video", "win": 45}, {"n": 4, "text": "Good points. Finally, do you think social media use will continue to grow in the future, or will people start to limit their usage? What factors do you think will most affect future usage of social media? Explain your thoughts.", "alt": null, "media": "../resources/audio/tests/teacher-3/speaking/interview/Speaking_Interview_4.mp4", "mediaType": "video", "win": 45}]}, {"id": 6, "label": "Test 6", "scenario": "You have volunteered for a research study about food preferences. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/teacher-4/speaking/interview/Speaking_Interview_Directions.ogg", "items": [{"n": 1, "text": "Thank you for your participation. Today, I’d like to ask you some questions about your food preferences. First, in your opinion, what kinds of meals do people your age enjoy most? Are they traditional, modern, or something in between?", "alt": null, "media": "../resources/audio/tests/teacher-4/speaking/interview/Speaking_Interview_1.mp4", "mediaType": "video", "win": 45}, {"n": 2, "text": "I see. And what kind of meals do you usually have on busy days—do you cook, eat out, or pick up something ready-made?", "alt": null, "media": "../resources/audio/tests/teacher-4/speaking/interview/Speaking_Interview_2.mp4", "mediaType": "video", "win": 45}, {"n": 3, "text": "Interesting. Many people say that modern life has changed how we eat. Do you think people today have healthier eating habits than in the past? Why or why not?", "alt": null, "media": "../resources/audio/tests/teacher-4/speaking/interview/Speaking_Interview_3.mp4", "mediaType": "video", "win": 45}, {"n": 4, "text": "Good points. I just have one more question. Some people believe that preparing traditional meals at home is an important way to stay connected to one’s culture. Do you agree, or do you think it’s possible to connect with culture in other ways? Why?", "alt": null, "media": "../resources/audio/tests/teacher-4/speaking/interview/Speaking_Interview_4.mp4", "mediaType": "video", "win": 45}]}, {"id": 7, "label": "Test 7", "scenario": "You have agreed to participate in a research study about career choices. You will have a short online interview with a researcher. The researcher will ask you some questions. Please answer the interviewer’s questions.", "directionsAudio": "../resources/audio/tests/teacher-5/speaking/interview/Speaking_Interview_Directions.ogg", "items": [{"n": 1, "text": "Thank you for taking the time to speak with me. I’d like to ask you some questions about career choices. First, from what you’ve seen, what kinds of careers do people around you tend to pursue? For example, do they work in healthcare, education, technology, or something else?", "alt": null, "media": "../resources/audio/tests/teacher-5/speaking/interview/Speaking_Interview_1.mp4", "mediaType": "video", "win": 45}, {"n": 2, "text": "I see. When choosing a career, is job satisfaction your first priority, or do you focus more on salary? Why?", "alt": null, "media": "../resources/audio/tests/teacher-5/speaking/interview/Speaking_Interview_2.mp4", "mediaType": "video", "win": 45}, {"n": 3, "text": "Interesting. Next, I’d like to get your opinion. In recent years, there has been a trend towards people changing careers multiple times throughout their lives instead of sticking to one profession. What are your thoughts on this trend? Do you think it's helpful or hurtful to workers?", "alt": null, "media": "../resources/audio/tests/teacher-5/speaking/interview/Speaking_Interview_3.mp4", "mediaType": "video", "win": 45}, {"n": 4, "text": "Good points. I just have one more question. Some people believe that artificial intelligence will greatly change the kinds of jobs available in the future. Do you think this trend will continue in your chosen field? Why or why not?", "alt": null, "media": "../resources/audio/tests/teacher-5/speaking/interview/Speaking_Interview_4.mp4", "mediaType": "video", "win": 45}]}];
+const SAMPLES = {"prompt": "Some people believe that reading helps improve one's imagination and creativity. Do you agree with this idea, or do you think there are other activities that can also enhance these skills? Explain why you think so.", "items": [{"score": 3, "file": "../resources/audio/samples/speaking/Interview - Response 1.mp3", "dur": 45.8, "words": 75, "wpm": 98.3, "transcript": "I think that books can make you more creative because you see something on the book that you can't imagine at home. So this is a point of thinking about that. It preserves creativity. But I think that playing games also make the creativity improve because of some fictional stuff. And seeing fictional films also make it improve. But it's more about focusing on the fictional stuff. And drawing also make your creativity grow inside.", "note": "Addresses the question, but with limited elaboration and noticeable errors in word choice/grammar ('on the book', 'make the creativity improve', 'make your creativity grow inside'). Delivery has frequent pauses and choppy rhythm (ETS Score 3)."}, {"score": 4, "file": "../resources/audio/samples/speaking/Interview - Response 2.mp3", "dur": 38.5, "words": 61, "wpm": 95.0, "transcript": "Yes, I think reading can improve our imagination. Think about Harry Potter. It depicts a magic world that is different from our real world, so it's imaginative, right? There are also other activities that can improve our imagination, like painting and music, because we have to create different images or sounds, so we have to think, so it improves our imagination.", "note": "Addresses the question and provides a concrete example (Harry Potter) and other activities (painting, music). Pronunciation is intelligible and speaking pace is generally steady. Limited sentence variety and repeated phrasing ('improve our imagination') keep it at a 4 (ETS Score 4)."}, {"score": 5, "file": "../resources/audio/samples/speaking/Interview - Response 3.mp3", "dur": 37.5, "words": 83, "wpm": 132.9, "transcript": "Yes, I totally agree. For me, books are one of the main things you can use to enhance and improve your creativity and imagination. Since when you are reading, you get to imagine, really imagine the whole story, like a different environment. Or even if the book is describing a person, describing its personality, its clothes, you can use your whole creativity and imagination to really see the characters, the environment, and really imagine the whole story. So yes, I really believe that.", "note": "Fully successful response. Clear, fluent, and confident delivery at a natural conversational pace (~133 WPM). Good rhythm and intonation, precise vocabulary ('enhance and improve', 'describing its personality', 'whole environment') (ETS Score 5)."}]};
+const KEY = 'takeInterview_v1';
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const SELF = ['', 'Fine', 'Ran out of time', 'Ran out of ideas / long pause', 'Grammar or vocabulary slip', 'Stumbled / restarted', 'Mic or noise problem'];
+
+function load() {
+  try {
+    return Object.assign({mode:'exam', runs:{}, last:1, view:'setup'}, JSON.parse(localStorage.getItem(KEY) || '{}'));
+  } catch(e) {
+    return {mode:'exam', runs:{}, last:1, view:'setup'};
+  }
+}
+let S = load();
+const save = () => localStorage.setItem(KEY, JSON.stringify(S));
+let T = S.last || 1;
+const ctx = {stream:null, ac:null, blobs:{}, running:false, abort:false, meterOn:false, curMedia:null};
+let currentRun = null;
+
+function test() { return DATA.find(t => t.id === T); }
+function runsOf(t) { return S.runs[t] || []; }
+
+function nav() {
+  $('#nav').innerHTML = '<div class="group">Tests</div>' + DATA.map(t => {
+    const r = runsOf(t.id), fin = r.filter(x => x.finished).length;
+    const b = fin ? `<span class="badge done">${fin} run${fin>1?'s':''}</span>` : (r.length ? '<span class="badge part">unfinished</span>' : '<span class="badge">new</span>');
+    return `<button class="mod ${t.id===T && S.view!=='calib' ? 'active' : ''}" data-t="${t.id}"><span>Test ${t.id} · ${esc(t.label)}</span>${b}</button>`;
+  }).join('');
+  document.querySelectorAll('#nav .mod').forEach(b => b.onclick = () => {
+    if(ctx.running) return;
+    T = +b.dataset.t; S.last = T; S.view = 'setup'; save(); render();
+  });
+  $('#navCal').classList.toggle('active', S.view === 'calib');
+  const all = Object.values(S.runs).flat();
+  $('#totals').innerHTML = `Runs finished: ${all.filter(x => x.finished).length}<br>Recordings: ${all.reduce((a,r) => a + r.items.length, 0)}`;
+}
+$('#navCal').onclick = () => { if(ctx.running) return; S.view = 'calib'; save(); render(); };
+$('#mode').value = S.mode;
+$('#mode').onchange = () => { S.mode = $('#mode').value; save(); };
+
+function render() {
+  nav();
+  $('#abort').style.display = ctx.running ? '' : 'none';
+  $('#mode').disabled = ctx.running;
+  if(S.view === 'calib') return viewCalib();
+  if(S.view === 'review') return viewReview();
+  viewSetup();
+}
+
+/* ---------- setup ---------- */
+function viewSetup() {
+  const t = test();
+  $('#title').textContent = `Test ${t.id} · Take an Interview`;
+  $('#view').innerHTML = `
+  <div class="card"><h2>Before you start</h2>
+    <p class="muted" style="font-size:15px;line-height:1.5;">${esc(t.scenario)}</p>
+    <ul>
+      <li><b>Wear headphones.</b> The interviewer's audio/video plays, and your microphone must not capture the audio.</li>
+      <li>Four interview questions. The interviewer will ask each question. <b>No preparation time is provided</b> (official ETS condition).</li>
+      <li>You have <b>45 seconds</b> to answer each question. Say as much as you can clearly and with elaboration.</li>
+      <li>Each recording downloads straight to your <b>Downloads</b> folder (<code>INT_T${t.id}_*</code>).</li>
+    </ul>
+    <h3>1. Microphone</h3>
+    <div class="row"><button id="mic">Test microphone</button><span class="muted" id="micMsg">Not checked yet.</span></div>
+    <div class="meter"><i id="lvl"></i></div>
+    <div class="hint">Speak normally. The green bar should register around half way.</div>
+    <div class="row" style="margin-top:20px"><button class="primary" id="start" disabled>Start interview · Test ${t.id}</button></div>
+    <div class="hint" id="startHint">Test microphone first.</div>
+  </div>
+  ${runsOf(t.id).length ? `<div class="card"><h3 style="margin-top:0">Earlier runs of this test</h3>${runsOf(t.id).map(r => `<div class="item"><span class="q">${esc(r.run)}</span> · ${r.items.length}/4 saved ${r.finished?'':'(unfinished)'} · ${esc(r.mode)} <button data-run="${esc(r.run)}" class="revbtn">View</button></div>`).join('')}</div>` : ''}`;
+  $('#mic').onclick = checkMic;
+  $('#start').onclick = () => runTest();
+  document.querySelectorAll('.revbtn').forEach(b => b.onclick = () => {
+    currentRun = runsOf(T).find(r => r.run === b.dataset.run);
+    S.view = 'review'; save(); render();
+  });
+  refreshStart();
+}
+
+function refreshStart() {
+  const b = $('#start'); if(!b) return;
+  const ok = !!ctx.stream;
+  b.disabled = !ok;
+  $('#startHint').textContent = ok ? 'Ready. Interview begins as soon as you press Start.' : 'Test microphone first.';
+}
+
+async function getStream() {
+  if(ctx.stream && ctx.stream.active) return ctx.stream;
+  ctx.stream = await navigator.mediaDevices.getUserMedia({
+    audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: 1 }
+  });
+  return ctx.stream;
+}
+function audioCtx() {
+  if(!ctx.ac) ctx.ac = new (window.AudioContext || window.webkitAudioContext)();
+  if(ctx.ac.state === 'suspended') ctx.ac.resume();
+  return ctx.ac;
+}
+function makeAnalyser() {
+  const ac = audioCtx();
+  const src = ac.createMediaStreamSource(ctx.stream);
+  const an = ac.createAnalyser();
+  an.fftSize = 1024;
+  src.connect(an);
+  return { an, src, buf: new Float32Array(an.fftSize) };
+}
+function levelOf(a) {
+  a.an.getFloatTimeDomainData(a.buf);
+  let p = 0;
+  for(const v of a.buf) { const x = Math.abs(v); if(x > p) p = x; }
+  return p;
+}
+
+async function checkMic() {
+  try {
+    await getStream();
+    const a = makeAnalyser(); let peak = 0; ctx.meterOn = true;
+    $('#micMsg').textContent = 'Listening... speak now.';
+    const t0 = performance.now();
+    await new Promise(res => {
+      (function tick() {
+        const p = levelOf(a); peak = Math.max(peak, p);
+        const el = $('#lvl'); if(el) el.style.width = Math.min(100, p * 200) + '%';
+        if(performance.now() - t0 < 4000 && $('#lvl')) requestAnimationFrame(tick); else res();
+      })();
+    });
+    a.src.disconnect(); ctx.meterOn = false;
+    const m = $('#micMsg'); if(!m) return;
+    if(peak < 0.03) {
+      m.innerHTML = '<span style="color:var(--red)">Heard almost nothing (peak ' + peak.toFixed(3) + '). Check mic in System Settings.</span>';
+      ctx.micOK = false;
+    } else {
+      m.innerHTML = '<span style="color:#3f6143">Microphone works (peak ' + peak.toFixed(2) + ').</span>';
+      ctx.micOK = true;
+    }
+    refreshStart();
+  } catch(e) {
+    const m = $('#micMsg');
+    if(m) m.innerHTML = '<span style="color:var(--red)">Cannot use microphone: ' + esc(e.name || e.message) + '.</span>';
+  }
+}
+
+/* ---------- running an interview ---------- */
+const MIME = (window.MediaRecorder && MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) ? 'audio/webm;codecs=opus' : '';
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+function beep() {
+  const ac = audioCtx();
+  const o = ac.createOscillator(), g = ac.createGain();
+  o.frequency.value = 880; g.gain.value = .15;
+  o.connect(g); g.connect(ac.destination);
+  o.start(); o.stop(ac.currentTime + .15);
+  return sleep(260);
+}
+
+async function saveFile(name, blob) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 6000);
+}
+
+function recordFor(ms, onTick) {
+  return new Promise(res => {
+    const chunks = [];
+    const rec = new MediaRecorder(ctx.stream, MIME ? {mimeType: MIME} : undefined);
+    const an = makeAnalyser();
+    let peak = 0, early = false, done = false;
+    const t0 = performance.now();
+    ctx.stopRec = () => { early = true; fin(); };
+    function fin() {
+      if(done) return;
+      done = true;
+      clearInterval(iv); clearTimeout(to);
+      if(rec.state !== 'inactive') rec.stop();
+    }
+    rec.ondataavailable = e => { if(e.data && e.data.size) chunks.push(e.data); };
+    rec.onstop = () => {
+      an.src.disconnect();
+      res({
+        blob: new Blob(chunks, {type: rec.mimeType || MIME || 'audio/webm'}),
+        peak,
+        early,
+        ms: Math.round(performance.now() - t0)
+      });
+    };
+    rec.start();
+    const iv = setInterval(() => {
+      peak = Math.max(peak, levelOf(an));
+      onTick && onTick(performance.now() - t0, levelOf(an));
+    }, 50);
+    const to = setTimeout(fin, ms);
+  });
+}
+
+function status(cls, ico, txt, extra = '') {
+  const el = $('#st');
+  if(!el) return;
+  el.className = 'status ' + cls;
+  el.innerHTML = `<span class="ico">${ico}</span><span>${txt}</span><span class="timer-val" id="tval"></span>`;
+  $('#ex').innerHTML = extra;
+}
+
+function playMedia(it, videoContainer) {
+  return new Promise((res, rej) => {
+    if(it.mediaType === 'video') {
+      videoContainer.innerHTML = `<video id="vplayer" playsinline src="${encodeURI(it.media)}"></video>`;
+      const v = $('#vplayer');
+      ctx.curMedia = v;
+      v.onended = () => res();
+      v.onerror = () => rej(new Error('Video failed to load: ' + it.media));
+      v.play().catch(rej);
+    } else {
+      videoContainer.innerHTML = `<div class="audio-interviewer"><div class="avatar">🎙</div><div><div style="font-weight:600">Interviewer</div><div class="muted">Audio question</div></div></div><audio id="aplayer" src="${encodeURI(it.media)}" style="display:none"></audio>`;
+      const a = $('#aplayer');
+      ctx.curMedia = a;
+      a.onended = () => res();
+      a.onerror = () => rej(new Error('Audio failed to load: ' + it.media));
+      a.play().catch(rej);
+    }
+  });
+}
+
+async function runTest() {
+  const t = test();
+  const practice = S.mode === 'practice';
+  const stamp = new Date();
+  const p2 = n => String(n).padStart(2, '0');
+  const run = `${stamp.getFullYear()}${p2(stamp.getMonth()+1)}${p2(stamp.getDate())}-${p2(stamp.getHours())}${p2(stamp.getMinutes())}${p2(stamp.getSeconds())}`;
+  
+  currentRun = {
+    run, test: t.id, mode: S.mode, started: stamp.toISOString(),
+    items: [], finished: false, saveMode: 'download'
+  };
+  (S.runs[t.id] = S.runs[t.id] || []).push(currentRun);
+  save();
+  ctx.running = true; ctx.abort = false; ctx.blobs = {}; render();
+  
+  $('#title').textContent = `Test ${t.id} · Interview in progress`;
+  $('#view').innerHTML = `
+    <div class="card">
+      <div class="prog" id="prog">${t.items.map(() => '<div class="dot"></div>').join('')}</div>
+      <div class="muted" id="qn">Directions</div>
+      <div class="status" id="st"><span class="ico">🎧</span><span>Directions</span></div>
+      <div class="video-box" id="vbox">
+        <div style="color:#fff;padding:20px;text-align:center;">
+          <h3 style="color:#fff;margin:0 0 10px">Scenario</h3>
+          <p style="color:#ddd;max-width:540px;margin:0 auto">${esc(t.scenario)}</p>
+        </div>
+      </div>
+      <div class="cd" id="cdw" style="visibility:hidden"><i id="cd"></i></div>
+      <div id="ex"></div>
+    </div>`;
+
+  let err = null;
+  try {
+    // Step 1: play directions audio
+    status('', '🎧', 'Listen to directions...');
+    const dirAudio = new Audio(t.directionsAudio);
+    ctx.curMedia = dirAudio;
+    await new Promise((res, rej) => {
+      dirAudio.onended = res;
+      dirAudio.onerror = () => res(); // don't block if directions file fails
+      dirAudio.play().catch(e => res());
+      $('#ex').innerHTML = '<div class="row" style="margin-top:12px"><button class="primary" id="skipDir">Skip directions</button></div>';
+      $('#skipDir').onclick = () => { dirAudio.pause(); res(); };
+    });
+    if(ctx.abort) throw new Error('aborted');
+
+    // Step 2: Loop questions
+    for(const [i, it] of t.items.entries()) {
+      if(ctx.abort) break;
+      document.querySelectorAll('#prog .dot').forEach((d, k) => d.className = 'dot' + (k < i ? ' ok' : (k === i ? ' on' : '')));
+      $('#qn').textContent = `Question ${i+1} of ${t.items.length}`;
+      let replays = 0;
+      
+      status('', '🗣', 'Interviewer speaking...');
+      await playMedia(it, $('#vbox'));
+      if(ctx.abort) break;
+      
+      if(practice) {
+        while(true) {
+          status('', '🎤', 'Ready when you are', '<div class="row"><button id="rp">Replay question</button><button class="primary" id="go">Record my answer</button></div>');
+          const act = await new Promise(r => {
+            $('#rp').onclick = () => r('rp');
+            $('#go').onclick = () => r('go');
+            ctx._pw = r;
+          });
+          if(ctx.abort) break;
+          if(act === 'go') break;
+          replays++;
+          status('', '🗣', 'Interviewer speaking...');
+          await playMedia(it, $('#vbox'));
+        }
+        if(ctx.abort) break;
+      }
+      
+      await beep();
+      $('#cdw').style.visibility = 'visible';
+      status('rec', '⏺', 'Speak now (45s)', '<div class="row"><button id="done" class="primary">Done speaking / Next</button></div>');
+      $('#done').onclick = () => ctx.stopRec && ctx.stopRec();
+      
+      const r = await recordFor(it.win * 1000, (el, lv) => {
+        const rem = Math.max(0, it.win - (el / 1000));
+        const tv = $('#tval'); if(tv) tv.textContent = rem.toFixed(1) + 's';
+        const c = $('#cd'); if(c) c.style.width = Math.max(0, 100 - (el / (it.win * 10))) + '%';
+      });
+      
+      $('#cdw').style.visibility = 'hidden';
+      const ext = r.blob.type.includes('webm') ? 'webm' : (r.blob.type.includes('mp4') ? 'm4a' : 'ogg');
+      const file = `INT_T${t.id}_${run}_Q${it.n}.${ext}`;
+      
+      status('', '💾', 'Saving recording...');
+      await saveFile(file, r.blob);
+      ctx.blobs[it.n] = URL.createObjectURL(r.blob);
+      
+      currentRun.items.push({
+        n: it.n, file, win: it.win, recMs: r.ms,
+        stoppedEarly: r.early, replays, peak: +r.peak.toFixed(3), self: ''
+      });
+      save();
+      status('ok', '✓', 'Saved');
+      await sleep(700);
+    }
+  } catch(e) {
+    err = e;
+  }
+  
+  ctx.running = false;
+  currentRun.finished = !ctx.abort && !err && currentRun.items.length === t.items.length;
+  try { await saveManifest(); } catch(e) { err = err || e; }
+  save();
+  S.view = 'review'; save(); render();
+  if(err && !ctx.abort) {
+    $('#view').insertAdjacentHTML('afterbegin', `<div class="warn"><b>The interview stopped early:</b> ${esc(err.message || err)}</div>`);
+  }
+}
+
+$('#abort').onclick = () => {
+  ctx.abort = true;
+  if(ctx.curMedia) {
+    ctx.curMedia.pause();
+    try { ctx.curMedia.dispatchEvent(new Event('ended')); } catch(e) {}
+  }
+  if(ctx.stopRec) ctx.stopRec();
+  if(ctx._pw) ctx._pw('x');
+};
+
+async function saveManifest() {
+  const r = currentRun;
+  const m = {
+    test: r.test, run: r.run, started: r.started, mode: r.mode,
+    items: r.items.map(({self, ...x}) => x)
+  };
+  await saveFile(`INT_T${r.test}_${r.run}.json`, new Blob([JSON.stringify(m, null, 1)], {type: 'application/json'}));
+}
+
+/* ---------- review ---------- */
+function viewReview() {
+  const r = currentRun || runsOf(T).slice(-1)[0];
+  if(!r) { S.view = 'setup'; return render(); }
+  currentRun = r; const t = DATA.find(x => x.id === r.test); T = r.test;
+  $('#title').textContent = `Test ${t.id} · Interview Review · ${r.run}`;
+  
+  const rows = t.items.map(it => {
+    const x = r.items.find(y => y.n === it.n);
+    if(!x) return `<div class="item"><span class="q">Question ${it.n}</span> <span class="muted">not recorded</span><div class="script">${esc(it.text)}</div></div>`;
+    return `
+      <div class="item">
+        <span class="q">Question ${it.n}</span>
+        <span class="muted">· ${x.file} · ${(x.recMs / 1000).toFixed(1)}s spoken of ${x.win}s${x.stoppedEarly ? ' (stopped early)' : ''}${x.replays ? ' · ' + x.replays + ' replay(s)' : ''} · peak ${x.peak}</span>
+        <div class="script">${esc(it.text)}</div>
+        ${it.alt ? `<div class="hint">Alternate PDF wording: ${esc(it.alt)}</div>` : ''}
+        ${ctx.blobs[it.n] ? `<audio controls src="${ctx.blobs[it.n]}"></audio>` : ''}
+        <select data-n="${it.n}">${SELF.map(o => `<option value="${esc(o)}" ${x.self === o ? 'selected' : ''}>${o || 'How did it feel? (optional)'}</option>`).join('')}</select>
+        ${x.peak < 0.03 ? '<div class="warn">Almost silent. Microphone may have missed this response.</div>' : ''}
+      </div>`;
+  }).join('');
+  
+  const nSaved = r.items.length;
+  $('#view').innerHTML = `
+    <div class="card">
+      <h2>${r.finished ? 'Interview Finished' : 'Interview Stopped Early'}</h2>
+      <div class="good">${nSaved} recording(s) and a manifest were downloaded to your Downloads folder (<code>INT_T${r.test}_${esc(r.run)}*</code>).</div>
+      <p class="muted">Next step: tell me the test is done. I transcribe locally (<code>python tools/interview_transcribe.py</code>) and score each response against the official ETS 0-5 rubric.</p>
+    </div>
+    <div class="card"><h3 style="margin-top:0">Interview Questions & Your Recordings</h3>${rows}</div>
+    <div class="card exportbox">
+      <h3 style="margin-top:0">Export</h3>
+      <div class="row">
+        <button id="exp">Build markdown</button>
+        <button id="cp">Copy</button>
+        <button id="again" class="primary">Back to Test ${t.id}</button>
+      </div>
+      <textarea id="out" readonly placeholder="Press Build markdown"></textarea>
+    </div>`;
+    
+  document.querySelectorAll('.item select').forEach(s => s.onchange = () => {
+    r.items.find(y => y.n === +s.dataset.n).self = s.value; save();
+  });
+  $('#exp').onclick = () => { $('#out').value = toMD(r); };
+  $('#cp').onclick = () => {
+    const o = $('#out'); if(!o.value) o.value = toMD(r);
+    o.select(); document.execCommand('copy');
+  };
+  $('#again').onclick = () => { S.view = 'setup'; save(); render(); };
+}
+
+function toMD(r) {
+  const t = DATA.find(x => x.id === r.test);
+  const L = [
+    `## Take an Interview - Test ${t.id} (${t.label}) - run ${r.run}`,
+    `Scenario: ${t.scenario}`,
+    '',
+    `Mode: ${r.mode} · saved via ${r.saveMode} · started ${r.started} · ${r.finished ? 'finished' : 'UNFINISHED'}`,
+    '',
+    '| Q | Question Prompt | Recording | Spoke (s) | Window (s) | Early stop | Replays | Peak | Self-report |',
+    '|---|---|---|---|---|---|---|---|---|'
+  ];
+  for(const it of t.items) {
+    const x = r.items.find(y => y.n === it.n);
+    L.push(x ?
+      `| ${it.n} | ${it.text.replace(/\|/g, '\\|')} | ${x.file} | ${(x.recMs/1000).toFixed(1)} | ${x.win} | ${x.stoppedEarly ? 'yes' : ''} | ${x.replays || ''} | ${x.peak} | ${x.self || ''} |` :
+      `| ${it.n} | ${it.text.replace(/\|/g, '\\|')} | not recorded | | | | | | |`
+    );
+  }
+  return L.join('\n');
+}
+
+/* ---------- calibration ---------- */
+function viewCalib() {
+  $('#title').textContent = 'ETS Scored Samples · Take an Interview';
+  $('#view').innerHTML = `
+    <div class="card">
+      <h2>What a 3, a 4 and a 5 sound like in the Interview</h2>
+      <p class="muted">ETS published scored student responses to an interview prompt (ETS, <i>Speaking performance: sample responses across score levels</i>). Listen to each 45s answer, guess its score (0-5), then reveal.</p>
+      <div class="hint">Question: <b>${esc(SAMPLES.prompt)}</b></div>
+    </div>
+    ${SAMPLES.items.map((s, i) => `
+      <div class="samp">
+        <b>Student response ${i+1}</b> (${s.dur}s spoken, ${s.words} words, ${s.wpm} WPM)
+        <audio controls src="${encodeURI(s.file)}"></audio>
+        <div class="row" style="margin-top:8px">
+          <select id="g${i}"><option value="">My guess</option>${[0,1,2,3,4,5].map(n => `<option>${n}</option>`).join('')}</select>
+          <button data-i="${i}" class="rev">Reveal</button>
+        </div>
+        <div id="r${i}" class="hint"></div>
+      </div>`).join('')}
+    <div class="card">
+      <details open><summary>ETS Take an Interview Scoring Guide (Scores 0 to 5)</summary>
+        <table>
+          <tr><th>5</th><td><b>Fully successful response.</b> Fully addresses the question, clear and fluent. On topic and well elaborated. Good conversational pace with natural pauses. Easily intelligible pronunciation; rhythm and intonation convey meaning. Range of accurate grammar and vocabulary allows precise expression.</td></tr>
+          <tr><th>4</th><td><b>Generally successful response.</b> Addresses the question, reasonably clear. On topic and elaborated, but may lack effective connectors. Steady pace with some pausing. Intelligible pronunciation. Adequate grammar and vocabulary to express general meanings.</td></tr>
+          <tr><th>3</th><td><b>Partially successful response.</b> Limited elaboration and/or clarity. Choppy pace with frequent or lengthy pauses/fillers. Intelligibility sometimes affected by pronunciation/rhythm. Limited range/accuracy restricts precision.</td></tr>
+          <tr><th>2</th><td><b>Mostly unsuccessful response.</b> Minimally connected to the question, little or no relevant elaboration or mostly repeats prompt language. Limited intelligibility. Very limited grammar/vocabulary.</td></tr>
+          <tr><th>1</th><td><b>Unsuccessful response.</b> Ineffective attempt, telegraphic language, serious/frequent errors, minimal original language.</td></tr>
+          <tr><th>0</th><td>Blank, rejects topic, not English, or completely unconnected.</td></tr>
+        </table>
+      </details>
+    </div>`;
+    
+  document.querySelectorAll('.rev').forEach(b => b.onclick = () => {
+    const i = +b.dataset.i, s = SAMPLES.items[i];
+    const g = $('#g' + i).value;
+    $('#r' + i).innerHTML = `
+      <b>ETS score: ${s.score}</b>${g !== '' ? ' · you guessed ' + g + (+g === s.score ? ' ✓' : '') : ''}<br>
+      <b>Verbatim transcript:</b> <i>${esc(s.transcript)}</i><br>
+      <b>ETS Analysis:</b> ${esc(s.note)}`;
+  });
+}
+
+render();
+</script></body></html>

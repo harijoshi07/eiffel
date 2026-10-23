@@ -17,3 +17,7 @@ log.md
 
 # My own voice recordings (local only)
 recordings/
+
+# Python cache
+__pycache__/
+*.pyc

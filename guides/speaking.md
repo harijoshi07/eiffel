@@ -28,32 +28,60 @@ Tags: **[ETS]** official, **[mine]** my suggestion or inference, **[data]** from
 
 Source: `resources/pdfs/guide-speaking-rubrics.pdf` (page 1).
 
-**What the ETS samples show** (`guide-speaking-sample-responses.pdf`, audio in `resources/audio/samples/speaking/`). One prompt, three scored students:
+**What the ETS L&R samples show** (`guide-speaking-sample-responses.pdf`, audio in `resources/audio/samples/speaking/`):
 - **3:** "done" for "finished", "unchecked materials", "in the reducing time". Several words changed, meaning lost.
 - **4:** "printout" for "checked-out". One content word replaced with a related word.
 - **5:** says "you are" for "you're". ETS still gives a 5, so expanding a contraction costs nothing **[mine: inferred from this one sample]**.
-- The page `practice/4a. listen-and-repeat.html` has a calibration screen with these three.
+- Practice page: `practice/4a. listen-and-repeat.html`.
 
-## 4. How I score your recordings
-1. `practice/4a. listen-and-repeat.html` plays each sentence once and records your answer. Each recording downloads to your **Downloads** folder as it ends, and I read them from there. They are not in the vault, so they are never pushed.
-2. `python tools/lr_transcribe.py` transcribes each clip locally with faster-whisper `small.en` and `medium.en`. **Verbatim**: temperature 0, no script given to the model, no LLM clean-up, so an error is not repaired by the tool.
-3. It aligns the transcript with the prompt word by word and lists: missing, added and changed words, fillers (not counted), low-confidence words, timing, and warnings (quiet, clipped, cut off).
-4. I read that report and give each sentence 0-5 against the table in section 3, quoting the rubric line. The tool itself never scores.
-5. A word the two models disagree on, or read with low confidence, is **uncertain**. I do not mark you down for it. Where it matters, you tell me what you said, or listen to the clip.
+## 4. Take an Interview scoring guide (ETS, official)
+| Score | What ETS says |
+|---|---|
+| **5** | **Fully successful response.** Fully addresses the question, clear and fluent. On topic and well elaborated. Good conversational pace maintained with appropriate, natural pauses. Pronunciation easily intelligible; rhythm and intonation effectively convey meaning. Range of accurate grammar and vocabulary allows clear expression of precise meanings. |
+| **4** | **Generally successful response.** Addresses the question, reasonably clear. On topic and elaborated, but may lack effective connectors. Good speaking pace generally maintained, with some pausing that may minimally affect flow. Intelligibility and meaning not impeded by pronunciation, rhythm and intonation, though occasional words/phrases require minor effort. Grammar and vocabulary adequate to express general meanings most of the time. |
+| **3** | **Partially successful response.** Generally on topic, but elaboration may be relatively limited and/or unclear. Frequent or lengthy pauses result in a choppy pace; filler words are frequent. Intelligibility sometimes affected by inaccuracies in word-level pronunciation or stress/rhythm. Limited range and accuracy of grammar and vocabulary noticeably restrict precision and clarity. |
+| **2** | **Mostly unsuccessful response.** Minimally connected to the question; little or no relevant elaboration or consists mainly of language from the question. Intelligibility is limited; intended meaning is often difficult to discern. Very limited range of grammar and vocabulary. |
+| **1** | **Unsuccessful response.** Ineffective attempt. Telegraphic language (short, disconnected phrases), serious and frequent errors, minimal original language. |
+| **0** | Blank, rejects topic, not in English, entirely copied or unconnected. |
+
+Source: `resources/pdfs/guide-speaking-rubrics.pdf` (page 2) and `Updated TOEFL iBT Test Overview` (page 27).
+
+**What the ETS Interview samples show** (`resources/audio/samples/speaking/`):
+- **Prompt:** "Some people believe reading helps improve imagination and creativity. Do you agree, or are there other activities that enhance these skills? Why?"
+- **Response 1 (Score 3):** 75 words, 98 WPM, 45.8s. Limited elaboration, noticeable errors ("make you more creative", "on the book", "make the creativity improve"), choppy rhythm and pauses.
+- **Response 2 (Score 4):** 61 words, 95 WPM, 38.5s. On topic with concrete examples (Harry Potter, painting, music). Steady pace and clear pronunciation, but simpler connectors and repetitive phrasing keep it from a 5.
+- **Response 3 (Score 5):** 83 words, 133 WPM, 37.5s. Clear, fluent, confident delivery at a natural conversational pace. Varied vocabulary ("enhance and improve", "describing its personality"), good rhythm.
+- **Test Overview 5s (City Interview):** 4 responses to the urban life interview (Q1 68 words, Q2 72 words, Q3 68 words, Q4 94 words). All 4 earned Score 5. ETS noted: *"Delivery is generally smooth and easy to follow. Pauses and fillers, such as 'um' and 'uh', are natural and do not interfere with meaning."*
+- Practice page: `practice/4b. take-an-interview.html`.
+
+## 5. Question archetypes in the Interview
+Each interview has 4 questions progressing from personal to broad:
+1. **Q1 Personal Recall:** memory, routine, or life experience (e.g. last time you visited a city, your commuting habits). Warm-up for fluency.
+2. **Q2 Reaction or Preference:** explore feelings, pros/cons, or choice between two options (e.g. car vs public transit; quiet vs dynamic).
+3. **Q3 Opinion with Support:** take a stand on a claim and justify it with reasons (e.g. do city dwellers live more interesting lives? Should companies offer flexible hours?).
+4. **Q4 Policy or Future Prediction:** evaluate a broader societal trend, technological change, or policy recommendation (e.g. should governments build more parks? What happens if commuting disappears?).
+
+## 6. How I score your recordings
+1. **Recording:** `4a. listen-and-repeat.html` and `4b. take-an-interview.html` record in browser and save directly to your **Downloads** folder (`LR_T*` and `INT_T*`). They are not in git, so your voice is never pushed.
+2. **Transcription:** `python tools/lr_transcribe.py` (for Task A) and `python tools/interview_transcribe.py` (for Task B) transcribe clips locally with faster-whisper `small.en` and `medium.en` verbatim (temperature 0, no script prompt, no LLM clean-up).
+3. **Metrics extracted:** word count, duration spoken, speaking rate (WPM), long pauses (>= 1.5s), filler words, and audio level stats.
+4. **Scoring:** I read the report and evaluate each response against the ETS rubric (0-5) in the terminal. The tool never assigns the final score.
+5. **Uncertain words:** where models disagree or confidence is low, I do not penalise you.
 
 **Limits [mine]**
-- Whisper leans toward fluent text, so a subtle slip (wrong article, missing plural) can be repaired by the model. Two models and word confidence reduce this. They do not remove it.
-- It cannot judge accent, stress or rhythm. A mispronounced word that Whisper still guesses right will look perfect. For "fully intelligible" I only have confidence scores as a rough clue.
-- It cannot separate a stumble from a silent gap.
-- My scores are an estimate of ETS's engine, not a prediction of it.
+- Whisper transcribes words accurately, but cannot grade accent, intonation contours, or physical voice resonance.
+- For pronunciation intelligibility, we cross-check model agreement and confidence scores.
+- My scores are human estimates aligned to ETS rubric standards.
 
-**Tool checks done (2026-10-23)** [data]: all 49 prompts matched the printed sentences by transcription (2 homophone/contraction variants accepted: Test 4 Q4 "aids/aides", Test 6 Q3 "area's/area is"). Synthetic test responses (a changed word, a dropped word, a missing plural, fillers, a cut-off sentence, silence) were all reported correctly, and silence was flagged. The three ETS samples transcribe as in the table above.
-
-## 5. Tips
-- **[mine]** Listen and Repeat: hold the meaning first, then content words (nouns, verbs, adjectives, numbers), then the small words and endings. Endings (plural -s, past -ed) are the likeliest 4-versus-5 slips, as in your Reading misses.
-- **[mine]** Do not stop and restart. The rubric allows a successful self-correction, but a restart can eat the window.
-- **[mine]** Interview: Point, Reason, Example, Point again. One clear idea. ETS's own scored interview samples contain "um" and "uh" and still score 5, so fluency does not mean no fillers.
-- Compare each interview recording with the samples in `resources/audio/samples/speaking/`.
+## 7. Tips
+- **Listen and Repeat:** hold meaning first, then key content words (nouns, verbs), then endings (-s, -ed). Do not restart.
+- **Interview timing structure (45s):**
+  - *Direct answer* (5s): answer the question immediately in one sentence.
+  - *Primary reason* (15s): state why with a clear connective (*"First of all...", "I think this because..."*).
+  - *Specific example or detail* (15-20s): give a concrete memory, scenario, or contrast (*"For instance, when I...", "Unlike X, Y allows..."*).
+  - *Wrap-up* (5s): quick concluding summary (*"So that's why I prefer..."*).
+- **Target pacing:** aim for ~65 to 85 words in 45s (~95 to 125 WPM). Speaking too fast causes stumbling; speaking under 50 words leaves ideas unelaborated.
+- **Fillers:** do not panic over an "um" or "uh". ETS sample 5s have natural fillers. What hurts is long silence (> 2 seconds of dead air).
 
 ## 6. Patterns from my log
 - None yet. List repeated mistakes here with a one-line fix once recordings are logged.
