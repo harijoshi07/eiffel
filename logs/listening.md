@@ -11,20 +11,22 @@ Test numbers follow the order of the PDFs: Test 1 = Full-Length 1, Test 2 = Full
 | Test | Source | Type A /16 | Type B /6 | Type C /4 | Type D /8 | **Raw Score** | % | Scaled /30 | **Tentative band** | Lost points |
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | FL1 | 16 | 6 | 4 | 4 *(+4 pend)* | **30/30** *(34)* | 100% | 30.0 | **6** | none *(T1 M2 talk pending)* |
-| 2 | FL2 | 15 | 6 | 3 | 0 *(+8 pend)* | **24/26** *(34)* | 92.3% | 27.7 | **5.5** | Type A Q8, Type C Q12 *(T2 M1/M2 talks pending)* |
+| 2 | FL2 | 15 | 6 | 3 | 0 *(+8 pend)* | **24/26** *(34)* | 92.3% | 27.7 | **5.5 (to 6)** | Type A Q8, Type C Q12 *(T2 M1/M2 talks pending)* |
 | 3 | TR1 | 16 | 6 | 3 | 8 | **33/34** | 97.1% | 29.1 | **6** | Type C Q13 |
 | 4 | TR2 | 16 | 6 | 4 | 5 | **31/34** | 91.2% | 27.4 | **5.5** | Type D Q13, Q15, Q16 |
-| 5 | TR3 | 16 | 6 | 4 | 6 | **32/34** | 94.1% | 28.2 | **5.5 (to 6)** | Type D M1 Q15, M2 Q16 |
-| 6 | TR4 | 15 | 5 */5* | 4 | 7 | **31/33** | 93.9% | 28.2 | **5.5 (to 6)** | Type A Q4, Type D Q14 |
+| 5 | TR3 | 16 | 6 | 4 | 6 | **32/34** | 94.1% | 28.2 | **6** | Type D M1 Q15, M2 Q16 |
+| 6 | TR4 | 15 | 5 */5* | 4 | 7 | **31/33** | 93.9% | 28.2 | **6** | Type A Q4, Type D Q14 |
 | 7 | TR5 | 16 | 6 | 3 | 8 | **33/34** | 97.1% | 29.1 | **6** | Type C Q14 |
-| | **Attempted** | **110/112** | **41/41** | **25/28** | **38/44** | **214/225** | **95.1%** | **28.5** | **5.5 (to 6)** | 11 points *(12 Qs pending)* |
+| | **Attempted** | **110/112** | **41/41** | **25/28** | **38/44** | **214/225** | **95.1%** | **28.5** | **6** | 11 points *(12 Qs pending)* |
 
 Per-type accuracy: Type A 98.2%, Type B 100%, Type C 89.3%, Type D 86.4%.
 
 ### How the band is estimated
 1. Scaled score = 30 x raw / total attempted, a straight-line linear estimate.
-2. Band = ETS's mapping of the 0–30 scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6): 6 = 29–30, 5.5 = 27–28, 5 = 24–26, 4.5 = 22–23, 4 = 18–21.
-3. Where a score sits on a boundary (e.g. 28.2 at the threshold of 28 and 29), the band is shown as 5.5 (to 6).
+2. Band = ETS's mapping of the 0–30 scale to bands (ETS, *A banded score scale for the TOEFL iBT test*, 2026, Table 6): Listening column: 6 = 28–30, 5.5 = 26–27, 5 = 22–25, 4.5 = 20–21, 4 = 17–19. (Each section has its own column. Reading's is 6 = 29–30, 5.5 = 27–28, so the two are not interchangeable.)
+3. The band is read from the scaled score rounded down. Where rounding up would change the band (27.7 rounds to 28), it is shown as a range, e.g. 5.5 (to 6).
+
+> **Correction (2026-10-22).** This board first used Reading's column for Listening, which understated several bands. T5, T6 and the overall result moved from 5.5 (to 6) to 6, and T2 from 5.5 to 5.5 (to 6). The raw scores did not change.
 4. Tests 1 and 2 currently reflect attempted items only (T1 M2 talk, T2 M1 talk, T2 M2 talk pending).
 
 ## Type A: Listen and Choose a Response (page: `practice/2a. listen-and-respond.html`)

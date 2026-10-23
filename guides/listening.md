@@ -5,7 +5,7 @@
 ## Dashboard (as of 2026-10-21)
 - **Score so far:** **214 / 225** (95.1%) across 7 tests (12 Type D questions pending across T1 M2, T2 M1, T2 M2).
 - **Scaled score:** **28.53 / 30** (linear $30 \times \text{raw} / \text{total}$).
-- **Tentative ETS Band:** **Band 5.5 (to 6)** (ETS *Score Scale Update 2026*, Table 6: 29–30 = 6, 27–28 = 5.5).
+- **Tentative ETS Band:** **Band 6** (ETS *Score Scale Update 2026*, Table 6, Listening column: 28–30 = 6, 26–27 = 5.5). Still tentative: 12 Type D questions are unattempted, and the linear step is my assumption.
 - **Per-type breakdown:**
   - Type A (Listen and Choose a Response): **110 / 112** (98.2%) · 2 misses
   - Type B (Listen to a Conversation): **41 / 41** (100.0%) · 0 misses (T6 M1 Q10 unscored)
